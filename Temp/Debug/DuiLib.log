@@ -1,0 +1,209 @@
+﻿  StdAfx.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uimanager.h(55): warning C4091: “typedef ”: 没有声明变量时忽略“DuiLib::EVENTTYPE_UI”的左侧
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uimanager.h(67): warning C4091: “typedef ”: 没有声明变量时忽略“DuiLib::MSGTYPE_UI”的左侧
+  UIIPAddressEx.cpp
+  UILoading.cpp
+  UIPageControl.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uipagecontrol.cpp(592): warning C4244: “初始化”: 从“UINT_PTR”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uipagecontrol.cpp(594): warning C4244: “初始化”: 从“UINT_PTR”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uipagecontrol.cpp(629): warning C4244: “初始化”: 从“UINT_PTR”转换到“int”，可能丢失数据
+  UIRollText.cpp
+  UIAnimation.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uianimation.cpp(74): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uianimation.cpp(169): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  UIColorPalette.cpp
+  UIFadeButton.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uifadebutton.cpp(38): warning C4244: “参数”: 从“WPARAM”转换到“int”，可能丢失数据
+  UIGifAnim.cpp
+  UIGifAnimEx.cpp
+  UIGroupBox.cpp
+  UIHotKey.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uihotkey.cpp(150): warning C4244: “return”: 从“LRESULT”转换到“DWORD”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uihotkey.cpp(272): warning C4302: “类型强制转换”: 从“LPWSTR”到“WORD”截断
+  UIIPAddress.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiipaddress.cpp(237): warning C4302: “类型强制转换”: 从“LPWSTR”到“WORD”截断
+  UIListEx.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilistex.cpp(137): warning C4244: “参数”: 从“LPARAM”转换到“BOOL”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilistex.cpp(171): warning C4244: “=”: 从“WPARAM”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilistex.cpp(172): warning C4244: “=”: 从“LPARAM”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilistex.cpp(748): warning C4302: “类型强制转换”: 从“LPWSTR”到“WORD”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilistex.cpp(1142): warning C4302: “类型强制转换”: 从“LPWSTR”到“WORD”截断
+  UIMenu.cpp
+  UIRing.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiring.cpp(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiring.cpp(54): warning C4244: “参数”: 从“LONG”转换到“Gdiplus::REAL”，可能丢失数据
+  ControlFactory.cpp
+  UIResourceManager.cpp
+  UIAnimationTabLayout.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\layout\uianimationtablayout.cpp(85): warning C4244: “参数”: 从“WPARAM”转换到“int”，可能丢失数据
+  UIlib.cpp
+  DPI.cpp
+  正在生成代码...
+  正在编译...
+  DragDropImpl.cpp
+  TrayIcon.cpp
+  UIShadow.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\utils\uishadow.cpp(79): warning C4244: “初始化”: 从“LONG_PTR”转换到“LONG”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\utils\uishadow.cpp(553): warning C4244: “初始化”: 从“LONG_PTR”转换到“LONG”，可能丢失数据
+  WinImplBase.cpp
+  UIDelegate.cpp
+  Utils.cpp
+  UIBase.cpp
+  UIContainer.cpp
+  UIControl.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uicontrol.cpp(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uicontrol.cpp(840): warning C4302: “类型强制转换”: 从“LPWSTR”到“WORD”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uicontrol.cpp(1136): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  UIDlgBuilder.cpp
+  UIManager.cpp
+  UIMarkup.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uimarkup.cpp(167): warning C4244: “=”: 从“__int64”转换到“ULONG”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uimarkup.cpp(172): warning C4244: “=”: 从“__int64”转换到“ULONG”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uimarkup.cpp(460): warning C4244: “初始化”: 从“__int64”转换到“ULONG”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uimarkup.cpp(461): warning C4244: “=”: 从“__int64”转换到“ULONG”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uimarkup.cpp(477): warning C4244: “=”: 从“__int64”转换到“ULONG”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uimarkup.cpp(485): warning C4244: “=”: 从“__int64”转换到“ULONG”，可能丢失数据
+  UIRender.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(696): warning C4838: 从“UINT”转换到“BYTE”需要收缩转换
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1375): warning C4244: “参数”: 从“LONG”转换到“Gdiplus::REAL”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1375): warning C4244: “参数”: 从“const LONG”转换到“Gdiplus::REAL”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1376): warning C4244: “参数”: 从“LONG”转换到“Gdiplus::REAL”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1376): warning C4244: “参数”: 从“const LONG”转换到“Gdiplus::REAL”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1383): warning C4244: “参数”: 从“LONG”转换到“Gdiplus::REAL”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1383): warning C4244: “参数”: 从“UINT”转换到“Gdiplus::REAL”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1689): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1689): warning C4244: “参数”: 从“LONG”转换到“float”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1689): warning C4244: “参数”: 从“const LONG”转换到“float”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1822): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1822): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1872): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1872): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1906): warning C4312: “类型强制转换”: 从“DWORD”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1917): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1917): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1935): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1935): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1945): warning C4312: “类型强制转换”: 从“DWORD”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1996): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(1996): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2026): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2026): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2127): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2159): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2159): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2197): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2197): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2205): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2205): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2225): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2225): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2245): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2245): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2384): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2384): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\core\uirender.cpp(2529): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  UIChildLayout.cpp
+  UIHorizontalLayout.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\layout\uihorizontallayout.cpp(321): warning C4302: “类型强制转换”: 从“LPWSTR”到“WORD”截断
+  UITabLayout.cpp
+  UITileLayout.cpp
+  UIVerticalLayout.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\layout\uiverticallayout.cpp(320): warning C4302: “类型强制转换”: 从“LPWSTR”到“WORD”截断
+  UIActiveX.cpp
+  UIButton.cpp
+  正在生成代码...
+  正在编译...
+  UICombo.cpp
+  UIComboBox.cpp
+  UIDateTime.cpp
+  UIEdit.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiedit.cpp(280): warning C4302: “类型强制转换”: 从“LPWSTR”到“WORD”截断
+  UIFlash.cpp
+  UILabel.cpp
+  UIList.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(175): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(177): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID *”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(206): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(231): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(292): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(292): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(296): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(296): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(307): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(307): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(311): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(311): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(443): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(443): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(458): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(473): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(474): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(514): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(527): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(552): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(566): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(591): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(591): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(615): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(634): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(636): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(651): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(651): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(674): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(674): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(676): warning C4312: “类型强制转换”: 从“int”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(680): warning C4311: “类型强制转换”: 从“LPVOID”到“int”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(680): warning C4302: “类型强制转换”: 从“LPVOID”到“int”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(1999): warning C4302: “类型强制转换”: 从“LPWSTR”到“WORD”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(2577): warning C4311: “类型强制转换”: 从“LPVOID”到“DWORD”的指针截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(2577): warning C4302: “类型强制转换”: 从“LPVOID”到“DWORD”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(2587): warning C4312: “类型强制转换”: 从“DWORD”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(2588): warning C4312: “类型强制转换”: 从“DWORD”转换到更大的“LPVOID”
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uilist.cpp(2617): warning C4302: “类型强制转换”: 从“LPWSTR”到“WORD”截断
+  UIOption.cpp
+  UIProgress.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiprogress.cpp(126): warning C4244: “=”: 从“float”转换到“LONG”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiprogress.cpp(130): warning C4244: “=”: 从“float”转换到“LONG”，可能丢失数据
+  UIRichEdit.cpp
+  UIScrollBar.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(94): warning C4244: “return”: 从“const __int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(109): warning C4244: “return”: 从“const __int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(423): warning C4244: “初始化”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(426): warning C4244: “=”: 从“__int64”转换到“LONG”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(496): warning C4244: “初始化”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(499): warning C4244: “=”: 从“float”转换到“LONG”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(568): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(572): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(579): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(583): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(589): warning C4244: “=”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(597): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(601): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(607): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(611): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(648): warning C4244: “=”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(657): warning C4244: “=”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(701): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(705): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(712): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(716): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(727): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(731): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(737): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uiscrollbar.cpp(741): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+  UISlider.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uislider.cpp(131): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uislider.cpp(136): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uislider.cpp(196): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uislider.cpp(201): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uislider.cpp(226): warning C4302: “类型强制转换”: 从“LPWSTR”到“WORD”截断
+  UIText.cpp
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uitext.cpp(54): warning C4302: “类型强制转换”: 从“LPWSTR”到“WORD”截断
+d:\0_twodimensional\添加参数管理交互_14_21\duilib\control\uitext.cpp(129): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+  UITreeView.cpp
+  UIWebBrowser.cpp
+  正在生成代码...
+  unzip.cpp
+    正在创建库 D:\0_TwoDimensional\添加参数管理交互_14_21\Lib\DuiLib_d.lib 和对象 D:\0_TwoDimensional\添加参数管理交互_14_21\Lib\DuiLib_d.exp
+LINK : warning LNK4281: x64 映像的基址 0x11000000 不适当；将基址设为 4 GB 以上以实现最佳 ASLR 优化
+  DuiLib.vcxproj -> D:\0_TwoDimensional\添加参数管理交互_14_21\Bin64\DuiLib_d.dll

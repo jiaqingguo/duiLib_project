@@ -1,0 +1,1985 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="900,700" sizebox="4,4,4,4" caption="0,0,0,-1" mininfo="600,500" roundcorner="4,4">
+  <Font name="微软雅黑" size="13" bold="false" italic="false" default="true" />
+  <Font name="微软雅黑" size="12" bold="false" italic="false" />
+  <Font name="微软雅黑" size="22" bold="false" italic="false" />
+  <!--<Font id="2" name="微软雅黑" size="13" bold="true" italic="false" />-->
+  <Font id="3" name="微软雅黑" size="18" bold="true" shared="true"/>
+  <Font id="4" name="微软雅黑" size="13" bold="true" italic="false" />
+  <Font id="5" name="微软雅黑" size="15" bold="true" italic="false" />
+  <Font id="6" name="微软雅黑" size="12" bold="true" italic="false" />
+  <Font id="7" name="宋体" size="17" bold="false" italic="false" />
+  <Font id="8" name="宋体" size="17" bold="false" italic="false" />
+  <Font id="9" name="微软雅黑" size="13" bold="false" italic="false" />
+  <Font id="10" name="宋体" size="16" bold="false" italic="false" />
+  <Font id="11" name="微软雅黑" size="25" bold="true" italic="false" />
+  <Font id="13" name="宋体" size="15" bold="false" italic="false" />
+  <Font id="14" name="宋体" size="30" bold="true" italic="false" />
+  <Font id="17" name="宋体" size="22" bold="false" italic="false" />
+  <Default name="VScrollBar" value="width=&quot;10&quot; showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; thumbnormalimage=&quot;file=&apos;scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; fade=&apos;150&apos; &quot; thumbhotimage=&quot;file=&apos;scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; &quot; thumbpushedimage=&quot;file=&apos;scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; &quot; " />
+  <Style name="select_tab" value="pushedbkcolor=&quot;#FF00ff00&quot;group=&quot;select_tab&quot; bkcolor=&quot;#FFFFFFFF&quot; " />
+  <!--<Style name="edit_style" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF79A0E5&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />-->
+
+  <Style name="edit_style1" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FFFFFFFF&quot; nativebkcolor=&quot;#FF87CEFA&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />
+  <Style name="edit_style" value="width=&quot;200&quot; height=&quot;40&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF00A4FF&quot; nativebkcolor=&quot;#FF666666&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />
+  <Style name="header_tab" value="group=&quot;header_tab&quot;" />
+  <Style name="step_tab" value="group=&quot;step_tab&quot;" />
+  <!--Style name="list_style" value="headerbkimage=&quot;res='common/list_header_bg.png'&quot; itemalign=&quot;center&quot; itemlinecolor=&quot;#FF888888&quot; itemshowrowline=&quot;true&quot; itemshowcolumnline=&quot;true&quot;" />-->
+  <Style name="list_style" value="headerbkimage=&quot;file='list_header_bg.png'&quot; itemalign=&quot;center&quot; itemlinecolor=&quot;#FF888888&quot; itemshowrowline=&quot;true&quot; itemshowcolumnline=&quot;true&quot;" />
+  <!--<Style name="edit_style" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF666666&quot; nativebkcolor=&quot;#FF666666&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />-->
+  <Style name="nomalbtm_style" value="normalimage=&quot;res='normal.png' corner='4,4,4,4'&quot;   hotimage=&quot;res='enter.png' corner='4,4,4,4'&quot;  pushedimage=&quot;res='pressed.png' corner='4,4,4,4'&quot;"/>
+  <Style name="radio_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;17&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; stateimage=&quot;res='common/radio_normal.png' dest='0,0,20,20'&quot; statecount=&quot;2&quot; selectedstateimage=&quot;res='common/radio_selected.png' dest='0,0,20,20'&quot; selectedstatecount=&quot;2&quot;" />
+  <Style name="speed_tab" value="group=&quot;speed_header&quot;"/>
+  <Style name="statuse_tab" value="textcolor=&quot;#FF386382&quot; font=&quot;2&quot; normalimage=&quot;tabbar_normal_ statuse.png&quot; hotimage=&quot;tabbar_hover _statuse.png&quot; pushedimage=&quot;tabbar_pushed_statuse.png&quot; selectedimage=&quot;tabbar_pushed_statuse.png&quot; group=&quot;tab_statuse&quot;" pushedtextcolor="#FFFF0000"/>
+  <Style name="main_tab" value="group=&quot;tab_header&quot;" />
+  <!--<Style name="edit_style" value="bkimage=&quot;res='edit_bk.png' corner='6,6,6,6'&quot;" />-->
+  <Style name="btn_style"  value="drag=&quot;false&quot; textpadding=&quot;6,0,6,0&quot; textcolor=&quot;#FFFFFFFF&quot; normalimage=&quot;res='normal.png' corner='4,4,4,4'&quot; hotimage=&quot;res='enter.png' corner='4,4,4,4'&quot; pushedimage=&quot;res='pressed.png' corner='4,4,4,4'&quot;font=&quot;8&quot;" />
+  <Style name="treenode_folder_style" value="padding=&quot;0,1,0,0&quot; width=&quot;16&quot; height=&quot;16&quot; normalimage=&quot;file='Icon/treeview_b.png' source='0,0,16,16' &quot; hotimage=&quot;file='Icon/treeview_b.png' source='16,0,32,16' &quot; selectedimage=&quot;file='Icon/treeview_a.png' source='0,0,16,16' &quot; selectedhotimage=&quot;file='Icon/treeview_a.png' source='16,0,32,16' &quot;"/>
+ 
+  <Style name="treenode_folder_style_my" value="padding=&quot;0,1,0,0&quot; width=&quot;18&quot; height=&quot;18&quot; normalimage=&quot;file='ui/展开.png' &quot; hotimage=&quot;file='ui/展开.png'  &quot; selectedimage=&quot;file='ui/未展开.png' &quot; selectedhotimage=&quot;file='ui/未展开.png' &quot;"/>
+  <Style name="treenode_checkbox_style_my" value="width=&quot;30&quot; height=&quot;30&quot; normalimage=&quot;file='ui/未选中_1.png' &quot; selectedimage=&quot;file='ui/对号.png'&quot;" />
+
+  <Style name="listex_item_style" value="checkboxwidth=&quot;20&quot; checkboxheight=&quot;20&quot; checkboxnormalimage=&quot;file='common/unchecked.png'&quot; checkboxselectedimage=&quot;file='common/checked.png'&quot;"/>
+
+  <Style name="treenode_checkbox_style" value="width=&quot;16&quot; height=&quot;16&quot; normalimage=&quot;file='Icon/unchecked.png' &quot; selectedimage=&quot;file='Icon/checked.png'&quot;" />
+  <Style name="treeview_style" value="folderattr=&quot;treenode_folder_style&quot; checkboxattr=&quot;treenode_checkbox_style&quot;"/>
+  <Style name="combo_style1" value=" textcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;5,1,1,1&quot; normalimage=&quot;res='common/combo1.png' source='0,0,161,28' corner='2,2,28,2'&quot; hotimage=&quot;res='common/combo1.png' source='0,28,161,56' corner='2,2,28,2'&quot; pushedimage=&quot;res='common/combo1.png' source='0,56,161,84' corner='2,2,28,2'&quot;" />
+  <Style name="combo_style" value="height=&quot;22&quot; textpadding=&quot;4,1,22,1&quot; normalimage=&quot;file='combo.png' source='0,0,100,22' corner='2,2,20,2'&quot; hotimage=&quot;file='combo.png' source='0,22,100,44' corner='2,2,22,2'&quot; pushedimage=&quot;file='combo.png' source='0,44,100,66' corner='2,2,22,2'&quot;" />
+  <Style name="colortab_style" shared="true" value="textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; selectedtextcolor=&quot;#FFFF0000&quot; textpadding=&quot;6,0,6,0&quot; bkcolor=&quot;#FF2c2c2c&quot; hotbkcolor=&quot;#FF4b4b4b&quot; pushedbkcolor=&quot;#FF424242&quot; selectedbkcolor=&quot;#ffc4c4c4&quot;"  />
+  <Style name="cb_style-old" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+  <Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+  <Style name="checkbtn_style" value="width=&quot;162&quot;  height=&quot;162&quot;  font=&quot;8&quot;  textpadding=&quot;0,90,0,0&quot;   borderround=&quot;5,5&quot;  pushedbkcolor=&quot;#FF477db3&quot;  bkcolor=&quot;#FF63b0fa&quot;"/>
+  <Style name="headertitle_style" value="font=&quot;10&quot; width=&quot;150&quot; align=&quot;center&quot; height=&quot;60&quot;      borderround=&quot;10,10&quot;"/>
+  <VerticalLayout name="root" bkcolor="ffffffff" bkcolor2="ffffffff"  gdiplustext="true" textrenderinghint="0"  bordersize="1" bordercolor="ffd0d0d0"  childpadding="1"  inset="0,0,0,0"   height="900" colorhsl="true" >
+
+    
+     <VerticalLayout name="body" bkcolor="ffe5e6ef" bkcolor2="ff8796c2" bkimage="ui/背景.png">
+      <HorizontalLayout   childpadding="5"  height="20" >
+        <HorizontalLayout name="appbar" height="20" >
+          <HorizontalLayout align="center">
+            <!--<Label text="天地数据分析平台-界面" name="Title"  valign="vcenter" align="left" textcolor="#FF323232" font="6" tooltip="检测仪"/>-->
+          </HorizontalLayout>
+          <HorizontalLayout inset="0,-1,0,0" width="95">
+            <HorizontalLayout width="28" />
+            <Button name="minbtn" width="28" height="20" tooltip="最小化" normalimage="file='sysbtn/btn_mini_normal.png'" hotimage="file='sysbtn/btn_mini_highlight.png'" pushedimage="file='sysbtn/btn_mini_down.png' "/>
+            <Button name="closebtn" width="39" height="20" tooltip="关闭" normalimage="file='sysbtn/btn_close_normal.png'" hotimage="file='sysbtn/btn_close_highlight.png'" pushedimage="file='sysbtn/btn_close_down.png' "/>
+          </HorizontalLayout>
+        </HorizontalLayout>
+      </HorizontalLayout>  
+      <HorizontalLayout  width="800"  height="60">
+        <HorizontalLayout width="380" />
+        <Label  text="参数管理"  wordbreak="true"  textcolor="#FFFBF0" valign="vcenter"  align="left" font="14"  width="350"  height="60"  mouse="false" />
+      </HorizontalLayout> 
+         <HorizontalLayout   height="40">
+           <HorizontalLayout width="10" />
+           <HorizontalLayout bkimage="ui/矩形.png"    hscrollbar="true"  vscrollbar="true"  >
+             <Option name="opt_Tab1" group="basic_tab0"  font="7" textcolor="#FFFFFFFF" text="星座卫星显示界面" selected="true" height="40" width="280"  normalimage="file='ui/未选中.png' " hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png' " selectedimage="file='ui/选中.png' "/>
+
+             <Option name="opt_Tab2" group="basic_tab0" font="7" textcolor="#FFFFFFFF" text="电信港地球站界面"  height="40"  width="290" textpadding="22,0,0,0" normalimage="file='ui/未选中.png' " hotimage="file='ui/选中.png' " pushedimage="file='ui/选中.png' " selectedimage="file='ui/选中.png' "/>
+
+             <Option name="opt_Tab3" group="basic_tab0" font="7" textcolor="#FFFFFFFF" text="地面终端界面"  height="40" width="290" textpadding="22,0,0,0" normalimage="file='ui/未选中.png'" hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png'" selectedimage="file='ui/选中.png'"/>
+             <HorizontalLayout width="5" />
+
+           </HorizontalLayout >
+         </HorizontalLayout >
+
+
+         <HorizontalLayout childpadding="5"   >
+           <!--<VerticalLayout inset="0,0,0,0" width="20"  childpadding="2"  >
+             <HorizontalLayout width="20" />
+           </VerticalLayout>-->
+           <VerticalLayout  >
+             <TabLayout name="tab_switch" bkimage="ui/背景图.jpg" animation_direction="vertical">
+               <!--场景星座卫星界面-->
+               <!--<VerticalLayout name="xx20-basic_tab_panel" inset="2,2,2,2"   height="1050" >-->
+               <VerticalLayout name="xx20-basic_tab_panel" height="600" >
+
+                 <HorizontalLayout height="540" inset="0,6,0,6" childpadding="1" >
+
+
+                   <GroupBox text ="" font="10" height="520" textcolor="#FFFFFFFF" width="300" bkimage="ui/page1/切图/线框1.png"   borderround="6,6" vscrollbar="true" hscrollbar="true">
+                     <HorizontalLayout height="365" vscrollbar="true" hscrollbar="true" width="340"  >
+                     <TreeView name="treeview1"  visiblefolderbtn="true" visiblecheckbtn="false" vscrollbar="true" hscrollbar="true" width="320" >
+
+                     </TreeView>
+                     </HorizontalLayout>
+                     <HorizontalLayout height="10">
+                     </HorizontalLayout>
+                     <HorizontalLayout height="20">
+                       <HorizontalLayout width="20" />
+                       <Option name="optical_ScenarioData"  group ="group1" Visible="true" text="场景数据" font="10" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FFFFFFFF" hottextcolor="#FFFFA500" />
+                       <HorizontalLayout width="30" />
+                       <Option name="optical_LocalData" group ="group1" Visible="true" text="本地数据" font="10" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FFFFFFFF" hottextcolor="#FFFFA500"/>
+
+                     </HorizontalLayout>
+                     <HorizontalLayout height="10">
+                     </HorizontalLayout>
+                     <HorizontalLayout height="40">
+                       <HorizontalLayout width="20" />
+                       <HorizontalLayout width="20" />
+                       <Button name="bt_Tree1_Import"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入"  bkcolor="#FF1970EF"  valign="vcenter"  width="60"  height="30"   />
+                       <HorizontalLayout width="40" />
+                       <Button name="bt_Tree1_SaveAs"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="另存为"  bkcolor="#FF1970EF"  valign="vcenter"  width="80"  height="30"   />
+
+                     </HorizontalLayout>
+                     
+                   </GroupBox>
+
+                   <HorizontalLayout width="10" />
+                   <VerticalLayout name="Control" childpadding="1" >
+
+                     <GroupBox text =""   font="10" textcolor="#FFFFFFFF" height="480" width="630" bkimage="ui/page1/切图/线框1.png"  borderround="6,6"  vscrollbar="true" hscrollbar="true" >
+
+                       <HorizontalLayout height="35">
+
+                         <Label name="titles1" text="卫星名称" bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p1" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2" text="所属星座"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p2" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3" text="所属国家"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles4" text ="所属机构 "  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p4" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles5"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p5" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles6"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p6" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+          
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles7"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p7" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles8"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p8" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles9"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p9" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles10"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p10" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles11"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p11" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles12"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p12" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles13"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p13" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles14"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p14" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles15"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p15" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles16"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p16" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+                         <Label name="titles17"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p17" multiline="true"  Visible="false"   width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles18"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p18" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles19"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p19" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles20"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p20" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles21"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p21" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles22"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p22" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles23"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p23" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles24"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p24" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles25"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p25" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles26"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p26" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles27"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p27" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles28"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p28" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles29"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p29" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles30"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p30" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles31"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p31" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles32"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p32" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles33"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p33" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+          
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles34"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p34" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles35"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p35" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles36"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p36" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+ 
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles37"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p37" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles38"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p38" multiline="true"  Visible="false"   width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles39"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p39" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles40"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p40" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles41"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p41" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles42"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p42" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+
+                         <Label name="titles43"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p43" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles44"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p44" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles45"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p45" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles46"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p46" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles47"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p47" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles48"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p48" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles49"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p49" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles50"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p50" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles51"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p51" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles52"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p52" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles53"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p53" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles54"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p54" multiline="true"  Visible="false"   width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles55"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p55" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles56"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p56" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles57"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p57" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles58"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p58" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles59"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p59" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles60"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p60" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles61"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p61" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles62"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p62" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles63"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p63" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles64"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p64" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles65"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p65" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles66"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p66" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+  
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles67"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p67" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles68"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p68" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles69"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p69" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles70"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p70" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles71"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p71" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles72"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p72" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles73"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p73" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles74"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p74" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles75"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p75" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+ 
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles76"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p76" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles77"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p77" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles78"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p78" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles79"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p79" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles80"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p80" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles81"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p81" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles82"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p82" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles83"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p83" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles84"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p84" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles85"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p85" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles86"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p86" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles87"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p87" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles88"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p88" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles89"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p89" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles90"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p90" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+                         <HorizontalLayout height="10">
+                         </HorizontalLayout>
+                         <HorizontalLayout height="35">
+                           <Label name="titles91"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit name="p91" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles92"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit  name="p92" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles93"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                           <Edit  name="p93" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+                         </HorizontalLayout>
+                         <HorizontalLayout height="10">
+                         </HorizontalLayout>
+                         <HorizontalLayout height="35">
+                           <Label name="titles94"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit name="p94" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles95"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit  name="p95" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles96"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                           <Edit  name="p96" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+      
+
+                         </HorizontalLayout>
+                         <HorizontalLayout height="10">
+                         </HorizontalLayout>
+                         <HorizontalLayout height="35">
+                           <Label name="titles97"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit name="p97" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles98"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit  name="p98" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles99"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                           <Edit  name="p99" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+                         </HorizontalLayout>
+
+                         <HorizontalLayout height="10">
+                         </HorizontalLayout>
+                         <HorizontalLayout height="35">
+                           <Label name="titles100"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit name="p100" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles101"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit  name="p101" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles102"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                           <Edit  name="p102" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+
+                         </HorizontalLayout>
+
+                       </HorizontalLayout>
+
+                     </GroupBox>
+                     <HorizontalLayout height="40" width="600" inset="0,6,0,6" childpadding="1" >
+
+                    <HorizontalLayout width="140" />
+                       <!--<Button name="bt_AddToWX"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入卫星"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                       <HorizontalLayout width="20" />-->
+                       <Button name="bt_AddTo"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="增加"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                       <HorizontalLayout width="20" />
+                       <Button name="bt_Delete"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="删除"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                       <HorizontalLayout width="20" />
+                       <Button name="bt_save"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="保存"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                   </HorizontalLayout>
+                     
+                   </VerticalLayout>
+                   <HorizontalLayout width="10" />
+                 </HorizontalLayout>
+
+               </VerticalLayout>
+               <!--场景电信港地球站界面-->
+               <VerticalLayout name="xx20-basic_tab_pane2" inset="2,2,2,2"   height="600" >
+                 <HorizontalLayout height="525" inset="0,6,0,6" childpadding="1" >
+
+                   <GroupBox text ="" font="10" height="520" textcolor="#FFFFFFFF" width="300" bkimage="ui/page1/切图/线框1.png"   borderround="6,6">
+                     <HorizontalLayout height="395" vscrollbar="true" hscrollbar="true" width="340" >
+                       <TreeView name="treeview2"  visiblefolderbtn="true" visiblecheckbtn="false"  vscrollbar="true" hscrollbar="true" width="400">
+
+                       </TreeView>
+                     </HorizontalLayout>
+                     <HorizontalLayout height="10">
+                     </HorizontalLayout>
+                     <HorizontalLayout height="20">
+                       <Option name="optical_ScenarioData2"  group ="group1" Visible="true" text="场景数据" font="10" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FFFFFFFF" hottextcolor="#FFFFA500" />
+                       <HorizontalLayout width="30" />
+                       <Option name="optical_LocalData2" group ="group1" Visible="true" text="本地数据" font="10" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FFFFFFFF" hottextcolor="#FFFFA500"/>
+
+
+                     </HorizontalLayout>
+                     <HorizontalLayout height="10">
+                     </HorizontalLayout>
+                     <HorizontalLayout height="40">
+                       <HorizontalLayout width="20" />
+
+                       <Button name="bt_Tree1_Import2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入"  bkcolor="#FF1970EF"  valign="vcenter"  width="60"  height="30"   />
+                       <HorizontalLayout width="20" />
+                       <Button name="bt_Tree1_SaveAs2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="另存为"  bkcolor="#FF1970EF"  valign="vcenter"  width="80"  height="30"   />
+
+                     </HorizontalLayout> 
+                   </GroupBox>
+
+                   <HorizontalLayout width="10" />
+                   <VerticalLayout name="Control" childpadding="1" >
+
+                     <GroupBox text =""   font="10" textcolor="#FFFFFFFF" height="480" width="630" bkimage="ui/page1/切图/线框1.png" vscrollbar="true" hscrollbar="true"   borderround="6,6">
+
+                       <HorizontalLayout height="35">
+
+                         <Label name="titles2_1" text="卫星名称" bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p2_1" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_2" text="所属星座"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p2_2" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_3" text="所属国家"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_3" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_4" text ="所属机构 "  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_4" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_5"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_5" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_6"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_6" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_7"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_7" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_8"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_8" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_9"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p2_9" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                 
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_10"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p2_10" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_11"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_11" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_12"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_12" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+            
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_13"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_13" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_14"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_14" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_15"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_15" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                     
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_16"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_16" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+                         <Label name="titles2_17"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p2_17" multiline="true"  Visible="false"   width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_18"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p2_18" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                   
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_19"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_19" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_20"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_20" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_21"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_21" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                       
+
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_22"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_22" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_23"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_23" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_24"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_24" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                      
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_25"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p2_25" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_26"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p2_26" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_27"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_27" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                      
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_28"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_28" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_29"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_29" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_30"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_30" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                     
+
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_31"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_31" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_32"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_32" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_33"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p2_33" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                     
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_34"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p2_34" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_35"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_35" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_36"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_36" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                    
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_37"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_37" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_38"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_38" multiline="true"  Visible="false"   width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_39"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_39" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                      
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_40"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_40" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_41"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p2_41" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_42"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p2_42" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                     
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+
+                         <Label name="titles2_43"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_43" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_44"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_44" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_45"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_45" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                       
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_46"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_46" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_47"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_47" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_48"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_48" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_49"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p2_49" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_50"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p2_50" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_51"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_51" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_52"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_52" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_53"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_53" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_54"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_54" multiline="true"  Visible="false"   width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                      
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_55"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_55" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_56"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_56" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_57"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_57" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                     
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_58"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_58" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_59"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_59" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_60"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_60" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                     
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_61"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_61" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_62"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_62" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_63"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_63" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                      
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_64"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_64" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_65"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_65" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_66"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_66" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                     
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_67"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_67" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_68"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_68" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_69"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_69" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                    
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_70"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_70" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_71"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_71" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_72"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_72" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                     
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_73"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_73" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_74"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_74" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_75"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_75" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                      
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_76"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_76" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_77"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_77" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_78"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_78" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                      
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_79"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_79" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_80"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_80" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_81"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_81" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                     
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_82"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_82" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_83"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_83" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_84"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_84" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_85"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_85" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_86"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_86" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_87"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_87" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                      
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles2_88"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p2_88" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_89"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p2_89" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles2_90"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p2_90" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                     
+
+                         <HorizontalLayout height="10">
+                         </HorizontalLayout>
+                         <HorizontalLayout height="35">
+                           <Label name="titles2_91"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit name="p2_91" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles2_92"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit  name="p2_92" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles2_93"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                           <Edit  name="p2_93" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                  
+
+                         </HorizontalLayout>
+                         <HorizontalLayout height="10">
+                         </HorizontalLayout>
+                         <HorizontalLayout height="35">
+                           <Label name="titles2_94"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit name="p2_94" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles2_95"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit  name="p2_95" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles2_96"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                           <Edit  name="p2_96" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                        
+
+                         </HorizontalLayout>
+                         <HorizontalLayout height="10">
+                         </HorizontalLayout>
+                         <HorizontalLayout height="35">
+                           <Label name="titles2_97"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit name="p2_97" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles2_98"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit  name="p2_98" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles2_99"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                           <Edit  name="p2_99" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                        
+
+                         </HorizontalLayout>
+
+                         <HorizontalLayout height="10">
+                         </HorizontalLayout>
+                         <HorizontalLayout height="35">
+                           <Label name="titles2_100"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit name="p2_100" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles2_101"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit  name="p2_101" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles2_102"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                           <Edit  name="p2_102" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                           
+
+                         </HorizontalLayout>
+
+                       </HorizontalLayout>
+
+                     </GroupBox>
+                     <HorizontalLayout height="40" width="600" inset="0,6,0,6" childpadding="1" >
+
+                       <HorizontalLayout width="140" />
+                       <!--<Button name="bt_save1"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="保存1"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />-->
+                       <Button name="bt_AddTo2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="增加"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                       <HorizontalLayout width="20" />
+                       <Button name="bt_Delete2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="删除"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                       <HorizontalLayout width="20" />
+                       <Button name="bt_save2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="保存"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                     </HorizontalLayout>
+
+                   </VerticalLayout>
+                   <HorizontalLayout width="10" />
+                 </HorizontalLayout>
+                 
+               </VerticalLayout>
+               <!--场景地面终端界面-->
+               <VerticalLayout name="xx20-basic_tab_pane3" inset="2,2,2,2"   height="600" >
+                 <HorizontalLayout height="540" inset="0,6,0,6" childpadding="1" >
+
+                   <GroupBox text ="" font="10" height="520" textcolor="#FFFFFFFF" width="300" bkimage="ui/page1/切图/线框1.png"   borderround="6,6">
+
+                     <HorizontalLayout height="395" vscrollbar="true" hscrollbar="true" width="340">
+                       <TreeView name="treeview3"  visiblefolderbtn="true" visiblecheckbtn="false"  vscrollbar="true" hscrollbar="true" width="400">
+
+                       </TreeView>
+                     </HorizontalLayout>
+
+                     <HorizontalLayout height="10">
+                     </HorizontalLayout>
+
+                     <HorizontalLayout height="10">
+                     </HorizontalLayout>
+                     <HorizontalLayout height="20">
+                       <Option name="optical_ScenarioData3"  group ="group1" Visible="true" text="场景数据" font="10" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FFFFFFFF" hottextcolor="#FFFFA500" />
+                       <HorizontalLayout width="30" />
+                       <Option name="optical_LocalData3" group ="group1" Visible="true" text="本地数据" font="10" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FFFFFFFF" hottextcolor="#FFFFA500"/>
+
+                     </HorizontalLayout>
+                     <HorizontalLayout height="10">
+                     </HorizontalLayout>
+                       <HorizontalLayout height="40">
+                       <HorizontalLayout width="20" />
+                       <Button name="bt_Tree1_Import3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入"  bkcolor="#FF1970EF"  valign="vcenter"  width="60"  height="30"   />
+                       <HorizontalLayout width="20" />
+                       <Button name="bt_Tree1_SaveAs3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="另存为"  bkcolor="#FF1970EF"  valign="vcenter"  width="80"  height="30"   />
+
+                     </HorizontalLayout>
+                   </GroupBox>
+
+                   <HorizontalLayout width="10" />
+                   <VerticalLayout name="Control" childpadding="1" >
+
+                     <GroupBox text =""   font="10" textcolor="#FFFFFFFF" height="480" width="630" bkimage="ui/page1/切图/线框1.png" vscrollbar="true" hscrollbar="true"   borderround="6,6">
+
+                       <HorizontalLayout height="35">
+
+                         <Label name="titles3_1" text="卫星名称" bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p3_1" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_2" text="所属星座"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p3_2" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_3" text="所属国家"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_3" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                        
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_4" text ="所属机构 "  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_4" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_5"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_5" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_6"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_6" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                    
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_7"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_7" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_8"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_8" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_9"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p3_9" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                    
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_10"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p3_10" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_11"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_11" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_12"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_12" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                    
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_13"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_13" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_14"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_14" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_15"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_15" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                 
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_16"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_16" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+                         <Label name="titles3_17"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p3_17" multiline="true"  Visible="false"   width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_18"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p3_18" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                        
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_19"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_19" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_20"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_20" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_21"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_21" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                       
+
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_22"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_22" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_23"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_23" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_24"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_24" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                       
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_25"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p3_25" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_26"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p3_26" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_27"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_27" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                   
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_28"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_28" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_29"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_29" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_30"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_30" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                
+
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_31"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_31" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_32"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_32" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_33"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p3_33" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+               
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_34"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p3_34" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_35"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_35" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_36"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_36" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                 
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_37"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_37" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_38"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_38" multiline="true"  Visible="false"   width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_39"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_39" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                       
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_40"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_40" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_41"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p3_41" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_42"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p3_42" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                      
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+
+                         <Label name="titles3_43"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_43" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_44"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_44" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_45"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_45" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                       
+
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_46"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_46" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_47"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_47" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_48"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_48" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                       
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_49"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                         <Edit name="p3_49" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_50"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit name="p3_50" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_51"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_51" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                  
+
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_52"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_52" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_53"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_53" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_54"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_54" multiline="true"  Visible="false"   width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                     
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_55"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_55" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_56"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_56" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_57"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_57" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_58"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_58" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_59"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_59" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_60"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_60" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+               
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_61"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_61" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_62"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_62" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_63"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_63" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                        
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_64"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_64" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_65"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_65" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_66"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_66" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                   
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_67"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_67" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_68"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_68" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_69"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_69" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                 
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_70"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_70" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_71"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_71" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_72"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_72" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                     
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_73"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_73" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_74"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_74" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_75"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_75" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                    
+
+                       </HorizontalLayout>
+
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_76"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_76" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_77"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_77" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_78"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_78" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                       
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_79"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_79" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_80"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_80" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_81"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_81" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                       
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_82"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_82" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_83"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_83" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_84"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_84" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                      
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_85"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_85" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_86"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_86" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_87"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_87" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                      
+
+                       </HorizontalLayout>
+                       <HorizontalLayout height="10">
+                       </HorizontalLayout>
+                       <HorizontalLayout height="35">
+                         <Label name="titles3_88"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit name="p3_88" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_89"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                         <Edit  name="p3_89" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                         <HorizontalLayout width="10" />
+
+                         <Label name="titles3_90"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                         <Edit  name="p3_90" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                 
+
+                         <HorizontalLayout height="10">
+                         </HorizontalLayout>
+                         <HorizontalLayout height="35">
+                           <Label name="titles3_91"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit name="p3_91" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles3_92"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit  name="p3_92" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles3_93"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                           <Edit  name="p3_93" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                       
+
+                         </HorizontalLayout>
+                         <HorizontalLayout height="10">
+                         </HorizontalLayout>
+                         <HorizontalLayout height="35">
+                           <Label name="titles3_94"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit name="p3_94" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles3_95"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit  name="p3_95" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles3_96"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                           <Edit  name="p3_96" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                     
+
+                         </HorizontalLayout>
+                         <HorizontalLayout height="10">
+                         </HorizontalLayout>
+                         <HorizontalLayout height="35">
+                           <Label name="titles3_97"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit name="p3_97" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles3_98"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit  name="p3_98" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles3_99"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                           <Edit  name="p3_99" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                      
+
+                         </HorizontalLayout>
+
+                         <HorizontalLayout height="10">
+                         </HorizontalLayout>
+                         <HorizontalLayout height="35">
+                           <Label name="titles3_100"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit name="p3_100" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles3_101"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                           <Edit  name="p3_101" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                           <HorizontalLayout width="10" />
+
+                           <Label name="titles3_102"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                           <Edit  name="p3_102" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                    
+
+                         </HorizontalLayout>
+
+                       </HorizontalLayout>
+
+                     </GroupBox>
+                     <HorizontalLayout height="40" width="600" inset="0,6,0,6" childpadding="1" >
+
+                       <HorizontalLayout width="140" />
+                       <!--<Button name="bt_save1"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="保存1"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />-->
+                       <Button name="bt_AddTo3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="增加"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                       <HorizontalLayout width="20" />
+                       <Button name="bt_Delete3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="删除"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                       <HorizontalLayout width="20" />
+                       <Button name="bt_save3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="保存"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                     </HorizontalLayout>
+
+
+                     <!--<Button name="bt_save1"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="保存1"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />-->
+
+                       <!--<Button name="bt_save3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="保存"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />-->
+                   
+
+                   </VerticalLayout>
+                   <HorizontalLayout width="10" />
+                 </HorizontalLayout>
+
+
+               </VerticalLayout>
+             </TabLayout>
+
+           </VerticalLayout>
+
+         </HorizontalLayout>
+
+    </VerticalLayout>
+
+
+
+  </VerticalLayout>
+
+
+</Window>

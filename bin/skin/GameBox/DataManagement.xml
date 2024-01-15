@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="1310,700" sizebox="4,4,4,4" caption="0,0,0,-1" mininfo="600,500" roundcorner="4,4">
+  <Font name="微软雅黑" size="13" bold="false" italic="false" default="true" />
+  <Font name="微软雅黑" size="12" bold="false" italic="false" />
+  <Font name="微软雅黑" size="22" bold="false" italic="false" />
+  <!--<Font id="2" name="微软雅黑" size="13" bold="true" italic="false" />-->
+  <Font id="3" name="微软雅黑" size="50" bold="true" shared="true"/>
+  <Font id="4" name="微软雅黑" size="13" bold="true" italic="false" />
+  <Font id="5" name="微软雅黑" size="15" bold="true" italic="false" />
+  <Font id="6" name="微软雅黑" size="12" bold="true" italic="false" />
+  <Font id="7" name="微软雅黑" size="18" bold="false" italic="false" />
+  <Font id="8" name="微软雅黑" size="17" bold="false" italic="false" />
+  <Font id="9" name="微软雅黑" size="13" bold="false" italic="false" />
+  <Font id="10" name="微软雅黑" size="18" bold="false" italic="false" />
+  <Font id="11" name="微软雅黑" size="25" bold="true" italic="false" />
+  <Font id="13" name="微软雅黑" size="12" bold="true" italic="false" />
+  <Font id="14" name="微软雅黑" size="30" bold="true" shared="true"/>
+  
+  <Default name="VScrollBar" value="width=&quot;10&quot; showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; thumbnormalimage=&quot;file=&apos;ui/scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; fade=&apos;150&apos; &quot; thumbhotimage=&quot;file=&apos;ui/scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; &quot; thumbpushedimage=&quot;file=&apos;scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; &quot; " />
+  <Style name="select_tab" value="pushedbkcolor=&quot;#FF00ff00&quot;group=&quot;select_tab&quot; bkcolor=&quot;#FFFFFFFF&quot; " />
+  <!--<Style name="edit_style" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF79A0E5&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />-->
+
+  <Style name="edit_style1" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FFFFFFFF&quot; nativebkcolor=&quot;#FF87CEFA&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />
+  <Style name="edit_style" value="width=&quot;200&quot; height=&quot;40&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF00A4FF&quot; nativebkcolor=&quot;#FF666666&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />
+  <Style name="header_tab" value="group=&quot;header_tab&quot;" />
+  <Style name="step_tab" value="group=&quot;step_tab&quot;" />
+  <!--Style name="list_style" value="headerbkimage=&quot;res='common/list_header_bg.png'&quot; itemalign=&quot;center&quot; itemlinecolor=&quot;#FF888888&quot; itemshowrowline=&quot;true&quot; itemshowcolumnline=&quot;true&quot;" />-->
+  <Style name="list_style" value="headerbkimage=&quot;file='list_header_bg.png'&quot; itemalign=&quot;center&quot; itemlinecolor=&quot;#FF888888&quot; itemshowrowline=&quot;true&quot; itemshowcolumnline=&quot;true&quot;" />
+  <!--<Style name="edit_style" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF666666&quot; nativebkcolor=&quot;#FF666666&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />-->
+  <Style name="nomalbtm_style" value="normalimage=&quot;res='normal.png' corner='4,4,4,4'&quot;   hotimage=&quot;res='enter.png' corner='4,4,4,4'&quot;  pushedimage=&quot;res='pressed.png' corner='4,4,4,4'&quot;"/>
+  <Style name="radio_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;17&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; stateimage=&quot;res='common/radio_normal.png' dest='0,0,20,20'&quot; statecount=&quot;2&quot; selectedstateimage=&quot;res='common/radio_selected.png' dest='0,0,20,20'&quot; selectedstatecount=&quot;2&quot;" />
+  <Style name="speed_tab" value="group=&quot;speed_header&quot;"/>
+  <Style name="statuse_tab" value="textcolor=&quot;#FF386382&quot; font=&quot;2&quot; normalimage=&quot;tabbar_normal_ statuse.png&quot; hotimage=&quot;tabbar_hover _statuse.png&quot; pushedimage=&quot;tabbar_pushed_statuse.png&quot; selectedimage=&quot;tabbar_pushed_statuse.png&quot; group=&quot;tab_statuse&quot;" pushedtextcolor="#FFFF0000"/>
+  <Style name="main_tab" value="group=&quot;tab_header&quot;" />
+  <!--<Style name="edit_style" value="bkimage=&quot;res='edit_bk.png' corner='6,6,6,6'&quot;" />-->
+  <Style name="btn_style"  value="drag=&quot;false&quot; textpadding=&quot;6,0,6,0&quot; textcolor=&quot;#FFFFFFFF&quot; normalimage=&quot;res='normal.png' corner='4,4,4,4'&quot; hotimage=&quot;res='enter.png' corner='4,4,4,4'&quot; pushedimage=&quot;res='pressed.png' corner='4,4,4,4'&quot;font=&quot;8&quot;" />
+  <Style name="treenode_folder_style" value="padding=&quot;0,1,0,0&quot; width=&quot;16&quot; height=&quot;16&quot; normalimage=&quot;file='Icon/treeview_b.png' source='0,0,16,16' &quot; hotimage=&quot;file='Icon/treeview_b.png' source='16,0,32,16' &quot; selectedimage=&quot;file='Icon/treeview_a.png' source='0,0,16,16' &quot; selectedhotimage=&quot;file='Icon/treeview_a.png' source='16,0,32,16' &quot;"/>
+  <Style name="treenode_checkbox_style" value="width=&quot;16&quot; height=&quot;16&quot; normalimage=&quot;file='Icon/unchecked.png' &quot; selectedimage=&quot;file='Icon/checked.png'&quot;" />
+  <Style name="treeview_style" value="folderattr=&quot;treenode_folder_style&quot; checkboxattr=&quot;treenode_checkbox_style&quot;"/>
+  <Style name="combo_style1" value=" textcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;5,1,1,1&quot; normalimage=&quot;res='common/combo.png' source='0,0,161,28' corner='2,2,28,2'&quot; hotimage=&quot;res='common/combo.png' source='0,28,161,56' corner='2,2,28,2'&quot; pushedimage=&quot;res='common/combo.png' source='0,56,161,84' corner='2,2,28,2'&quot;" />
+  <Style name="combo_style" value="height=&quot;22&quot; textpadding=&quot;4,1,22,1&quot; normalimage=&quot;file='combo.png' source='0,0,100,22' corner='2,2,20,2'&quot; hotimage=&quot;file='combo.png' source='0,22,100,44' corner='2,2,22,2'&quot; pushedimage=&quot;file='combo.png' source='0,44,100,66' corner='2,2,22,2'&quot;" />
+  <Style name="colortab_style" shared="true" value="textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; selectedtextcolor=&quot;#FFFF0000&quot; textpadding=&quot;6,0,6,0&quot; bkcolor=&quot;#FF2c2c2c&quot; hotbkcolor=&quot;#FF4b4b4b&quot; pushedbkcolor=&quot;#FF424242&quot; selectedbkcolor=&quot;#ffc4c4c4&quot;"  />
+  <Style name="cb_style-old" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+  <Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+  <Style name="checkbtn_style" value="width=&quot;162&quot;  height=&quot;162&quot;  font=&quot;8&quot;  textpadding=&quot;0,90,0,0&quot;   borderround=&quot;5,5&quot;  pushedbkcolor=&quot;#FF477db3&quot;  bkcolor=&quot;#FF63b0fa&quot;"/>
+  <Style name="headertitle_style" value="font=&quot;10&quot; width=&quot;150&quot; align=&quot;center&quot; height=&quot;60&quot;      borderround=&quot;10,10&quot;"/>
+  
+  <VerticalLayout name="root" bkcolor="ffffffff" bkcolor2="ffffffff"  gdiplustext="true" textrenderinghint="0"    childpadding="1"  inset="0,0,0,0"   height="700" colorhsl="true" bkimage="ui/背景.png">
+    <!-- 这个是设置边框的 本来我这个边框有框怪怪的bordersize="1" bordercolor="ffd0d0d0"-->
+    <!--链路管理-->
+    <!--<VerticalLayout name="body"  bordersize="1" bordercolor="ffffffff" bkcolor="ffe5e6ef" bkcolor2="ff8796c2" > -->
+      <HorizontalLayout   childpadding="5"  height="30" >
+        <HorizontalLayout name="appbar" height="20" >
+          <HorizontalLayout align="center">
+            <!--<Label text="天地数据分析平台-界面" name="Title"  valign="vcenter" align="left" textcolor="#FF323232" font="6" tooltip="检测仪"/>-->
+          </HorizontalLayout>
+          <HorizontalLayout inset="0,-1,0,0" width="95">
+            <HorizontalLayout width="28" />
+            <Button name="minbtn" width="28" height="20" tooltip="最小化" normalimage="file='sysbtn/btn_mini_normal.png'" hotimage="file='sysbtn/btn_mini_highlight.png'" pushedimage="file='sysbtn/btn_mini_down.png' "/>
+            <!--
+            <Button name="maxbtn" width="28" height="20" tooltip="最大化" normalimage="file='sysbtn/btn_max_normal.png'" hotimage="file='sysbtn/btn_max_highlight.png'" pushedimage="file='sysbtn/btn_max_down.png' "/>
+            <Button name="restorebtn" width="28" height="20" tooltip="还原" visible="false" normalimage="file='sysbtn/btn_restore_normal.png'" hotimage="file='sysbtn/btn_restore_highlight.png'" pushedimage="file='sysbtn/btn_restore_down.png' "/>
+           -->
+            <Button name="closebtn" width="39" height="20" tooltip="关闭" normalimage="file='sysbtn/btn_close_normal.png'" hotimage="file='sysbtn/btn_close_highlight.png'" pushedimage="file='sysbtn/btn_close_down.png' "/>
+          </HorizontalLayout>
+        </HorizontalLayout>
+      </HorizontalLayout>
+      <HorizontalLayout  width="900"  height="50">
+        <HorizontalLayout width="600" />
+        <Label  text="数据管理"  wordbreak="true"  textcolor="#FFFBF0" valign="vcenter"  align="left" font="14"  width="350"  height="50"  mouse="false" />
+      </HorizontalLayout>
+      <HorizontalLayout  width="900"  height="10">
+      </HorizontalLayout>
+
+      <HorizontalLayout childpadding="5"   >
+
+        <VerticalLayout  >
+          <TabLayout name="tab_switch" bkimage="ui/背景图.jpg" animation_direction="vertical">
+            <!--控制界面开始-->
+
+
+            
+           <VerticalLayout name="xx20-basic_tab_panel" inset="2,2,2,2"   height="690" >
+              <HorizontalLayout height="680" inset="0,6,0,6" childpadding="1" >
+                <VerticalLayout name="Control" childpadding="1" >
+
+
+                  <HorizontalLayout height="40">
+                    <HorizontalLayout width="280" />
+                    <Control />
+                    
+                    <Control width="1" height="30" padding="0,8,0,8" bkimage="file='toolbar/splitterV.png' corner='0,2,0,2'"/>
+                    <Option name="opt_DataPage1" group="yc_tab1" userdata="main_web_home" selected="true" textcolor="#FFFFFFFF" font="5" text="数据页1" width="100" textpadding="22,0,0,0" normalimage="file='mainwnd/mainwnd.righttab.icon.home.png' source='0,0,16,16' dest='12,13,28,29'" hotimage="file='mainwnd/mainwnd.righttab.icon.home.png' source='17,0,33,16' dest='12,13,28,29'" pushedimage="file='mainwnd/mainwnd.righttab.icon.home.png' source='34,0,50,16' dest='12,13,28,29'" selectedimage="file='mainwnd/mainwnd.righttab.icon.home.png' source='34,0,50,16' dest='12,13,28,29'"/>
+                    <HorizontalLayout width="10" />
+                   <Control width="1" height="30" padding="0,8,0,8" bkimage="file='toolbar/splitterV.png' corner='0,2,0,2'"/>
+                    <Option name="opt_DataPage2" group="yc_tab1" userdata="main_web_database" textcolor="#FFFFFFFF" font="5" text="数据页2" width="110" textpadding="22,0,0,0" normalimage="file='mainwnd/mainwnd.righttab.icon.searchgame.png' source='0,0,16,16' dest='12,13,28,29'" hotimage="file='mainwnd/mainwnd.righttab.icon.searchgame.png' source='17,0,33,16' dest='12,13,28,29'" pushedimage="file='mainwnd/mainwnd.righttab.icon.searchgame.png' source='34,0,50,16' dest='12,13,28,29'" selectedimage="file='mainwnd/mainwnd.righttab.icon.searchgame.png' source='34,0,50,16' dest='12,13,28,29'"/>
+                    <VerticalLayout  height="30"  width="260" />
+                    <Control />
+                  </HorizontalLayout>
+
+
+                  <TabLayout name="tab_database0">
+                    
+                    <VerticalLayout name="OPT_0_1" height="670" childpadding="12"  >
+                      <HorizontalLayout   height="40">
+                        <HorizontalLayout width="10" />
+                        <HorizontalLayout bkimage="ui/矩形.png"    hscrollbar="true"  vscrollbar="true"  >
+                          <Option name="opt_Tab1" group="basic_tab0"  font="7" textcolor="#FFFFFFFF" text="星座数据表" selected="true" height="40" width="200"  normalimage="file='ui/未选中.png' " hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png' " selectedimage="file='ui/选中.png' "/>
+
+                          <Option name="opt_Tab2" group="basic_tab0" font="7" textcolor="#FFFFFFFF" text="单星数据表"  height="40"  width="170" textpadding="22,0,0,0" normalimage="file='ui/未选中.png' " hotimage="file='ui/选中.png' " pushedimage="file='ui/选中.png' " selectedimage="file='ui/选中.png' "/>
+
+                          <Option name="opt_Tab3" group="basic_tab0" font="7" textcolor="#FFFFFFFF" text="卫星载荷数据表"  height="40" width="200" textpadding="22,0,0,0" normalimage="file='ui/未选中.png'" hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png'" selectedimage="file='ui/选中.png'"/>
+
+                          <Option name="opt_Tab4" group="basic_tab0" font="7" textcolor="#FFFFFFFF" text="卫星天线"  height="40" width="160" textpadding="22,0,0,0" normalimage="file='ui/未选中.png'" hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png'" selectedimage="file='ui/选中.png'"/>
+
+                          <Option name="opt_Tab5" group="basic_tab0" font="7" textcolor="#FFFFFFFF" text="电信港数据表"  height="40" width="170" textpadding="22,0,0,0" normalimage="file='ui/未选中.png'" hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png'" selectedimage="file='ui/选中.png'"/>
+
+                          <Option name="opt_Tab6" group="basic_tab0" font="7" textcolor="#FFFFFFFF" text="地球站数据表"  height="40"  width="170" textpadding="22,0,0,0" normalimage="file='ui/未选中.png'" hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png'" selectedimage="file='ui/选中.png'"/>
+
+                          <Option name="opt_Tab7" group="basic_tab0" font="7" textcolor="#FFFFFFFF" text="地球站溃源数据表"  height="40" width="170" textpadding="22,0,0,0" normalimage="file='ui/未选中.png'" hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png'" selectedimage="file='ui/选中.png'"/>
+
+                          <HorizontalLayout width="5" />
+
+                        </HorizontalLayout >
+                      </HorizontalLayout >
+
+
+                      <TabLayout name="tab_database1">
+                        <!--界面1-->
+                        <VerticalLayout name="OPT_1" height="470" childpadding="12" vscrollbar="true" hscrollbar="true" >
+
+                          <HorizontalLayout height="40" width="1000" inset="0,6,0,6" childpadding="1" >
+
+                            <HorizontalLayout width="10" />
+                            <Button name="bt_Import_opt1"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Label text="筛选条件:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
+                            <Combo  name="Com_FilterCriteria_opt1" style="combo_style" width="180" align="left" valign="vcenter" font="7"  height="30"  />
+                            <HorizontalLayout width="20" />
+                            <Edit name="edit_Conditions_opt1" font="7" width="130" height="30" textcolor="#FF000000"/>
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Filter_opt1"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Export_opt1"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+
+                          </HorizontalLayout>
+                          <HorizontalLayout height="430" width="1280" inset="0,6,0,6" childpadding="1" >
+                            <HorizontalLayout width="10" />
+                            <List name="list_DataShow_XZSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
+                              <!--<ListHeader height="30" menu="true"  >-->
+                              <ListHeader height="40"   >
+                                <ListHeaderItem text="星座名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属国家"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属机构"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="创建年份"  multiline="true"  font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="工程期数"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
+
+                                <ListHeaderItem text="工作寿命"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="星座卫星总数量"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="星座轨道面数"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="下属卫星名称"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+
+
+                              </ListHeader>
+                            </List>
+
+                          </HorizontalLayout>
+                        </VerticalLayout>
+                        <!--界面2-->
+                        <VerticalLayout name="OPT_2" height="470" childpadding="12" vscrollbar="true" hscrollbar="true" >
+                          <HorizontalLayout height="40" width="1000" inset="0,6,0,6" childpadding="1" >
+
+                            <HorizontalLayout width="10" />
+                            <Button name="bt_Import_opt1"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Label text="筛选条件:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
+                            <Combo  name="Com_FilterCriteria_opt2" style="combo_style" width="180" align="left" valign="vcenter" font="7"  height="30"  />
+                            <HorizontalLayout width="20" />
+                            <Edit name="edit_Conditions_opt2" font="7" width="130" height="30" textcolor="#FF000000"/>
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Filter_opt2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Export_opt2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+
+                          </HorizontalLayout>
+                          <HorizontalLayout height="430" width="1280" inset="0,6,0,6" childpadding="1" >
+                            <HorizontalLayout width="10" />
+                            <List name="list_DataShow_DXSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
+                              <!--<ListHeader height="30" menu="true"  >-->
+                              <ListHeader height="40"   >
+                                <ListHeaderItem text="卫星名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属星座"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属国家"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属机构"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="功能类别"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75" height="40"  align="center" textpadding="15,0,0,0"/>
+
+                                <ListHeaderItem text="所属轨道卫星"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="NORAD编号"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="90"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="COPAR编号"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="90" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="是否公开信息标识"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
+
+                                <ListHeaderItem text="卫星寿命"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="轨道半长轴"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="90" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="轨道偏心率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="90" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="轨道倾角"  font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="升交点赤经"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="90" height="40"  align="center" textpadding="15,0,0,0"/>
+
+
+                                <ListHeaderItem text="近地点辐角"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="90"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="直近点角"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="卫星载荷名称"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="卫星天线名称"  multiline="true"  font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+
+                              </ListHeader>
+                            </List>
+
+                          </HorizontalLayout>
+                        </VerticalLayout>
+
+                        <!--界面3-->
+                        <VerticalLayout name="OPT_3" height="470" childpadding="12" vscrollbar="true" hscrollbar="true" >
+                          <HorizontalLayout height="40" width="1000" inset="0,6,0,6" childpadding="1" >
+
+                            <HorizontalLayout width="10" />
+                            <Button name="bt_Import_opt3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Label text="筛选条件:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
+                            <Combo  name="Com_FilterCriteria_opt3" style="combo_style" width="180" align="left" valign="vcenter" font="7"  height="30"  />
+                            <HorizontalLayout width="20" />
+                            <Edit name="edit_Conditions_opt3" font="7" width="130" height="30" textcolor="#FF000000"/>
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Filter_opt3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Export_opt3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+
+                          </HorizontalLayout>
+                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                            <HorizontalLayout width="10" />
+                            <List name="list_DataShow_WXZHAJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
+                              <!--<ListHeader height="30" menu="true"  >-->
+                              <ListHeader height="40"   >
+                                <ListHeaderItem text="载荷名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="工作波段"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属机构"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="转发器发射机饱和EIRP"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="转发器发射机饱和通量密度"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200" height="40"  align="center" textpadding="15,0,0,0"/>
+
+                                <ListHeaderItem text="转发器接收机G/T值"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="转发器带宽"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200"  height="40"  align="center" textpadding="15,0,0,0"/>
+
+                              </ListHeader>
+                            </List>
+
+                          </HorizontalLayout>
+
+                        </VerticalLayout>
+                        <!--界面4-->
+                        <VerticalLayout name="OPT_4" height="470" childpadding="12" vscrollbar="true" hscrollbar="true" >
+                          <HorizontalLayout height="40" width="1000" inset="0,6,0,6" childpadding="1" >
+
+                            <HorizontalLayout width="10" />
+                            <Button name="bt_Import_opt4"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入" foreimage=" res='ui//矩形蓝色.png'" bkcolor="#FFFEBA4B"  valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Label text="筛选条件:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
+                            <Combo  name="Com_FilterCriteria_opt4" style="combo_style" width="180" align="left" valign="vcenter" font="7"  height="30"  />
+                            <HorizontalLayout width="20" />
+                            <Edit name="edit_Conditions_opt4" font="7" width="130" height="30" textcolor="#FF000000"/>
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Filter_opt4"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Export_opt4"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+
+                          </HorizontalLayout>
+                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                            <HorizontalLayout width="10" />
+                            <List name="list_DataShow_WXTX" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
+                              <!--<ListHeader height="30" menu="true"  >-->
+                              <ListHeader height="40"   >
+                                <ListHeaderItem text="天线名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属卫星"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线类型"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线口径"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线增益"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+
+                                <ListHeaderItem text="天线效率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线指向误差"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="170"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线极化误差"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="170"  height="40"  align="center" textpadding="15,0,0,0"/>
+
+                              </ListHeader>
+                            </List>
+
+                          </HorizontalLayout>
+
+                        </VerticalLayout>
+                        <!--界面5-->
+                        <VerticalLayout name="OPT_5" height="470" childpadding="12" vscrollbar="true" hscrollbar="true" >
+                          <HorizontalLayout height="40" width="1000" inset="0,6,0,6" childpadding="1" >
+
+                            <HorizontalLayout width="10" />
+                            <Button name="bt_Import_opt5"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Label text="筛选条件:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
+                            <Combo  name="Com_FilterCriteria_opt5" style="combo_style" width="180" align="left" valign="vcenter" font="7"  height="30"  />
+                            <HorizontalLayout width="20" />
+                            <Edit name="edit_Conditions_opt5" font="7" width="130" height="30" textcolor="#FF000000"/>
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Filter_opt5"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Export_opt5"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+
+                          </HorizontalLayout>
+                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                            <HorizontalLayout width="10" />
+                            <List name="list_DataShow_DXGSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
+                              <!--<ListHeader height="30" menu="true"  >-->
+                              <ListHeader height="40"   >
+                                <ListHeaderItem text="电信港名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="170"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属国家"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属机构"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="性质"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="创建年份"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+
+                                <ListHeaderItem text="经度"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="纬度"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="下属地球站名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="170"  height="40"  align="center" textpadding="15,0,0,0"/>
+
+                              </ListHeader>
+                            </List>
+
+                          </HorizontalLayout>
+
+                        </VerticalLayout>
+                        <!--界面6-->
+                        <VerticalLayout name="OPT_6" height="470" childpadding="12" vscrollbar="true" hscrollbar="true" >
+                          <HorizontalLayout height="40" width="1000" inset="0,6,0,6" childpadding="1" >
+
+                            <HorizontalLayout width="10" />
+                            <Button name="bt_Import_opt6"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Label text="筛选条件:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
+                            <Combo  name="Com_FilterCriteria_opt6" style="combo_style" width="180" align="left" valign="vcenter" font="7"  height="30"  />
+                            <HorizontalLayout width="20" />
+                            <Edit name="edit_Conditions_opt6" font="7" width="130" height="30" textcolor="#FF000000"/>
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Filter_opt6"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Export_opt6"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+
+                          </HorizontalLayout>
+                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                            
+                            <HorizontalLayout width="10" />
+                            <List name="list_DataShow_DQZSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
+                              <!--<ListHeader height="30" menu="true"  >-->
+                              <ListHeader height="40"   >
+                                <ListHeaderItem text="地球站名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属电信港"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属机构"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="地球站类型"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="经度"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
+
+                                <ListHeaderItem text="纬度"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="高度"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="地球站溃源名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="地球站波形设备名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="地球站天线名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150"  height="40"  align="center" textpadding="15,0,0,0"/>
+
+                              </ListHeader>
+                            </List>
+
+                          </HorizontalLayout>
+
+                        </VerticalLayout>
+
+                        <!--界面7-->
+                        <VerticalLayout name="OPT_7" height="470" childpadding="12" vscrollbar="true" hscrollbar="true" >
+                          <HorizontalLayout height="40" width="1000" inset="0,6,0,6" childpadding="1" >
+
+                            <HorizontalLayout width="10" />
+                            <Button name="bt_Import_opt7"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Label text="筛选条件:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
+                            <Combo  name="Com_FilterCriteria_opt7" style="combo_style" width="180" align="left" valign="vcenter" font="7"  height="30"  />
+                            <HorizontalLayout width="20" />
+                            <Edit name="edit_Conditions_opt7" font="7" width="130" height="30" textcolor="#FF000000"/>
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Filter_opt7"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Export_opt7"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+
+                          </HorizontalLayout>
+                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                            <HorizontalLayout width="10" />
+                            <List name="list_DataShow_DQZKYSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
+                              <!--<ListHeader height="30" menu="true"  >-->
+                              <ListHeader height="40"   >
+                                <ListHeaderItem text="溃源名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属地球站"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="工作波段"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属机构"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="发射机功率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110" height="40"  align="center" textpadding="15,0,0,0"/>
+                                
+                                <ListHeaderItem text="发射载波频率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="前向纠错编码率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>                               
+                                <ListHeaderItem text="上行信息速率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="接收机G/T值"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="接收机载波频率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                
+                                <ListHeaderItem text="下行信息速率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110"  height="40"  align="center" textpadding="15,0,0,0"/>
+
+                              </ListHeader>
+                            </List>
+
+                          </HorizontalLayout>
+
+                        </VerticalLayout>
+                      </TabLayout>
+                    </VerticalLayout>
+
+                    <VerticalLayout name="OPT_0_2" height="600" childpadding="12" vscrollbar="true" hscrollbar="true" >
+                      <HorizontalLayout   height="40">
+                        <HorizontalLayout width="10" />
+                        <HorizontalLayout bkimage="ui/矩形.png"    hscrollbar="true"  vscrollbar="true"  >
+                          <Option name="opt_Tab2_0" group="basic_tab1" font="7" textcolor="#FFFFFFFF" selected="true" text="地球站波形设备数据表"  height="40" width="250" textpadding="22,0,0,0" normalimage="file='ui/未选中.png'" hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png'" selectedimage="file='ui/选中.png'"/>
+
+                          <Option name="opt_Tab2_1" group="basic_tab1" font="7" textcolor="#FFFFFFFF" text="地球站天线"  height="40" width="200" textpadding="22,0,0,0" normalimage="file='ui/未选中.png'" hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png'" selectedimage="file='ui/选中.png'"/>
+
+                          <Option name="opt_Tab2_2" group="basic_tab1" font="7" textcolor="#FFFFFFFF" text="地面终端数据表"  height="40"  width="200" textpadding="22,0,0,0" normalimage="file='ui/未选中.png'" hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png'" selectedimage="file='ui/选中.png'"/>
+
+                          <Option name="opt_Tab2_3" group="basic_tab1" font="7" textcolor="#FFFFFFFF" text="终端载荷数据表"  height="40" width="200" textpadding="22,0,0,0" normalimage="file='ui/未选中.png'" hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png'" selectedimage="file='ui/选中.png'"/>
+
+                          <Option name="opt_Tab2_4" group="basic_tab1" font="7" textcolor="#FFFFFFFF" text="终端波形设备数据表"  height="40" width="200" textpadding="22,0,0,0" normalimage="file='ui/未选中.png'" hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png'" selectedimage="file='ui/选中.png'"/>
+
+                          <Option name="opt_Tab2_5" group="basic_tab1" font="7" textcolor="#FFFFFFFF" text="终端天线"  height="40"  width="200" textpadding="22,0,0,0" normalimage="file='ui/未选中.png'" hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png'" selectedimage="file='ui/选中.png'"/>
+
+                          <HorizontalLayout width="5" />
+
+                        </HorizontalLayout >
+                      </HorizontalLayout >
+
+
+                      <TabLayout name="tab_database2">
+
+                        <!--界面8-->
+                        <VerticalLayout name="OPT_8" height="470" childpadding="12" vscrollbar="true" hscrollbar="true" >
+                          <HorizontalLayout height="40" width="1000" inset="0,6,0,6" childpadding="1" >
+
+                            <HorizontalLayout width="10" />
+                            <Button name="bt_Import_opt8"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Label text="筛选条件:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
+                            <Combo  name="Com_FilterCriteria_opt8" style="combo_style" width="180" align="left" valign="vcenter" font="7"  height="30"  />
+                            <HorizontalLayout width="20" />
+                            <Edit name="edit_Conditions_opt8" font="7" width="130" height="30" textcolor="#FF000000"/>
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Filter_opt8"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Export_opt8"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+
+                          </HorizontalLayout>
+                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                            <HorizontalLayout width="10" />
+                            <List name="list_DataShow_DQZBXSBSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
+                              <!--<ListHeader height="30" menu="true"  >-->
+                              <ListHeader height="40"   >
+                                <ListHeaderItem text="波形设备名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="170"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属地球站"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="波形设备型号"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="170" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="调制方式"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="解调方式"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
+
+                                <ListHeaderItem text="编码方式"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="125" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="载波类型"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="125"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="带宽"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="设备功能"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150"  height="40"  align="center" textpadding="15,0,0,0"/>
+
+                              </ListHeader>
+                            </List>
+
+                          </HorizontalLayout>
+
+                        </VerticalLayout>
+
+                        <!--界面9-->
+                        <VerticalLayout name="OPT_9" height="470" childpadding="12" vscrollbar="true" hscrollbar="true" >
+                          <HorizontalLayout height="40" width="1000" inset="0,6,0,6" childpadding="1" >
+
+                            <HorizontalLayout width="10" />
+                            <Button name="bt_Import_opt9"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Label text="筛选条件:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
+                            <Combo  name="Com_FilterCriteria_opt9" style="combo_style" width="180" align="left" valign="vcenter" font="7"  height="30"  />
+                            <HorizontalLayout width="20" />
+                            <Edit name="edit_Conditions_opt9" font="7" width="130" height="30" textcolor="#FF000000"/>
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Filter_opt9"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Export_opt9"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+
+                          </HorizontalLayout>
+                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                            <HorizontalLayout width="10" />
+                            <List name="list_DataShow_DQZTX" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
+                              <!--<ListHeader height="30" menu="true"  >-->
+                              <ListHeader height="40"   >
+                                <ListHeaderItem text="天线名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="130"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属地球站"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="180" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线类型"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="130" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线口径"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="130" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线增益"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="130" height="40"  align="center" textpadding="15,0,0,0"/>
+
+                                <ListHeaderItem text="天线效率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线指向误差"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线极化误差"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200"  height="40"  align="center" textpadding="15,0,0,0"/>
+
+                              </ListHeader>
+                            </List>
+
+                          </HorizontalLayout>
+
+                        </VerticalLayout>
+
+                        <!--界面10-->
+                        <VerticalLayout name="OPT_10" height="470" childpadding="12" vscrollbar="true" hscrollbar="true" >
+                          <HorizontalLayout height="40" width="1000" inset="0,6,0,6" childpadding="1" >
+
+                            <HorizontalLayout width="10" />
+                            <Button name="bt_Import_opt10"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Label text="筛选条件:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
+                            <Combo  name="Com_FilterCriteria_opt10" style="combo_style" width="180" align="left" valign="vcenter" font="7"  height="30"  />
+                            <HorizontalLayout width="20" />
+                            <Edit name="edit_Conditions_opt10" font="7" width="130" height="30" textcolor="#FF000000"/>
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Filter_opt10"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Export_opt10"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+
+                          </HorizontalLayout>
+                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                            <HorizontalLayout width="10" />
+                            <List name="list_DataShow_DMZDSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
+                              <!--<ListHeader height="30" menu="true"  >-->
+                              <ListHeader height="40"   >
+                                <ListHeaderItem text="终端名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="250"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="终端类型"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="250" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="终端载荷名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="250" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="终端波形设备名称"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="250" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="终端天线名称"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="250" height="40"  align="center" textpadding="15,0,0,0"/>
+
+                              </ListHeader>
+                            </List>
+
+                          </HorizontalLayout>
+
+                        </VerticalLayout>
+
+                        <!--界面11-->
+                        <VerticalLayout name="OPT_11" height="470" childpadding="12" vscrollbar="true" hscrollbar="true" >
+                          <HorizontalLayout height="40" width="1000" inset="0,6,0,6" childpadding="1" >
+
+                            <HorizontalLayout width="10" />
+                            <Button name="bt_Import_opt11"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Label text="筛选条件:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
+                            <Combo  name="Com_FilterCriteria_opt11" style="combo_style" width="180" align="left" valign="vcenter" font="7"  height="30"  />
+                            <HorizontalLayout width="20" />
+                            <Edit name="edit_Conditions_opt11" font="7" width="130" height="30" textcolor="#FF000000"/>
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Filter_opt11"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Export_opt11"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+
+                          </HorizontalLayout>
+                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                            <HorizontalLayout width="10" />
+                            <List name="list_DataShow_ZDZHSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
+                              <!--<ListHeader height="30" menu="true"  >-->
+                              <ListHeader height="40"   >
+                                <ListHeaderItem text="载荷名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属终端"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="工作波段"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属机构"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="发射机功率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="发射载波频率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
+
+                                <ListHeaderItem text="前向纠错编码率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="上行信息速率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="接收机G/T值"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="接收机载波频率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="下行信息速率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120"  height="40"  align="center" textpadding="15,0,0,0"/>
+
+                              </ListHeader>
+                            </List>
+
+                          </HorizontalLayout>
+
+                        </VerticalLayout>
+                        <!--界面12-->
+                        <VerticalLayout name="OPT_12" height="470" childpadding="12" vscrollbar="true" hscrollbar="true" >
+                          <HorizontalLayout height="40" width="1000" inset="0,6,0,6" childpadding="1" >
+
+                            <HorizontalLayout width="10" />
+                            <Button name="bt_Import_opt12"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Label text="筛选条件:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
+                            <Combo  name="Com_FilterCriteria_opt12" style="combo_style" width="180" align="left" valign="vcenter" font="7"  height="30"  />
+                            <HorizontalLayout width="20" />
+                            <Edit name="edit_Conditions_opt12" font="7" width="130" height="30" textcolor="#FF000000"/>
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Filter_opt12"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Export_opt12"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+
+                          </HorizontalLayout>
+                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                            <HorizontalLayout width="10" />
+                            <List name="list_DataShow_ZDBXSBSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
+                              <!--<ListHeader height="30" menu="true"  >-->
+                              <ListHeader height="40"   >
+                                <ListHeaderItem text="波形设备名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="波形设备型号"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="调制方式"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="解调方式"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="编码方式"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
+
+                                <ListHeaderItem text="载波类型"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="带宽"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="设备功能"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
+
+                              </ListHeader>
+                            </List>
+
+                          </HorizontalLayout>
+
+                        </VerticalLayout>
+                        <!--界面13-->
+                        <VerticalLayout name="OPT_13" height="470" childpadding="12" vscrollbar="true" hscrollbar="true" >
+                          <HorizontalLayout height="40" width="1000" inset="0,6,0,6" childpadding="1" >
+
+                            <HorizontalLayout width="10" />
+                            <Button name="bt_Import_opt13"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Label text="筛选条件:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
+                            <Combo  name="Com_FilterCriteria_opt13" style="combo_style" width="180" align="left" valign="vcenter" font="7"  height="30"  />
+                            <HorizontalLayout width="20" />
+                            <Edit name="edit_Conditions_opt13" font="7" width="130" height="30" textcolor="#FF000000"/>
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Filter_opt13"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
+                            <HorizontalLayout width="20" />
+                            <Button name="bt_Export_opt13"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+
+                          </HorizontalLayout>
+                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                            <HorizontalLayout width="10" />
+                            <List name="list_DataShow_ZDTX" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
+                              <!--<ListHeader height="30" menu="true"  >-->
+                              <ListHeader height="40"   >
+                                <ListHeaderItem text="天线名称"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="所属终端"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线类型"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线口径"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线增益"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
+
+                                <ListHeaderItem text="天线效率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线指向误差"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200"  height="40"  align="center" textpadding="15,0,0,0"/>
+                                <ListHeaderItem text="天线极化误差"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200" height="40"  align="center" textpadding="15,0,0,0"/>
+
+                              </ListHeader>
+                            </List>
+
+                          </HorizontalLayout>
+
+                        </VerticalLayout>
+                      </TabLayout>
+                    </VerticalLayout>
+                    
+                  </TabLayout>
+               
+                   
+                </VerticalLayout>
+
+
+                <HorizontalLayout width="5" />
+              </HorizontalLayout>
+
+            </VerticalLayout>
+          </TabLayout>
+
+        </VerticalLayout>
+
+      </HorizontalLayout>
+    <!--</VerticalLayout>-->
+
+
+
+  </VerticalLayout>
+
+
+</Window>

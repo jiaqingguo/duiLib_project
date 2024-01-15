@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Window caption="0,0,0,300" size="400,300" mininfo="400,300" bktrans="true" sizebox="6,6,6,6" >
+  <VerticalLayout name="root" >
+    <VerticalLayout  childalign="center">
+      <Control />
+      <Ring name="ring" text="正在筛选..." textcolor="#FF333333" align="center" valign="vcenter" height="200" width="200" bkimage="XZZ.png"/>
+      <!--<GifAnim name="ani_gif"  bkimage="upgrade.gif" height="200"  width="200"/>-->
+      <!--<GifAnim name="ani_gif"  bkimage="ZZSX.gif" height="200"  width="200"/>-->
+      <Control />
+    </VerticalLayout>
+  </VerticalLayout>
+</Window>

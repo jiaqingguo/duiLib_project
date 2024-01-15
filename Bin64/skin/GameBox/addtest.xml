@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window caption="0,0,0,40" size="500,350" >
+  <Font id="0" name="微软雅黑" size="12" default="true"/>
+  <Font id="1" name="微软雅黑" size="14"/>
+  <Font id="5" name="微软雅黑" size="20" bold="true" italic="false" />
+  <Font id="6" name="微软雅黑" size="15" bold="false" italic="false" />
+  <Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;30&quot; textcolor=&quot;#FFFFFFFF&quot; hottextcolor=&quot;#FF00BFFF&quot; textpadding=&quot;16,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,25.25'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,25.25'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,25.25'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,25,25'&quot;" />
+  <VerticalLayout bkcolor="#ff477eb2" bordersize="1" bordercolor="#FF1f93e8">
+    <HorizontalLayout name="appbar" height="36" inset="6,-1" bkcolor="#aa1f93e8">
+      <Label name="MessageTitle" valign="vcenter" text="提示" textcolor="#FFFFFFFF" font="1" />
+      <Button name="closebtn" width="39" height="20" tooltip="关闭" normalimage="file='sysbtn/btn_close_normal.png'" hotimage="file='sysbtn/btn_close_highlight.png'" pushedimage="file='sysbtn/btn_close_down.png'"/>
+    </HorizontalLayout>
+    <Control height="1" bkcolor="#FF1f93e8"/>
+    <VerticalLayout inset="20,10,20,10">
+      <HorizontalLayout childpadding="5" height="60" inset="10,10,10,10">
+        <!--<Option name="optical_id" text="转台数据存储" font="5" textcolor="#FFFFFFFF"  textpadding="30,10,0,5" style="cb_style" width="170" height="30" autocalcwidth="true" />
+        <HorizontalLayout width="5" />
+        <Label  text="转台数据存储:"  wordbreak="true"   valign="vcenter"  align="left" font="19"  width="80"  height="30"  mouse="false" />-->
+        <Label text="仿真状态名称:"  textcolor="#FFFFFFFF"  font="5" width="130"  height="30"   align="left" />
+        <HorizontalLayout width="5" />
+        <Edit name="id" text="仿真状态x"  font="5" enabled="false" width="200"  valign="vcenter"  height="30"  hscrollbar="true"   align="left" font="13"/>
+        
+      
+      </HorizontalLayout>
+
+      <!--<HorizontalLayout childpadding="5" height="60" inset="10,10,10,10">
+        <Option name="optical_id1" text="动力学数据存储" font="5" textcolor="#FF000000" textpadding="6,0,6,0" style="cb_style" width="170" autocalcwidth="true" />
+        <Option name="optical_id1" text="动力学数据存储" font="5" textpadding="6,0,6,0" style="cb_style" width="170"  height="30" autocalcwidth="true" />
+        <HorizontalLayout width="5" />-->
+        <!--<Label  text="转台数据存储:"  wordbreak="true"   valign="vcenter"  align="left" font="19"  width="80"  height="30"  mouse="false" />
+        <Edit name="id1"   width="200"  valign="vcenter"  height="30"  hscrollbar="true"   align="left" font="13"/>
+
+
+      </HorizontalLayout>-->
+      <HorizontalLayout height="30">
+        <HorizontalLayout width="20" />
+        <Option name="optical_fiber1"   text="变量x" font="6" textpadding="6,0,6,0" style="cb_style" width="100" autocalcwidth="true" textcolor="#FFFFFFFF" hottextcolor="#FF000000" />
+        <HorizontalLayout width="10" />
+        <Option name="optical_fiber2"  text="变量y" font="6" textpadding="6,0,6,0" style="cb_style" width="100" autocalcwidth="true" textcolor="#FFFFFFFF" hottextcolor="#FF000000"/>
+        <HorizontalLayout width="10" />
+        <Option name="optical_fiber3"   text="变量z" font="6" textpadding="6,0,6,0" style="cb_style" width="100" autocalcwidth="true" textcolor="#FFFFFFFF" hottextcolor="#FF000000"/>
+      </HorizontalLayout>
+
+      <HorizontalLayout height="30">
+        <HorizontalLayout width="20" />
+        <Option name="optical_fiber4" text="变量滚动" font="6" textpadding="6,0,6,0" style="cb_style" width="100" autocalcwidth="true" textcolor="#FFFFFFFF" hottextcolor="#FF000000"/>
+        <HorizontalLayout width="10" />
+        <Option name="optical_fiber5" text="变量俯仰" font="6" textpadding="6,0,6,0" style="cb_style" width="100" autocalcwidth="true" textcolor="#FFFFFFFF" hottextcolor="#FF000000"/>
+        <HorizontalLayout width="10" />
+        <Option name="optical_fiber6" text="变量偏航" font="6" textpadding="6,0,6,0" style="cb_style" width="100" autocalcwidth="true" textcolor="#FFFFFFFF" hottextcolor="#FF000000"/>
+      </HorizontalLayout>
+
+      <HorizontalLayout height="30">
+        <HorizontalLayout width="20" />
+        <Option name="optical_fiber7" text="变量dof7" font="6" textpadding="6,0,6,0" style="cb_style" width="100" autocalcwidth="true" textcolor="#FFFFFFFF" hottextcolor="#FF000000"/>
+        <HorizontalLayout width="10" />
+        <Option name="optical_fiber8" text="变量dof8" font="6" textpadding="6,0,6,0" style="cb_style" width="100" autocalcwidth="true" textcolor="#FFFFFFFF" hottextcolor="#FF000000"/>
+        <HorizontalLayout width="10" />
+        <Option name="optical_fiber9" text="变量dof9" font="6" textpadding="6,0,6,0" style="cb_style" width="100" autocalcwidth="true" textcolor="#FFFFFFFF" hottextcolor="#FF000000"/>
+      </HorizontalLayout>
+     </VerticalLayout>
+    <HorizontalLayout height="60" inset="10,10,10,10">
+      <Control />
+      <Button name="confirm_btn" text="确定" height="30" width="75" align="center" valign="vcenter" textcolor="#FF555555" textpadding="6,0,6,0" normalimage="res='button_normal.png' corner='4,4,4,4'" hotimage="res='button_hover.png' corner='4,4,4,4'" pushedimage="res='button_pushed.png' corner='4,4,4,4'"/>
+      <Control width="20"/>
+      <Button name="cancel_btn" text="取消" height="30" width="75" align="center" valign="vcenter" textcolor="#FF555555" textpadding="6,0,6,0" normalimage="res='button_normal.png' corner='4,4,4,4'" hotimage="res='button_hover.png' corner='4,4,4,4'" pushedimage="res='button_pushed.png' corner='4,4,4,4'"/>
+      <Control width="30"/>
+    </HorizontalLayout>
+  </VerticalLayout>
+</Window>

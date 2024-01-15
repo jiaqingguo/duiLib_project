@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{c75b9d7c-452a-4867-a585-e8aee4a05f51}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{249f81db-516d-4a60-9882-d3fd674e412c}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{057557f5-517e-47cf-a695-8b482beaf54a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameItemUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShortCutUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DecodeDll\DecodeDll.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlRead\tinystr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlRead\tinyxml.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlRead\tinyxmlerror.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlRead\tinyxmlparser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SplashWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlEx1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PopWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PopWnds.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Helper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPopLinkManage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPopNetworkManage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClueScreenClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPopEditorialClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CpopModifyInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPopNewConstellation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CpopSelectLevel1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CpopSelectEquipment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPopNewAttributeClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPopDeleteAttClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawingInterfaceClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CallFmuClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectMysql.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPopDataManage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ControlEx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameItemUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortCutUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LabelEx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlEx1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DecodeDll\DecodeDll.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libXL\enum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DecodeDll\Handler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DecodeDll\Header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libXL\IAutoFilterT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libXL\IBookT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libXL\IFilterColumnT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libXL\IFontT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libXL\IFormatT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libXL\ISheetT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libXL\libxl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MySQL\MysqlProxy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PopWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PopWnds.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libXL\setup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SplashWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Structural.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlRead\tinystr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlRead\tinyxml.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\UtilTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WndUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DecodeDll\xlsentity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlRead\XmlRead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\interface\controller_i.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UDP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UdpRecvClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CPopLinkManage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CPopNetworkManage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClueScreenClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CPopEditorialClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CpopModifyInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CPopNewConstellation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CpopSelectLevel1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CpopSelectEquipment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CPopNewAttributeClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CPopDeleteAttClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawingInterfaceClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MySQL\MysqlAdmin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CallFmuClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectMysql.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CPopDataManage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res\gamebox.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="..\..\bin\skin\GameBox\shortcut.xml">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Res\icon.ico" />
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GameBox.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\Bin64\skin\GameBox\addtest.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\ClueScreen.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\CorrectnessTest.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\CPopEditorial.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\DataManagement.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\DeleteAttribute.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\DrawingInterfaceClass.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\DrawingInterfaceClass_group.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\DrawingInterfaceClass_perLine.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\gameitem.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\Loading.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\menu.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\menu_1.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\menu_2.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\menu_net1.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\menu_net2.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\menu_net3.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\menu1.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\menu1_1.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\menu1_2.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\menu2.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\menu2_1.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\ModifyInterface.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\NetworkManagement.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\NewAttribute.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\NewConstellation.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\search.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\SelectEquipment.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\SelectEquipment_1.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\SelectLevel1.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\skin.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\splash - 副本.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\splash.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\start.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="..\Bin64\skin\GameBox\ui1.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>

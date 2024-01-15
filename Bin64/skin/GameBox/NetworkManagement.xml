@@ -1,0 +1,876 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="900,800" sizebox="4,4,4,4" caption="0,0,0,-1" mininfo="600,500" roundcorner="4,4">
+  <Font name="微软雅黑" size="13" bold="false" italic="false" default="true" />
+  <Font name="微软雅黑" size="12" bold="false" italic="false" />
+  <Font name="微软雅黑" size="22" bold="false" italic="false" />
+  <!--<Font id="2" name="微软雅黑" size="13" bold="true" italic="false" />-->
+  <Font id="3" name="微软雅黑" size="18" bold="true" shared="true"/>
+  <Font id="4" name="微软雅黑" size="13" bold="true" italic="false" />
+  <Font id="5" name="微软雅黑" size="15" bold="true" italic="false" />
+  <Font id="6" name="微软雅黑" size="12" bold="true" italic="false" />
+  <Font id="7" name="宋体" size="16" bold="false" italic="false" />
+  <Font id="8" name="宋体" size="17" bold="false" italic="false" />
+  <Font id="9" name="微软雅黑" size="13" bold="false" italic="false" />
+  <Font id="10" name="宋体" size="16" bold="false" italic="false" />
+  <Font id="11" name="微软雅黑" size="25" bold="true" italic="false" />
+  <Font id="13" name="宋体" size="15" bold="false" italic="false" />
+  <Font id="14" name="宋体" size="30" bold="true" italic="false" />
+  <Font id="17" name="宋体" size="22" bold="false" italic="false" />
+  <Default name="VScrollBar" value="width=&quot;10&quot; showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; thumbnormalimage=&quot;file=&apos;scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; fade=&apos;150&apos; &quot; thumbhotimage=&quot;file=&apos;scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; &quot; thumbpushedimage=&quot;file=&apos;scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; &quot; " />
+  <Style name="select_tab" value="pushedbkcolor=&quot;#FF00ff00&quot;group=&quot;select_tab&quot; bkcolor=&quot;#FFFFFFFF&quot; " />
+  <!--<Style name="edit_style" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF79A0E5&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />-->
+
+  <Style name="edit_style1" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FFFFFFFF&quot; nativebkcolor=&quot;#FF87CEFA&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />
+  <Style name="edit_style" value="width=&quot;200&quot; height=&quot;40&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF00A4FF&quot; nativebkcolor=&quot;#FF666666&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />
+  <Style name="header_tab" value="group=&quot;header_tab&quot;" />
+  <Style name="step_tab" value="group=&quot;step_tab&quot;" />
+  <!--Style name="list_style" value="headerbkimage=&quot;res='common/list_header_bg.png'&quot; itemalign=&quot;center&quot; itemlinecolor=&quot;#FF888888&quot; itemshowrowline=&quot;true&quot; itemshowcolumnline=&quot;true&quot;" />-->
+  <Style name="list_style" value="headerbkimage=&quot;file='list_header_bg.png'&quot; itemalign=&quot;center&quot; itemlinecolor=&quot;#FF888888&quot; itemshowrowline=&quot;true&quot; itemshowcolumnline=&quot;true&quot;" />
+  <!--<Style name="edit_style" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF666666&quot; nativebkcolor=&quot;#FF666666&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />-->
+  <Style name="nomalbtm_style" value="normalimage=&quot;res='normal.png' corner='4,4,4,4'&quot;   hotimage=&quot;res='enter.png' corner='4,4,4,4'&quot;  pushedimage=&quot;res='pressed.png' corner='4,4,4,4'&quot;"/>
+  <Style name="radio_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;17&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; stateimage=&quot;res='common/radio_normal.png' dest='0,0,20,20'&quot; statecount=&quot;2&quot; selectedstateimage=&quot;res='common/radio_selected.png' dest='0,0,20,20'&quot; selectedstatecount=&quot;2&quot;" />
+  <Style name="speed_tab" value="group=&quot;speed_header&quot;"/>
+  <Style name="statuse_tab" value="textcolor=&quot;#FF386382&quot; font=&quot;2&quot; normalimage=&quot;tabbar_normal_ statuse.png&quot; hotimage=&quot;tabbar_hover _statuse.png&quot; pushedimage=&quot;tabbar_pushed_statuse.png&quot; selectedimage=&quot;tabbar_pushed_statuse.png&quot; group=&quot;tab_statuse&quot;" pushedtextcolor="#FFFF0000"/>
+  <Style name="main_tab" value="group=&quot;tab_header&quot;" />
+  <!--<Style name="edit_style" value="bkimage=&quot;res='edit_bk.png' corner='6,6,6,6'&quot;" />-->
+  <Style name="btn_style"  value="drag=&quot;false&quot; textpadding=&quot;6,0,6,0&quot; textcolor=&quot;#FFFFFFFF&quot; normalimage=&quot;res='normal.png' corner='4,4,4,4'&quot; hotimage=&quot;res='enter.png' corner='4,4,4,4'&quot; pushedimage=&quot;res='pressed.png' corner='4,4,4,4'&quot;font=&quot;8&quot;" />
+  <Style name="treenode_folder_style" value="padding=&quot;0,1,0,0&quot; width=&quot;16&quot; height=&quot;16&quot; normalimage=&quot;file='Icon/treeview_b.png' source='0,0,16,16' &quot; hotimage=&quot;file='Icon/treeview_b.png' source='16,0,32,16' &quot; selectedimage=&quot;file='Icon/treeview_a.png' source='0,0,16,16' &quot; selectedhotimage=&quot;file='Icon/treeview_a.png' source='16,0,32,16' &quot;"/>
+ 
+  <Style name="treenode_folder_style_my" value="padding=&quot;0,1,0,0&quot; width=&quot;18&quot; height=&quot;18&quot; normalimage=&quot;file='ui/展开.png' &quot; hotimage=&quot;file='ui/展开.png'  &quot; selectedimage=&quot;file='ui/未展开.png' &quot; selectedhotimage=&quot;file='ui/未展开.png' &quot;"/>
+  <Style name="treenode_checkbox_style_my" value="width=&quot;30&quot; height=&quot;30&quot; normalimage=&quot;file='ui/未选中_1.png' &quot; selectedimage=&quot;file='ui/对号.png'&quot;" />
+
+  <Style name="listex_item_style" value="checkboxwidth=&quot;20&quot; checkboxheight=&quot;20&quot; checkboxnormalimage=&quot;file='common/unchecked.png'&quot; checkboxselectedimage=&quot;file='common/checked.png'&quot;"/>
+
+  <Style name="treenode_checkbox_style" value="width=&quot;16&quot; height=&quot;16&quot; normalimage=&quot;file='Icon/unchecked.png' &quot; selectedimage=&quot;file='Icon/checked.png'&quot;" />
+  <Style name="treeview_style" value="folderattr=&quot;treenode_folder_style&quot; checkboxattr=&quot;treenode_checkbox_style&quot;"/>
+  <Style name="combo_style1" value=" textcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;5,1,1,1&quot; normalimage=&quot;res='common/combo1.png' source='0,0,161,28' corner='2,2,28,2'&quot; hotimage=&quot;res='common/combo1.png' source='0,28,161,56' corner='2,2,28,2'&quot; pushedimage=&quot;res='common/combo1.png' source='0,56,161,84' corner='2,2,28,2'&quot;" />
+  <Style name="combo_style" value="height=&quot;22&quot; textpadding=&quot;4,1,22,1&quot; normalimage=&quot;file='combo.png' source='0,0,100,22' corner='2,2,20,2'&quot; hotimage=&quot;file='combo.png' source='0,22,100,44' corner='2,2,22,2'&quot; pushedimage=&quot;file='combo.png' source='0,44,100,66' corner='2,2,22,2'&quot;" />
+  <Style name="colortab_style" shared="true" value="textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; selectedtextcolor=&quot;#FFFF0000&quot; textpadding=&quot;6,0,6,0&quot; bkcolor=&quot;#FF2c2c2c&quot; hotbkcolor=&quot;#FF4b4b4b&quot; pushedbkcolor=&quot;#FF424242&quot; selectedbkcolor=&quot;#ffc4c4c4&quot;"  />
+  <Style name="cb_style-old" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+  <Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+  <Style name="checkbtn_style" value="width=&quot;162&quot;  height=&quot;162&quot;  font=&quot;8&quot;  textpadding=&quot;0,90,0,0&quot;   borderround=&quot;5,5&quot;  pushedbkcolor=&quot;#FF477db3&quot;  bkcolor=&quot;#FF63b0fa&quot;"/>
+  <Style name="headertitle_style" value="font=&quot;10&quot; width=&quot;150&quot; align=&quot;center&quot; height=&quot;60&quot;      borderround=&quot;10,10&quot;"/>
+  <VerticalLayout name="root" bkcolor="ffffffff" bkcolor2="ffffffff"  gdiplustext="true" textrenderinghint="0"  bordersize="1" bordercolor="ffd0d0d0"  childpadding="1"  inset="0,0,0,0"   height="900" colorhsl="true" >
+
+    
+     <VerticalLayout name="body" bkcolor="ffe5e6ef" bkcolor2="ff8796c2" bkimage="ui/背景.png">
+      <HorizontalLayout   childpadding="5"  height="20" >
+        <HorizontalLayout name="appbar" height="20" >
+          <HorizontalLayout align="center">
+            <!--<Label text="天地数据分析平台-界面" name="Title"  valign="vcenter" align="left" textcolor="#FF323232" font="6" tooltip="检测仪"/>-->
+          </HorizontalLayout>
+          <HorizontalLayout inset="0,-1,0,0" width="95">
+            <HorizontalLayout width="28" />
+            <Button name="minbtn" width="28" height="20" tooltip="最小化" normalimage="file='sysbtn/btn_mini_normal.png'" hotimage="file='sysbtn/btn_mini_highlight.png'" pushedimage="file='sysbtn/btn_mini_down.png' "/>
+            <Button name="closebtn" width="39" height="20" tooltip="关闭" normalimage="file='sysbtn/btn_close_normal.png'" hotimage="file='sysbtn/btn_close_highlight.png'" pushedimage="file='sysbtn/btn_close_down.png' "/>
+          </HorizontalLayout>
+        </HorizontalLayout>
+      </HorizontalLayout>  
+      <HorizontalLayout  width="800"  height="50">
+        <HorizontalLayout width="380" />
+        <Label  text="网络管理"  wordbreak="true"  textcolor="#FFFBF0" valign="vcenter"  align="left" font="14"  width="350"  height="50"  mouse="false" />
+      </HorizontalLayout>
+       <HorizontalLayout  width="800"  height="10">
+       </HorizontalLayout>
+       <HorizontalLayout bkimage="ui/矩形.png"    hscrollbar="true"  vscrollbar="true" height ="40" >
+         <Option name="opt_Tab1" group="basic_tab0"  font="7" textcolor="#FFFFFFFF" text="电磁链路网络" selected="true" height="40" width="280"  normalimage="file='ui/未选中.png' " hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png' " selectedimage="file='ui/选中.png' "/>
+
+         <Option name="opt_Tab2" group="basic_tab0" font="7" textcolor="#FFFFFFFF" text="通信服务网络"  height="40"  width="290" textpadding="22,0,0,0" normalimage="file='ui/未选中.png' " hotimage="file='ui/选中.png' " pushedimage="file='ui/选中.png' " selectedimage="file='ui/选中.png' "/>
+
+         <Option name="opt_Tab3" group="basic_tab0" font="7" textcolor="#FFFFFFFF" text="用户关系网络"  height="40" width="290" textpadding="22,0,0,0" normalimage="file='ui/未选中.png'" hotimage="file='ui/选中.png'" pushedimage="file='ui/选中.png'" selectedimage="file='ui/选中.png'"/>
+         <HorizontalLayout width="5" />
+
+       </HorizontalLayout >
+      <HorizontalLayout childpadding="5"   >     
+        <VerticalLayout inset="0,0,0,0" width="20"  childpadding="2"  >
+         <HorizontalLayout width="20" />
+        </VerticalLayout>
+        <VerticalLayout  >          
+		  <TabLayout name="tab_switch" bkimage="ui/背景图.jpg" animation_direction="vertical">
+
+        <!--电磁链路网络-->
+        <VerticalLayout name="xx20-basic_tab_panel" inset="2,2,2,2"   height="920" >
+              
+           <HorizontalLayout height="370" inset="0,6,0,6" childpadding="1" >
+
+
+                <GroupBox text ="" font="10"  textcolor="#FFFFFFFF" width="300" bkimage="ui/page1/切图/线框1.png"   borderround="6,6" vscrollbar="true" hscrollbar="true">
+                  <HorizontalLayout height="260" >
+                    <TreeView name="treeview1" visiblefolderbtn="true" visiblecheckbtn="false"  vscrollbar="true" hscrollbar="true" >
+
+                    </TreeView>
+                  </HorizontalLayout>
+                    <HorizontalLayout height="20">
+
+                      <Option name="optical_ScenarioData"  group ="group1" Visible="true" text="场景数据" font="10" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FFFFFFFF" hottextcolor="#FFFFA500" />
+                      <HorizontalLayout width="10" />
+                      <Option name="optical_LocalData" group ="group1" Visible="true" text="本地数据" font="10" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FFFFFFFF" hottextcolor="#FFFFA500"/>
+
+                    </HorizontalLayout>
+                    <HorizontalLayout height="5">
+                    </HorizontalLayout>
+                    <HorizontalLayout height="40">
+                      <HorizontalLayout width="20" />
+                      <Button name="bt_Tree1_Import"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入"  bkcolor="#FF1970EF"  valign="vcenter"  width="60"  height="30"   />
+                      <HorizontalLayout width="20" />
+                      <Button name="bt_Tree1_SaveAs"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="另存为"  bkcolor="#FF1970EF"  valign="vcenter"  width="80"  height="30"   />
+
+                    </HorizontalLayout>
+
+                </GroupBox>
+
+                <HorizontalLayout width="10" />
+                <VerticalLayout name="Control" childpadding="1" >
+
+
+
+
+                  <GroupBox text =""   font="10" textcolor="#FFFFFFFF" width="630" bkimage="ui/page1/切图/线框1.png" borderround="6,6">
+
+                      <VerticalLayout name="ver_1" Visible="true" childpadding="12" vscrollbar="true" hscrollbar="true" >
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles1" text="卫星名称" bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                          <Edit name="p1" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles2" text="所属星座"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                          <Edit name="p2" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+
+                        </HorizontalLayout>
+                        
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles3" text="所属国家"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p3" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+                          
+                          <Label name="titles4" text ="所属机构 "  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p4" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                          
+                          
+                        </HorizontalLayout>
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles5"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit  name="p5" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles6"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                          <Edit  name="p6" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                          <HorizontalLayout width="30" />
+
+                        </HorizontalLayout>
+
+
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles7"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p7" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles8"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p8" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles9"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                          <Edit name="p9" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+                          
+                          <Label name="titles10"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                          <Edit name="p10" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles11"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p11" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles12"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p12" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles13"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit  name="p13" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles14"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                          <Edit  name="p14" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles15"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p15" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />                  
+
+                          <Label name="titles16"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p16" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+
+                        </HorizontalLayout>
+
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles17"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                          <Edit name="p17" multiline="true"  Visible="false"   width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles18"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                          <Edit name="p18" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles19"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p19" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles20"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p20" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles21"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit  name="p21" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles22"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                          <Edit  name="p22" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles23"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p23" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+
+                          <Label name="titles24"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p24" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles25"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                          <Edit name="p25" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles26"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                          <Edit name="p26" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles27"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p27" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles28"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p28" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles29"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit  name="p29" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles30"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                          <Edit  name="p30" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles31"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p31" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles32"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p32" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles33"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                          <Edit name="p33" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles34"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                          <Edit name="p34" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles35"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p35" multiline="true"  Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles36"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p36" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles37"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit  name="p37" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles38"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                          <Edit  name="p38" multiline="true"  Visible="false"   width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles39"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p39" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles40"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p40" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles39"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p39" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles40"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p40" multiline="true"   Visible="false" width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles41"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                          <Edit name="p41" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles42"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                          <Edit name="p42" multiline="true"   Visible="false"  width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles43"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p43" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles44"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p44" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles45"   Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"   align="left" />
+                          <Edit  name="p45" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles46"  Visible="false" textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                          <Edit  name="p46" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"  />
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles47"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p47" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles48"  Visible="false" wordbreak="true" textcolor="#FFFFFFFF"  font="13" width="80"  height="30"   align="left" />
+                          <Edit name="p48" multiline="true"   Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+                        </HorizontalLayout>
+                        <HorizontalLayout height="35">
+                          <HorizontalLayout width="30" />
+                          <Label name="titles49"  bold="false"  Visible="false" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="80"  height="31" />
+                          <Edit name="p49" multiline="true"  Visible="false"  width="86"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="60" />
+
+                          <Label name="titles50"  bold="false"  Visible="false"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="80"  height="30"  mouse="false"  align="left" />
+                          <Edit name="p50" multiline="true"   Visible="false" width="86"  height="31" hscrollbar="true"   align="left" font="13"/>
+                          <HorizontalLayout width="30" />
+
+                        </HorizontalLayout>
+
+                      </VerticalLayout>
+
+
+                  </GroupBox>
+                </VerticalLayout>
+                <HorizontalLayout width="10" />
+              </HorizontalLayout>
+          <HorizontalLayout height="480" inset="0,6,0,6" childpadding="1" vscrollbar="true" hscrollbar="true">
+            <GroupBox text ="" font="10" height="260" width="860"  textcolor="#FFFFFFFF"  bkimage="ui/page1/切图/线框1.png" borderround="6,6">
+              <VerticalLayout Visible="true"  height="260"  childpadding="12" vscrollbar="true" hscrollbar="true" >
+                <HorizontalLayout height="50">
+
+                  <Label name="lable_StartingPoint" text="起点:" bold="false"  Visible="true" textcolor="#FFFFFFFF" valign="vcenter" align="left" wordbreak="true" font="13" width="60"  height="31" />
+
+                  <Combo  name="Com_StartingPoint" width="120" textcolor="#FFFFFFFF" align="left" valign="vcenter" font="13"  height="30" foreimage=" res='ui/下拉框.png'"/>
+                  <HorizontalLayout width="20" />
+                  <Label name="lable_EndPoint" text="终点:" bold="false"  Visible="true" textcolor="#FFFFFFFF" valign="vcenter" align="left" wordbreak="true" font="13" width="60"  height="31" />
+
+                  <Combo  name="Com_EndPoint" width="120" textcolor="#FFFFFFFF" align="left" valign="vcenter" font="13"  height="30" foreimage=" res='ui/下拉框.png'"/>
+                  <HorizontalLayout width="20" />
+                  <Button name="bt_Drawing_tab1"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="绘图"  bkcolor="#FF1970EF"  valign="vcenter"  width="70"  height="30"   />
+                  <HorizontalLayout width="20" />
+
+               
+                </HorizontalLayout>
+
+                
+              </VerticalLayout>
+            </GroupBox>
+          </HorizontalLayout>
+
+        </VerticalLayout>
+        <!--通信服务网络-->
+        <VerticalLayout name="xx20-basic_tab_pane2" inset="2,2,2,2"   height="920" >
+          <HorizontalLayout height="370" inset="0,6,0,6" childpadding="1" >
+
+
+            <GroupBox text ="" font="10" height="370"  textcolor="#FFFFFFFF" width="300" bkimage="ui/page1/切图/线框1.png"   borderround="6,6" vscrollbar="true" hscrollbar="true">
+              <HorizontalLayout height="260" >
+                <TreeView name="treeview2" visiblefolderbtn="true" visiblecheckbtn="false"  vscrollbar="true" hscrollbar="true" >
+
+                </TreeView>
+              </HorizontalLayout>
+
+              <HorizontalLayout height="20">
+
+                <Option name="optical_ScenarioData2"  group ="group1" Visible="true" text="场景数据" font="10" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FFFFFFFF" hottextcolor="#FFFFA500" />
+                <HorizontalLayout width="10" />
+                <Option name="optical_LocalData2" group ="group1" Visible="true" text="本地数据" font="10" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FFFFFFFF" hottextcolor="#FFFFA500"/>
+
+              </HorizontalLayout>
+              <HorizontalLayout height="5">
+              </HorizontalLayout>
+              <HorizontalLayout height="40">
+                <HorizontalLayout width="20" />
+                <Button name="bt_Tree1_Import2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入"  bkcolor="#FF1970EF"  valign="vcenter"  width="60"  height="30"   />
+                <HorizontalLayout width="20" />
+                <Button name="bt_Tree1_SaveAs2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="另存为"  bkcolor="#FF1970EF"  valign="vcenter"  width="80"  height="30"   />
+
+              </HorizontalLayout>
+            </GroupBox>
+
+            <HorizontalLayout width="10" />
+            <VerticalLayout name="Control" childpadding="1" >
+
+
+
+
+              <GroupBox text =""   font="10" textcolor="#FFFFFFFF" width="630" bkimage="ui/page1/切图/线框1.png" height="360"   borderround="6,6"  >
+
+                <HorizontalLayout height="280" vscrollbar="true" hscrollbar="true" >
+                <VerticalLayout name="ver_1" Visible="true"  height="280" childpadding="12" vscrollbar="true" hscrollbar="true" >
+               
+                  <HorizontalLayout height="35">
+                    <HorizontalLayout width="30" />
+                    <Label name="titles2_1" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                    <Edit name="p2_1" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="60" />
+
+                    <Label name="titles2_2" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                    <Edit name="p2_2" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="30" />
+
+                  </HorizontalLayout>
+                  <HorizontalLayout height="35">
+                    <HorizontalLayout width="30" />
+                    <Label name="titles2_3" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                    <Edit name="p2_3" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="60" />
+
+                    <Label name="titles2_4" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                    <Edit name="p2_4" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="30" />
+
+                  </HorizontalLayout>
+                  <HorizontalLayout height="35">
+                    <HorizontalLayout width="30" />
+                    <Label name="titles2_5" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                    <Edit name="p2_5" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="60" />
+
+                    <Label name="titles2_6" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                    <Edit name="p2_6" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="30" />
+
+                  </HorizontalLayout>
+                  <HorizontalLayout height="35">
+                    <HorizontalLayout width="30" />
+                    <Label name="titles2_7" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                    <Edit name="p2_7" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="60" />
+
+                    <Label name="titles2_8" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                    <Edit name="p2_8" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="30" />
+
+                  </HorizontalLayout>
+                  <HorizontalLayout height="35">
+                    <HorizontalLayout width="30" />
+                    <Label name="titles2_9" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                    <Edit name="p2_9" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="60" />
+
+                    <Label name="titles2_10" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                    <Edit name="p2_10" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="30" />
+
+                  </HorizontalLayout>
+                  <HorizontalLayout height="35">
+                    <HorizontalLayout width="30" />
+                    <Label name="titles2_11" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                    <Edit name="p2_11" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="60" />
+
+                    <Label name="titles2_12" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                    <Edit name="p2_12" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="30" />
+
+                  </HorizontalLayout>
+                  <HorizontalLayout height="35">
+                    <HorizontalLayout width="30" />
+                    <Label name="titles2_13" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                    <Edit name="p2_13" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="60" />
+
+                    <Label name="titles2_14" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                    <Edit name="p2_14" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="30" />
+
+                  </HorizontalLayout>
+                  <HorizontalLayout height="35">
+                    <HorizontalLayout width="30" />
+                    <Label name="titles2_15" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                    <Edit name="p2_15" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="60" />
+
+                    <Label name="titles2_16" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                    <Edit name="p2_16" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="30" />
+
+                  </HorizontalLayout>
+                  <HorizontalLayout height="35">
+                    <HorizontalLayout width="30" />
+                    <Label name="titles2_17" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                    <Edit name="p2_17" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="60" />
+
+                    <Label name="titles2_18" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                    <Edit name="p2_18" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="30" />
+
+                  </HorizontalLayout>
+                  <HorizontalLayout height="35">
+                    <HorizontalLayout width="30" />
+                    <Label name="titles2_19" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                    <Edit name="p2_19" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="60" />
+
+                    <Label name="titles2_20" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                    <Edit name="p2_20" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                    <HorizontalLayout width="30" />
+
+                  </HorizontalLayout>            
+                </VerticalLayout>
+                </HorizontalLayout>
+                <HorizontalLayout height="35">
+                  <HorizontalLayout width="30" />
+                  <Button name="bt_AddAttributes_tab2"  cursor="hand" font="13" textcolor="#FFFFFFFF"  text="增加"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                  <HorizontalLayout width="20" />
+                  <Button name="bt_DeleteAttribute_tab2"  cursor="hand" font="13" textcolor="#FFFFFFFF"  text="删除"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                  <HorizontalLayout width="20" />
+                  <Button name="bt_save"  cursor="hand" font="13" textcolor="#FFFFFFFF"  text="保存"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+
+                </HorizontalLayout>
+
+              </GroupBox>
+            </VerticalLayout>
+            <HorizontalLayout width="10" />
+          </HorizontalLayout>
+          <HorizontalLayout height="480" inset="0,6,0,6" childpadding="1" vscrollbar="true" hscrollbar="true">
+            <GroupBox text ="" font="10" height="260" width="860"  textcolor="#FFFFFFFF"  bkimage="ui/page1/切图/线框1.png" borderround="6,6">
+              <VerticalLayout Visible="true"  height="260"  childpadding="12" vscrollbar="true" hscrollbar="true" >
+                <HorizontalLayout height="30">
+
+                  <Label name="lable_SX"  text="筛选条件:" textcolor="#FFFBF0" valign="vcenter"  align="vcenter" font="13"  width="70"  height="30"  mouse="false"  wordbreak="true" />
+
+                  <Edit name="edit_FilterCriteria" multiline="true"  width="120"  height="30"  hscrollbar="true" valign="vcenter"  align="left" font="13"/>
+
+                  <HorizontalLayout width="10" />
+                  <Label name="lable_Sx_Value"  text="筛选值:" textcolor="#FFFBF0" valign="vcenter"  align="vcenter" font="13"  width="70"  height="30"  mouse="false"  wordbreak="true" />
+
+                  <Edit name="edit_FilterCriteriaValue" multiline="true"  width="120"  height="30"  hscrollbar="true" valign="vcenter"  align="left" font="13"/>
+                  <HorizontalLayout width="30" />
+                  <Button name="bt_Sift_tab2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选"  bkcolor="#FF1970EF"  valign="vcenter"  width="70"  height="30"   />
+
+                </HorizontalLayout>
+
+                <HorizontalLayout height="30">
+
+                  <Label name="lable_StartingPoint_tab2" text="起点:" bold="false"  Visible="true" textcolor="#FFFFFFFF" valign="vcenter" align="vcenter" wordbreak="true" font="13" width="70"  height="31" />
+
+                  <Combo  name="Com_StartingPoint_tab2" width="120" textcolor="#FFFFFFFF" align="left" valign="vcenter" font="13"  height="30" foreimage=" res='ui/下拉框.png'"/>
+                  
+                  <HorizontalLayout width="10" />
+                  
+                  <Label name="lable_EndPoint_tab2" text="终点:" bold="false"  Visible="true" textcolor="#FFFFFFFF" valign="vcenter" align="vcenter" wordbreak="true" font="13" width="70"  height="31" />
+
+                  <Combo  name="Com_EndPoint_tab2" width="120" textcolor="#FFFFFFFF" align="left" valign="vcenter" font="13"  height="30" foreimage=" res='ui/下拉框.png'"/>
+                  <HorizontalLayout width="30" />
+                  <Button name="bt_Drawing_tab2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="绘图"  bkcolor="#FF1970EF"  valign="vcenter"  width="70"  height="30"   />
+                  <HorizontalLayout width="20" />
+
+
+                </HorizontalLayout>
+
+                
+              </VerticalLayout>
+            </GroupBox>
+
+          </HorizontalLayout>
+
+        </VerticalLayout>
+        
+        <!--用户关系网络-->
+        <VerticalLayout name="xx20-basic_tab_pane3" inset="2,2,2,2"   height="920" >
+          <HorizontalLayout height="370" inset="0,6,0,6" childpadding="1" >
+
+
+            <GroupBox text ="" font="10" height="370"  textcolor="#FFFFFFFF" width="300" bkimage="ui/page1/切图/线框1.png"   borderround="6,6" vscrollbar="true" hscrollbar="true">
+              <HorizontalLayout height="260" >
+                <TreeView name="treeview3" visiblefolderbtn="true" visiblecheckbtn="false"  vscrollbar="true" hscrollbar="true" >
+
+                </TreeView>
+              </HorizontalLayout>
+
+              <HorizontalLayout height="20">
+
+                <Option name="optical_ScenarioData3"  group ="group1" Visible="true" text="场景数据" font="10" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FFFFFFFF" hottextcolor="#FFFFA500" />
+                <HorizontalLayout width="10" />
+                <Option name="optical_LocalData3" group ="group1" Visible="true" text="本地数据" font="10" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FFFFFFFF" hottextcolor="#FFFFA500"/>
+
+              </HorizontalLayout>
+              <HorizontalLayout height="5">
+              </HorizontalLayout>
+              <HorizontalLayout height="40">
+                <HorizontalLayout width="20" />
+                <Button name="bt_Tree1_Import3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入"  bkcolor="#FF1970EF"  valign="vcenter"  width="60"  height="30"   />
+                <HorizontalLayout width="20" />
+                <Button name="bt_Tree1_SaveAs3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="另存为"  bkcolor="#FF1970EF"  valign="vcenter"  width="80"  height="30"   />
+
+              </HorizontalLayout>
+            </GroupBox>
+
+            <HorizontalLayout width="10" />
+            <VerticalLayout name="Control" childpadding="1" >
+
+
+
+
+              <GroupBox text =""   font="10" textcolor="#FFFFFFFF" width="630" bkimage="ui/page1/切图/线框1.png" height="360"   borderround="6,6">
+
+
+                <HorizontalLayout height="280" vscrollbar="true" hscrollbar="true" >
+                  <VerticalLayout name="ver_1" Visible="true"  height="280" childpadding="12" vscrollbar="true" hscrollbar="true" >
+
+                    <HorizontalLayout height="35">
+                      <HorizontalLayout width="30" />
+                      <Label name="titles3_1" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                      <Edit name="p3_1" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="60" />
+
+                      <Label name="titles3_2" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                      <Edit name="p3_2" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="30" />
+
+                    </HorizontalLayout>
+                    <HorizontalLayout height="35">
+                      <HorizontalLayout width="30" />
+                      <Label name="titles3_3" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                      <Edit name="p3_3" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="60" />
+
+                      <Label name="titles3_4" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                      <Edit name="p3_4" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="30" />
+
+                    </HorizontalLayout>
+                    <HorizontalLayout height="35">
+                      <HorizontalLayout width="30" />
+                      <Label name="titles3_5" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                      <Edit name="p3_5" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="60" />
+
+                      <Label name="titles3_6" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                      <Edit name="p3_6" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="30" />
+
+                    </HorizontalLayout>
+                    <HorizontalLayout height="35">
+                      <HorizontalLayout width="30" />
+                      <Label name="titles3_7" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                      <Edit name="p3_7" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="60" />
+
+                      <Label name="titles3_8" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                      <Edit name="p3_8" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="30" />
+
+                    </HorizontalLayout>
+                    <HorizontalLayout height="35">
+                      <HorizontalLayout width="30" />
+                      <Label name="titles3_9" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                      <Edit name="p3_9" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="60" />
+
+                      <Label name="titles3_10" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                      <Edit name="p3_10" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="30" />
+
+                    </HorizontalLayout>
+                    <HorizontalLayout height="35">
+                      <HorizontalLayout width="30" />
+                      <Label name="titles3_11" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                      <Edit name="p3_11" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="60" />
+
+                      <Label name="titles3_12" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                      <Edit name="p3_12" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="30" />
+
+                    </HorizontalLayout>
+                    <HorizontalLayout height="35">
+                      <HorizontalLayout width="30" />
+                      <Label name="titles3_13" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                      <Edit name="p3_13" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="60" />
+
+                      <Label name="titles3_14" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                      <Edit name="p3_14" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="30" />
+
+                    </HorizontalLayout>
+                    <HorizontalLayout height="35">
+                      <HorizontalLayout width="30" />
+                      <Label name="titles3_15" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                      <Edit name="p3_15" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="60" />
+
+                      <Label name="titles3_16" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                      <Edit name="p3_16" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="30" />
+
+                    </HorizontalLayout>
+                    <HorizontalLayout height="35">
+                      <HorizontalLayout width="30" />
+                      <Label name="titles3_17" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                      <Edit name="p3_17" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="60" />
+
+                      <Label name="titles3_18" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                      <Edit name="p3_18" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="30" />
+
+                    </HorizontalLayout>
+                    <HorizontalLayout height="35">
+                      <HorizontalLayout width="30" />
+                      <Label name="titles3_19" text="IP" bold="false"  Visible="true" textcolor="#FFFFFFFF" align="left" wordbreak="true" font="13" width="60"  height="31" />
+                      <Edit name="p3_19" multiline="true" text="127.0.0.1"  Visible="true"  width="106"  height="31"  hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="60" />
+
+                      <Label name="titles3_20" text="路由器"  bold="false"  Visible="true"  textcolor="#FFFFFFFF" wordbreak="true" font="13" width="60"  height="30"  mouse="false"  align="left" />
+                      <Edit name="p3_20" multiline="true" text="路由器" Visible="true"  width="106"  height="31" hscrollbar="true"   align="left" font="13"/>
+                      <HorizontalLayout width="30" />
+
+                    </HorizontalLayout>
+                  </VerticalLayout>
+                </HorizontalLayout>
+                <HorizontalLayout height="35">
+                  <HorizontalLayout width="30" />
+                  <Button name="bt_AddAttributes_tab3"  cursor="hand" font="13" textcolor="#FFFFFFFF"  text="增加"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                  <HorizontalLayout width="20" />
+                  <Button name="bt_DeleteAttribute_tab3"  cursor="hand" font="13" textcolor="#FFFFFFFF"  text="删除"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                  <HorizontalLayout width="20" />
+                  <Button name="bt_save_tab3"  cursor="hand" font="13" textcolor="#FFFFFFFF"  text="保存"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+
+                </HorizontalLayout>
+
+              </GroupBox>
+            </VerticalLayout>
+            <HorizontalLayout width="10" />
+          </HorizontalLayout>
+          <HorizontalLayout height="480" inset="0,6,0,6" childpadding="1" vscrollbar="true" hscrollbar="true">
+            <GroupBox text ="" font="10" height="260" width="860"  textcolor="#FFFFFFFF"  bkimage="ui/page1/切图/线框1.png" borderround="6,6">
+              <VerticalLayout Visible="true"  height="260"  childpadding="12" vscrollbar="true" hscrollbar="true" >
+                <HorizontalLayout height="30">
+
+                  <Label name="lable_SX_tab3"  text="筛选条件:" textcolor="#FFFBF0" valign="vcenter"  align="vcenter" font="13"  width="70"  height="30"  mouse="false"  wordbreak="true" />
+
+                  <Edit name="edit_FilterCriteria_tab3" multiline="true"  width="120"  height="30"  hscrollbar="true" valign="vcenter"  align="left" font="13"/>
+
+                  <HorizontalLayout width="10" />
+                  <Label name="lable_Sx_Value_tab3"  text="筛选值:" textcolor="#FFFBF0" valign="vcenter"  align="vcenter" font="13"  width="70"  height="30"  mouse="false"  wordbreak="true" />
+
+                  <Edit name="edit_FilterCriteriaValue_tab3" multiline="true"  width="120"  height="30"  hscrollbar="true" valign="vcenter"  align="left" font="13"/>
+                  <HorizontalLayout width="30" />
+                  <Button name="bt_Sift_tab3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="筛选"  bkcolor="#FF1970EF"  valign="vcenter"  width="70"  height="30"   />
+
+                </HorizontalLayout>
+
+                <HorizontalLayout height="30">
+
+                  <Label name="lable_StartingPoint_tab3" text="起点:" bold="false"  Visible="true" textcolor="#FFFFFFFF" valign="vcenter" align="vcenter" wordbreak="true" font="13" width="70"  height="31" />
+
+                  <Combo  name="Com_StartingPoint_tab3" width="120" textcolor="#FFFFFFFF" align="left" valign="vcenter" font="13"  height="30" foreimage=" res='ui/下拉框.png'"/>
+
+                  <HorizontalLayout width="10" />
+
+                  <Label name="lable_EndPoint_tab3" text="终点:" bold="false"  Visible="true" textcolor="#FFFFFFFF" valign="vcenter" align="vcenter" wordbreak="true" font="13" width="70"  height="31" />
+
+                  <Combo  name="Com_EndPoint_tab3" width="120" textcolor="#FFFFFFFF" align="left" valign="vcenter" font="13"  height="30" foreimage=" res='ui/下拉框.png'"/>
+                  <HorizontalLayout width="30" />
+                  <Button name="bt_Drawing_tab3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="绘图"  bkcolor="#FF1970EF"  valign="vcenter"  width="70"  height="30"   />
+                  <HorizontalLayout width="20" />
+
+
+                </HorizontalLayout>
+
+
+              </VerticalLayout>
+            </GroupBox>
+
+          </HorizontalLayout>
+
+        </VerticalLayout>
+      </TabLayout>
+        
+      </VerticalLayout>
+        
+      </HorizontalLayout>
+    </VerticalLayout>
+
+
+
+  </VerticalLayout>
+
+
+</Window>

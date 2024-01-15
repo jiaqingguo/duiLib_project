@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window caption="0,0,0,0" size="521,342" >
+  <Font id="0" name="微软雅黑" size="12" default="true"/>
+  <Font id="1" name="微软雅黑" size="14"/>
+  <Font id="5" name="微软雅黑" size="16"/>
+  <Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FF000000&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+  <!--<Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;30&quot; textcolor=&quot;#FF000000&quot; hottextcolor=&quot;#FF000000&quot; textpadding=&quot;16,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,25.25'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,25.25'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,25.25'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,25,25'&quot;" />
+  
+  <VerticalLayout name="root" bkcolor="ffffffff" bkcolor2="ffffffff"  gdiplustext="true" textrenderinghint="0" bordercolor="ffd0d0d0"  childpadding="1"  inset="0,0,0,0"   height="500" colorhsl="true" >
+<Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+
+    <VerticalLayout name="body"  bordercolor="ffffffff" bkcolor="ffe5e6ef" bkcolor2="ff8796c2" bkimage="ui/总控/4-弹窗/背景.png">-->
+
+  <VerticalLayout bordersize="1" bkcolor="ffFFFFFF" bkimage="ui/移动到.png">
+    <HorizontalLayout  height="10"  />
+    <HorizontalLayout height="23">
+      <HorizontalLayout  width="490"  />
+      <Button name="Close"  cursor="hand"  textcolor="#FFFFFFFF"  text="" foreimage=" res='ui/X.png'"  font="3" width="23"  height="23"   />
+    </HorizontalLayout>
+
+      <HorizontalLayout childpadding="5" height="40" >
+
+      </HorizontalLayout>
+      
+
+      <HorizontalLayout height="200"   width="500" childpadding="12" vscrollbar="true" hscrollbar="true">
+       
+          <VerticalLayout height="180"  width="500" childpadding="12" vscrollbar="true" hscrollbar="true">
+       
+            <HorizontalLayout height="20" >
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber1"  group ="group1" Visible="false" text="例子1" font="5" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FF000000" hottextcolor="#FF000000" />
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber2" group ="group1" Visible="false" text="例子2" font="5" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber3" group ="group1" Visible="false" text="例子3" font="5" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber4" group ="group1" Visible="false" text="例子4" font="5" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber5" group ="group1" Visible="false" text="例子5" font="5" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber6" group ="group1" Visible="false" text="例子6" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber7" group ="group1" Visible="false" text="例子7" font="5" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber8" group ="group1" Visible="false" text="例子8" font="5" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber9" group ="group1" Visible="false" text="例子9" font="5" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber10" group ="group1" Visible="false" text="例子10" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber11" group ="group1" Visible="false" text="例子11" font="5" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber12" group ="group1" Visible="false" text="例子12" font="5" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber13" group ="group1" Visible="false" text="例子13" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber14" group ="group1" Visible="false" text="例子14" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber15" group ="group1" Visible="false" text="例子15" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber16" group ="group1" Visible="false" text="例子16" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber17" group ="group1" Visible="false" text="例子17" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber18" group ="group1" Visible="false" text="例子18" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber19" group ="group1" Visible="false" text="例子19" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber20" group ="group1" Visible="false" text="例子20" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber21" group ="group1" Visible="false" text="例子21" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber22" group ="group1" Visible="false" text="例子22" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber23" group ="group1" Visible="false" text="例子23" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber24" group ="group1" Visible="false" text="例子24" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber25" group ="group1" Visible="false" text="例子25" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber26" group ="group1" Visible="false" text="例子26" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber27" group ="group1" Visible="false" text="例子27" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber28" group ="group1" Visible="false" text="例子28" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber29" group ="group1" Visible="false" text="例子29" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber30" group ="group1" Visible="false" text="例子30" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber31" group ="group1" Visible="false" text="例子31" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber32" group ="group1" Visible="false" text="例子32" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber33" group ="group1" Visible="false" text="例子33" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber34" group ="group1" Visible="false" text="例子34" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber35" group ="group1" Visible="false" text="例子35" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber36" group ="group1" Visible="false" text="例子36" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber37" group ="group1" Visible="false" text="例子37" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber38" group ="group1" Visible="false" text="例子38" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber39" group ="group1" Visible="false" text="例子39" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber40" group ="group1" Visible="false" text="例子40" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber41" group ="group1" Visible="false" text="例子41" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber42" group ="group1" Visible="false" text="例子42" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber43" group ="group1" Visible="false" text="例子43" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber44" group ="group1" Visible="false" text="例子44" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber45" group ="group1" Visible="false" text="例子45" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber46" group ="group1" Visible="false" text="例子46" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber47" group ="group1" Visible="false" text="例子47" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber48" group ="group1" Visible="false" text="例子48" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber49" group ="group1" Visible="false" text="例子49" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber50" group ="group1" Visible="false" text="例子50" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber51" group ="group1" Visible="false" text="例子51" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber52" group ="group1" Visible="false" text="例子52" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber53" group ="group1" Visible="false" text="例子53" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber54" group ="group1" Visible="false" text="例子54" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber55" group ="group1" Visible="false" text="例子55" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber56" group ="group1" Visible="false" text="例子56" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber57" group ="group1" Visible="false" text="例子57" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber58" group ="group1" Visible="false" text="例子58" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber59" group ="group1" Visible="false" text="例子59" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber60" group ="group1" Visible="false" text="例子60" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber61" group ="group1" Visible="false" text="例子61" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber62" group ="group1" Visible="false" text="例子62" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber63" group ="group1" Visible="false" text="例子63" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber64" group ="group1" Visible="false" text="例子64" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber65" group ="group1" Visible="false" text="例子65" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber66" group ="group1" Visible="false" text="例子66" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber67" group ="group1" Visible="false" text="例子67" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber68" group ="group1" Visible="false" text="例子68" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber69" group ="group1" Visible="false" text="例子69" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber70" group ="group1" Visible="false" text="例子70" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber71" group ="group1" Visible="false" text="例子71" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber72" group ="group1" Visible="false" text="例子72" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber73" group ="group1" Visible="false" text="例子73" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber74" group ="group1" Visible="false" text="例子74" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber75" group ="group1" Visible="false" text="例子75" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber76" group ="group1" Visible="false" text="例子76" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber77" group ="group1" Visible="false" text="例子77" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber78" group ="group1" Visible="false" text="例子78" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber79" group ="group1" Visible="false" text="例子79" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber80" group ="group1" Visible="false" text="例子80" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber81" group ="group1" Visible="false" text="例子81" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber82" group ="group1" Visible="false" text="例子82" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber83" group ="group1" Visible="false" text="例子83" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber84" group ="group1" Visible="false" text="例子84" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber85" group ="group1" Visible="false" text="例子85" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber86" group ="group1" Visible="false" text="例子86" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber87" group ="group1" Visible="false" text="例子87" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber88" group ="group1" Visible="false" text="例子88" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber89" group ="group1" Visible="false" text="例子89" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber90" group ="group1" Visible="false" text="例子90" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber91" group ="group1" Visible="false" text="例子91" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber92" group ="group1" Visible="false" text="例子92" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber93" group ="group1" Visible="false" text="例子93" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber94" group ="group1" Visible="false" text="例子94" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber95" group ="group1" Visible="false" text="例子95" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber96" group ="group1" Visible="false" text="例子96" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+            <HorizontalLayout height="20">
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber97" group ="group1" Visible="false" text="例子94" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber98" group ="group1" Visible="false" text="例子95" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber99" group ="group1" Visible="false" text="例子96" font="5" textpadding="6,0,6,0" style="cb_style" width="100" textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+
+            <HorizontalLayout height="20" >
+              <HorizontalLayout width="100" />
+              <Option name="optical_fiber100" group ="group1"  Visible="false" text="例子1" font="5" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FF000000" hottextcolor="#FF000000" />
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber101" group ="group1" Visible="false" text="例子2" font="5" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FF000000" hottextcolor="#FF000000"/>
+              <HorizontalLayout width="10" />
+              <Option name="optical_fiber102" group ="group1" Visible="false" text="例子3" font="5" textpadding="6,0,6,0" style="cb_style" width="100"  textcolor="#FF000000" hottextcolor="#FF000000"/>
+            </HorizontalLayout>
+
+          </VerticalLayout>
+
+        
+      </HorizontalLayout>
+
+    <HorizontalLayout height="100"  childpadding="12" hscrollbar="true">
+     
+      <HorizontalLayout  height="30" width="210" />
+      <Button name="confirm_btn"  cursor="hand"  textcolor="#FFFFFFFF"  text="" foreimage=" res='ui/确定_3.png'"  font="3" width="96"  height="40"   />
+    </HorizontalLayout>
+    
+    
+  </VerticalLayout>
+
+</Window>

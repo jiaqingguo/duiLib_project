@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="1400,950" sizebox="4,4,4,4" caption="0,0,0,-1" mininfo="600,500" roundcorner="4,4">
+  <Font name="微软雅黑" size="13" bold="false" italic="false" default="true" />
+  <Font name="微软雅黑" size="12" bold="false" italic="false" />
+  <Font name="微软雅黑" size="22" bold="false" italic="false" />
+  <!--<Font id="2" name="微软雅黑" size="13" bold="true" italic="false" />-->
+  <Font id="3" name="微软雅黑" size="18" bold="true" shared="true"/>
+  <Font id="4" name="微软雅黑" size="13" bold="true" italic="false" />
+  <Font id="5" name="微软雅黑" size="15" bold="true" italic="false" />
+  <Font id="6" name="微软雅黑" size="12" bold="true" italic="false" />
+  <Font id="7" name="宋体" size="16" bold="false" italic="false" />
+  <Font id="8" name="宋体" size="17" bold="false" italic="false" />
+  <Font id="9" name="微软雅黑" size="13" bold="false" italic="false" />
+  <Font id="10" name="宋体" size="16" bold="false" italic="false" />
+  <Font id="11" name="微软雅黑" size="25" bold="true" italic="false" />
+  <Font id="13" name="宋体" size="15" bold="false" italic="false" />
+  <Font id="14" name="宋体" size="30" bold="true" italic="false" />
+  <Font id="17" name="宋体" size="22" bold="false" italic="false" />
+  <Default name="VScrollBar" value="width=&quot;10&quot; showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; thumbnormalimage=&quot;file=&apos;scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; fade=&apos;150&apos; &quot; thumbhotimage=&quot;file=&apos;scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; &quot; thumbpushedimage=&quot;file=&apos;scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; &quot; " />
+  <Style name="select_tab" value="pushedbkcolor=&quot;#FF00ff00&quot;group=&quot;select_tab&quot; bkcolor=&quot;#FFFFFFFF&quot; " />
+  <!--<Style name="edit_style" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF79A0E5&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />-->
+
+  <Style name="edit_style1" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FFFFFFFF&quot; nativebkcolor=&quot;#FF87CEFA&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />
+  <Style name="edit_style" value="width=&quot;200&quot; height=&quot;40&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF00A4FF&quot; nativebkcolor=&quot;#FF666666&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />
+  <Style name="header_tab" value="group=&quot;header_tab&quot;" />
+  <Style name="step_tab" value="group=&quot;step_tab&quot;" />
+  <!--Style name="list_style" value="headerbkimage=&quot;res='common/list_header_bg.png'&quot; itemalign=&quot;center&quot; itemlinecolor=&quot;#FF888888&quot; itemshowrowline=&quot;true&quot; itemshowcolumnline=&quot;true&quot;" />-->
+  <Style name="list_style" value="headerbkimage=&quot;file='list_header_bg.png'&quot; itemalign=&quot;center&quot; itemlinecolor=&quot;#FF888888&quot; itemshowrowline=&quot;true&quot; itemshowcolumnline=&quot;true&quot;" />
+  <!--<Style name="edit_style" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF666666&quot; nativebkcolor=&quot;#FF666666&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />-->
+  <Style name="nomalbtm_style" value="normalimage=&quot;res='normal.png' corner='4,4,4,4'&quot;   hotimage=&quot;res='enter.png' corner='4,4,4,4'&quot;  pushedimage=&quot;res='pressed.png' corner='4,4,4,4'&quot;"/>
+  <Style name="radio_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;17&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; stateimage=&quot;res='common/radio_normal.png' dest='0,0,20,20'&quot; statecount=&quot;2&quot; selectedstateimage=&quot;res='common/radio_selected.png' dest='0,0,20,20'&quot; selectedstatecount=&quot;2&quot;" />
+  <Style name="speed_tab" value="group=&quot;speed_header&quot;"/>
+  <Style name="statuse_tab" value="textcolor=&quot;#FF386382&quot; font=&quot;2&quot; normalimage=&quot;tabbar_normal_ statuse.png&quot; hotimage=&quot;tabbar_hover _statuse.png&quot; pushedimage=&quot;tabbar_pushed_statuse.png&quot; selectedimage=&quot;tabbar_pushed_statuse.png&quot; group=&quot;tab_statuse&quot;" pushedtextcolor="#FFFF0000"/>
+  <Style name="main_tab" value="group=&quot;tab_header&quot;" />
+  <!--<Style name="edit_style" value="bkimage=&quot;res='edit_bk.png' corner='6,6,6,6'&quot;" />-->
+  <Style name="btn_style"  value="drag=&quot;false&quot; textpadding=&quot;6,0,6,0&quot; textcolor=&quot;#FFFFFFFF&quot; normalimage=&quot;res='normal.png' corner='4,4,4,4'&quot; hotimage=&quot;res='enter.png' corner='4,4,4,4'&quot; pushedimage=&quot;res='pressed.png' corner='4,4,4,4'&quot;font=&quot;8&quot;" />
+  <Style name="treenode_folder_style" value="padding=&quot;0,1,0,0&quot; width=&quot;16&quot; height=&quot;16&quot; normalimage=&quot;file='Icon/treeview_b.png' source='0,0,16,16' &quot; hotimage=&quot;file='Icon/treeview_b.png' source='16,0,32,16' &quot; selectedimage=&quot;file='Icon/treeview_a.png' source='0,0,16,16' &quot; selectedhotimage=&quot;file='Icon/treeview_a.png' source='16,0,32,16' &quot;"/>
+ 
+  <Style name="treenode_folder_style_my" value="padding=&quot;0,1,0,0&quot; width=&quot;18&quot; height=&quot;18&quot; normalimage=&quot;file='ui/展开.png' &quot; hotimage=&quot;file='ui/展开.png'  &quot; selectedimage=&quot;file='ui/未展开.png' &quot; selectedhotimage=&quot;file='ui/未展开.png' &quot;"/>
+  <Style name="treenode_checkbox_style_my" value="width=&quot;30&quot; height=&quot;30&quot; normalimage=&quot;file='ui/未选中_1.png' &quot; selectedimage=&quot;file='ui/对号.png'&quot;" />
+
+  <Style name="listex_item_style" value="checkboxwidth=&quot;20&quot; checkboxheight=&quot;20&quot; checkboxnormalimage=&quot;file='common/unchecked.png'&quot; checkboxselectedimage=&quot;file='common/checked.png'&quot;"/>
+
+  <Style name="treenode_checkbox_style" value="width=&quot;16&quot; height=&quot;16&quot; normalimage=&quot;file='Icon/unchecked.png' &quot; selectedimage=&quot;file='Icon/checked.png'&quot;" />
+  <Style name="treeview_style" value="folderattr=&quot;treenode_folder_style&quot; checkboxattr=&quot;treenode_checkbox_style&quot;"/>
+  <Style name="combo_style1" value=" textcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;5,1,1,1&quot; normalimage=&quot;res='common/combo1.png' source='0,0,161,28' corner='2,2,28,2'&quot; hotimage=&quot;res='common/combo1.png' source='0,28,161,56' corner='2,2,28,2'&quot; pushedimage=&quot;res='common/combo1.png' source='0,56,161,84' corner='2,2,28,2'&quot;" />
+  <Style name="combo_style" value="height=&quot;22&quot; textpadding=&quot;4,1,22,1&quot; normalimage=&quot;file='combo.png' source='0,0,100,22' corner='2,2,20,2'&quot; hotimage=&quot;file='combo.png' source='0,22,100,44' corner='2,2,22,2'&quot; pushedimage=&quot;file='combo.png' source='0,44,100,66' corner='2,2,22,2'&quot;" />
+  <Style name="colortab_style" shared="true" value="textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; selectedtextcolor=&quot;#FFFF0000&quot; textpadding=&quot;6,0,6,0&quot; bkcolor=&quot;#FF2c2c2c&quot; hotbkcolor=&quot;#FF4b4b4b&quot; pushedbkcolor=&quot;#FF424242&quot; selectedbkcolor=&quot;#ffc4c4c4&quot;"  />
+  <Style name="cb_style-old" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+  <Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+  <Style name="checkbtn_style" value="width=&quot;162&quot;  height=&quot;162&quot;  font=&quot;8&quot;  textpadding=&quot;0,90,0,0&quot;   borderround=&quot;5,5&quot;  pushedbkcolor=&quot;#FF477db3&quot;  bkcolor=&quot;#FF63b0fa&quot;"/>
+  <Style name="headertitle_style" value="font=&quot;10&quot; width=&quot;150&quot; align=&quot;center&quot; height=&quot;60&quot;      borderround=&quot;10,10&quot;"/>
+  <VerticalLayout name="root" bkcolor="ffffffff" bkcolor2="ffffffff"  gdiplustext="true" textrenderinghint="0"  bordersize="1" bordercolor="ffd0d0d0"  childpadding="1"  inset="0,0,0,0"   height="900" colorhsl="true" >
+
+    
+     <VerticalLayout name="body" bkcolor="ffe5e6ef" bkcolor2="ff8796c2" bkimage="ui/背景.png">
+      <HorizontalLayout   childpadding="5"  height="20" >
+        <HorizontalLayout name="appbar" height="20" >
+          <HorizontalLayout align="center">
+            <!--<Label text="天地数据分析平台-界面" name="Title"  valign="vcenter" align="left" textcolor="#FF323232" font="6" tooltip="检测仪"/>-->
+          </HorizontalLayout>
+          <HorizontalLayout inset="0,-1,0,0" width="95">
+            <HorizontalLayout width="28" />
+            <Button name="minbtn" width="28" height="20" tooltip="最小化" normalimage="file='sysbtn/btn_mini_normal.png'" hotimage="file='sysbtn/btn_mini_highlight.png'" pushedimage="file='sysbtn/btn_mini_down.png' "/>
+            <Button name="closebtn" width="39" height="20" tooltip="关闭" normalimage="file='sysbtn/btn_close_normal.png'" hotimage="file='sysbtn/btn_close_highlight.png'" pushedimage="file='sysbtn/btn_close_down.png' "/>
+          </HorizontalLayout>
+        </HorizontalLayout>
+      </HorizontalLayout>  
+      <HorizontalLayout  width="800"  height="50">
+        <HorizontalLayout width="580" />
+        <Label  text="网络管理绘图界面"  wordbreak="true"  textcolor="#FFFBF0" valign="vcenter"  align="left" font="14"  width="350"  height="50"  mouse="false" />
+      </HorizontalLayout>
+  
+
+      <HorizontalLayout childpadding="5"   >     
+        <VerticalLayout inset="0,0,0,0" width="20"  childpadding="2"  >
+         <HorizontalLayout width="20" />
+        </VerticalLayout>
+        <VerticalLayout  >          
+		  <TabLayout name="tab_switch" bkimage="ui/背景图.jpg" animation_direction="vertical">
+
+        <!--电磁链路网络-->
+        <VerticalLayout name="xx20-basic_tab_panel" inset="2,2,2,2"   height="870" >
+              
+          <HorizontalLayout height="900" inset="0,6,0,6" childpadding="1" vscrollbar="true" hscrollbar="true">
+            <GroupBox text ="" font="10" height="860" width="1350"  textcolor="#FFFFFFFF"  bkimage="ui/page1/切图/线框1.png" borderround="6,6" childpadding="12" hscrollbar="true" >
+              <VerticalLayout Visible="true"  height="860"  childpadding="12" vscrollbar="true" hscrollbar="true" >
+           
+                  <HorizontalLayout height="70"  hscrollbar="true"  >
+                    <Button name="BJ1_1" width="50"  height="50" tooltip="部件1" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_2" width="50"  height="50" tooltip="部件2" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_3" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_4" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_5" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_6" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_7" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_8" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_9" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_10" width="50" height="50" tooltip="部件1" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_11" width="50" height="50" tooltip="部件1" foreimage=" res='ui/卫星.png'" />
+
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_12" width="50" height="50" tooltip="部件2" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_13" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_14" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_15" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+                    
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_16" width="50" height="50" tooltip="部件2" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_17" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_18" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_19" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_20" width="50" height="50" tooltip="部件2" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_21" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_22" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_23" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_24" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_25" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_26" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_27" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_28" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                    <HorizontalLayout width="5" />
+                    <Button name="BJ1_29" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+                  </HorizontalLayout>
+
+                  <HorizontalLayout height="50" hscrollbar="true">
+
+                    <Label name="lable1_1"  text="卫星1----1" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false"  wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label  name="lable1_2" text="卫星1----2" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false"  wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_3" text="卫星1----3" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false"  wordbreak="true"/>
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_4" text="卫星1----4" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true"/>
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_5" text="卫星1----5" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_6" text="卫星1----6" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_7" text="卫星1----7" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_8" text="卫星1----8" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_9" text="卫星1----9" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_10" text="卫星1---10" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_11" text="卫星1---11"  textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_12" text="卫星1---12" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_13" text="卫星1---13" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_14" text="卫星1---14"   textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_15" text="卫星1---15" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_15" text="卫星1---16" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_15" text="卫星1---17" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_15" text="卫星1---18" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_15" text="卫星1---19" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_15" text="卫星1---20" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_11" text="卫星1---21"  textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_12" text="卫星1---22" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_13" text="卫星1---23" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_14" text="卫星1---24"   textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_15" text="卫星1---25" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_15" text="卫星1---26" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_15" text="卫星1---27" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_15" text="卫星1---28" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                    <HorizontalLayout width="5" />
+                    <Label name="lable1_15" text="卫星1---29" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  </HorizontalLayout>
+                  <HorizontalLayout height="50" hscrollbar="true">
+                    <Button name="JT1_1"  width="50" height="30" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_2" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_3"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_4"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_5" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_6"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_7"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_8" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_9" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_10" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_11" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_12" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_13" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_14"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_15" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_16" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_17" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_18" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_19"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_20"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_21" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_22" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_23" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_24"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_25" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_26" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_27" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_28" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                    <HorizontalLayout width="5" />
+                    <Button name="JT1_29"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  </HorizontalLayout>
+
+                <HorizontalLayout height="50">
+                  <Button name="JT"  width="1300" height="50" tooltip="部件1" foreimage=" res='ui/左右箭头亮.png'"/>
+
+                </HorizontalLayout>
+                <HorizontalLayout height="50" hscrollbar="true">
+                  <Button name="JT1_1"  width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_2" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_3"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_4"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_5" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_6"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_7"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_8" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_9" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_10" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_11" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_12" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_13" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_14"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_15" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_16" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_17" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_18"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_19" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_20" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_21" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_22" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_23" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_24"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_25" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_26" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_27" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_28"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_29" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                </HorizontalLayout>
+                <HorizontalLayout height="70" hscrollbar="true">
+                  <Button name="BJ1_1" width="50"  height="50" tooltip="部件1" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_2" width="50"  height="50" tooltip="部件2" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_3" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_4" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_5" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_6" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_7" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_8" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_9" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_10" width="50" height="50" tooltip="部件1" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_11" width="50" height="50" tooltip="部件1" foreimage=" res='ui/卫星.png'" />
+
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_12" width="50" height="50" tooltip="部件2" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_13" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_14" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_15" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_16" width="50" height="50" tooltip="部件2" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_17" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_18" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_19" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_20" width="50" height="50" tooltip="部件1" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_21" width="50" height="50" tooltip="部件1" foreimage=" res='ui/卫星.png'" />
+
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_22" width="50" height="50" tooltip="部件2" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_23" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_24" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_25" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_26" width="50" height="50" tooltip="部件2" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_27" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_28" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_29" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+                </HorizontalLayout>
+
+                <HorizontalLayout height="70" hscrollbar="true">
+
+                  <Label name="lable1_1"  text="地面站--1" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false"  wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label  name="lable1_2" text="卫星1----2" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false"  wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_3" text="卫星1----3" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false"  wordbreak="true"/>
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_4" text="卫星1----4" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true"/>
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_5" text="卫星1----5" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_6" text="卫星1----6" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_7" text="卫星1----7" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_8" text="卫星1----8" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_9" text="卫星1----9" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_10" text="卫星1---10" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_11" text="卫星1---11"  textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_12" text="卫星1---12" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_13" text="卫星1---13" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_14" text="卫星1---14"   textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---15" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---16" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---17" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---18" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---19" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---20" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_11" text="卫星1---21"  textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_12" text="卫星1---22" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_13" text="卫星1---23" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_14" text="卫星1---24"   textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---25" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---26" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---27" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---28" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---29" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                </HorizontalLayout>
+                <HorizontalLayout height="50" hscrollbar="true">
+                  <Button name="JT1_1"  width="50" height="30" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_2" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_3"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_4"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_5" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_6"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_7"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_8" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_9" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_10" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_11" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_12" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_13" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_14"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_15" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_16" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_17" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_18" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_19"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_20"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_21" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_22" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_23" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_24"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_25" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_26" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_27" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_28" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_29"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                </HorizontalLayout>
+
+                <HorizontalLayout height="50">
+                  <Button name="JT"  width="1300" height="50" tooltip="部件1" foreimage=" res='ui/左右箭头亮.png'"/>
+
+                </HorizontalLayout>
+                <HorizontalLayout height="50" hscrollbar="true">
+                  <Button name="JT1_1"  width="50" height="30" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_2" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_3"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_4"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_5" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_6"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_7"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_8" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_9" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_10" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_11" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_12" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_13" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_14"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_15" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_16" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_17" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_18" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_19"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_20"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_21" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_22" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_23" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_24"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_25" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_26" width="50" height="50" tooltip="部件1" foreimage=" res='ui/上下箭头亮.png'"/>
+
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_27" width="50" height="50" tooltip="部件2" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_28" width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="JT1_29"  width="50" height="50" tooltip="部件3" foreimage=" res='ui/上下箭头亮.png'"/>
+
+                </HorizontalLayout>
+                <HorizontalLayout height="70" hscrollbar="true">
+                  <Button name="BJ1_1" width="50"  height="50" tooltip="部件1" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_2" width="50"  height="50" tooltip="部件2" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_3" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_4" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_5" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_6" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_7" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_8" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_9" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_10" width="50" height="50" tooltip="部件1" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_11" width="50" height="50" tooltip="部件1" foreimage=" res='ui/卫星.png'" />
+
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_12" width="50" height="50" tooltip="部件2" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_13" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_14" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_15" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_16" width="50" height="50" tooltip="部件2" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_17" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_18" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_19" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_20" width="50" height="50" tooltip="部件2" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_21" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_22" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_23" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_24" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_25" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_26" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_27" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_28" width="50" height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'" />
+
+                  <HorizontalLayout width="5" />
+                  <Button name="BJ1_29" width="50"  height="50" tooltip="部件3" foreimage=" res='ui/卫星.png'"/>
+                </HorizontalLayout>
+
+                <HorizontalLayout height="50" hscrollbar="true">
+
+                  <Label name="lable1_1"  text="用户1----1" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false"  wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label  name="lable1_2" text="卫星1----2" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false"  wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_3" text="卫星1----3" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false"  wordbreak="true"/>
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_4" text="卫星1----4" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true"/>
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_5" text="卫星1----5" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_6" text="卫星1----6" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_7" text="卫星1----7" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_8" text="卫星1----8" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_9" text="卫星1----9" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_10" text="卫星1---10" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_11" text="卫星1---11"  textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_12" text="卫星1---12" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_13" text="卫星1---13" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_14" text="卫星1---14"   textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---15" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---16" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---17" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---18" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---19" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---20" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_11" text="卫星1---21"  textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_12" text="卫星1---22" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_13" text="卫星1---23" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_14" text="卫星1---24"   textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---25" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---26" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---27" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---28" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                  <HorizontalLayout width="5" />
+                  <Label name="lable1_15" text="卫星1---29" textcolor="#FFFBF0" valign="vcenter"  align="left" font="13"  width="50"  height="30"  mouse="false" wordbreak="true" />
+
+                </HorizontalLayout>
+              </VerticalLayout>
+            </GroupBox>
+          </HorizontalLayout>
+
+        </VerticalLayout>
+
+      </TabLayout>
+        
+      </VerticalLayout>
+        
+      </HorizontalLayout>
+    </VerticalLayout>
+
+
+
+  </VerticalLayout>
+
+
+</Window>

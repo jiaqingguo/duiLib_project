@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="850,610" sizebox="4,4,4,4" caption="0,0,0,-1" mininfo="600,500" roundcorner="4,4">
+  <Font name="微软雅黑" size="13" bold="false" italic="false" default="true" />
+  <Font name="微软雅黑" size="12" bold="false" italic="false" />
+  <Font name="微软雅黑" size="22" bold="false" italic="false" />
+  <Font name="宋体"  size="15"  shared="true" id="3"  />
+  <Font id="14" name="宋体" size="40" bold="false" shared="true"/>
+  
+  <Default name="VScrollBar" value="width=&quot;10&quot; showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; thumbnormalimage=&quot;file=&apos;scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; fade=&apos;150&apos; &quot; thumbhotimage=&quot;file=&apos;scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; &quot; thumbpushedimage=&quot;file=&apos;scroll_fore.png&apos;  corner=&apos;4,4,4,4&apos; &quot; " />
+  <Style name="select_tab" value="pushedbkcolor=&quot;#FF00ff00&quot;group=&quot;select_tab&quot; bkcolor=&quot;#FFFFFFFF&quot; " />
+  <!--<Style name="edit_style" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF79A0E5&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />-->
+
+  <Style name="edit_style" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF00A4FF&quot; nativebkcolor=&quot;#FF666666&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />
+  <Style name="header_tab" value="group=&quot;header_tab&quot;" />
+  <Style name="step_tab" value="group=&quot;step_tab&quot;" />
+  <!--Style name="list_style" value="headerbkimage=&quot;res='common/list_header_bg.png'&quot; itemalign=&quot;center&quot; itemlinecolor=&quot;#FF888888&quot; itemshowrowline=&quot;true&quot; itemshowcolumnline=&quot;true&quot;" />-->
+  <Style name="list_style" value="headerbkimage=&quot;file='list_header_bg.png'&quot; itemalign=&quot;center&quot; itemlinecolor=&quot;#FF888888&quot; itemshowrowline=&quot;true&quot; itemshowcolumnline=&quot;true&quot;" />
+  <!--<Style name="edit_style" value="width=&quot;200&quot; height=&quot;24&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FF666666&quot; nativebkcolor=&quot;#FF666666&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot;" />-->
+  <Style name="nomalbtm_style" value="normalimage=&quot;res='normal.png' corner='4,4,4,4'&quot;   hotimage=&quot;res='enter.png' corner='4,4,4,4'&quot;  pushedimage=&quot;res='pressed.png' corner='4,4,4,4'&quot;"/>
+  <Style name="radio_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;17&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; stateimage=&quot;res='common/radio_normal.png' dest='0,0,17,17'&quot; statecount=&quot;2&quot; selectedstateimage=&quot;res='common/radio_selected.png' dest='0,0,17,17'&quot; selectedstatecount=&quot;2&quot;" />
+  <Style name="speed_tab" value="group=&quot;speed_header&quot;"/>
+  <Style name="statuse_tab" value="textcolor=&quot;#FF386382&quot; font=&quot;2&quot; normalimage=&quot;tabbar_normal_ statuse.png&quot; hotimage=&quot;tabbar_hover _statuse.png&quot; pushedimage=&quot;tabbar_pushed_statuse.png&quot; selectedimage=&quot;tabbar_pushed_statuse.png&quot; group=&quot;tab_statuse&quot;" pushedtextcolor="#FFFF0000"/>
+  <Style name="main_tab" value="group=&quot;tab_header&quot;" />
+  <!--<Style name="edit_style" value="bkimage=&quot;res='edit_bk.png' corner='6,6,6,6'&quot;" />-->
+  <Style name="btn_style"  value="drag=&quot;false&quot; textpadding=&quot;6,0,6,0&quot; textcolor=&quot;#FF000000&quot; normalimage=&quot;res='normal.png' corner='4,4,4,4'&quot; hotimage=&quot;res='enter.png' corner='4,4,4,4'&quot; pushedimage=&quot;res='pressed.png' corner='4,4,4,4'&quot;font=&quot;8&quot;" />
+  <Style name="treenode_folder_style" value="padding=&quot;0,1,0,0&quot; width=&quot;16&quot; height=&quot;16&quot; normalimage=&quot;file='Icon/treeview_b.png' source='0,0,16,16' &quot; hotimage=&quot;file='Icon/treeview_b.png' source='16,0,32,16' &quot; selectedimage=&quot;file='Icon/treeview_a.png' source='0,0,16,16' &quot; selectedhotimage=&quot;file='Icon/treeview_a.png' source='16,0,32,16' &quot;"/>
+  <Style name="treenode_checkbox_style" value="width=&quot;16&quot; height=&quot;16&quot; normalimage=&quot;file='Icon/unchecked.png' &quot; selectedimage=&quot;file='Icon/checked.png'&quot;" />
+  <Style name="treeview_style" value="folderattr=&quot;treenode_folder_style&quot; checkboxattr=&quot;treenode_checkbox_style&quot;"/>
+  <Style name="combo_style" value=" textcolor=&quot;#FF000000&quot; textpadding=&quot;5,1,1,1&quot; normalimage=&quot;res='common/combo.png' source='0,0,161,28' corner='2,2,28,2'&quot; hotimage=&quot;res='common/combo.png' source='0,28,161,56' corner='2,2,28,2'&quot; pushedimage=&quot;res='common/combo.png' source='0,56,161,84' corner='2,2,28,2'&quot;" />
+  <Style name="colortab_style" shared="true" value="textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; selectedtextcolor=&quot;#FFFF0000&quot; textpadding=&quot;6,0,6,0&quot; bkcolor=&quot;#FF2c2c2c&quot; hotbkcolor=&quot;#FF4b4b4b&quot; pushedbkcolor=&quot;#FF424242&quot; selectedbkcolor=&quot;#ffc4c4c4&quot;"  />
+  <Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+  <Style name="checkbtn_style" value="width=&quot;162&quot;  height=&quot;162&quot;  font=&quot;8&quot;  textpadding=&quot;0,90,0,0&quot;   borderround=&quot;5,5&quot;  pushedbkcolor=&quot;#FF477db3&quot;  bkcolor=&quot;#FF63b0fa&quot;"/>
+  <Style name="headertitle_style" value="font=&quot;10&quot; width=&quot;150&quot; align=&quot;center&quot; height=&quot;60&quot;      borderround=&quot;10,10&quot;"/>
+  <VerticalLayout name="root" bkcolor="ffffffff" bkcolor2="ffffffff"  gdiplustext="true" textrenderinghint="0"    childpadding="1"  inset="0,0,0,0"   height="700" colorhsl="true" bkimage="ui/背景.png">
+
+    <!--
+  <VerticalLayout name="root" bkcolor="ffffffff" bkcolor2="ffffffff"  gdiplustext="true" textrenderinghint="0"  bordersize="1" bordercolor="ffd0d0d0"  childpadding="1"  inset="0,0,0,0"   height="600" colorhsl="true"   bkimage="ui/背景纯色.png" >
+-->
+    <HorizontalLayout   childpadding="5"  height="45" >
+      <HorizontalLayout name="appbar" height="20" >
+        <HorizontalLayout align="center">
+
+         
+
+        </HorizontalLayout>
+
+        <HorizontalLayout inset="0,-1,0,0" width="95">
+          <HorizontalLayout width="28" />
+          <Button name="minbtn" width="28" height="20" tooltip="最小化" normalimage="file='sysbtn/btn_mini_normal.png'" hotimage="file='sysbtn/btn_mini_highlight.png'" pushedimage="file='sysbtn/btn_mini_down.png' "/>
+          <Button name="closebtn" width="39" height="20" tooltip="关闭" normalimage="file='sysbtn/btn_close_normal.png'" hotimage="file='sysbtn/btn_close_highlight.png'" pushedimage="file='sysbtn/btn_close_down.png' "/>
+        </HorizontalLayout>
+        
+
+        
+      </HorizontalLayout>
+
+
+
+    </HorizontalLayout>
+
+    <HorizontalLayout  width="900"  height="60">
+      <HorizontalLayout width="100" />
+      <Label  text="星座系统基础信息数据建模验证系统"  wordbreak="true"  textcolor="#FFFBF0" valign="vcenter"  align="left" font="14"  width="650"  height="50"  mouse="false" />
+    </HorizontalLayout>
+
+    <HorizontalLayout    height="60" >
+
+    </HorizontalLayout>
+    <HorizontalLayout  height="150">
+
+      <HorizontalLayout width="160"/>
+      <Button name="bt_LinkManagement"  cursor="hand" height="150" width="220"    bkimage="ui/链路功能属性信息建模模块.png" />
+
+
+      <HorizontalLayout width="60"/>
+      <Button name="bt_NetworkManagement" cursor="hand" height="150" width="220"    bkimage="ui/网络属性信息建模模块.png" />
+
+<!--
+      <HorizontalLayout width="50"/>
+      <Button name="bt_DataManagement" cursor="hand" height="130" width="220"  tooltip=""   bkimage="ui/数据管理_2.png" borderround="20,20"/>
+-->
+
+    </HorizontalLayout>
+    <HorizontalLayout    height="60" >
+
+    </HorizontalLayout>
+    <HorizontalLayout height="150">
+
+      <HorizontalLayout width="160"/>
+      <Button name="bt_DataManagement" cursor="hand" height="150" width="220"  tooltip=""   bkimage="ui/数据管理.png" />
+
+      <HorizontalLayout width="60"/>
+      <Button name="bt_EditorialInterface" cursor="hand" height="150" width="220"    bkimage="ui/星座系统属性信息建模模块.png" />
+
+      <!--
+      <HorizontalLayout width="50"/>
+      <Button name="bt_DataManagement" cursor="hand" height="130" width="220"  tooltip=""   bkimage="ui/数据管理_2.png" borderround="20,20"/>
+-->
+
+    </HorizontalLayout>
+
+
+
+
+  </VerticalLayout>
+
+
+</Window>

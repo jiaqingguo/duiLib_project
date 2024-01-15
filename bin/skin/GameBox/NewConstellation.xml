@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window caption="0,0,0,0" size="400,250" >
+  <Font id="0" name="微软雅黑" size="12" default="true"/>
+  <Font id="1" name="微软雅黑" size="14"/>
+  <Font id="2" name="微软雅黑" size="18"/>
+  <Font id="10" name="微软雅黑" size="25"/>
+  <Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FF000000&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+  <!--<Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;30&quot; textcolor=&quot;#FF000000&quot; hottextcolor=&quot;#FF000000&quot; textpadding=&quot;16,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,25.25'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,25.25'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,25.25'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,25,25'&quot;" />
+  
+  <VerticalLayout name="root" bkcolor="ffffffff" bkcolor2="ffffffff"  gdiplustext="true" textrenderinghint="0" bordercolor="ffd0d0d0"  childpadding="1"  inset="0,0,0,0"   height="500" colorhsl="true" >
+<Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+
+    <VerticalLayout name="body"  bordercolor="ffffffff" bkcolor="ffe5e6ef" bkcolor2="ff8796c2" bkimage="ui/总控/4-弹窗/背景.png">-->
+
+  <VerticalLayout bordersize="1" bkcolor="ffFFFFFF" bkimage="ui/新建界面.png">
+    <HorizontalLayout  height="5"  />
+    <HorizontalLayout height="20">
+      <HorizontalLayout  width="370"  />
+      <Button name="Close"  cursor="hand"  textcolor="#FFFFFFFF"  text="" foreimage=" res='ui/X.png'"  font="3" width="20"  height="20"   />
+    </HorizontalLayout>
+
+    <HorizontalLayout childpadding="5" height="60" >
+
+    </HorizontalLayout>
+
+    <HorizontalLayout childpadding="5" height="10" >
+
+    </HorizontalLayout>
+    <HorizontalLayout height="80">
+      <HorizontalLayout width="80" />
+      <Label text="名称:"   textcolor="#FF000000"  font="2" width="50"  height="30"   align="left" />
+      <Edit name="edit_name" bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+
+    </HorizontalLayout>
+
+    <HorizontalLayout height="60" inset="10,10,10,10">
+      <Control />
+
+      <Button name="confirm_btn" height="30" width="75" align="center" valign="vcenter" textcolor="#FF555555" textpadding="6,0,6,0" bkimage="ui/确定_3.png"/>
+      <Control width="20"/>
+      <Button name="cancel_btn" height="30" width="75" align="center" valign="vcenter" textcolor="#FF555555" textpadding="6,0,6,0"  bkimage="ui/取消.png"/>
+      <Control width="30"/>
+    </HorizontalLayout>
+
+
+  </VerticalLayout>
+
+</Window>

@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window caption="0,0,0,0" size="521,462" >
+  <Font id="0" name="微软雅黑" size="12" default="true"/>
+  <Font id="1" name="微软雅黑" size="14"/>
+  <Font id="2" name="宋体" size="18" default="true"/>
+  <Font id="5" name="宋体" size="14"/>
+  <Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FF000000&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+  <!--<Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;30&quot; textcolor=&quot;#FF000000&quot; hottextcolor=&quot;#FF000000&quot; textpadding=&quot;16,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,25.25'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,25.25'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,25.25'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,25,25'&quot;" />
+  
+  <VerticalLayout name="root" bkcolor="ffffffff" bkcolor2="ffffffff"  gdiplustext="true" textrenderinghint="0" bordercolor="ffd0d0d0"  childpadding="1"  inset="0,0,0,0"   height="500" colorhsl="true" >
+<Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+
+    <VerticalLayout name="body"  bordercolor="ffffffff" bkcolor="ffe5e6ef" bkcolor2="ff8796c2" bkimage="ui/总控/4-弹窗/背景.png">-->
+
+  <VerticalLayout bordersize="1" bkcolor="ffFFFFFF" bkimage="ui/选择设备_0904.png">
+    <HorizontalLayout  height="15"  />
+    <HorizontalLayout height="23">
+      <HorizontalLayout  width="490"  />
+      <Button name="Close"  cursor="hand"  textcolor="#FFFFFFFF"  text="" foreimage=" res='ui/X.png'"  font="3" width="23"  height="23"   />
+    </HorizontalLayout>
+
+      <HorizontalLayout childpadding="5" height="40" >
+
+      </HorizontalLayout>
+      
+      <HorizontalLayout childpadding="5" height="10" >
+
+      </HorizontalLayout>
+      <HorizontalLayout height="320"   width="520" childpadding="12" vscrollbar="true" hscrollbar="true">
+
+        <VerticalLayout height="300"  width="500" childpadding="12" vscrollbar="true" hscrollbar="true">
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="40" >
+              <HorizontalLayout width="100" />
+              <Label name="label1"  Visible="false" text="设备类型1:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name1"  Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_1" height="40"  hscrollbar="true">
+              <HorizontalLayout width="20" />
+              
+            </HorizontalLayout>
+
+            
+
+          </VerticalLayout>
+          
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="30" >
+              <HorizontalLayout width="100" />
+              <Label  name="label2" Visible="false"  text="设备类型2:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name2" Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_2" height="40"  hscrollbar="true" >
+              <HorizontalLayout width="20" />
+
+            </HorizontalLayout>
+
+
+
+          </VerticalLayout>
+
+
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="30" >
+              <HorizontalLayout width="100" />
+              <Label  name="label3" Visible="false"  text="设备类型3:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name3" Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_3" height="40"  hscrollbar="true">
+              <HorizontalLayout width="20" />
+
+            </HorizontalLayout>
+
+
+
+          </VerticalLayout>
+
+
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="30" >
+              <HorizontalLayout width="100" />
+              <Label  name="label4" Visible="false"  text="设备类型4:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name4" Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_4" height="40"  hscrollbar="true">
+              <HorizontalLayout width="20" />
+
+            </HorizontalLayout>
+
+
+
+          </VerticalLayout>
+
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="30" >
+              <HorizontalLayout width="100" />
+              <Label  name="label5" Visible="false"  text="设备类型5:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name5" Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_5" height="40"  hscrollbar="true">
+              <HorizontalLayout width="20" />
+
+            </HorizontalLayout>
+
+
+
+          </VerticalLayout>
+
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="30" >
+              <HorizontalLayout width="100" />
+              <Label  name="label6" Visible="false"  text="设备类型6:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name6" Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_6" height="40"  hscrollbar="true">
+              <HorizontalLayout width="20" />
+
+            </HorizontalLayout>
+
+
+
+          </VerticalLayout>
+
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="30" >
+              <HorizontalLayout width="100" />
+              <Label  name="label7" Visible="false"  text="设备类型5:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name7" Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_7" height="40"  hscrollbar="true">
+              <HorizontalLayout width="20" />
+
+            </HorizontalLayout>
+
+
+
+          </VerticalLayout>
+
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="30" >
+              <HorizontalLayout width="100" />
+              <Label  name="label8" Visible="false"  text="设备类型5:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name8" Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_8" height="40"  hscrollbar="true">
+              <HorizontalLayout width="20" />
+
+            </HorizontalLayout>
+
+
+
+          </VerticalLayout>
+
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="30" >
+              <HorizontalLayout width="100" />
+              <Label  name="label9" Visible="false"  text="设备类型5:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name9" Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_9" height="40"  hscrollbar="true">
+              <HorizontalLayout width="20" />
+
+            </HorizontalLayout>
+
+
+
+          </VerticalLayout>
+
+
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="30" >
+              <HorizontalLayout width="100" />
+              <Label  name="label10" Visible="false"  text="设备类型5:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name10" Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_10" height="40"  hscrollbar="true">
+              <HorizontalLayout width="20" />
+
+            </HorizontalLayout>
+
+
+
+          </VerticalLayout>
+
+
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="30" >
+              <HorizontalLayout width="100" />
+              <Label  name="label11" Visible="false"  text="设备类型5:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name11" Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_11" height="40"  hscrollbar="true">
+              <HorizontalLayout width="20" />
+
+            </HorizontalLayout>
+
+
+
+          </VerticalLayout>
+
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="30" >
+              <HorizontalLayout width="100" />
+              <Label  name="label12" Visible="false"  text="设备类型5:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name12" Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_12" height="40"  hscrollbar="true">
+              <HorizontalLayout width="20" />
+
+            </HorizontalLayout>
+
+
+
+          </VerticalLayout>
+
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="30" >
+              <HorizontalLayout width="100" />
+              <Label  name="label13" Visible="false"  text="设备类型5:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name13" Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_13" height="40"  hscrollbar="true">
+              <HorizontalLayout width="20" />
+
+            </HorizontalLayout>
+
+
+
+          </VerticalLayout>
+
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="30" >
+              <HorizontalLayout width="100" />
+              <Label  name="label14" Visible="false"  text="设备类型5:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name14" Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_14" height="40"  hscrollbar="true">
+              <HorizontalLayout width="20" />
+
+            </HorizontalLayout>
+
+
+
+          </VerticalLayout>
+
+          <VerticalLayout height="100"  width="480" childpadding="12" vscrollbar="true" hscrollbar="true">
+            <HorizontalLayout height="30" >
+              <HorizontalLayout width="100" />
+              <Label  name="label15" Visible="false"  text="设备类型5:"   textcolor="#FF000000"  font="2" width="100"  height="30"   align="left" />
+              <Edit name="edit_name15" Visible="false"  bordersize="1,1,1,1" bordercolor="#FF000000" font="2"  width="200" height="30" textcolor="#FF000000"/>
+
+            </HorizontalLayout>
+
+            <HorizontalLayout name="hori_15" height="40"  hscrollbar="true">
+              <HorizontalLayout width="20" />
+
+            </HorizontalLayout>
+
+
+
+          </VerticalLayout>
+
+        </VerticalLayout>
+
+      </HorizontalLayout>
+
+    <HorizontalLayout height="50"  childpadding="12" hscrollbar="true">
+     
+      <HorizontalLayout  height="30" width="210" />
+      <Button name="confirm_btn"  cursor="hand"  textcolor="#FFFFFFFF"  text="" foreimage=" res='ui/确定_3.png'"  font="3" width="96"  height="40"   />
+    </HorizontalLayout>
+    
+    
+  </VerticalLayout>
+
+</Window>

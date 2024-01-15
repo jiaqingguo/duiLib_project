@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window caption="0,0,0,0" size="400,250" >
+  <Font id="0" name="微软雅黑" size="12" default="true"/>
+  <Font id="1" name="微软雅黑" size="14"/>
+  <Font id="10" name="微软雅黑" size="25"/>
+  <Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FF000000&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+  <!--<Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;30&quot; textcolor=&quot;#FF000000&quot; hottextcolor=&quot;#FF000000&quot; textpadding=&quot;16,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,25.25'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,25.25'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,25.25'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,25,25'&quot;" />
+  
+  <VerticalLayout name="root" bkcolor="ffffffff" bkcolor2="ffffffff"  gdiplustext="true" textrenderinghint="0" bordercolor="ffd0d0d0"  childpadding="1"  inset="0,0,0,0"   height="500" colorhsl="true" >
+<Style name="cb_style" shared="true" value="align=&quot;left&quot; valign=&quot;vcenter&quot; height=&quot;16&quot; textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;20,0,6,0&quot; normalimage=&quot;res='common/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='common/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='common/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='common/cb_selected.png' dest='0,0,16,16'&quot;" />
+
+    <VerticalLayout name="body"  bordercolor="ffffffff" bkcolor="ffe5e6ef" bkcolor2="ff8796c2" bkimage="ui/总控/4-弹窗/背景.png">-->
+
+  <VerticalLayout bkcolor="ffffffff" bkcolor2="ffffffff" bkimage="ui/提示_1.png">
+
+    <!--<HorizontalLayout name="appbar" height="36" inset="6,6" bkcolor="#aa1f93e8">
+      <Label name="MessageTitle" valign="vcenter" text="提示" textcolor="#FFFFFFFF" font="1" />
+      <Button name="closebtn" width="39" height="20" tooltip="关闭" normalimage="file='sysbtn/btn_close_normal.png'" hotimage="file='sysbtn/btn_close_highlight.png'" pushedimage="file='sysbtn/btn_close_down.png'"/>
+    </HorizontalLayout>   -->
+
+    <Control height="1" bkcolor="#FF1f93e8"/>
+    <!--<VerticalLayout inset="20,60,50,80">-->
+    <!--<VerticalLayout inset="130,140,60,100">-->
+    <HorizontalLayout childpadding="5" height="80" >
+
+    </HorizontalLayout>
+
+    <!--<HorizontalLayout childpadding="5" height="30" >
+        <HorizontalLayout width="20" />
+        <Label name="titile" text="实验数据存储名称:"  wordbreak="true"   valign="vcenter"  align="left" font="19"  width="100"  height="30"  mouse="false" />
+        <Edit name="id"   width="180"  valign="vcenter"  height="30"  hscrollbar="true"   align="left" font="13" bkimage="ui/总控/4-弹窗/输入框.png" />
+
+      </HorizontalLayout>
+      -->
+    <HorizontalLayout childpadding="5" height="10" >
+
+    </HorizontalLayout>
+    <HorizontalLayout height="100"  childpadding="12"  hscrollbar="true">
+      <VerticalLayout height="90"  childpadding="12" vscrollbar="true" hscrollbar="true">
+        <!--<HorizontalLayout childpadding="5" height="60">-->
+        <HorizontalLayout height="20">
+          <HorizontalLayout width="60" />
+
+        </HorizontalLayout>
+
+        <HorizontalLayout height="40">
+          <HorizontalLayout width="60" />
+
+          <Label name ="lable_Statement" text="卫星创建成功"   textcolor="#FF000000"  font="10" width="300"  height="30"   align="left" />
+        </HorizontalLayout>
+
+
+
+      </VerticalLayout>
+
+    </HorizontalLayout>
+
+    <HorizontalLayout height="60" inset="10,10,10,10">
+      <Control />
+
+      <Button name="confirm_btn" height="30" width="75" align="center" valign="vcenter" textcolor="#FF555555" textpadding="6,0,6,0" bkimage="ui/确定_3.png"/>
+      <Control width="20"/>
+      <Button name="cancel_btn" height="30" width="75" align="center" valign="vcenter" textcolor="#FF555555" textpadding="6,0,6,0"  bkimage="ui/取消.png"/>
+      <Control width="30"/>
+    </HorizontalLayout>
+
+  </VerticalLayout>
+
+</Window>
