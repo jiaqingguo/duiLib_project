@@ -15,11 +15,11 @@ ConnectMysql::ConnectMysql(void)
 }
 ConnectMysql::~ConnectMysql(void)
 {
-	//mysql_close(&m_mydata);
+	//mysql_close(m_mysql);
 	
     //mysql_free_result(res);    
-    mysql_close(&m_mydata);    
-    //free(&m_mydata);    
+    mysql_close(m_mysql);    
+    //free(m_mysql);    
 
 }
 vector<string> my_split_inMysql(string str, string pattern)
@@ -71,15 +71,15 @@ bool ConnectMysql::InitDatabase()
 		return false;
 	}
 	//初始化数据结构
-	if (mysql_init(&m_mydata) != NULL)
-		cout << "mysql_init() succeed" << endl;
-	else
+	m_mysql = mysql_init(nullptr);
+
+	if (m_mysql == nullptr)
 	{
 		cout << "mysql_init() failed" << endl;
 		return false;
 	}//在连接数据库之前，设置额外的连接选项
 	//可以设置的选项很多，这里设置字符集，否则无法处理中文
-	if (mysql_options(&m_mydata, MYSQL_SET_CHARSET_NAME, "gbk") == 0)
+	if (mysql_options(m_mysql, MYSQL_SET_CHARSET_NAME, "gbk") == 0)
 		cout << "mysql_options() succeed" << endl;
 	else
 	{
@@ -96,13 +96,13 @@ bool ConnectMysql::StartConnectMysql()
 	{
 		return false;
 	}
-	//if (mysql_real_connect(&m_mydata, "localhost", "root", "123456", "shoesshop", 3306, NULL, 0) != NULL)	//这里的地址，用户名，密码，端口可以根据自己本地的情况更改
-	//if (mysql_real_connect(&m_mydata, "127.0.0.1", "root", "123456", "jh_database", 3306, NULL, 0) != NULL)
-	if (mysql_real_connect(&m_mydata, "127.0.0.1", "root", "123456", "jh_database", 3306, NULL, 0) != NULL)
+	//if (mysql_real_connect(m_mysql, "localhost", "root", "123456", "shoesshop", 3306, NULL, 0) != NULL)	//这里的地址，用户名，密码，端口可以根据自己本地的情况更改
+	//if (mysql_real_connect(m_mysql, "127.0.0.1", "root", "123456", "jh_database", 3306, NULL, 0) != NULL)
+	if (mysql_real_connect(m_mysql, "127.0.0.1", "root", "123456", "jh_database", 3306, NULL, 0) != NULL)
 		cout << "mysql_real_connect() succeed" << endl;
 	else
 	{
-		cout << "mysql_real_connect() failed: " << mysql_error(&m_mydata) << endl;
+		cout << "mysql_real_connect() failed: " << mysql_error(m_mysql) << endl;
 		return false;
 	}
 	return true;
@@ -131,13 +131,13 @@ bool ConnectMysql::CreateNewTable(string name)
 	sqlstr += ");";
 	//sqlstr = "create table if not exists 光纤1_2121 (u_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Unique User ID',u_time VARCHAR(100) CHARACTER SET gb2312 COLLATE gb2312_chinese_ci NULL COMMENT 'Name Of User');";
 	cout << sqlstr << endl;
-	if (mysql_query(&m_mydata, sqlstr.c_str()) == 0)
+	if (mysql_query(m_mysql, sqlstr.c_str()) == 0)
 		cout << "mysql_query() create table succeed" << endl;
 	else
 	{
-		//string str = mysql_error(&m_mydata);
-		cout << "mysql_query() create table failed" << mysql_error(&m_mydata)<<endl;
-		mysql_close(&m_mydata);
+		//string str = mysql_error(m_mysql);
+		cout << "mysql_query() create table failed" << mysql_error(m_mysql)<<endl;
+		mysql_close(m_mysql);
 		return FALSE;
 	}
 	return true;
@@ -176,14 +176,14 @@ bool ConnectMysql::CreateNewTable(string name,vector<string> vec)
 	//sqlstr += ");";
 	//sqlstr = "create table if not exists 光纤1_2121 (u_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Unique User ID',u_time VARCHAR(100) CHARACTER SET gb2312 COLLATE gb2312_chinese_ci NULL COMMENT 'Name Of User');";
 	cout << sqlstr << endl;
-	if (mysql_query(&m_mydata, sqlstr.c_str()) == 0)
+	if (mysql_query(m_mysql, sqlstr.c_str()) == 0)
 		cout << "mysql_query() create table succeed" << endl;
 	else
 	{
-		string str = mysql_error(&m_mydata);
-		cout << "mysql_query() create table failed" << mysql_error(&m_mydata)<<endl;
+		string str = mysql_error(m_mysql);
+		cout << "mysql_query() create table failed" << mysql_error(m_mysql)<<endl;
 		cout << str << endl;
-		mysql_close(&m_mydata);
+		mysql_close(m_mysql);
 		return FALSE;
 	}
 	return true;
@@ -210,14 +210,14 @@ void ConnectMysql::addMsgToTable(string name, string x, string y, string z, stri
 	sqlstr += " values('" + s_num + "','" + current_time.c_str() + "','" + x + "','" + y + "','" + z + "','" + gd + "','" + fy +
 		"','" + ph + "','" + dof7 + "','" + dof8 +"','" + dof9 + "');";
 	cout << sqlstr << endl;
-	if (mysql_query(&m_mydata, sqlstr.c_str()) == 0)
+	if (mysql_query(m_mysql, sqlstr.c_str()) == 0)
 	{
 		cout << "mysql_query() insert data succeed" << endl;
 	}
 	else
 	{
 		cout << "mysql_query() insert data failed" << endl;
-		mysql_close(&m_mydata);
+		mysql_close(m_mysql);
 		//return FALSE;
 	}
 	//return TRUE;
@@ -246,14 +246,14 @@ void ConnectMysql::addMsgToTable(string name,vector<string> vec)
 	sqlstr += vec[vec.size() - 1];
 	sqlstr += "');";
 	cout << "";
-	if (mysql_query(&m_mydata, sqlstr.c_str()) == 0)
+	if (mysql_query(m_mysql, sqlstr.c_str()) == 0)
 	{
 		cout << "mysql_query() insert data succeed" << endl;
 	}
 	else
 	{
 		cout << "mysql_query() insert data failed" << endl;
-		mysql_close(&m_mydata);
+		mysql_close(m_mysql);
 		//return FALSE;
 	}
 }
@@ -267,10 +267,10 @@ bool ConnectMysql::showAllTable(string name_Table)
 	sqlstr += name_Table;
 	cout << sqlstr << endl;
 	//MYSQL_RES *result_select = NULL;
-	if (mysql_query(&m_mydata, sqlstr.c_str()) == 0)
+	if (mysql_query(m_mysql, sqlstr.c_str()) == 0)
 	{
 		cout << "mysql_query() select data succeed" << endl;
-		res = mysql_store_result(&m_mydata);
+		res = mysql_store_result(m_mysql);
 		//取得并打印行数
 		int rowcount = mysql_num_rows(res);
 		cout << "row count: " << rowcount << endl;
@@ -297,17 +297,17 @@ bool ConnectMysql::showAllTable(string name_Table)
 	else
 	{
 		cout << "mysql_query() select data failed" << endl;
-		mysql_close(&m_mydata);
+		mysql_close(m_mysql);
 		return FALSE;
 	}
 	return TRUE;
 }
 void ConnectMysql::closeDatabase()
 {
-	mysql_close(&m_mydata);
-	//mysql_shutdown(&m_mydata, KILL_CONNECTION);
-	//mysql_stmt_close(&m_mydata);
-	//mysql_stmt_reset(&m_mydata);
+	mysql_close(m_mysql);
+	//mysql_shutdown(m_mysql, KILL_CONNECTION);
+	//mysql_stmt_close(m_mysql);
+	//mysql_stmt_reset(m_mysql);
 	
 }
 //显示数据库中所有表名称
@@ -320,10 +320,10 @@ bool ConnectMysql::showAllTableName()
 	//sqlstr += name_Table;
 	cout << sqlstr << endl;
 	res = NULL;
-	if (mysql_query(&m_mydata, sqlstr.c_str()) == 0)
+	if (mysql_query(m_mysql, sqlstr.c_str()) == 0)
 	{
 		cout << "mysql_query() select data succeed" << endl;
-		res = mysql_store_result(&m_mydata);
+		res = mysql_store_result(m_mysql);
 		//取得并打印行数
 		int rowcount = mysql_num_rows(res);
 		cout << "row count: " << rowcount << endl;
@@ -350,7 +350,7 @@ bool ConnectMysql::showAllTableName()
 	else
 	{
 		cout << "mysql_query() select data failed" << endl;
-		mysql_close(&m_mydata);
+		mysql_close(m_mysql);
 		return FALSE;
 	}
 	return TRUE;
@@ -373,9 +373,9 @@ bool ConnectMysql::SetUpDatabase(string database)
 	//sprintf_s(query, "select * from t_dept"); //执行查询语句，这里是查询所有，user是表名，不用加引号，用strcpy也可以  
 	//mysql_query(&mydata, "set names gbk"); //设置编码格式（SET NAMES GBK也行），否则cmd下中文乱码  
 	//返回0 查询成功，返回1查询失败  
-	if (mysql_query(&m_mydata, sqlstr.c_str()))    //执行SQL语句
+	if (mysql_query(m_mysql, sqlstr.c_str()))    //执行SQL语句
 	{
-		printf("Query failed (%s)\n", mysql_error(&m_mydata));
+		printf("Query failed (%s)\n", mysql_error(m_mysql));
 		return false;
 		//return false;
 	}
@@ -403,9 +403,9 @@ vector<vector<string>> ConnectMysql::mytest_QueryDatabase(string name_Table)
 	//sprintf_s(query, "select * from t_dept"); //执行查询语句，这里是查询所有，user是表名，不用加引号，用strcpy也可以  
 	//mysql_query(&mydata, "set names gbk"); //设置编码格式（SET NAMES GBK也行），否则cmd下中文乱码  
 	//返回0 查询成功，返回1查询失败  
-	if (mysql_query(&m_mydata, sqlstr.c_str()))    //执行SQL语句
+	if (mysql_query(m_mysql, sqlstr.c_str()))    //执行SQL语句
 	{
-		printf("Query failed (%s)\n", mysql_error(&m_mydata));
+		printf("Query failed (%s)\n", mysql_error(m_mysql));
 		//return false;
 	}
 	else
@@ -413,15 +413,15 @@ vector<vector<string>> ConnectMysql::mytest_QueryDatabase(string name_Table)
 		printf("query success\n");
 	}
 	//获取结果集  
-	if (!(res = mysql_store_result(&m_mydata)))   //获得sql语句结束后返回的结果集  
+	if (!(res = mysql_store_result(m_mysql)))   //获得sql语句结束后返回的结果集  
 	{
-		printf("Couldn't get result from %s\n", mysql_error(&m_mydata));
+		printf("Couldn't get result from %s\n", mysql_error(m_mysql));
 		//return false;
 	}
 	unsigned int fieldcount_select = mysql_num_fields(res);
-	//unsigned int affect_row = mysql_affected_rows(&m_mydata);
+	//unsigned int affect_row = mysql_affected_rows(m_mysql);
 	//打印数据行数  
-	printf("number of dataline returned: %d\n", mysql_affected_rows(&m_mydata));//
+	printf("number of dataline returned: %d\n", mysql_affected_rows(m_mysql));//
 
 	//获取字段的信息  
 	char *str_field[40];  //定义一个字符串数组存储字段信息  
@@ -465,9 +465,9 @@ string ConnectMysql::mytest_QueryDatabase_1(string name_Table)
 	//sprintf_s(query, "select * from t_dept"); //执行查询语句，这里是查询所有，user是表名，不用加引号，用strcpy也可以  
 	//mysql_query(&mydata, "set names gbk"); //设置编码格式（SET NAMES GBK也行），否则cmd下中文乱码  
 	//返回0 查询成功，返回1查询失败  
-	if (mysql_query(&m_mydata, sqlstr.c_str()))    //执行SQL语句
+	if (mysql_query(m_mysql, sqlstr.c_str()))    //执行SQL语句
 	{
-		printf("Query failed (%s)\n", mysql_error(&m_mydata));
+		printf("Query failed (%s)\n", mysql_error(m_mysql));
 		//return false;
 	}
 	else
@@ -475,14 +475,14 @@ string ConnectMysql::mytest_QueryDatabase_1(string name_Table)
 		printf("query success\n");
 	}
 	//获取结果集  
-	if (!(res = mysql_store_result(&m_mydata)))   //获得sql语句结束后返回的结果集  
+	if (!(res = mysql_store_result(m_mysql)))   //获得sql语句结束后返回的结果集  
 	{
-		printf("Couldn't get result from %s\n", mysql_error(&m_mydata));
+		printf("Couldn't get result from %s\n", mysql_error(m_mysql));
 		//return false;
 	}
 	unsigned int fieldcount_select = mysql_num_fields(res);
 	//打印数据行数  
-	printf("number of dataline returned: %d\n", mysql_affected_rows(&m_mydata));
+	printf("number of dataline returned: %d\n", mysql_affected_rows(m_mysql));
 
 	//获取字段的信息  
 	char *str_field[40];  //定义一个字符串数组存储字段信息  
@@ -522,9 +522,9 @@ string ConnectMysql::mytest_showDbAllName()
 	//sprintf_s(query, "select * from t_dept"); //执行查询语句，这里是查询所有，user是表名，不用加引号，用strcpy也可以  
 	//mysql_query(&mydata, "set names gbk"); //设置编码格式（SET NAMES GBK也行），否则cmd下中文乱码  
 	//返回0 查询成功，返回1查询失败  
-	if (mysql_query(&m_mydata, sqlstr.c_str()))    //执行SQL语句
+	if (mysql_query(m_mysql, sqlstr.c_str()))    //执行SQL语句
 	{
-		printf("Query failed (%s)\n", mysql_error(&m_mydata));
+		printf("Query failed (%s)\n", mysql_error(m_mysql));
 		//return false;
 	}
 	else
@@ -532,14 +532,14 @@ string ConnectMysql::mytest_showDbAllName()
 		printf("query success\n");
 	}
 	//获取结果集  
-	if (!(res = mysql_store_result(&m_mydata)))   //获得sql语句结束后返回的结果集  
+	if (!(res = mysql_store_result(m_mysql)))   //获得sql语句结束后返回的结果集  
 	{
-		printf("Couldn't get result from %s\n", mysql_error(&m_mydata));
+		printf("Couldn't get result from %s\n", mysql_error(m_mysql));
 		//return false;
 	}
 	unsigned int fieldcount_select = mysql_num_fields(res);
 	//打印数据行数  
-	printf("number of dataline returned: %d\n", mysql_affected_rows(&m_mydata));
+	printf("number of dataline returned: %d\n", mysql_affected_rows(m_mysql));
 
 	//获取字段的信息  
 	char *str_field[40];  //定义一个字符串数组存储字段信息  
@@ -586,9 +586,9 @@ string ConnectMysql::mytest_QueryByTime(string start, string end, string name_Ta
 	//sprintf_s(query, "select * from t_dept"); //执行查询语句，这里是查询所有，user是表名，不用加引号，用strcpy也可以  
 	//mysql_query(&mydata, "set names gbk"); //设置编码格式（SET NAMES GBK也行），否则cmd下中文乱码  
 	//返回0 查询成功，返回1查询失败  
-	if (mysql_query(&m_mydata, sqlstr.c_str()))    //执行SQL语句
+	if (mysql_query(m_mysql, sqlstr.c_str()))    //执行SQL语句
 	{
-		printf("Query failed (%s)\n", mysql_error(&m_mydata));
+		printf("Query failed (%s)\n", mysql_error(m_mysql));
 		//return false;
 	}
 	else
@@ -596,14 +596,14 @@ string ConnectMysql::mytest_QueryByTime(string start, string end, string name_Ta
 		printf("query success\n");
 	}
 	//获取结果集  
-	if (!(res = mysql_store_result(&m_mydata)))   //获得sql语句结束后返回的结果集  
+	if (!(res = mysql_store_result(m_mysql)))   //获得sql语句结束后返回的结果集  
 	{
-		printf("Couldn't get result from %s\n", mysql_error(&m_mydata));
+		printf("Couldn't get result from %s\n", mysql_error(m_mysql));
 		//return false;
 	}
 	unsigned int fieldcount_select = mysql_num_fields(res);
 	//打印数据行数  
-	printf("number of dataline returned: %d\n", mysql_affected_rows(&m_mydata));
+	printf("number of dataline returned: %d\n", mysql_affected_rows(m_mysql));
 
 	//获取字段的信息  
 	char *str_field[40];  //定义一个字符串数组存储字段信息  
@@ -657,9 +657,9 @@ vector<vector<string>> ConnectMysql::mytest_QueryByTime(string start, string end
 	//sprintf_s(query, "select * from t_dept"); //执行查询语句，这里是查询所有，user是表名，不用加引号，用strcpy也可以  
 	//mysql_query(&mydata, "set names gbk"); //设置编码格式（SET NAMES GBK也行），否则cmd下中文乱码  
 	//返回0 查询成功，返回1查询失败  
-	if (mysql_query(&m_mydata, sqlstr.c_str()))    //执行SQL语句
+	if (mysql_query(m_mysql, sqlstr.c_str()))    //执行SQL语句
 	{
-		printf("Query failed (%s)\n", mysql_error(&m_mydata));
+		printf("Query failed (%s)\n", mysql_error(m_mysql));
 		//return false;
 	}
 	else
@@ -667,14 +667,14 @@ vector<vector<string>> ConnectMysql::mytest_QueryByTime(string start, string end
 		printf("query success\n");
 	}
 	//获取结果集  
-	if (!(res = mysql_store_result(&m_mydata)))   //获得sql语句结束后返回的结果集  
+	if (!(res = mysql_store_result(m_mysql)))   //获得sql语句结束后返回的结果集  
 	{
-		printf("Couldn't get result from %s\n", mysql_error(&m_mydata));
+		printf("Couldn't get result from %s\n", mysql_error(m_mysql));
 		//return false;
 	}
 	unsigned int fieldcount_select = mysql_num_fields(res);
 	//打印数据行数  
-	printf("number of dataline returned: %d\n", mysql_affected_rows(&m_mydata));
+	printf("number of dataline returned: %d\n", mysql_affected_rows(m_mysql));
 
 	//获取字段的信息  
 	char *str_field[40];  //定义一个字符串数组存储字段信息  
@@ -725,9 +725,9 @@ vector<string> ConnectMysql::mytest_QueryColumns(string dbName,string name_Table
 	//sprintf_s(query, "select * from t_dept"); //执行查询语句，这里是查询所有，user是表名，不用加引号，用strcpy也可以  
 	//mysql_query(&mydata, "set names gbk"); //设置编码格式（SET NAMES GBK也行），否则cmd下中文乱码  
 	//返回0 查询成功，返回1查询失败  
-	if (mysql_query(&m_mydata, sqlstr.c_str()))    //执行SQL语句
+	if (mysql_query(m_mysql, sqlstr.c_str()))    //执行SQL语句
 	{
-		printf("Query failed (%s)\n", mysql_error(&m_mydata));
+		printf("Query failed (%s)\n", mysql_error(m_mysql));
 		//return false;
 	}
 	else
@@ -735,14 +735,14 @@ vector<string> ConnectMysql::mytest_QueryColumns(string dbName,string name_Table
 		printf("query success\n");
 	}
 	//获取结果集  
-	if (!(res = mysql_store_result(&m_mydata)))   //获得sql语句结束后返回的结果集  
+	if (!(res = mysql_store_result(m_mysql)))   //获得sql语句结束后返回的结果集  
 	{
-		printf("Couldn't get result from %s\n", mysql_error(&m_mydata));
+		printf("Couldn't get result from %s\n", mysql_error(m_mysql));
 		//return false;
 	}
 	unsigned int fieldcount_select = mysql_num_fields(res);
 	//打印数据行数  
-	printf("number of dataline returned: %d\n", mysql_affected_rows(&m_mydata));
+	printf("number of dataline returned: %d\n", mysql_affected_rows(m_mysql));
 
 	//获取字段的信息  
 	char *str_field[40];  //定义一个字符串数组存储字段信息  
@@ -787,9 +787,9 @@ vector<string> ConnectMysql::mytest_QueryDatabase()
 	//sprintf_s(query, "select * from t_dept"); //执行查询语句，这里是查询所有，user是表名，不用加引号，用strcpy也可以  
 	//mysql_query(&mydata, "set names gbk"); //设置编码格式（SET NAMES GBK也行），否则cmd下中文乱码  
 	//返回0 查询成功，返回1查询失败  
-	if (mysql_query(&m_mydata, sqlstr.c_str()))    //执行SQL语句
+	if (mysql_query(m_mysql, sqlstr.c_str()))    //执行SQL语句
 	{
-		printf("Query failed (%s)\n", mysql_error(&m_mydata));
+		printf("Query failed (%s)\n", mysql_error(m_mysql));
 		//return false;
 	}
 	else
@@ -797,15 +797,15 @@ vector<string> ConnectMysql::mytest_QueryDatabase()
 		printf("query success\n");
 	}
 	//获取结果集  
-	if (!(res = mysql_store_result(&m_mydata)))   //获得sql语句结束后返回的结果集  
+	if (!(res = mysql_store_result(m_mysql)))   //获得sql语句结束后返回的结果集  
 	{
-		printf("Couldn't get result from %s\n", mysql_error(&m_mydata));
+		printf("Couldn't get result from %s\n", mysql_error(m_mysql));
 		//return false;
 	}
 	unsigned int fieldcount_select = mysql_num_fields(res);
-	//unsigned int affect_row = mysql_affected_rows(&m_mydata);
+	//unsigned int affect_row = mysql_affected_rows(m_mysql);
 	//打印数据行数  
-	printf("number of dataline returned: %d\n", mysql_affected_rows(&m_mydata));//
+	printf("number of dataline returned: %d\n", mysql_affected_rows(m_mysql));//
 
 	//获取字段的信息  
 	char *str_field[40];  //定义一个字符串数组存储字段信息  
@@ -849,9 +849,9 @@ vector<string> ConnectMysql::mytest_QueryDatabase()
 	////sprintf_s(query, "select * from t_dept"); //执行查询语句，这里是查询所有，user是表名，不用加引号，用strcpy也可以  
 	////mysql_query(&mydata, "set names gbk"); //设置编码格式（SET NAMES GBK也行），否则cmd下中文乱码  
 	////返回0 查询成功，返回1查询失败  
-	//if (mysql_query(&m_mydata, sqlstr.c_str()))    //执行SQL语句
+	//if (mysql_query(m_mysql, sqlstr.c_str()))    //执行SQL语句
 	//{
-	//	printf("Query failed (%s)\n", mysql_error(&m_mydata));
+	//	printf("Query failed (%s)\n", mysql_error(m_mysql));
 	//	//return false;
 	//}
 	//else
@@ -859,14 +859,14 @@ vector<string> ConnectMysql::mytest_QueryDatabase()
 	//	printf("query success\n");
 	//}
 	////获取结果集  
-	//if (!(res = mysql_store_result(&m_mydata)))   //获得sql语句结束后返回的结果集  
+	//if (!(res = mysql_store_result(m_mysql)))   //获得sql语句结束后返回的结果集  
 	//{
-	//	printf("Couldn't get result from %s\n", mysql_error(&m_mydata));
+	//	printf("Couldn't get result from %s\n", mysql_error(m_mysql));
 	//	//return false;
 	//}
 	//unsigned int fieldcount_select = mysql_num_fields(res);
 	////打印数据行数  
-	//printf("number of dataline returned: %d\n", mysql_affected_rows(&m_mydata));
+	//printf("number of dataline returned: %d\n", mysql_affected_rows(m_mysql));
 
 	////获取字段的信息  
 	//char *str_field[40];  //定义一个字符串数组存储字段信息  
@@ -916,15 +916,639 @@ bool ConnectMysql::CreateNewTableAndInsert(string name,vector<string> columnName
 	}
 	sqlstr += columnValue[columnValue.size() - 1];
 	sqlstr += "');";
-	if (mysql_query(&m_mydata, sqlstr.c_str()) == 0)
+	if (mysql_query(m_mysql, sqlstr.c_str()) == 0)
 	{
 		cout << "mysql_query() insert data succeed" << endl;
 	}
 	else
 	{
 		cout << "mysql_query() insert data failed" << endl;
-		mysql_close(&m_mydata);
+		mysql_close(m_mysql);
 		return false;
+	}
+	return true;
+}
+
+MYSQL_RES* ConnectMysql::execSqlSelect(const std::string& sql)
+{
+	MYSQL_RES* result = nullptr;
+
+	if (m_mysql == nullptr)
+		return nullptr;
+	if (mysql_real_query(m_mysql, sql.c_str(), (unsigned long)sql.size()) != 0)
+	{
+		std::string error = mysql_error(m_mysql);
+		printf("SQL：%s\nError：%s", sql.c_str(), error.c_str());
+		return nullptr;
+	}
+	else
+	{
+		result = mysql_store_result(m_mysql);
+	}
+
+	return result;
+}
+
+bool ConnectMysql::execSql(uint32_t& lastId, const std::string& sql)
+{
+	if (m_mysql == nullptr)
+		return false;
+	if (mysql_real_query(m_mysql, sql.c_str(), (unsigned long)sql.size()) != 0)
+	{
+		std::string error = mysql_error(m_mysql);
+		printf("SQL：%s\nError：%s", sql.c_str(), error.c_str());
+		return false;
+	}
+
+	// 获取被更新行数id;
+	lastId = (unsigned int)mysql_insert_id(m_mysql);
+
+	return true;
+}
+
+bool ConnectMysql::startupTransaction()
+{
+	if (m_mysql == nullptr)
+		return false;
+
+	// 启动事务;
+	if (mysql_real_query(m_mysql, "START TRANSACTION", (unsigned long)strlen("START TRANSACTION")))
+	{
+		std::string error = mysql_error(m_mysql);
+		printf("启动事务失败!\nError: %s", error.c_str());
+		return false;
+	}
+
+	return true;
+}
+
+bool ConnectMysql::commitTransaction()
+{
+	if (m_mysql == nullptr)
+		return false;
+
+	// 提交事务;
+	if (mysql_real_query(m_mysql, "COMMIT", (unsigned long)strlen("COMMIT")))
+	{
+		std::string error = mysql_error(m_mysql);
+		printf("提交事务失败!\nError: %s", error.c_str());
+		return false;
+	}
+
+	return true;
+}
+
+bool ConnectMysql::rollbackTransaction()
+{
+	if (m_mysql == nullptr)
+		return false;
+
+	// 回滚事务;
+	if (mysql_real_query(m_mysql, "ROLLBACK", (unsigned long)strlen("ROLLBACK")))
+	{
+		std::string error = mysql_error(m_mysql);
+		printf("回滚事务失败!\nError: %s", error.c_str());
+		return false;
+	}
+
+	return true;
+}
+
+
+
+bool ConnectMysql::getAllScheme(std::list<stScheme> &listScheme)
+{
+	listScheme.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	// 执行SQL语句;
+	std::string str_sql = "select * from scheme order by id asc";
+
+	MYSQL_RES* result = execSqlSelect(str_sql);
+	if (result == nullptr)
+		return false;
+
+	stScheme st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.schemeName = sql_row[1];
+	
+		listScheme.push_back(st);
+	}
+	return true;
+}
+
+bool ConnectMysql::addScheme(const std::string& schemeName)
+{
+	// 启动事务;
+	if (!startupTransaction())
+		return false;
+
+	uint32_t last_id = 0;
+
+	// 执行SQL语句;
+	char sql[256] = { 0 };
+	sprintf_s(sql, "insert into scheme(schemeName) values('%s')",
+		schemeName.c_str());
+
+	if (!execSql(last_id, sql))
+	{
+		// 回滚事务;
+		if (!rollbackTransaction())
+			return false;
+		// 修改数据失败;
+		return false;
+	}
+
+	// 提交事务;
+	if (!commitTransaction())
+		return false;
+
+	// 根据需要看是否获取新插入的id
+	//st.id = last_id;
+
+	return true;
+}
+
+
+
+bool ConnectMysql::getAllXzsjb(std::list<stXZSJB>& listStXZSJB)
+{
+	listStXZSJB.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	// 执行SQL语句;
+	std::string str_sql = "select * from 0_星座数据表_1 order by id asc";
+
+	MYSQL_RES* result = execSqlSelect(str_sql);
+	if (result == nullptr)
+		return false;
+
+	stXZSJB st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.constellationName   = sql_row[1];
+		st.constellationNation = sql_row[2];
+		st.constellationCorp   = sql_row[3];
+		st.constellationYear   = sql_row[4];
+		st.constellationPhase  = sql_row[5];
+		st.satNum				= sql_row[6];
+		st.COL                 = sql_row[7];
+		st.satName				= sql_row[8];
+		st.planeNum				= sql_row[9];
+		st.schemeID		 = std::atoi(sql_row[10]);
+		
+		listStXZSJB.push_back(st);
+	}
+	return true;
+}
+
+bool ConnectMysql::getAllXzsjbBySchemeID(std::list<stXZSJB>& listStXZSJB, const int& schemeID)
+{
+
+	listStXZSJB.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	// 执行SQL语句;where id = '%d' ORDER BY id Desc
+//	std::string str_sql = "select * from 0_星座数据表_1 where id = '%d' order by id asc";
+	char sql[1024] = { 0 };
+	sprintf_s(sql, "select * from 0_星座数据表_1 where schemeID = '%d' ORDER BY id asc", schemeID);
+
+	MYSQL_RES* result = execSqlSelect(sql);
+	if (result == nullptr)
+		return false;
+
+	stXZSJB st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.constellationName = sql_row[1];
+		st.constellationNation = sql_row[2];
+		st.constellationCorp = sql_row[3];
+		st.constellationYear = sql_row[4];
+		st.constellationPhase = sql_row[5];
+		st.satNum = sql_row[6];
+		st.COL = sql_row[7];
+		st.satName = sql_row[8];
+		st.planeNum = sql_row[9];
+		st.schemeID = std::atoi(sql_row[10]);
+
+		listStXZSJB.push_back(st);
+	}
+	return true;
+}
+
+bool ConnectMysql::getAllDxsjb(std::list<stDXSJB>& listStDXSJB)
+{
+	listStDXSJB.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	// 执行SQL语句;
+	std::string str_sql = "select * from 0_单星数据表_1 order by id asc";
+
+	MYSQL_RES* result = execSqlSelect(str_sql);
+	if (result == nullptr)
+		return false;
+
+	stDXSJB st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.satName = sql_row[1];
+		st.xzID = std::atoi(sql_row[2]);
+		st.constellationName = sql_row[3];
+		st.satNation = sql_row[4];
+		st.satCorp = sql_row[5];
+		st.satType = sql_row[6];
+		st.orbitType = sql_row[7];
+		st.NORAD = sql_row[8];
+		st.COPAR = sql_row[9];
+		st.isPublic = std::string(sql_row[10]);
+		st.SOL = std::string(sql_row[11]);
+		st.satSemiMajor = (sql_row[12]);
+		st.satEcc = std::string(sql_row[13]);
+		st.satOblique = (sql_row[14]);
+		st.satRAAN = std::string(sql_row[15]);
+		st.satOmega = std::string(sql_row[16]);
+		st.satTrueAnomaly = std::string(sql_row[17]);
+		st.satLoadName = std::string(sql_row[18]);
+		st.satAntennaName = std::string(sql_row[19]);
+		st.schemeID = std::atoi(sql_row[20]);
+
+		listStDXSJB.push_back(st);
+
+	}
+	return true;
+}
+
+bool ConnectMysql::getAllDxsjbBySchemeID(std::list<stDXSJB>& listStDXSJB, const int& schemeID)
+{
+	listStDXSJB.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	char sql[1024] = { 0 };
+	sprintf_s(sql, "select * from 0_单星数据表_1 where schemeID = '%d' ORDER BY id asc", schemeID);
+
+	MYSQL_RES* result = execSqlSelect(sql);
+	if (result == nullptr)
+		return false;
+
+	stDXSJB st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.satName = sql_row[1];
+		st.xzID = std::atoi(sql_row[2]);
+		st.constellationName = sql_row[3];
+		st.satNation = sql_row[4];
+		st.satCorp = sql_row[5];
+		st.satType = sql_row[6];
+		st.orbitType = sql_row[7];
+		st.NORAD = sql_row[8];
+		st.COPAR = sql_row[9];
+		st.isPublic = std::string(sql_row[10]);
+		st.SOL = std::string(sql_row[11]);
+		st.satSemiMajor = (sql_row[12]);
+		st.satEcc = std::string(sql_row[13]);
+		st.satOblique = (sql_row[14]);
+		st.satRAAN = std::string(sql_row[15]);
+		st.satOmega = std::string(sql_row[16]);
+		st.satTrueAnomaly = std::string(sql_row[17]);
+		st.satLoadName = std::string(sql_row[18]);
+		st.satAntennaName = std::string(sql_row[19]);
+		st.schemeID = std::atoi(sql_row[20]);
+
+		listStDXSJB.push_back(st);
+
+	}
+	return true;
+}
+
+bool ConnectMysql::getAllWXTXB(std::list<stWXTXB>& listStWXTXB)
+{
+	listStWXTXB.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	// 执行SQL语句;
+	std::string str_sql = "select * from 0_卫星天线_1 order by id asc";
+
+	MYSQL_RES* result = execSqlSelect(str_sql);
+	if (result == nullptr)
+		return false;
+
+	stWXTXB st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.satAntennaName = sql_row[1];
+		st.dxID = std::atoi(sql_row[2]);
+		st.satName = sql_row[3];
+		st.satAntennaType = sql_row[4];
+		st.satAntennaCaliber = sql_row[5];
+		st.satAntennaGain = sql_row[6];
+		st.satAntennaEff = sql_row[7];
+		st.satAntennaPointerLoss = sql_row[8];
+		st.satAntennaPolarLoss = sql_row[9];
+		st.schemeID = std::atoi(sql_row[10]);
+
+		listStWXTXB.push_back(st);
+	}
+	return true;
+}
+
+bool ConnectMysql::getAllWxtxbBySchemeID(std::list<stWXTXB>& listStWXTXB, const int& schemeID)
+{
+	listStWXTXB.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	// 执行SQL语句;
+	char sql[1024] = { 0 };
+	sprintf_s(sql, "select * from  0_卫星天线_1 where schemeID = '%d' ORDER BY id asc", schemeID);
+
+	MYSQL_RES* result = execSqlSelect(sql);
+	if (result == nullptr)
+		return false;
+
+	stWXTXB st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.satAntennaName = sql_row[1];
+		st.dxID = std::atoi(sql_row[2]);
+		st.satName = sql_row[3];
+		st.satAntennaType = sql_row[4];
+		st.satAntennaCaliber = sql_row[5];
+		st.satAntennaGain = sql_row[6];
+		st.satAntennaEff = sql_row[7];
+		st.satAntennaPointerLoss = sql_row[8];
+		st.satAntennaPolarLoss = sql_row[9];
+		st.schemeID = std::atoi(sql_row[10]);
+
+		listStWXTXB.push_back(st);
+	}
+	return true;
+}
+
+bool ConnectMysql::getAllWXZHSJB(std::list<stWXZHSJB>& listStData)
+{
+	listStData.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	// 执行SQL语句;
+	std::string str_sql = "select * from 0_卫星载荷数据表_1 order by id asc";
+
+	MYSQL_RES* result = execSqlSelect(str_sql);
+	if (result == nullptr)
+		return false;
+
+	stWXZHSJB st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.satLoadName = sql_row[1];
+		st.dxID = std::atoi(sql_row[2]);
+		st.satLoadWaveBand = sql_row[3];
+		st.satLoadCorp = sql_row[4];
+		st.satLoadSendEIRP = sql_row[5];
+		st.satLoadSendSFD = sql_row[6];
+		st.satLoadRecvGT = sql_row[7];
+		st.satLoadBandwidth = sql_row[8];
+		st.schemeID = std::atoi(sql_row[9]);
+
+		listStData.push_back(st);
+	}
+	return true;
+}
+
+bool ConnectMysql::getAllWxzhsjbBySchemeID(std::list<stWXZHSJB>& listStData, const int& schemeID)
+{
+	listStData.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	// 执行SQL语句;
+	//std::string str_sql = "select * from 0_卫星载荷数据表_1 order by id asc";
+	char sql[1024] = { 0 };
+	sprintf_s(sql, "select * from 0_卫星载荷数据表_1 where schemeID = '%d' ORDER BY id asc", schemeID);
+
+	MYSQL_RES* result = execSqlSelect(sql);
+	if (result == nullptr)
+		return false;
+
+	stWXZHSJB st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.satLoadName = sql_row[1];
+		st.dxID = std::atoi(sql_row[2]);
+		st.satLoadWaveBand = sql_row[3];
+		st.satLoadCorp = sql_row[4];
+		st.satLoadSendEIRP = sql_row[5];
+		st.satLoadSendSFD = sql_row[6];
+		st.satLoadRecvGT = sql_row[7];
+		st.satLoadBandwidth = sql_row[8];
+		st.schemeID = std::atoi(sql_row[9]);
+
+		listStData.push_back(st);
+	}
+	return true;
+}
+
+bool ConnectMysql::getAllDxgsjbBySchemeID(std::list<stDXGSJB>& listStData, const int& schemeID)
+{
+	listStData.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	// 执行SQL语句;
+	char sql[1024] = { 0 };
+	sprintf_s(sql, "select * from 1_电信港数据表_1 where schemeID = '%d' ORDER BY id asc", schemeID);
+
+	MYSQL_RES* result = execSqlSelect(sql);
+	if (result == nullptr)
+		return false;
+
+	stDXGSJB st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.teleportName = sql_row[1];
+		st.teleportNation = (sql_row[2]);
+		st.teleportCorp = sql_row[3];
+		st.teleportType = sql_row[4];
+		st.teleportYear = sql_row[5];
+		st.teleportLon = sql_row[6];
+		st.teleportLat = sql_row[7];
+		st.stationName = sql_row[8];
+		st.schemeID = std::atoi(sql_row[9]);
+
+		listStData.push_back(st);
+	}
+	return true;
+}
+
+bool ConnectMysql::getAllDqzsjbBySchemeID(std::list<stDQZSJB>& listStData, const int& schemeID)
+{
+	listStData.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	// 执行SQL语句;
+	char sql[1024] = { 0 };
+	sprintf_s(sql, "select * from 1_地球站数据表_1 where schemeID = '%d' ORDER BY id asc", schemeID);
+
+	MYSQL_RES* result = execSqlSelect(sql);
+	if (result == nullptr)
+		return false;
+
+	stDQZSJB st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.stationName = sql_row[1];
+		st.dxgID = std::atoi(sql_row[2]);
+		st.teleportName = sql_row[3];
+		st.stationCorp = sql_row[4];
+		st.stationType = sql_row[5];
+		st.stationLon = sql_row[6];
+		st.stationLat = sql_row[7];
+		st.stationAlt = sql_row[8];
+		st.stationLoadName = sql_row[9];
+		st.stationWaveName = sql_row[10];
+		st.stationAntennaName = sql_row[11];
+		st.schemeID = std::atoi(sql_row[12]);
+
+		listStData.push_back(st);
+	}
+	return true;
+}
+
+bool ConnectMysql::getAllDqzkysjbBySchemeID(std::list<stDQZKYSJB>& listStData, const int& schemeID)
+{
+	listStData.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	// 执行SQL语句;
+	char sql[1024] = { 0 };
+	sprintf_s(sql, "select * from 1_地球站馈源数据表_1 where schemeID = '%d' ORDER BY id asc", schemeID);
+
+	MYSQL_RES* result = execSqlSelect(sql);
+	if (result == nullptr)
+		return false;
+
+	stDQZKYSJB st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.stationLoadName = sql_row[1];
+		st.stationID = std::atoi(sql_row[2]);
+		st.stationLoadWaveBand = sql_row[3];
+		st.stationLoadCorp = sql_row[4];
+		st.stationLoadSendPower = sql_row[5];
+		st.stationLoadSendCarrierFreq = sql_row[6];
+		st.stationLoadSendFEC = sql_row[7];
+		st.stationLoadUpBPS = sql_row[8];
+		st.stationLoadName = sql_row[9];
+		st.stationLoadRecvGT = sql_row[10];
+		st.stationLoadRecvCarrierFreq = sql_row[11];
+		st.stationLoadDownBPS = sql_row[12];
+		st.schemeID = std::atoi(sql_row[13]);
+
+		listStData.push_back(st);
+	}
+	return true;
+}
+
+bool ConnectMysql::getAllDqzbxsbsjbBySchemeID(std::list<stDQZBXSBSJB>& listStData, const int& schemeID)
+{
+	listStData.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	// 执行SQL语句;
+	char sql[1024] = { 0 };
+	sprintf_s(sql, "select * from 1_地球站波形设备数据表_1 where schemeID = '%d' ORDER BY id asc", schemeID);
+
+	MYSQL_RES* result = execSqlSelect(sql);
+	if (result == nullptr)
+		return false;
+
+	stDQZBXSBSJB st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.stationWaveName = sql_row[1];
+		st.stationID = std::atoi(sql_row[2]);
+		st.stationName = sql_row[3];
+		st.stationWaveModel = sql_row[4];
+		st.stationWaveModType = sql_row[5];
+		st.stationWaveDemoType = sql_row[6];
+		st.stationWaveCodingType = sql_row[7];
+		st.stationWaveCarrierType = sql_row[8];
+		st.stationWaveBandwidth = sql_row[9];
+		st.stationWaveType = sql_row[10];
+		st.schemeID = std::atoi(sql_row[11]);
+
+		listStData.push_back(st);
+	}
+	return true;
+}
+
+bool ConnectMysql::getAllDqztxbBySchemeID(std::list<stDQTXB>& listStData, const int& schemeID)
+{
+	listStData.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	// 执行SQL语句;
+	char sql[1024] = { 0 };
+	sprintf_s(sql, "select * from 1_地球站天线_1 where schemeID = '%d' ORDER BY id asc", schemeID);
+
+	MYSQL_RES* result = execSqlSelect(sql);
+	if (result == nullptr)
+		return false;
+
+	stDQTXB st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.stationAntennaName = sql_row[1];
+		st.stationID = std::atoi(sql_row[2]);
+		st.stationName = sql_row[3];
+		st.stationAntennaType = sql_row[4];
+		st.stationAntennaCaliber = sql_row[5];
+		st.stationAntennaGain = sql_row[6];
+		st.stationAntennaEff = sql_row[7];
+		st.stationAntennaPointerLoss = sql_row[8];
+		st.stationAntennaPolarLoss = sql_row[9];
+		st.schemeID = std::atoi(sql_row[10]);
+
+		listStData.push_back(st);
 	}
 	return true;
 }
@@ -948,9 +1572,9 @@ string ConnectMysql::mytest_QueryByColumnName(string name_Table,string columnNam
 	//sprintf_s(query, "select * from t_dept"); //执行查询语句，这里是查询所有，user是表名，不用加引号，用strcpy也可以  
 	//mysql_query(&mydata, "set names gbk"); //设置编码格式（SET NAMES GBK也行），否则cmd下中文乱码  
 	//返回0 查询成功，返回1查询失败  
-	if (mysql_query(&m_mydata, sqlstr.c_str()))    //执行SQL语句
+	if (mysql_query(m_mysql, sqlstr.c_str()))    //执行SQL语句
 	{
-		printf("Query failed (%s)\n", mysql_error(&m_mydata));
+		printf("Query failed (%s)\n", mysql_error(m_mysql));
 		//return false;
 	}
 	else
@@ -958,14 +1582,14 @@ string ConnectMysql::mytest_QueryByColumnName(string name_Table,string columnNam
 		printf("query success\n");
 	}
 	//获取结果集  
-	if (!(res = mysql_store_result(&m_mydata)))   //获得sql语句结束后返回的结果集  
+	if (!(res = mysql_store_result(m_mysql)))   //获得sql语句结束后返回的结果集  
 	{
-		printf("Couldn't get result from %s\n", mysql_error(&m_mydata));
+		printf("Couldn't get result from %s\n", mysql_error(m_mysql));
 		//return false;
 	}
 	unsigned int fieldcount_select = mysql_num_fields(res);
 	//打印数据行数  
-	printf("number of dataline returned: %d\n", mysql_affected_rows(&m_mydata));
+	printf("number of dataline returned: %d\n", mysql_affected_rows(m_mysql));
 
 	//获取字段的信息  
 	char *str_field[40];  //定义一个字符串数组存储字段信息  
@@ -1012,9 +1636,9 @@ vector<vector<string>> ConnectMysql::mytest_QueryByColumnName(string name_Table,
 	//sprintf_s(query, "select * from t_dept"); //执行查询语句，这里是查询所有，user是表名，不用加引号，用strcpy也可以  
 	//mysql_query(&mydata, "set names gbk"); //设置编码格式（SET NAMES GBK也行），否则cmd下中文乱码  
 	//返回0 查询成功，返回1查询失败  
-	if (mysql_query(&m_mydata, sqlstr.c_str()))    //执行SQL语句
+	if (mysql_query(m_mysql, sqlstr.c_str()))    //执行SQL语句
 	{
-		printf("Query failed (%s)\n", mysql_error(&m_mydata));
+		printf("Query failed (%s)\n", mysql_error(m_mysql));
 		//return false;
 	}
 	else
@@ -1022,14 +1646,14 @@ vector<vector<string>> ConnectMysql::mytest_QueryByColumnName(string name_Table,
 		printf("query success\n");
 	}
 	//获取结果集  
-	if (!(res = mysql_store_result(&m_mydata)))   //获得sql语句结束后返回的结果集  
+	if (!(res = mysql_store_result(m_mysql)))   //获得sql语句结束后返回的结果集  
 	{
-		printf("Couldn't get result from %s\n", mysql_error(&m_mydata));
+		printf("Couldn't get result from %s\n", mysql_error(m_mysql));
 		//return false;
 	}
 	unsigned int fieldcount_select = mysql_num_fields(res);
 	//打印数据行数  
-	printf("number of dataline returned: %d\n", mysql_affected_rows(&m_mydata));
+	printf("number of dataline returned: %d\n", mysql_affected_rows(m_mysql));
 
 	//获取字段的信息  
 	char *str_field[40];  //定义一个字符串数组存储字段信息  
@@ -1086,9 +1710,9 @@ vector<vector<string>> ConnectMysql::mytest_QueryByColumnName(string name_Table,
 	//sprintf_s(query, "select * from t_dept"); //执行查询语句，这里是查询所有，user是表名，不用加引号，用strcpy也可以  
 	//mysql_query(&mydata, "set names gbk"); //设置编码格式（SET NAMES GBK也行），否则cmd下中文乱码  
 	//返回0 查询成功，返回1查询失败  
-	if (mysql_query(&m_mydata, sqlstr.c_str()))    //执行SQL语句
+	if (mysql_query(m_mysql, sqlstr.c_str()))    //执行SQL语句
 	{
-		printf("Query failed (%s)\n", mysql_error(&m_mydata));
+		printf("Query failed (%s)\n", mysql_error(m_mysql));
 		//return false;
 	}
 	else
@@ -1096,15 +1720,15 @@ vector<vector<string>> ConnectMysql::mytest_QueryByColumnName(string name_Table,
 		printf("query success\n");
 	}
 	//获取结果集  
-	if (!(res = mysql_store_result(&m_mydata)))   //获得sql语句结束后返回的结果集  
+	if (!(res = mysql_store_result(m_mysql)))   //获得sql语句结束后返回的结果集  
 	{
-		printf("Couldn't get result from %s\n", mysql_error(&m_mydata));
+		printf("Couldn't get result from %s\n", mysql_error(m_mysql));
 		//return false;
 	}
 	unsigned int fieldcount_select = mysql_num_fields(res);
-	//unsigned int affect_row = mysql_affected_rows(&m_mydata);
+	//unsigned int affect_row = mysql_affected_rows(m_mysql);
 	//打印数据行数  
-	printf("number of dataline returned: %d\n", mysql_affected_rows(&m_mydata));//
+	printf("number of dataline returned: %d\n", mysql_affected_rows(m_mysql));//
 
 	//获取字段的信息  
 	char *str_field[40];  //定义一个字符串数组存储字段信息  

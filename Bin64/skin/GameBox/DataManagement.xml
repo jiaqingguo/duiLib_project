@@ -76,7 +76,7 @@
       <HorizontalLayout width="10" />
       <Button name="bt_Import"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导入" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
       <HorizontalLayout width="20" />
-      <Label text="数据库名称:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
+      <Label text="方案名称:"   textcolor="#FFFFFFFF"  font="10" width="90"  height="30"   align="left" />
       <HorizontalLayout width="20" />
       <Combo  name="Com_DatabaseName" style="combo_style" width="220" align="left" valign="vcenter" font="7"  height="30"  />
       <HorizontalLayout width="20" />

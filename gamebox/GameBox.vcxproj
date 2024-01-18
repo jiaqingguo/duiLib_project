@@ -1046,6 +1046,7 @@
     <ClInclude Include="CPopNewConstellation.h" />
     <ClInclude Include="CpopSelectEquipment.h" />
     <ClInclude Include="CpopSelectLevel1.h" />
+    <ClInclude Include="DatabaseStruct.h" />
     <ClInclude Include="DecodeDll\DecodeDll.h" />
     <ClInclude Include="DecodeDll\Handler.h" />
     <ClInclude Include="DecodeDll\Header.h" />

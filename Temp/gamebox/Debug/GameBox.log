@@ -1,4 +1,22 @@
-﻿LINK : warning LNK4075: 忽略“/INCREMENTAL”(由于“/FORCE”规范)
+﻿  CPopDataManage.cpp
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(318): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(488): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(491): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(843): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(926): warning C4477: “wscanf”: 格式字符串“%d”需要类型“int *”的参数，但可变参数 1 拥有了类型“LPCSTR”
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(926): warning C4474: wscanf: 格式字符串中传递的参数太多
+  d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(926): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(931): warning C4477: “wscanf”: 格式字符串“%lf”需要类型“double *”的参数，但可变参数 1 拥有了类型“LPCSTR”
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(931): warning C4474: wscanf: 格式字符串中传递的参数太多
+  d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(931): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1418): warning C4101: “ch”: 未引用的局部变量
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1447): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1473): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1494): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1580): warning C4244: “初始化”: 从“DWORD_PTR”转换到“DWORD”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1660): warning C4081: 应输入“newline”；找到“;”
+d:\1_project\z_project\duilib_project\gamebox\cpopdatamanage.cpp(450): warning C4091: “”: 没有声明变量时忽略“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的左侧
+LINK : warning LNK4075: 忽略“/INCREMENTAL”(由于“/FORCE”规范)
 CPopDeleteAttClass.obj : warning LNK4006: "wchar_t const * const m_ReceivedPrompts" (?m_ReceivedPrompts@@3PEB_WEB) 已在 ClueScreenClass.obj 中定义；已忽略第二个定义
 CPopEditorialClass.obj : warning LNK4006: "unsigned long __cdecl StringToDword(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?StringToDword@@YAKV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) 已在 CPopDataManage.obj 中定义；已忽略第二个定义
 CPopLinkManage.obj : warning LNK4006: "unsigned long __cdecl StringToDword(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?StringToDword@@YAKV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) 已在 CPopDataManage.obj 中定义；已忽略第二个定义
@@ -8,6 +26,6 @@ CPopNewAttributeClass.obj : warning LNK4006: "wchar_t const * const m_ReceivedPr
 CPopNewConstellation.obj : warning LNK4006: "wchar_t const * const m_ReceivedPrompts" (?m_ReceivedPrompts@@3PEB_WEB) 已在 ClueScreenClass.obj 中定义；已忽略第二个定义
 CpopSelectEquipment.obj : warning LNK4006: "wchar_t const * const m_ReceivedPrompts" (?m_ReceivedPrompts@@3PEB_WEB) 已在 ClueScreenClass.obj 中定义；已忽略第二个定义
 CpopSelectLevel1.obj : warning LNK4006: "wchar_t const * const m_ReceivedPrompts" (?m_ReceivedPrompts@@3PEB_WEB) 已在 ClueScreenClass.obj 中定义；已忽略第二个定义
-    正在创建库 D:\1_project\Z_project\添加参数管理交互_14_29\Lib\GameBox_d.lib 和对象 D:\1_project\Z_project\添加参数管理交互_14_29\Lib\GameBox_d.exp
-D:\1_project\Z_project\添加参数管理交互_14_29\bin64\GameBox_d.exe : warning LNK4088: 因 /FORCE 选项生成了映像；映像可能不能运行
-  GameBox.vcxproj -> D:\1_project\Z_project\添加参数管理交互_14_29\bin64\GameBox_d.exe
+    正在创建库 D:\1_project\Z_project\duiLib_project\Lib\GameBox_d.lib 和对象 D:\1_project\Z_project\duiLib_project\Lib\GameBox_d.exp
+D:\1_project\Z_project\duiLib_project\bin64\GameBox_d.exe : warning LNK4088: 因 /FORCE 选项生成了映像；映像可能不能运行
+  GameBox.vcxproj -> D:\1_project\Z_project\duiLib_project\bin64\GameBox_d.exe

@@ -94,7 +94,20 @@ public:
 	CListUI* m_dataList_ZDTX;//终端天线的List
 
 private:
+	std::list<stScheme>     m_listStScheme;  //  方案数据;
+	std::list<stXZSJB>      m_listStXZSJB;//获取的数据库中---星座数据表
+	std::list<stDXSJB>      m_listStDXSJB;//获取的数据库中---单星数据表
+	std::list<stWXZHSJB>    m_listStWXZHSJB;//获取的数据库中---卫星载荷数据表
+	std::list<stWXTXB>		m_listStWXTXB; //获取的数据库中---卫星天线
+
+	std::list<stDXGSJB> m_listStDXGSJB;//获取的数据库中---电信港数据表
+	std::list<stDQZSJB> m_listStDQZSJB;//获取的数据库中---地球站数据表
+	std::list<stDQZKYSJB> m_listStDQZKYSJB;//获取的数据库中---地球站溃源数据表
+	std::list<stDQZBXSBSJB> m_listStDQZBXSBSJB;//获取的数据库中---地球站波形设备数据表
+	std::list<stDQTXB> m_listStDQZTXB;//获取的数据库中---地球站天线
+
 	vector<vector<string>> vec_vecData_XZSJB;//获取的数据库中---星座数据表
+	
 	vector<vector<string>> vec_vecData_DXSJB;//获取的数据库中---单星数据表
 	vector<vector<string>> vec_vecData_WXZHSJB;//获取的数据库中---卫星载荷数据表
 	vector<vector<string>> vec_vecData_WXTX;//获取的数据库中---卫星天线

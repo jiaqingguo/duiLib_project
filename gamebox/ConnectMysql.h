@@ -1,5 +1,11 @@
 #pragma once
 #include <mysql.h>
+#include "DatabaseStruct.h"
+#include <list>
+
+
+struct st_mysql_res;
+
 class ConnectMysql
 {
 public:
@@ -34,11 +40,64 @@ public:
 
 	bool CreateNewTableAndInsert(string name,vector<string> columnName,vector<string> columnValue);//创建新表并且添加一行数据
 	int m_num;//行数
+
+
+
+
+	//////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////////////////
+
+
+	MYSQL_RES* execSqlSelect(const std::string& sql);
+	bool execSql(uint32_t& lastId, const std::string& sql);
+	// 数据库启动事务;
+	bool startupTransaction();
+	// 数据库提交事务;
+	bool commitTransaction();
+	// 数据库回滚事务;
+	bool rollbackTransaction();
+
+	// 方案表;
+
+	bool getAllScheme(std::list<stScheme> &listScheme);
+	// 增加方案;
+	bool addScheme(const std::string &schemeName);
+
+	// 星座数据表;
+	//bool getAllXzsjb(sstXZSJB& record_list);
+	
+	bool getAllXzsjb(std::list<stXZSJB>& listStXZSJB); // 获取所有数据
+	bool getAllXzsjbBySchemeID(std::list<stXZSJB>& listStXZSJB,const int & schemeID);
+
+	// 0_单星数据表_1
+	bool getAllDxsjb(std::list<stDXSJB>& listStDXSJB);
+	bool getAllDxsjbBySchemeID(std::list<stDXSJB>& listStDXSJB, const int& schemeID);
+
+		//0_卫星天线_1
+	bool getAllWXTXB(std::list<stWXTXB>& listStWXTXB);
+	bool getAllWxtxbBySchemeID(std::list<stWXTXB>& listStWXTXB, const int& schemeID);
+
+		//0_卫星载荷数据表_1
+	bool getAllWXZHSJB(std::list<stWXZHSJB>& listStData);
+	bool getAllWxzhsjbBySchemeID(std::list<stWXZHSJB>& listStData, const int& schemeID);
+
+	// 1_电信港数据表_1
+	bool getAllDxgsjbBySchemeID(std::list<stDXGSJB>& listStData, const int& schemeID);
+		// 1_地球站数据表
+	bool getAllDqzsjbBySchemeID(std::list<stDQZSJB>& listStData, const int& schemeID);
+	// 1_地球站馈源数据表_1
+	bool getAllDqzkysjbBySchemeID(std::list<stDQZKYSJB>& listStData, const int& schemeID);
+		// 1_地球站波形设备数据表_1
+	bool getAllDqzbxsbsjbBySchemeID(std::list<stDQZBXSBSJB>& listStData, const int& schemeID);
+	// 1_1_地球站天线_1_1
+	bool getAllDqztxbBySchemeID(std::list<stDQTXB>& listStData, const int& schemeID);
+private:
+	MYSQL* m_mysql; //句柄 先用m_mydata;
 private:
 	HANDLE m_mysqlHdl;
 	
 	MYSQL_RES *res; 
-	MYSQL m_mydata;
+	//MYSQL m_mydata;
 
 	int m_ColumnLenght;//把数据表列数放在这里
 };
