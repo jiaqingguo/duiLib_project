@@ -83,6 +83,8 @@ public:
 
 	bool createTableAndFields(const std::string& table, const std::set<std::string>& vecFilelds);
 
+	//bool createTableAndFields(const std::wstring& table, const std::set<std::wstring>& vecFilelds);
+
 	// 插入表 数据  （表名，表字段，表字段对应值）;
 	bool insertTableData(const std::string& tableName, const std::vector<std::string>& vecFilelds, const std::vector<std::string>& vecFileldsValue);
 

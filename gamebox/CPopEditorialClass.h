@@ -300,6 +300,12 @@ public:
 	vector<string> m_vecZhName; // 存放载荷名称;
 	vector<map<string, string>> m_vecMapZhData;
 
+	vector<string> m_vecDqzTxName; // 存放地球站天线名称;
+	vector<map<string, string>> m_vecMapDqzTxData;
+	vector<string> m_vecDqzkyName; // 存放地球站kuiyuan名称;
+	vector<map<string, string>> m_vecMapDqzKyData;
+	vector<string> m_vecDqzBxName; // 存放地球站波形名称;
+	vector<map<string, string>> m_vecMapDqzBxData;
 
 	vector<bool> vec_ExpandFlags;//存放星座节点是否展开(已经筛选标志)
 	vector<bool> vec_ExpandFlags2_FT;//存放电信港是否进行了功能类型筛选

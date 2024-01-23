@@ -1142,7 +1142,9 @@ bool ConnectMysql::createTableAndFields(const std::string& strTable, const std::
 	int i = 0;
 	for (const auto& value : fieldNames) 
 	{
-		strSql += value + " VARCHAR(255)";
+		strSql += "`" +value + "` VARCHAR(255)";
+		//strSql += "\"" + value + "\" VARCHAR(255)";
+		//strSql += value + " VARCHAR(255)";
 		if (i != fieldNames.size() - 1) 
 		{
 			strSql += ", ";
@@ -1172,6 +1174,8 @@ bool ConnectMysql::createTableAndFields(const std::string& strTable, const std::
 	return true;
 }
 
+
+
 bool ConnectMysql::insertTableData(const std::string& tableName, const std::vector<std::string>& vecFilelds, const std::vector<std::string>& vecFileldsValue)
 {
 	if (vecFilelds.size() != vecFileldsValue.size())
@@ -1184,11 +1188,13 @@ bool ConnectMysql::insertTableData(const std::string& tableName, const std::vect
 	uint32_t last_id = 0;
 
 	// ππ‘Ï SQL ≤Â»Î”Ôæ‰
-	std::string query = "INSERT INTO " + tableName +" (";
+	//std::string query = "INSERT INTO " + tableName +" (";
+	std::string query = "INSERT INTO `" + tableName + "` (";
 
 	for (size_t i = 0; i < vecFilelds.size(); ++i)
 	{
-		query += vecFilelds[i];
+		//query += vecFilelds[i];
+		query += "`" + vecFilelds[i] + "`";
 		if (i != vecFilelds.size() - 1) 
 		{
 			query += ",";
@@ -1199,6 +1205,7 @@ bool ConnectMysql::insertTableData(const std::string& tableName, const std::vect
 
 	for (size_t i = 0; i < vecFileldsValue.size(); ++i) {
 		query += "'" + vecFileldsValue[i] + "'";
+		//query += "`" + vecFileldsValue[i] + "`";
 		if (i != vecFileldsValue.size() - 1) {
 			query += ",";
 		}
