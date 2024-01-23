@@ -7393,40 +7393,105 @@ void CPopEditorialClass::saveDatabaseScheme(const std::string& strScheme)
 	}
 
 	/*******************新建地球站波形表及字段********************/
-	//if (name2_Level2.size() > 0)
-	//{
+	if (m_vecDqzBxName.size() > 0)
+	{
 
-	//	filelds.clear();
-	//	std::string strTableNameDQZ = strScheme + UTF8_To_string("_地球站");
-	//	filelds.insert("Name");
-	//	for (int i = 0; i < m_RecvMap_DQZ.size(); i++)
-	//	{
-	//		for (auto map : m_RecvMap_DQZ[i])
-	//		{
-	//			filelds.insert(UTF8_To_string(map.first));
-	//		}
+		filelds.clear();
+		std::string strTableNameDQZBX = strScheme + UTF8_To_string("_地球站波形");
+		filelds.insert("Name");
+		for (int i = 0; i < m_vecMapDqzBxData.size(); i++)
+		{
+			for (auto map : m_vecMapDqzBxData[i])
+			{
+				filelds.insert(UTF8_To_string(map.first));
+			}
 
-	//	}
+		}
+		ConnectMysql::Instance().createTableAndFields(strTableNameDQZBX, filelds);
+		// 插入数据
+		for (int i = 0; i < m_vecMapDqzBxData.size(); i++)
+		{
+			vecFilelds.clear();
+			vecFileldsValue.clear();
 
-	//	ConnectMysql::Instance().createTableAndFields(strTableNameDQZ, filelds);
+			vecFilelds.push_back(UTF8_To_string("Name"));
+			vecFileldsValue.push_back((m_vecDqzBxName[i]));
+			for (auto map : m_vecMapDqzBxData[i])
+			{
+				vecFilelds.push_back(UTF8_To_string(map.first));
+				vecFileldsValue.push_back(UTF8_To_string(map.second));
+			}
 
-	//	// 插入数据
-	//	for (int i = 0; i < m_RecvMap_DQZ.size(); i++)
-	//	{
-	//		vecFilelds.clear();
-	//		vecFileldsValue.clear();
+			ConnectMysql::Instance().insertTableData(strTableNameDQZBX, vecFilelds, vecFileldsValue);
+		}
+	}
+	/*******************新建地球站溃源表及字段********************/
+	if (m_vecDqzkyName.size() > 0)
+	{
 
-	//		vecFilelds.push_back(UTF8_To_string("Name"));
-	//		vecFileldsValue.push_back((name2_Level2[i]));
-	//		for (auto map : m_RecvMap_DQZ[i])
-	//		{
-	//			vecFilelds.push_back(UTF8_To_string(map.first));
-	//			vecFileldsValue.push_back(UTF8_To_string(map.second));
-	//		}
+		filelds.clear();
+		std::string strTableNameDQZKY = strScheme + UTF8_To_string("_地球站溃源");
+		filelds.insert("Name");
+		for (int i = 0; i < m_vecMapDqzKyData.size(); i++)
+		{
+			for (auto map : m_vecMapDqzKyData[i])
+			{
+				filelds.insert(UTF8_To_string(map.first));
+			}
 
-	//		ConnectMysql::Instance().insertTableData(strTableNameDQZ, vecFilelds, vecFileldsValue);
-	//	}
-	//}
+		}
+		ConnectMysql::Instance().createTableAndFields(strTableNameDQZKY, filelds);
+		// 插入数据
+		for (int i = 0; i < m_vecMapDqzKyData.size(); i++)
+		{
+			vecFilelds.clear();
+			vecFileldsValue.clear();
+
+			vecFilelds.push_back(UTF8_To_string("Name"));
+			vecFileldsValue.push_back((m_vecDqzkyName[i]));
+			for (auto map : m_vecMapDqzKyData[i])
+			{
+				vecFilelds.push_back(UTF8_To_string(map.first));
+				vecFileldsValue.push_back(UTF8_To_string(map.second));
+			}
+
+			ConnectMysql::Instance().insertTableData(strTableNameDQZKY, vecFilelds, vecFileldsValue);
+		}
+	}
+
+	/*******************新建地球站天线表及字段********************/
+	if (m_vecDqzTxName.size() > 0)
+	{
+
+		filelds.clear();
+		std::string strTableNameDQZTX = strScheme + UTF8_To_string("_地球站天线");
+		filelds.insert("Name");
+		for (int i = 0; i < m_vecMapDqzTxData.size(); i++)
+		{
+			for (auto map : m_vecMapDqzTxData[i])
+			{
+				filelds.insert(UTF8_To_string(map.first));
+			}
+
+		}
+		ConnectMysql::Instance().createTableAndFields(strTableNameDQZTX, filelds);
+		// 插入数据
+		for (int i = 0; i < m_vecMapDqzTxData.size(); i++)
+		{
+			vecFilelds.clear();
+			vecFileldsValue.clear();
+
+			vecFilelds.push_back(UTF8_To_string("Name"));
+			vecFileldsValue.push_back((m_vecDqzTxName[i]));
+			for (auto map : m_vecMapDqzTxData[i])
+			{
+				vecFilelds.push_back(UTF8_To_string(map.first));
+				vecFileldsValue.push_back(UTF8_To_string(map.second));
+			}
+
+			ConnectMysql::Instance().insertTableData(strTableNameDQZTX, vecFilelds, vecFileldsValue);
+		}
+	}
 
 	/*******************新建地面终端表及字段********************/
 	if (name3_Level1.size() > 0)
@@ -7464,6 +7529,107 @@ void CPopEditorialClass::saveDatabaseScheme(const std::string& strScheme)
 		}
 	}
 
+	/*******************新建地面终端表波形及字段********************/
+	if (m_vecDmzdBxName.size() > 0)
+	{
+
+		filelds.clear();
+		std::string strTableNameDMZDBX = strScheme + UTF8_To_string("_地面终端波形");
+		filelds.insert("Name");
+		for (int i = 0; i < m_vecMapDmzdBxData.size(); i++)
+		{
+			for (auto map : m_vecMapDmzdBxData[i])
+			{
+				filelds.insert(UTF8_To_string(map.first));
+			}
+		}
+
+		ConnectMysql::Instance().createTableAndFields(strTableNameDMZDBX, filelds);
+		// 插入数据
+		for (int i = 0; i < m_vecMapDmzdBxData.size(); i++)
+		{
+			vecFilelds.clear();
+			vecFileldsValue.clear();
+
+			vecFilelds.push_back(UTF8_To_string("Name"));
+			vecFileldsValue.push_back((m_vecDmzdBxName[i]));
+			for (auto map : m_vecMapDmzdBxData[i])
+			{
+				vecFilelds.push_back(UTF8_To_string(map.first));
+				vecFileldsValue.push_back(UTF8_To_string(map.second));
+			}
+			// 插入数据;
+			ConnectMysql::Instance().insertTableData(strTableNameDMZDBX, vecFilelds, vecFileldsValue);
+		}
+	}
+
+	/*******************新建地面终端载荷表及字段********************/
+	if (m_vecDmzdZhName.size() > 0)
+	{
+
+		filelds.clear();
+		std::string strTableNameDMZDZH = strScheme + UTF8_To_string("_地面终端载荷");
+		filelds.insert("Name");
+		for (int i = 0; i < m_vecMapDmzdZhData.size(); i++)
+		{
+			for (auto map : m_vecMapDmzdZhData[i])
+			{
+				filelds.insert(UTF8_To_string(map.first));
+			}
+		}
+
+		ConnectMysql::Instance().createTableAndFields(strTableNameDMZDZH, filelds);
+		// 插入数据
+		for (int i = 0; i < m_vecMapDmzdZhData.size(); i++)
+		{
+			vecFilelds.clear();
+			vecFileldsValue.clear();
+
+			vecFilelds.push_back(UTF8_To_string("Name"));
+			vecFileldsValue.push_back((m_vecDmzdZhName[i]));
+			for (auto map : m_vecMapDmzdZhData[i])
+			{
+				vecFilelds.push_back(UTF8_To_string(map.first));
+				vecFileldsValue.push_back(UTF8_To_string(map.second));
+			}
+			// 插入数据;
+			ConnectMysql::Instance().insertTableData(strTableNameDMZDZH, vecFilelds, vecFileldsValue);
+		}
+	}
+
+	/*******************新建地面终端天线表及字段********************/
+	if (m_vecDmzdTxName.size() > 0)
+	{
+
+		filelds.clear();
+		std::string strTableNameDMZDTX = strScheme + UTF8_To_string("_地面终端天线");
+		filelds.insert("Name");
+		for (int i = 0; i < m_vecMapDmzdTxData.size(); i++)
+		{
+			for (auto map : m_vecMapDmzdTxData[i])
+			{
+				filelds.insert(UTF8_To_string(map.first));
+			}
+		}
+
+		ConnectMysql::Instance().createTableAndFields(strTableNameDMZDTX, filelds);
+		// 插入数据
+		for (int i = 0; i < m_vecMapDmzdTxData.size(); i++)
+		{
+			vecFilelds.clear();
+			vecFileldsValue.clear();
+
+			vecFilelds.push_back(UTF8_To_string("Name"));
+			vecFileldsValue.push_back((m_vecDmzdTxName[i]));
+			for (auto map : m_vecMapDmzdTxData[i])
+			{
+				vecFilelds.push_back(UTF8_To_string(map.first));
+				vecFileldsValue.push_back(UTF8_To_string(map.second));
+			}
+			// 插入数据;
+			ConnectMysql::Instance().insertTableData(strTableNameDMZDTX, vecFilelds, vecFileldsValue);
+		}
+	}
 }
 //将tab1界面的本地数据导入界面函数
 void CPopEditorialClass::ImportingLocalData_Tab1()
@@ -7472,6 +7638,7 @@ void CPopEditorialClass::ImportingLocalData_Tab1()
 	m_vecZhName.clear();
 	m_vecMapTxData.clear();
 	m_vecMapZhData.clear();
+
 	vector<string> vec_TxZhName;//卫星的子节点 --- 天线载荷名称
 	vector<map<string, string>> vec_TxZhData;//卫星的子节点 --- 天线载荷数据
 
@@ -7983,6 +8150,13 @@ void CPopEditorialClass::ImportingLocalData_Tab1()
 }
 void CPopEditorialClass::ImportingLocalData_Tab2()
 {
+	m_vecDqzBxName.clear();
+	m_vecDqzTxName.clear();
+	m_vecDqzkyName.clear();
+	m_vecMapDqzBxData.clear();
+	m_vecMapDqzTxData.clear();
+	m_vecMapDqzKyData.clear();
+
 	vector<string> vec_TxZhName;//地球站的子节点 --- 馈源波形天线名称
 	vector<map<string, string>> vec_TxZhData;//卫星的子节点 --- 天线载荷数据
 
@@ -8494,6 +8668,13 @@ void CPopEditorialClass::ImportingLocalData_Tab2()
 }
 void CPopEditorialClass::ImportingLocalData_Tab3()
 {
+	m_vecDmzdBxName.clear();
+	m_vecDmzdZhName.clear();
+	m_vecDmzdTxName.clear();
+	m_vecMapDmzdBxData.clear();
+	m_vecMapDmzdTxData.clear();
+	m_vecMapDmzdZhData.clear();
+
 	vector<string> vec_WxName;
 	vector<map<string, string>> vec_wxData;//遍历文件并将卫星数据存储下来
 	vector<vector<string>> vecXZAndWX;//每一行都存放星座:卫星-卫星-。。。
@@ -8743,6 +8924,30 @@ void CPopEditorialClass::ImportingLocalData_Tab3()
 				vec_WxName.push_back(str_xzName[0]);
 				vec_wxData.push_back(l_map);
 				//AssignmentToLocalVector_XZ(str_xzName[0], l_map);
+			}
+			if (type == "地面终端载荷")
+			{
+				vec_WxName.push_back(str_xzName[0]);
+				vec_wxData.push_back(l_map);
+				
+				m_vecDmzdZhName.push_back(str_xzName[0]);
+				m_vecMapDmzdZhData.push_back(l_map);
+			}
+			else if (type == "地面终端波形")
+			{
+				vec_WxName.push_back(str_xzName[0]);
+				vec_wxData.push_back(l_map);
+
+				m_vecDmzdBxName.push_back(str_xzName[0]);
+				m_vecMapDmzdBxData.push_back(l_map);
+			}
+			else if (type == "地面终端天线")
+			{
+				vec_WxName.push_back(str_xzName[0]);
+				vec_wxData.push_back(l_map);
+
+				m_vecDmzdTxName.push_back(str_xzName[0]);
+				m_vecMapDmzdTxData.push_back(l_map);
 			}
 
 
