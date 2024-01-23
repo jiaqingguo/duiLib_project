@@ -1,6 +1,5 @@
 #include "stdafx.h"
-#include "CPopEditorialClass.h"
-#include "json.hpp"
+
 #include <sstream>
 #include <vector>
 #include <string>
@@ -11,6 +10,14 @@
 #include <stdio.h>
 #include <cassert>
 #include <iostream>
+#include <set>
+
+#include "ConnectMysql.h"
+
+
+#include "CPopEditorialClass.h"
+#include "json.hpp"
+#include "EnvironmentData.h"
 
 int rootNum;//第一个根节点序号
 
@@ -130,6 +137,111 @@ string CPopEditorialClass::wstringToString(wstring wstr)
 	UtilTool::setString(str, wstr.c_str());
 	return str;
 }
+void CPopEditorialClass::creatTreeNodesOfXZ()
+{
+	//创建星座节点;
+	for (const auto& stData : EnvironmentData::m_mapStXZSJB)
+	{
+		auto &st = stData.second;
+		// 给根节点添加子节点
+		//CTreeNodeUI* pChildNode = new CTreeNodeUI();
+		//UtilTool::setWstring(text_string, st.constellationName.c_str());
+		//pChildNode->SetItemText(text_string.c_str());
+		//CDuiString strID;
+		//strID.Format(_T("%d"),m_iTreeNodeID); // 将int转换为字符串
+		//pChildNode->SetUserData(strID);
+		//setTreeNodeStyleSheet(pChildNode);
+		//pNode_1[0]->AddChildNode(pChildNode);
+		//pNode_1[0]->add
+
+		auto newTreeNode = addChildNode(pNode_1[0], st.constellationName);
+		
+		// 创建子节点
+		createTreeNodesOfDX(newTreeNode, st.id);
+	}
+}
+
+// 创建星座对应的单星子节点
+void CPopEditorialClass::createTreeNodesOfDX(CTreeNodeUI* pTreeNodeXZ, const int& sqlID)
+{
+	// 获取 对应星座下的单星数据;
+	std::map<int, stDXSJB>	mapStXZSJBofXZ;
+	EnvironmentData::m_iCurSchemeID = 1;
+	ConnectMysql::Instance().getDxsjbBySchemeIDAndXzID(mapStXZSJBofXZ, EnvironmentData::m_iCurSchemeID, sqlID);
+
+	for (const auto& stData : mapStXZSJBofXZ)
+	{
+		auto& st = stData.second;
+		addChildNode(pTreeNodeXZ, st.satName);
+	}
+
+
+}
+
+CTreeNodeUI* CPopEditorialClass::addChildNode(CTreeNodeUI* pPrentTreeNode, const std::string strText)
+{
+	CTreeNodeUI* pChildNode = new CTreeNodeUI();
+	wstring text_string;
+	UtilTool::setWstring(text_string, strText.c_str());
+	pChildNode->SetItemText(text_string.c_str());
+	CDuiString strID;
+	strID.Format(_T("%d"), m_iTreeNodeID); // 将int转换为字符串
+	pChildNode->SetUserData(strID);
+	setTreeNodeStyleSheet(pChildNode);
+	pPrentTreeNode->AddChildNode(pChildNode);
+    m_iTreeNodeID++;
+	return pChildNode;
+}
+
+void CPopEditorialClass::setTreeNodeStyleSheet(CTreeNodeUI* pTreeNode)
+{
+	pTreeNode->CheckBoxSelected(false);
+	//pTreeNode->SetItemText(stringToWstring(tableName).c_str());
+	pTreeNode->SetFixedHeight(30);
+	pTreeNode->SetItemTextColor(0xFFFFFFFF);
+	pTreeNode->SetItemHotTextColor(0xFFFFFFFF);
+	pTreeNode->SetSelItemTextColor(0xFFFFFFFF);
+	pTreeNode->SetAttribute(_T("folderattr"), _T("padding=&quot;0,1,0,0&quot; width=&quot;16&quot; height=&quot;16&quot; normalimage=&quot;file='ui/展开.png' &quot; "));
+	pTreeNode->SetAttribute(_T("folderattr"), _T("hotimage=&quot;file='ui/展开.png' &quot; selectedimage=&quot;file='ui/未展开.png'&quot; selectedhotimage=&quot;file='ui/未展开.png'&quot;"));
+	pTreeNode->SetAttribute(_T("itemattr"), _T("padding=\"16,0,0,0\" align=\"left\" font=\"13\""));//font=&quot;6&quot;
+	pTreeNode->SetName(_T("WX1"));
+
+}
+void CPopEditorialClass::removeAllNodes(CTreeNodeUI* pNode)
+{
+	if (pNode == NULL) return;
+
+	// 获取子节点的数量
+	int nCount = pNode->GetCount();
+	for (int i = nCount - 1; i >= 0; --i)
+	{
+		// 获取子节点
+		CControlUI* pSubItem = pNode->GetItemAt(i);
+		CTreeNodeUI* pSubNode = static_cast<CTreeNodeUI*>(pSubItem);
+		if (pSubNode != NULL)
+		{
+			// 递归删除子节点
+			removeAllNodes(pSubNode);
+		}
+	}
+
+	// 现在所有子节点都被删除了，我们可以安全地删除当前节点
+	CTreeNodeUI* pParentNode = pNode->GetParentNode();
+	if (pParentNode != NULL)
+	{
+		pParentNode->Remove(pNode); // 从父节点移除当前节点
+	}
+	else
+	{
+		// 如果这是根节点，则直接删除
+		CTreeViewUI* pTreeView = pNode->GetTreeView();
+		if (pTreeView != NULL)
+		{
+			pTreeView->Remove(pNode); // 从TreeView移除当前节点
+		}
+	}
+	delete pNode; // 删除节点对象
+}
 void CPopEditorialClass::OnFinalMessage(HWND hWnd)
 {
 	__super::OnFinalMessage(hWnd);
@@ -219,6 +331,53 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 			}
 		}
 
+	}
+	else if (sName.CompareNoCase(_T("bt_SaveScheme")) == 0)  // 保存到数据库;
+	{
+		
+		m_CPopNewScheme->MessageBox(NULL);//
+		string strScheme = m_CPopNewScheme->GetNewName();//获取新增加的方案名称;
+
+		saveDatabaseScheme(strScheme);
+		//std::vector<std::string> vecFilelds;
+		//std::vector<std::string> vecFileldsValue;
+		///*******************新建星座表及字段********************/                        //////// ?????? 考量 星座字段不一致的问题
+		//std::string strTableNameXZ = strScheme+UTF8_To_string("_星座");
+
+		//std::vector<std::string> filelds;
+		//if (name_Level1.size() > 0)
+		//{
+		//	filelds.push_back("name");
+		//	for (const auto& vec : m_RecvMap_XZ[1])
+		//	{
+		//		
+		//		filelds.push_back(UTF8_To_string(vec.first));
+		//	}
+		//	//	strTable = UTF8_To_string(strTable);
+		//	ConnectMysql::Instance().createTableAndFields(strTableNameXZ, filelds);
+
+		//	// 插入数据
+		//	for (int i=0;i< m_RecvMap_XZ.size();i++)
+		//	{
+		//		vecFilelds.clear();
+		//		vecFileldsValue.clear();
+
+		//		vecFilelds.push_back(UTF8_To_string("name"));
+		//		vecFileldsValue.push_back((name_Level1[i]));
+		//		for (auto map : m_RecvMap_XZ[i])
+		//		{
+		//			vecFilelds.push_back(UTF8_To_string(map.first));
+		//			vecFileldsValue.push_back(UTF8_To_string(map.second));
+		//		}
+		//
+		//		ConnectMysql::Instance().insertTableData(strTableNameXZ, vecFilelds, vecFileldsValue);
+		//		
+		//	}
+		//}
+		///*******************新建卫星表及字段********************/
+		//// 简单插入数据 或者根据字段名插入值;
+		
+		
 	}
 	else if (sName.CompareNoCase(_T("bt_AddTo")) == 0)//增加按钮 星座、卫星、卫星下的天线和载荷属性
 	{
@@ -399,6 +558,8 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 		{
 
 			ImportingLocalData_Tab1();//导入本地数据
+			// 加载数据库数据 创建星座等节点;
+			//creatTreeNodesOfXZ();
 		}
 
 
@@ -2423,648 +2584,13 @@ void CPopEditorialClass::InitWindow()
 	CreateTreeNode(UTF8_To_string("星座卫星管理"));//向根节点加名称
 
 	///********************卫星界面的卫星和星座********************/
-	//map<string, string> map1;
-	//AssignmentToLocalVector_XZ(UTF8_To_string("星座0"));//向树的以及目录中添加数据
-	////CreateTreeNode_livel1(UTF8_To_string("星座0"));
-	//map<string, string> map11;
-	//map11["卫星名称1_1"] = "STARLINK-1073";
-	//map11["所属星座"] = "StarLink";
-	//map11["所属国家"] = "美国";
-	//map11["所属机构"] = "SpaceX";
-	//map11["功能类别"] = "通信卫星";
-	//map11["所属轨道类别"] = "LEO";
-	//map11["NORAD编号"] = "44914U";
-	//map11["COPAR编号"] = "20001A";
-	//map11["是否公开信息标识"] = "5";
-	//map11["轨道半长轴"] = "6857497.999";
-	//map11["轨道偏心率"] = "0.0005444";
-	//map11["轨道倾角"] = "97.3917";
-	//map11["升交点赤经"] = "300.1056";
-	//map11["近地点辐角"] = "100.6634";
-	//map11["直近点角"] = "27.5217";
-	//map11["卫星天线名称"] = "星载相控阵天线";
-	//map11["直近点角"] = "27.5217";
-	//map11["卫星载荷名称"] = "通信";
-	//map11["星座丛属"] = "丛属1";
-	//map11["卫星天线名称"] = "星载相控阵天线";
-	//AssignmentToLocalVector(UTF8_To_string("卫星0_1"), map11, pNode_2_num-1);
-	//map<string, string> map111;
-	//map111["天线名称"] = "星载相控阵天线";
-	//map111["所属卫星"] = "卫星0_1";
-	//map111["天线类型"] = "相控阵天线";
-	//map111["天线口径"] = "1.2";
-	//map111["天线增益"] = "-";
-	//map111["天线效率"] = "63";
-	//map111["天线指向误差"] = "0.1";
-	//map111["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星0_1"), UTF8_To_string("天线属性信息"), map111);
-	//map<string, string> map112;
-	//map112["载荷名称"] = "TLT2750";
-	//map112["工作波段"] = "Ka_卫星0_1";
-	//map112["所属机构"] = "SpaceX";
-	//map112["转发器发射机饱和EIRP"] = "52.7";
-	//map112["转发器发射机饱和通量密度"] = "-80";
-	//map112["转发器接收机G/T值"] = "6.2";
-	//map112["转发器带宽"] = "120";
 
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星0_1"), UTF8_To_string("载荷属性信息"), map112);
-	//map<string, string> map12;
-	//map12["载荷名称1_2"] = "TLT2750";
-	//map12["工作波段"] = "Ka";
-	//map12["所属机构"] = "SpaceX";
-	//map12["转发器发射机饱和EIRP"] = "52.7";
-	//map12["转发器发射机饱和通量密度"] = "-89";
-	//map12["转发器接收值"] = "6.2";
-	//map12["转发器贷款"] = "120";
-	//map12["卫星载荷名称"] = "导航";
-	//map12["星座丛属"] = "丛属1";
-	//AssignmentToLocalVector(UTF8_To_string("卫星0_2"), map12, pNode_2_num - 1);
-	//map<string, string> map121;
-	//map121["天线名称"] = "星载相控阵天线";
-	//map121["所属卫星"] = "卫星0_2";
-	//map121["天线类型"] = "相控阵天线";
-	//map121["天线口径"] = "1.2";
-	//map121["天线增益"] = "-";
-	//map121["天线效率"] = "63";
-	//map121["天线指向误差"] = "0.1";
-	//map121["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星0_2"), UTF8_To_string("天线属性信息"), map121);
-	//map<string, string> map122;
-	//map122["载荷名称"] = "TLT2750";
-	//map122["工作波段"] = "Ka_卫星0_2";
-	//map122["所属机构"] = "SpaceX";
-	//map122["转发器发射机饱和EIRP"] = "52.7";
-	//map122["转发器发射机饱和通量密度"] = "-80";
-	//map122["转发器接收机G/T值"] = "6.2";
-	//map122["转发器带宽"] = "120";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星0_2"), UTF8_To_string("载荷属性信息"), map122);
-	//map<string, string> map13;
-	//map13["天线名称1_3"] = "星载相控阵天线";
-	//map13["所属卫星"] = "STARLINK-1";
-	//map13["天线类型"] = "相控阵天线";
-	//map13["天线口径"] = "1.2";
-	//map13["天线增益"] = "0.00";
-	//map13["天线效率"] = "63";
-	//map13["天线指向误差"] = "0.1";
-	//map13["天线极化误差"] = "0.1";
-	//map13["卫星载荷名称"] = "遥感";
-	//map13["星座丛属"] = "丛属2";
-	//AssignmentToLocalVector(UTF8_To_string("卫星0_3"), map13, pNode_2_num - 1);//除根节点之外的一级节点名称 map 一级节点位置
-
-	//map<string, string> map131;
-	//map131["天线名称"] = "星载相控阵天线";
-	//map131["所属卫星"] = "卫星0_3";
-	//map131["天线类型"] = "相控阵天线";
-	//map131["天线口径"] = "1.2";
-	//map131["天线增益"] = "-";
-	//map131["天线效率"] = "63";
-	//map131["天线指向误差"] = "0.1";
-	//map131["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星0_3"), UTF8_To_string("天线属性信息"), map131);
-	//map<string, string> map132;
-	//map132["载荷名称"] = "TLT2750";
-	//map132["工作波段"] = "Ka_卫星0_3";
-	//map132["所属机构"] = "SpaceX";
-	//map132["转发器发射机饱和EIRP"] = "52.7";
-	//map132["转发器发射机饱和通量密度"] = "-80";
-	//map132["转发器接收机G/T值"] = "6.2";
-	//map132["转发器带宽"] = "120";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星0_3"), UTF8_To_string("载荷属性信息"), map132);
-	//AssignmentToLocalVector_XZ(UTF8_To_string("星座1"));
-	////CreateTreeNode_livel1(UTF8_To_string("星座1"));
-	//map<string, string> map21;
-	//map21["卫星名称1_1"] = "STARLINK-1073";
-	//map21["所属星座"] = "StarLink";
-	//map21["所属国家"] = "美国";
-	//map21["所属机构"] = "SpaceX";
-	//map21["功能类别"] = "通信卫星";
-	//map21["所属轨道类别"] = "LEO";
-	//map21["卫星载荷名称"] = "通信";
-	//map21["星座从属"] = "丛属0";
-	//AssignmentToLocalVector(UTF8_To_string("卫星1_1"), map21, pNode_2_num - 1);
-	//map<string, string> map211;
-	//map211["天线名称"] = "星载相控阵天线";
-	//map211["所属卫星"] = "卫星1_1";
-	//map211["天线类型"] = "相控阵天线";
-	//map211["天线口径"] = "1.2";
-	//map211["天线增益"] = "-";
-	//map211["天线效率"] = "63";
-	//map211["天线指向误差"] = "0.1";
-	//map211["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星1_1"), UTF8_To_string("天线属性信息"), map211);
-	//map<string, string> map212;
-	//map212["载荷名称"] = "TLT2750";
-	//map212["工作波段"] = "Ka_卫星1_1";
-	//map212["所属机构"] = "SpaceX";
-	//map212["转发器发射机饱和EIRP"] = "52.7";
-	//map212["转发器发射机饱和通量密度"] = "-80";
-	//map212["转发器接收机G/T值"] = "6.2";
-	//map212["转发器带宽"] = "120";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星1_1"), UTF8_To_string("载荷属性信息"), map212);
-	//map<string, string> map22;
-	//map22["载荷名称2_2"] = "TLT2750";
-	//map22["工作波段"] = "Ka";
-	//map22["所属机构"] = "SpaceX";
-	//map22["转发器发射机饱和EIRP"] = "52.7";
-	//map22["卫星载荷名称"] = "导航";
-	//map22["星座从属"] = "丛属1";
-	//AssignmentToLocalVector(UTF8_To_string("卫星1_2"), map22, pNode_2_num - 1);
-
-	//map<string, string> map221;
-	//map221["天线名称"] = "星载相控阵天线";
-	//map221["所属卫星"] = "卫星1_2";
-	//map221["天线类型"] = "相控阵天线";
-	//map221["天线口径"] = "1.2";
-	//map221["天线增益"] = "-";
-	//map221["天线效率"] = "63";
-	//map221["天线指向误差"] = "0.1";
-	//map221["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星1_2"), UTF8_To_string("天线属性信息"), map221);
-	//map<string, string> map222;
-	//map222["载荷名称"] = "TLT2750";
-	//map222["工作波段"] = "Ka_卫星1_2";
-	//map222["所属机构"] = "SpaceX";
-	//map222["转发器发射机饱和EIRP"] = "52.7";
-	//map222["转发器发射机饱和通量密度"] = "-80";
-	//map222["转发器接收机G/T值"] = "6.2";
-	//map222["转发器带宽"] = "120";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星1_2"), UTF8_To_string("载荷属性信息"), map222);
-
-	//map<string, string> map23;
-	//map23["天线名称2_3"] = "星载相控阵天线";
-	//map23["所属卫星"] = "STARLINK-1";
-	//map23["天线类型"] = "相控阵天线";
-	//map23["天线口径"] = "1.2";
-	//map23["卫星载荷名称"] = "遥感";
-	//map23["星座从属"] = "丛属2";
-	//AssignmentToLocalVector(UTF8_To_string("卫星1_3"), map23, pNode_2_num - 1);
-
-	//map<string, string> map231;
-	//map231["天线名称"] = "星载相控阵天线";
-	//map231["所属卫星"] = "卫星1_3";
-	//map231["天线类型"] = "相控阵天线";
-	//map231["天线口径"] = "1.2";
-	//map231["天线增益"] = "-";
-	//map231["天线效率"] = "63";
-	//map231["天线指向误差"] = "0.1";
-	//map231["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星1_3"), UTF8_To_string("天线属性信息"), map231);
-	//map<string, string> map232;
-	//map232["载荷名称"] = "TLT2750";
-	//map232["工作波段"] = "Ka_卫星1_3";
-	//map232["所属机构"] = "SpaceX";
-	//map232["转发器发射机饱和EIRP"] = "52.7";
-	//map232["转发器发射机饱和通量密度"] = "-80";
-	//map232["转发器接收机G/T值"] = "6.2";
-	//map232["转发器带宽"] = "120";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星1_3"), UTF8_To_string("载荷属性信息"), map232);
-	//map<string, string> map24;
-	//map24["天线名称2_4"] = "星载相控阵天线";
-	//map24["所属卫星"] = "STARLINK-1";
-	//map24["天线类型"] = "相控阵天线";
-	//map24["天线口径"] = "1.2";
-	//map24["卫星载荷名称"] = "通信";
-	//map24["星座从属"] = "丛属0";
-	//AssignmentToLocalVector(UTF8_To_string("卫星1_4"), map24, pNode_2_num - 1);
-
-	//map<string, string> map241;
-	//map241["天线名称"] = "星载相控阵天线";
-	//map241["所属卫星"] = "卫星1_4";
-	//map241["天线类型"] = "相控阵天线";
-	//map241["天线口径"] = "1.2";
-	//map241["天线增益"] = "-";
-	//map241["天线效率"] = "63";
-	//map241["天线指向误差"] = "0.1";
-	//map241["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星1_4"), UTF8_To_string("天线属性信息"), map241);
-	//map<string, string> map242;
-	//map242["载荷名称"] = "TLT2750";
-	//map242["工作波段"] = "Ka_卫星1_4";
-	//map242["所属机构"] = "SpaceX";
-	//map242["转发器发射机饱和EIRP"] = "52.7";
-	//map242["转发器发射机饱和通量密度"] = "-80";
-	//map242["转发器接收机G/T值"] = "6.2";
-	//map242["转发器带宽"] = "120";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星1_4"), UTF8_To_string("载荷属性信息"), map242);
-	//AssignmentToLocalVector_XZ(UTF8_To_string("星座2"));
-	//map<string, string> map31;
-	//map31["卫星名称3_1"] = "STARLINK-1073";
-	//map31["所属星座"] = "StarLink";
-	//map31["所属国家"] = "美国";
-	//map31["所属机构"] = "SpaceX";
-	//map31["功能类别"] = "通信卫星";
-	//map31["所属轨道类别"] = "LEO";
-	//map31["卫星载荷名称"] = "通信";
-	//map31["星座从属"] = "丛属1";
-	//AssignmentToLocalVector(UTF8_To_string("卫星3_1"), map31, pNode_2_num - 1);
-
-	//map<string, string> map311;
-	//map311["天线名称"] = "星载相控阵天线";
-	//map311["所属卫星"] = "卫星3_1";
-	//map311["天线类型"] = "相控阵天线";
-	//map311["天线口径"] = "1.2";
-	//map311["天线增益"] = "-";
-	//map311["天线效率"] = "63";
-	//map311["天线指向误差"] = "0.1";
-	//map311["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星3_1"), UTF8_To_string("天线属性信息"), map311);
-	//map<string, string> map312;
-	//map312["载荷名称"] = "TLT2750";
-	//map312["工作波段"] = "Ka_卫星3_1";
-	//map312["所属机构"] = "SpaceX";
-	//map312["转发器发射机饱和EIRP"] = "52.7";
-	//map312["转发器发射机饱和通量密度"] = "-80";
-	//map312["转发器接收机G/T值"] = "6.2";
-	//map312["转发器带宽"] = "120";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星3_1"), UTF8_To_string("载荷属性信息"), map312);
-	//map<string, string> map32;
-	//map32["载荷名称3_2"] = "TLT2750";
-	//map32["工作波段"] = "Ka";
-	//map32["所属机构"] = "SpaceX";
-	//map32["转发器发射机饱和EIRP"] = "52.7";
-	//map32["卫星载荷名称"] = "导航";
-	//map32["星座从属"] = "丛属2";
-	//AssignmentToLocalVector(UTF8_To_string("卫星3_2"), map32, pNode_2_num - 1);
-	//map<string, string> map321;
-	//map321["天线名称"] = "星载相控阵天线";
-	//map321["所属卫星"] = "卫星3_2";
-	//map321["天线类型"] = "相控阵天线";
-	//map321["天线口径"] = "1.2";
-	//map321["天线增益"] = "-";
-	//map321["天线效率"] = "63";
-	//map321["天线指向误差"] = "0.1";
-	//map321["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星3_2"), UTF8_To_string("天线属性信息"), map321);
-	//map<string, string> map322;
-	//map322["载荷名称"] = "TLT2750";
-	//map322["工作波段"] = "Ka_卫星3_2";
-	//map322["所属机构"] = "SpaceX";
-	//map322["转发器发射机饱和EIRP"] = "52.7";
-	//map322["转发器发射机饱和通量密度"] = "-80";
-	//map322["转发器接收机G/T值"] = "6.2";
-	//map322["转发器带宽"] = "120";
-	//AssignmentToLocalVector_WXSX(UTF8_To_string("卫星3_2"), UTF8_To_string("载荷属性信息"), map322);
-	/********************电信港界面的测试数据***********************/
 	CreateTreeNode_2(UTF8_To_string("电信港地球站管理"));//向第二个界面增加根节点
-	//AssignmentToLocalVector_DXG(UTF8_To_string("电信港0"));//向树的以及目录中添加数据
-	//map<string, string> map2_01;
-	//map2_01["地球站名称"] = "地球站0_1";
-	//map2_01["功能类型"] = "关口站";
-	//map2_01["地球站类型"] = "固定";
-	//AssignmentToLocalVector_DQZ(UTF8_To_string("地球站0_1"), map2_01, pNode_2_2_num-1);
-	//map<string, string> map2_01_1;
-	//map2_01_1["溃源名称"] = "喇叭型溃源1_地球站0_1";
-	//map2_01_1["所属地球站"] = "EarthStation1";
-	//map2_01_1["工作波段"] = "Ka";
-	//map2_01_1["所属机构"] = "中国电信";
-	//map2_01_1["发射机功率"] = "35";
-	//map2_01_1["发射载波频率"] = "29";
-	//map2_01_1["前向纠错编码率"] = "0.77";
-	//map2_01_1["上行信息速率"] = "800000";
-	//map2_01_1["接收机G/T值"] = "19.54";
-	//map2_01_1["接收机载波频率"] = "19.2";
-	//map2_01_1["下行信息速率"] = "800006";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站0_1"), UTF8_To_string("馈源属性信息"), map2_01_1);
-	//map<string, string> map2_01_2;
-	//map2_01_2["波形设备名称"] = "波形1";
-	//map2_01_2["所属地球站"] = "地球站0_1";
-	//map2_01_2["波形设备型号"] = "AWG5200";
-	//map2_01_2["调制方式"] = "BPSK";
-	//map2_01_2["解调方式"] = "方式1";
-	//map2_01_2["解码方式"] = "解码1";
-	//map2_01_2["载波类型"] = "4GHz载波";
-	//map2_01_2["带宽(GHz)"] = "2";
-	//map2_01_2["设备功能"] = "调制设备";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站0_1"), UTF8_To_string("波形设备属性信息"), map2_01_2);
-	//map<string, string> map2_01_3;
-	//map2_01_3["天线名称"] = "抛物线天线1";
-	//map2_01_3["所属地球站"] = "EarthStation1_地球站0_1";
-	//map2_01_3["天线类型"] = "抛物面天线";
-	//map2_01_3["天线口径"] = "1.2";
-	//map2_01_3["天线增益"] = "增益1";
-	//map2_01_3["天线效率"] = "63";
-	//map2_01_3["天线指向误差"] = "0.1";
-	//map2_01_3["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站0_1"), UTF8_To_string("天线属性信息"), map2_01_3);
-
-	//map<string, string> map2_02;
-	//map2_02["地球站名称"] = "地球站0_2";
-	//map2_02["功能类型"] = "信关站";
-	//map2_02["地球站类型"] = "移动";
-	//AssignmentToLocalVector_DQZ(UTF8_To_string("地球站0_2"), map2_02, pNode_2_2_num-1);
-	//map<string, string> map2_02_1;
-	//map2_02_1["溃源名称"] = "喇叭型溃源1_地球站0_2";
-	//map2_02_1["所属地球站"] = "EarthStation2";
-	//map2_02_1["工作波段"] = "Ka";
-	//map2_02_1["所属机构"] = "中国电信";
-	//map2_02_1["发射机功率"] = "35";
-	//map2_02_1["发射载波频率"] = "29";
-	//map2_02_1["前向纠错编码率"] = "0.77";
-	//map2_02_1["上行信息速率"] = "800000";
-	//map2_02_1["接收机G/T值"] = "19.54";
-	//map2_02_1["接收机载波频率"] = "19.2";
-	//map2_02_1["下行信息速率"] = "800006";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站0_2"), UTF8_To_string("馈源属性信息"), map2_02_1);
-	//map<string, string> map2_02_2;
-	//map2_02_2["波形设备名称"] = "波形1";
-	//map2_02_2["所属地球站"] = "地球站0_2";
-	//map2_02_2["波形设备型号"] = "AWG5200";
-	//map2_02_2["调制方式"] = "BPSK";
-	//map2_02_2["解调方式"] = "方式1";
-	//map2_02_2["解码方式"] = "解码1";
-	//map2_02_2["载波类型"] = "4GHz载波";
-	//map2_02_2["带宽(GHz)"] = "2";
-	//map2_02_2["设备功能"] = "调制设备";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站0_2"), UTF8_To_string("波形设备属性信息"), map2_02_2);
-	//map<string, string> map2_02_3;
-	//map2_02_3["天线名称"] = "抛物线天线1";
-	//map2_02_3["所属地球站"] = "EarthStation1_地球站0_2";
-	//map2_02_3["天线类型"] = "抛物面天线";
-	//map2_02_3["天线口径"] = "1.2";
-	//map2_02_3["天线增益"] = "增益1";
-	//map2_02_3["天线效率"] = "63";
-	//map2_02_3["天线指向误差"] = "0.1";
-	//map2_02_3["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站0_2"), UTF8_To_string("天线属性信息"), map2_02_3);
-
-	//map<string, string> map2_03;
-	//map2_03["地球站名称"] = "地球站0_3";
-	//map2_03["功能类型"] = "测控站";
-	//map2_03["地球站类型"] = "固定";
-	//AssignmentToLocalVector_DQZ(UTF8_To_string("地球站0_3"), map2_03, pNode_2_2_num-1);
-	//map<string, string> map2_03_1;
-	//map2_03_1["溃源名称"] = "喇叭型溃源1_地球站0_3";
-	//map2_03_1["所属地球站"] = "EarthStation3";
-	//map2_03_1["工作波段"] = "Ka";
-	//map2_03_1["所属机构"] = "中国电信";
-	//map2_03_1["发射机功率"] = "35";
-	//map2_03_1["发射载波频率"] = "29";
-	//map2_03_1["前向纠错编码率"] = "0.77";
-	//map2_03_1["上行信息速率"] = "800000";
-	//map2_03_1["接收机G/T值"] = "19.54";
-	//map2_03_1["接收机载波频率"] = "19.2";
-	//map2_03_1["下行信息速率"] = "800006";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站0_3"), UTF8_To_string("馈源属性信息"), map2_03_1);
-	//map<string, string> map2_03_2;
-	//map2_03_2["波形设备名称"] = "波形1";
-	//map2_03_2["所属地球站"] = "地球站0_3";
-	//map2_03_2["波形设备型号"] = "AWG5200";
-	//map2_03_2["调制方式"] = "BPSK";
-	//map2_03_2["解调方式"] = "方式1";
-	//map2_03_2["解码方式"] = "解码1";
-	//map2_03_2["载波类型"] = "4GHz载波";
-	//map2_03_2["带宽(GHz)"] = "2";
-	//map2_03_2["设备功能"] = "调制设备";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站0_3"), UTF8_To_string("波形设备属性信息"), map2_03_2);
-	//map<string, string> map2_03_3;
-	//map2_03_3["天线名称"] = "抛物线天线1";
-	//map2_03_3["所属地球站"] = "EarthStation1_地球站0_3";
-	//map2_03_3["天线类型"] = "抛物面天线";
-	//map2_03_3["天线口径"] = "1.2";
-	//map2_03_3["天线增益"] = "增益1";
-	//map2_03_3["天线效率"] = "63";
-	//map2_03_3["天线指向误差"] = "0.1";
-	//map2_03_3["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站0_3"), UTF8_To_string("天线属性信息"), map2_03_3);
-
-	//map<string, string> map2_04;
-	//map2_04["地球站名称"] = "地球站0_4";
-	//map2_04["功能类型"] = "网络枢纽";
-	//map2_04["地球站类型"] = "移动";
-	//AssignmentToLocalVector_DQZ(UTF8_To_string("地球站0_4"), map2_04, pNode_2_2_num-1);
-	//map<string, string> map2_04_1;
-	//map2_04_1["溃源名称"] = "喇叭型溃源1_地球站0_4";
-	//map2_04_1["所属地球站"] = "EarthStation4";
-	//map2_04_1["工作波段"] = "Ka";
-	//map2_04_1["所属机构"] = "中国电信";
-	//map2_04_1["发射机功率"] = "35";
-	//map2_04_1["发射载波频率"] = "29";
-	//map2_04_1["前向纠错编码率"] = "0.77";
-	//map2_04_1["上行信息速率"] = "800000";
-	//map2_04_1["接收机G/T值"] = "19.54";
-	//map2_04_1["接收机载波频率"] = "19.2";
-	//map2_04_1["下行信息速率"] = "800006";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站0_4"), UTF8_To_string("馈源属性信息"), map2_04_1);
-	//map<string, string> map2_04_2;
-	//map2_04_2["波形设备名称"] = "波形1";
-	//map2_04_2["所属地球站"] = "地球站0_4";
-	//map2_04_2["波形设备型号"] = "AWG5200";
-	//map2_04_2["调制方式"] = "BPSK";
-	//map2_04_2["解调方式"] = "方式1";
-	//map2_04_2["解码方式"] = "解码1";
-	//map2_04_2["载波类型"] = "4GHz载波";
-	//map2_04_2["带宽(GHz)"] = "2";
-	//map2_04_2["设备功能"] = "调制设备";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站0_4"), UTF8_To_string("波形设备属性信息"), map2_04_2);
-	//map<string, string> map2_04_3;
-	//map2_04_3["天线名称"] = "抛物线天线1";
-	//map2_04_3["所属地球站"] = "EarthStation1_地球站0_4";
-	//map2_04_3["天线类型"] = "抛物面天线";
-	//map2_04_3["天线口径"] = "1.2";
-	//map2_04_3["天线增益"] = "增益1";
-	//map2_04_3["天线效率"] = "63";
-	//map2_04_3["天线指向误差"] = "0.1";
-	//map2_04_3["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站0_4"), UTF8_To_string("天线属性信息"), map2_04_3);
-
-	//AssignmentToLocalVector_DXG(UTF8_To_string("电信港1"));//向树的以及目录中添加数据
-	//map<string, string> map2_11;
-	//map2_11["地球站名称"] = "地球站1_1";
-	//map2_11["功能类型"] = "关口站";
-	//map2_11["地球站类型"] = "固定";
-	//AssignmentToLocalVector_DQZ(UTF8_To_string("地球站1_1"), map2_11, pNode_2_2_num-1);
-	//map<string, string> map2_11_1;
-	//map2_11_1["溃源名称"] = "喇叭型溃源1_地球站1_1";
-	//map2_11_1["所属地球站"] = "EarthStation1_1";
-	//map2_11_1["工作波段"] = "Ka";
-	//map2_11_1["所属机构"] = "中国电信";
-	//map2_11_1["发射机功率"] = "35";
-	//map2_11_1["发射载波频率"] = "29";
-	//map2_11_1["前向纠错编码率"] = "0.77";
-	//map2_11_1["上行信息速率"] = "800000";
-	//map2_11_1["接收机G/T值"] = "19.54";
-	//map2_11_1["接收机载波频率"] = "19.2";
-	//map2_11_1["下行信息速率"] = "800006";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站1_1"), UTF8_To_string("馈源属性信息"), map2_11_1);
-	//map<string, string> map2_11_2;
-	//map2_11_2["波形设备名称"] = "波形1";
-	//map2_11_2["所属地球站"] = "地球站1_1";
-	//map2_11_2["波形设备型号"] = "AWG5200";
-	//map2_11_2["调制方式"] = "BPSK";
-	//map2_11_2["解调方式"] = "方式1";
-	//map2_11_2["解码方式"] = "解码1";
-	//map2_11_2["载波类型"] = "4GHz载波";
-	//map2_11_2["带宽(GHz)"] = "2";
-	//map2_11_2["设备功能"] = "调制设备";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站1_1"), UTF8_To_string("波形设备属性信息"), map2_11_2);
-	//map<string, string> map2_11_3;
-	//map2_11_3["天线名称"] = "抛物线天线1";
-	//map2_11_3["所属地球站"] = "EarthStation1_地球站1_1";
-	//map2_11_3["天线类型"] = "抛物面天线";
-	//map2_11_3["天线口径"] = "1.2";
-	//map2_11_3["天线增益"] = "增益1";
-	//map2_11_3["天线效率"] = "63";
-	//map2_11_3["天线指向误差"] = "0.1";
-	//map2_11_3["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站1_1"), UTF8_To_string("天线属性信息"), map2_11_3);
-
-
-	//map<string, string> map2_12;
-	//map2_12["地球站名称"] = "地球站1_2";
-	//map2_12["功能类型"] = "信关站";
-	//map2_12["地球站类型"] = "移动";
-	//AssignmentToLocalVector_DQZ(UTF8_To_string("地球站1_2"), map2_12, pNode_2_2_num-1);
-	//map<string, string> map2_12_1;
-	//map2_12_1["溃源名称"] = "喇叭型溃源1_地球站1_2";
-	//map2_12_1["所属地球站"] = "EarthStation1_2";
-	//map2_12_1["工作波段"] = "Ka";
-	//map2_12_1["所属机构"] = "中国电信";
-	//map2_12_1["发射机功率"] = "35";
-	//map2_12_1["发射载波频率"] = "29";
-	//map2_12_1["前向纠错编码率"] = "0.77";
-	//map2_12_1["上行信息速率"] = "800000";
-	//map2_12_1["接收机G/T值"] = "19.54";
-	//map2_12_1["接收机载波频率"] = "19.2";
-	//map2_12_1["下行信息速率"] = "800006";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站1_2"), UTF8_To_string("馈源属性信息"), map2_12_1);
-	//map<string, string> map2_12_2;
-	//map2_12_2["波形设备名称"] = "波形1";
-	//map2_12_2["所属地球站"] = "地球站1_2";
-	//map2_12_2["波形设备型号"] = "AWG5200";
-	//map2_12_2["调制方式"] = "BPSK";
-	//map2_12_2["解调方式"] = "方式1";
-	//map2_12_2["解码方式"] = "解码1";
-	//map2_12_2["载波类型"] = "4GHz载波";
-	//map2_12_2["带宽(GHz)"] = "2";
-	//map2_12_2["设备功能"] = "调制设备";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站1_2"), UTF8_To_string("波形设备属性信息"), map2_12_2);
-	//map<string, string> map2_12_3;
-	//map2_12_3["天线名称"] = "抛物线天线1";
-	//map2_12_3["所属地球站"] = "EarthStation1_地球站1_2";
-	//map2_12_3["天线类型"] = "抛物面天线";
-	//map2_12_3["天线口径"] = "1.2";
-	//map2_12_3["天线增益"] = "增益1";
-	//map2_12_3["天线效率"] = "63";
-	//map2_12_3["天线指向误差"] = "0.1";
-	//map2_12_3["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_DQZ_level2(UTF8_To_string("地球站1_2"), UTF8_To_string("天线属性信息"), map2_12_3);
-
+	
 	//AssignmentToLocalVector_DXG(UTF8_To_string("电信港2"));//向树的以及目录中添加数据
 	/**********************界面3场景-地面终端******************/
 	CreateTreeNode_3(UTF8_To_string("地面终端管理"));//向第二个界面增加根节点
-	//map<string, string> map3_1;
-	//map3_1["地面终端名称"] = "地面终端0";
-	//map3_1["终端类型"] = "手机";
-	//AssignmentToLocalVector_DMZD(UTF8_To_string("地面终端0"), map3_1);//向树的以及目录中添加数据
-	////载荷属性信息 波形设备属性信息 天线属性信息
-	//map<string, string> map3_1_1;
-	//map3_1_1["载荷名称"] = "喇叭型载荷1";
-	//map3_1_1["所属终端"] = "手机用户1";
-	//map3_1_1["工作波段"] = "Ka_地面终端0";
-	//map3_1_1["所属机构"] = "中国电信";
-	//map3_1_1["发射机功率"] = "35";
-	//map3_1_1["发射载波频率"] = "29";
-	//map3_1_1["前向纠错编码率"] = "0.77";
-	//map3_1_1["上行信息速率"] = "800000";
-	//map3_1_1["接收机G/T值"] = "19.54";
-	//map3_1_1["接收机载波频率"] = "19.2";
-	//map3_1_1["下行信息速率"] = "800000";
-	//AssignmentToLocalVector_DMZD_level2(UTF8_To_string("地面终端0"), UTF8_To_string("载荷属性信息"), map3_1_1);
-	//map<string, string> map3_1_2;
-	//map3_1_2["波形设备名称"] = "手机调制解调器固件1";
-	//map3_1_2["波形设备型号"] = "手机调制解调器固件";
-	//map3_1_2["调制方式"] = "BPSK";
-	//map3_1_2["解调方式"] = "地面终端0_方式1";
-	//map3_1_2["解码方式"] = "解码1";
-	//map3_1_2["载波类型"] = "4GHz载波";
-	//map3_1_2["带宽"] = "2";
-	//map3_1_2["设备功能"] = "调制设备";
-	//AssignmentToLocalVector_DMZD_level2(UTF8_To_string("地面终端0"), UTF8_To_string("波形设备属性信息"), map3_1_2);
-	//map<string, string> map3_1_3;
-	//map3_1_3["天线名称"] = "手机内置天线1";
-	//map3_1_3["所属终端"] = "地面终端0_手机用户1";
-	//map3_1_3["天线类型"] = "手机内置天线";
-	//map3_1_3["天线口径"] = "5";
-	//map3_1_3["天线增益"] = "3";
-	//map3_1_3["天线效率"] = "63";
-	//map3_1_3["天线指向误差"] = "0.1";
-	//map3_1_3["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_DMZD_level2(UTF8_To_string("地面终端0"), UTF8_To_string("天线属性信息"), map3_1_3);
 
-	//map<string, string> map3_2;
-	//map3_2["地面终端名称"] = "地面终端1";
-	//map3_2["终端类型"] = "卫星电话";
-	//AssignmentToLocalVector_DMZD(UTF8_To_string("地面终端1"), map3_2);//向树的以及目录中添加数据
-	//map<string, string> map3_2_1;
-	//map3_2_1["载荷名称"] = "喇叭型载荷1";
-	//map3_2_1["所属终端"] = "手机用户1";
-	//map3_2_1["工作波段"] = "Ka_地面终端1";
-	//map3_2_1["所属机构"] = "中国电信";
-	//map3_2_1["发射机功率"] = "35";
-	//map3_2_1["发射载波频率"] = "29";
-	//map3_2_1["前向纠错编码率"] = "0.77";
-	//map3_2_1["上行信息速率"] = "800000";
-	//map3_2_1["接收机G/T值"] = "19.54";
-	//map3_2_1["接收机载波频率"] = "19.2";
-	//map3_2_1["下行信息速率"] = "800000";
-	//AssignmentToLocalVector_DMZD_level2(UTF8_To_string("地面终端1"), UTF8_To_string("载荷属性信息"), map3_2_1);
-	//map<string, string> map3_2_2;
-	//map3_2_2["波形设备名称"] = "手机调制解调器固件1";
-	//map3_2_2["波形设备型号"] = "手机调制解调器固件";
-	//map3_2_2["调制方式"] = "BPSK";
-	//map3_2_2["解调方式"] = "地面终端1_方式1";
-	//map3_2_2["解码方式"] = "解码1";
-	//map3_2_2["载波类型"] = "4GHz载波";
-	//map3_2_2["带宽"] = "2";
-	//map3_2_2["设备功能"] = "调制设备";
-	//AssignmentToLocalVector_DMZD_level2(UTF8_To_string("地面终端1"), UTF8_To_string("波形设备属性信息"), map3_2_2);
-	//map<string, string> map3_2_3;
-	//map3_2_3["天线名称"] = "手机内置天线1";
-	//map3_2_3["所属终端"] = "地面终端1_手机用户1";
-	//map3_2_3["天线类型"] = "手机内置天线";
-	//map3_2_3["天线口径"] = "5";
-	//map3_2_3["天线增益"] = "3";
-	//map3_2_3["天线效率"] = "63";
-	//map3_2_3["天线指向误差"] = "0.1";
-	//map3_2_3["天线极化误差"] = "0.1";
-	//AssignmentToLocalVector_DMZD_level2(UTF8_To_string("地面终端1"), UTF8_To_string("天线属性信息"), map3_2_3);
-
-	//map<string, string> map3_3;
-	//map3_3["地面终端名称"] = "地面终端2";
-	//map3_3["终端类型"] = "卫星电话1";
-	//AssignmentToLocalVector_DMZD(UTF8_To_string("地面终端2"), map3_3);//向树的以及目录中添加数据
-	//map<string, string> map3_3_1;
-	//map3_3_1["载荷名称"] = "喇叭型载荷1";
-	//map3_3_1["所属终端"] = "手机用户1";
-	//map3_3_1["工作波段"] = "Ka_地面终端2";
-	//map3_3_1["所属机构"] = "中国电信";
-	//map3_3_1["发射机功率"] = "35";
-	//map3_3_1["发射载波频率"] = "29";
-	//map3_3_1["前向纠错编码率"] = "0.77";
-	//map3_3_1["上行信息速率"] = "800000";
-	//map3_3_1["接收机G/T值"] = "19.54";
-	//map3_3_1["接收机载波频率"] = "19.2";
-	//map3_3_1["下行信息速率"] = "800000";
-	//AssignmentToLocalVector_DMZD_level2(UTF8_To_string("地面终端2"), UTF8_To_string("载荷属性信息"), map3_3_1);
-	//map<string, string> map3_3_2;
-	//map3_3_2["波形设备名称"] = "手机调制解调器固件1";
-	//map3_3_2["波形设备型号"] = "手机调制解调器固件";
-	//map3_3_2["调制方式"] = "BPSK";
-	//map3_3_2["解调方式"] = "地面终端2_方式1";
-	//map3_3_2["解码方式"] = "解码1";
-	//map3_3_2["载波类型"] = "4GHz载波";
-	//map3_3_2["带宽"] = "2";
-	//map3_3_2["设备功能"] = "调制设备";
-	//AssignmentToLocalVector_DMZD_level2(UTF8_To_string("地面终端2"), UTF8_To_string("波形设备属性信息"), map3_3_2);
-	//map<string, string> map3_3_3;
-	//map3_3_3["天线名称"] = "手机内置天线1";
-	//map3_3_3["所属终端"] = "地面终端2_手机用户1";
-	//map3_3_3["天线类型"] = "手机内置天线";
-	//map3_3_3["天线口径"] = "5";
-	//map3_3_3["天线增益"] = "3";
-	//map3_3_3["天线效率"] = "63";
-	//map3_3_3["天线指向误差"] = "0.1";
-	//map3_3_3["天线极化误差"] = "0.1";
 	//AssignmentToLocalVector_DMZD_level2(UTF8_To_string("地面终端2"), UTF8_To_string("天线属性信息"), map3_3_3);
 	/**********************************************/
 	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)ThreadReadtle, this, 0, NULL);
@@ -7642,9 +7168,271 @@ void CPopEditorialClass::GenerateTheFile(string path, string filename, vector<ve
 		fout << line << endl;
 	}
 }
+void CPopEditorialClass::saveDatabaseScheme(const std::string& strScheme)
+{
+	std::set<std::string> filelds;
+	std::vector<std::string> vecFilelds;
+	std::vector<std::string> vecFileldsValue;
+	/*******************新建星座表及字段********************/                        //////// ?????? 考量 星座字段不一致的问题
+	
+
+	
+	if (name_Level1.size() > 0)
+	{
+		std::vector<std::string> filelds;
+		std::string strTableNameXZ = strScheme + UTF8_To_string("_星座");
+		filelds.clear();
+		filelds.push_back("Name");
+		for (const auto& vec : m_RecvMap_XZ[1])
+		{
+
+			filelds.push_back(UTF8_To_string(vec.first));
+		}
+
+		//	strTable = UTF8_To_string(strTable);
+		ConnectMysql::Instance().createTableAndFields(strTableNameXZ, filelds);
+
+		// 插入数据
+		for (int i = 0; i < m_RecvMap_XZ.size(); i++)
+		{
+			vecFilelds.clear();
+			vecFileldsValue.clear();
+
+			vecFilelds.push_back(UTF8_To_string("Name"));
+			vecFileldsValue.push_back((name_Level1[i]));
+			for (auto map : m_RecvMap_XZ[i])
+			{
+				vecFilelds.push_back(UTF8_To_string(map.first));
+				vecFileldsValue.push_back(UTF8_To_string(map.second));
+			}
+
+			ConnectMysql::Instance().insertTableData(strTableNameXZ, vecFilelds, vecFileldsValue);
+
+		}
+	}
+	/*******************新建卫星表及字段********************/// 简单插入数据 或者根据字段名插入值;
+	
+	if (name_Level2.size() > 0)
+	{
+		std::set<std::string> filelds;
+		filelds.clear();
+		std::string strTableNameWX = strScheme + UTF8_To_string("_卫星");
+		filelds.insert("Name");
+		for (int i = 0; i < m_RecvMap.size(); i++)
+		{
+			for (auto map : m_RecvMap[i])
+			{
+				filelds.insert(UTF8_To_string(map.first));
+			}
+
+		}
+
+		ConnectMysql::Instance().createTableAndFields(strTableNameWX, filelds);
+
+		// 插入数据
+		for (int i = 0; i < m_RecvMap.size(); i++)
+		{
+			vecFilelds.clear();
+			vecFileldsValue.clear();
+
+			vecFilelds.push_back(UTF8_To_string("Name"));
+			vecFileldsValue.push_back((name_Level2[i]));
+			for (auto map : m_RecvMap[i])
+			{
+				vecFilelds.push_back(UTF8_To_string(map.first));
+				vecFileldsValue.push_back(UTF8_To_string(map.second));
+			}
+
+			ConnectMysql::Instance().insertTableData(strTableNameWX, vecFilelds, vecFileldsValue);
+		}
+	}
+
+	/*******************新建卫星天线表及字段********************/
+	if (m_vecTxName.size() > 0)
+	{
+		
+		filelds.clear();
+		std::string strTableNameWXTX = strScheme + UTF8_To_string("_卫星天线");
+		filelds.insert("Name");
+		for (int i = 0; i < m_vecMapTxData.size(); i++)
+		{
+			for (auto map : m_vecMapTxData[i])
+			{
+				filelds.insert(UTF8_To_string(map.first));
+			}
+
+		}
+
+		ConnectMysql::Instance().createTableAndFields(strTableNameWXTX, filelds);
+
+		// 插入数据
+		for (int i = 0; i < m_vecMapTxData.size(); i++)
+		{
+			vecFilelds.clear();
+			vecFileldsValue.clear();
+
+			vecFilelds.push_back(UTF8_To_string("Name"));
+			vecFileldsValue.push_back((m_vecTxName[i]));
+			for (auto map : m_vecMapTxData[i])
+			{
+				vecFilelds.push_back(UTF8_To_string(map.first));
+				vecFileldsValue.push_back(UTF8_To_string(map.second));
+			}
+
+			ConnectMysql::Instance().insertTableData(strTableNameWXTX, vecFilelds, vecFileldsValue);
+		}
+	}
+
+	/*******************新建卫星载荷表及字段********************/
+	if (m_vecZhName.size() > 0)
+	{
+
+		filelds.clear();
+		std::string strTableNameWXZH = strScheme + UTF8_To_string("_卫星载荷");
+		filelds.insert("Name");
+		for (int i = 0; i < m_vecMapZhData.size(); i++)
+		{
+			for (auto map : m_vecMapZhData[i])
+			{
+				filelds.insert(UTF8_To_string(map.first));
+			}
+
+		}
+
+		ConnectMysql::Instance().createTableAndFields(strTableNameWXZH, filelds);
+
+		// 插入数据
+		for (int i = 0; i < m_vecMapZhData.size(); i++)
+		{
+			vecFilelds.clear();
+			vecFileldsValue.clear();
+
+			vecFilelds.push_back(UTF8_To_string("Name"));
+			vecFileldsValue.push_back((m_vecZhName[i]));
+			for (auto map : m_vecMapZhData[i])
+			{
+				vecFilelds.push_back(UTF8_To_string(map.first));
+				vecFileldsValue.push_back(UTF8_To_string(map.second));
+			}
+
+			ConnectMysql::Instance().insertTableData(strTableNameWXZH, vecFilelds, vecFileldsValue);
+		}
+	}
+
+	/*******************新建电信港表及字段********************/
+	if (name2_Level1.size() > 0)
+	{
+		filelds.clear();
+		std::string strTableNameDXG = strScheme + UTF8_To_string("_电信港");
+		filelds.insert("Name");
+		for (int i = 0; i < m_RecvMap_DXG.size(); i++)
+		{
+			for (auto map : m_RecvMap_DXG[i])
+			{
+				filelds.insert(UTF8_To_string(map.first));
+			}
+		}
+
+		ConnectMysql::Instance().createTableAndFields(strTableNameDXG, filelds);
+
+		// 插入数据
+		for (int i = 0; i < m_RecvMap_DXG.size(); i++)
+		{
+			vecFilelds.clear();
+			vecFileldsValue.clear();
+
+			vecFilelds.push_back(UTF8_To_string("Name"));
+			vecFileldsValue.push_back((name2_Level1[i]));
+			for (auto map : m_RecvMap_DXG[i])
+			{
+				vecFilelds.push_back(UTF8_To_string(map.first));
+				vecFileldsValue.push_back(UTF8_To_string(map.second));
+			}
+
+			ConnectMysql::Instance().insertTableData(strTableNameDXG, vecFilelds, vecFileldsValue);
+		}
+	}
+
+	/*******************新建地球站表及字段********************/
+	if (name2_Level2.size() > 0)
+	{
+
+		filelds.clear();
+		std::string strTableNameDQZ = strScheme + UTF8_To_string("_地球站");
+		filelds.insert("Name");
+		for (int i = 0; i < m_RecvMap_DQZ.size(); i++)
+		{
+			for (auto map : m_RecvMap_DQZ[i])
+			{
+				filelds.insert(UTF8_To_string(map.first));
+			}
+
+		}
+
+		ConnectMysql::Instance().createTableAndFields(strTableNameDQZ, filelds);
+
+		// 插入数据
+		for (int i = 0; i < m_RecvMap_DQZ.size(); i++)
+		{
+			vecFilelds.clear();
+			vecFileldsValue.clear();
+
+			vecFilelds.push_back(UTF8_To_string("Name"));
+			vecFileldsValue.push_back((name2_Level2[i]));
+			for (auto map : m_RecvMap_DQZ[i])
+			{
+				vecFilelds.push_back(UTF8_To_string(map.first));
+				vecFileldsValue.push_back(UTF8_To_string(map.second));
+			}
+
+			ConnectMysql::Instance().insertTableData(strTableNameDQZ, vecFilelds, vecFileldsValue);
+		}
+	}
+
+	/*******************新建地面终端表及字段********************/
+	if (name3_Level1.size() > 0)
+	{
+
+		filelds.clear();
+		std::string strTableNameDMZD = strScheme + UTF8_To_string("_地面终端");
+		filelds.insert("Name");
+		for (int i = 0; i < m_RecvMap_DMZD.size(); i++)
+		{
+			for (auto map : m_RecvMap_DMZD[i])
+			{
+				filelds.insert(UTF8_To_string(map.first));
+			}
+
+		}
+
+		ConnectMysql::Instance().createTableAndFields(strTableNameDMZD, filelds);
+
+		// 插入数据
+		for (int i = 0; i < m_RecvMap_DMZD.size(); i++)
+		{
+			vecFilelds.clear();
+			vecFileldsValue.clear();
+
+			vecFilelds.push_back(UTF8_To_string("Name"));
+			vecFileldsValue.push_back((name3_Level1[i]));
+			for (auto map : m_RecvMap_DMZD[i])
+			{
+				vecFilelds.push_back(UTF8_To_string(map.first));
+				vecFileldsValue.push_back(UTF8_To_string(map.second));
+			}
+
+			ConnectMysql::Instance().insertTableData(strTableNameDMZD, vecFilelds, vecFileldsValue);
+		}
+	}
+
+}
 //将tab1界面的本地数据导入界面函数
 void CPopEditorialClass::ImportingLocalData_Tab1()
 {
+	m_vecTxName.clear();
+	m_vecZhName.clear();
+	m_vecMapTxData.clear();
+	m_vecMapZhData.clear();
 	vector<string> vec_TxZhName;//卫星的子节点 --- 天线载荷名称
 	vector<map<string, string>> vec_TxZhData;//卫星的子节点 --- 天线载荷数据
 
@@ -7727,8 +7515,17 @@ void CPopEditorialClass::ImportingLocalData_Tab1()
 			{
 				cout << "星座" << endl;
 				AssignmentToLocalVector_XZ(str_xzName[0], l_map);//将星座相关信息显示在界面上
-			}
 
+			//	std::vector<std::string> filelds;
+			//	for (auto map : l_map)
+			//	{
+			//		filelds.push_back(UTF8_To_string(map.first));
+			//	}
+			//	std::string strTable = UTF8_To_string("方案1_") + str_xzName[0];
+			////	strTable = UTF8_To_string(strTable);
+			//	ConnectMysql::Instance().createTableAndFields(strTable, filelds);
+			}
+			
 			infile.close();             //关闭文件输入流 
 		}
 		//m_FtpClientClass.execute_putFile(fileN);//put 上传文件
@@ -7973,12 +7770,31 @@ void CPopEditorialClass::ImportingLocalData_Tab1()
 
 
 			}
-			if (type == "天线或载荷")
+			//if (type == "天线或载荷")
+			//{
+			//	cout << "卫星" << endl;
+			//	vec_TxZhName.push_back(str_xzName[0]);
+			//	vec_TxZhData.push_back(l_map);
+			//	//AssignmentToLocalVector_XZ(str_xzName[0], l_map);
+			//}
+
+			if (type == "天线")
 			{
 				cout << "卫星" << endl;
 				vec_TxZhName.push_back(str_xzName[0]);
 				vec_TxZhData.push_back(l_map);
-				//AssignmentToLocalVector_XZ(str_xzName[0], l_map);
+
+				
+				m_vecTxName.push_back(str_xzName[0]);
+				m_vecMapTxData.push_back(l_map);
+			}
+			else if(type == "载荷")
+			{
+				vec_TxZhName.push_back(str_xzName[0]);
+			    vec_TxZhData.push_back(l_map);
+
+				m_vecZhName.push_back(str_xzName[0]);
+				m_vecMapZhData.push_back(l_map);
 			}
 
 
@@ -8091,7 +7907,8 @@ void CPopEditorialClass::ImportingLocalData_Tab1()
 					seques = j;
 					xzName = vecXZAndWX[j][0];
 					AssignmentToLocalVector(xzName, vec_WxName[i], vec_wxData[i]);
-				}else if (vecXZAndWX[j][m] == vec_WxName[i])
+				}
+				else if (vecXZAndWX[j][m] == vec_WxName[i])
 				{
 					seques = j;
 					xzName = vecXZAndWX[j][0];

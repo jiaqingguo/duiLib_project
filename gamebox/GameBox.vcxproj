@@ -977,10 +977,14 @@
     <ClCompile Include="CPopNetworkManage.cpp" />
     <ClCompile Include="CPopNewAttributeClass.cpp" />
     <ClCompile Include="CPopNewConstellation.cpp" />
+    <ClCompile Include="CPopNewScheme.cpp" />
     <ClCompile Include="CpopSelectEquipment.cpp" />
     <ClCompile Include="CpopSelectLevel1.cpp" />
     <ClCompile Include="DecodeDll\DecodeDll.cpp" />
     <ClCompile Include="DrawingInterfaceClass.cpp" />
+    <ClCompile Include="EnvironmentData.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="GameBox.cpp" />
     <ClCompile Include="GameItemUI.cpp" />
     <ClCompile Include="Helper.cpp" />
@@ -1044,6 +1048,7 @@
     <ClInclude Include="CPopNetworkManage.h" />
     <ClInclude Include="CPopNewAttributeClass.h" />
     <ClInclude Include="CPopNewConstellation.h" />
+    <ClInclude Include="CPopNewScheme.h" />
     <ClInclude Include="CpopSelectEquipment.h" />
     <ClInclude Include="CpopSelectLevel1.h" />
     <ClInclude Include="DatabaseStruct.h" />
@@ -1052,6 +1057,7 @@
     <ClInclude Include="DecodeDll\Header.h" />
     <ClInclude Include="DecodeDll\xlsentity.h" />
     <ClInclude Include="DrawingInterfaceClass.h" />
+    <ClInclude Include="EnvironmentData.h" />
     <ClInclude Include="GameBox.h" />
     <ClInclude Include="GameItemUI.h" />
     <ClInclude Include="Helper.h" />

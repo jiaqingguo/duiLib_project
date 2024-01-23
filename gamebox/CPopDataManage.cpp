@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "CPopDataManage.h"
 #include "UtilTool.h"
-
+#include "EnvironmentData.h"
 
 //vector<string> seleceColumns;
 //数据管理界面类实现
@@ -167,13 +167,13 @@ void CPopDataManage::OnLClick(CControlUI *pControl)
 		CControlUI* pControl_Start = static_cast<CControlUI*>(m_pm.FindControl(_T("Com_DatabaseName")));
 		wstring wstr_start = pControl_Start->GetText();
 		string str_dbName = wstringToString(wstr_start);
-	/*	bool flag = myMysql.SetUpDatabase(str_dbName);
+	/*	bool flag = ConnectMysql::Instance().SetUpDatabase(str_dbName);
 		if (flag)
 		{
 			GettingDatabase();
 		}*/
 		GettingDatabase();
-		//vec_vecData_XZSJB = myMysql.mytest_QueryDatabase("0_星座数据表_1");//获取的数据库中---星座数据表
+		//vec_vecData_XZSJB = ConnectMysql::Instance().mytest_QueryDatabase("0_星座数据表_1");//获取的数据库中---星座数据表
 
 
 		
@@ -605,7 +605,7 @@ void CPopDataManage::InitWindow()
 
 	
 	//list_DataShow_XZSJB
-	if (!myMysql.StartConnectMysql())
+	if (!ConnectMysql::Instance().StartConnectMysql())
 	{
 		cout << "StartConnectMysql Failure!!!" << endl;
 		string msg = "数据库连接失败!";
@@ -621,25 +621,26 @@ void CPopDataManage::InitWindow()
 	//GettingDatabase();
 
 	InitializeMap();
-	//string all_data = myMysql.mytest_QueryDatabase_1("0_星座数据表_1");
+	//string all_data = ConnectMysql::Instance().mytest_QueryDatabase_1("0_星座数据表_1");
 	//cout << all_data.c_str() << endl;
-	//vector<vector<string>> vec_vecData = myMysql.mytest_QueryDatabase("0_星座数据表_1");
+	//vector<vector<string>> vec_vecData = ConnectMysql::Instance().mytest_QueryDatabase("0_星座数据表_1");
 	//string recv = vec_vecData[0][2];
 	//cout << recv.c_str() << endl;
 
 }
 void CPopDataManage::InitializeCombo()
 {
-	vector<string> vec = myMysql.mytest_QueryDatabase();
+	vector<string> vec = ConnectMysql::Instance().mytest_QueryDatabase();
 	cout << vec.size() << endl;
 
 
-	myMysql.getAllScheme(m_listStScheme);
+	ConnectMysql::Instance().getAllScheme(EnvironmentData::m_mapStScheme);
 	select_combox = static_cast<CComboBoxUI*>(m_pm.FindControl(_T("Com_DatabaseName")));
 	if (select_combox)
 	{
-		for (const auto& st : m_listStScheme)
+		for (const auto& stData : EnvironmentData::m_mapStScheme)
 		{
+			auto& st = stData.second;
 			wstring temp;
 			CListLabelElementUI* pLabel = new CListLabelElementUI();
 			UtilTool::setWstring(temp, st.schemeName.c_str());
@@ -954,7 +955,9 @@ void CPopDataManage::InitializeCombo()
 void CPopDataManage::GettingDatabase()
 {
 
-	 //vec_vecData_XZSJB = myMysql.mytest_QueryDatabase("0_星座数据表_1");//获取的数据库中---星座数据表
+	 vec_vecData_XZSJB = ConnectMysql::Instance().mytest_QueryDatabase("0_星座数据表_1");//获取的数据库中---星座数据表
+	// ConnectMysql::Instance().CreateNewTable("myCsTable", vec_vecData_XZSJB)
+
 
 	 //for (vector<vector<string>>::iterator it = vec_vecData_XZSJB.begin(); it != vec_vecData_XZSJB.end(); ++it)
 	 //{
@@ -972,10 +975,11 @@ void CPopDataManage::GettingDatabase()
 	 //}
 
 	 //获取星座数据表数据;
-	 myMysql.getAllXzsjbBySchemeID(m_listStXZSJB,1);
+	 ConnectMysql::Instance().getAllXzsjbBySchemeID(EnvironmentData::m_mapStXZSJB,1);
 	 wstring text_string;
-	 for ( auto &stXZSJ : m_listStXZSJB)
+	 for ( auto & stData : EnvironmentData::m_mapStXZSJB)
 	 {
+		 auto& stXZSJ = stData.second;
 		 CListTextElementUI* pItem = new CListTextElementUI();
 		 //pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
 		
@@ -1002,9 +1006,11 @@ void CPopDataManage::GettingDatabase()
 	 }
 
 	//单星数据表
-	 myMysql.getAllDxsjbBySchemeID(m_listStDXSJB,1);
-	 for (auto& stDXSJ : m_listStDXSJB)
+	 ConnectMysql::Instance().getAllDxsjbBySchemeID(EnvironmentData::m_mapStDXSJB,1);
+	 for (auto& stData : EnvironmentData::m_mapStDXSJB)
 	 {
+
+		 auto& stDXSJ = stData.second;
 		 CListTextElementUI* pItem = new CListTextElementUI();
 		 //pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
 
@@ -1048,10 +1054,12 @@ void CPopDataManage::GettingDatabase()
 	 }
 
 	 //获取卫星天线数据表数据;
-	 myMysql.getAllWxtxbBySchemeID(m_listStWXTXB,1);
+	 ConnectMysql::Instance().getAllWxtxbBySchemeID(EnvironmentData::m_mapStWXTXB,1);
 	
-	 for (auto& stData : m_listStWXTXB)
+	 for (auto& st : EnvironmentData::m_mapStWXTXB)
 	 {
+
+		 auto& stData = st.second;
 		 CListTextElementUI* pItem = new CListTextElementUI();
 		 //pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
 
@@ -1077,13 +1085,13 @@ void CPopDataManage::GettingDatabase()
 
 	 }
 	 //获取卫星载荷数据数据表数据;
-	 myMysql.getAllWxzhsjbBySchemeID(m_listStWXZHSJB,1);
-	 for (auto& stData : m_listStWXZHSJB)
+	 ConnectMysql::Instance().getAllWxzhsjbBySchemeID(EnvironmentData::m_mapStWXZHSJB,1);
+	 for (auto& st : EnvironmentData::m_mapStWXZHSJB)
 	 {
+		 auto& stData = st.second;
 		 CListTextElementUI* pItem = new CListTextElementUI();
-		 //pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
-
 		 m_dataList_WXZHSJB->Add(pItem);
+
 		 UtilTool::setWstring(text_string, stData.satLoadName.c_str());
 		 pItem->SetText(0, text_string.c_str());
 		 UtilTool::setWstring(text_string, stData.satLoadWaveBand.c_str());
@@ -1101,9 +1109,10 @@ void CPopDataManage::GettingDatabase()
 	 }
 
 	 //电信港数据表
-	 myMysql.getAllDxgsjbBySchemeID(m_listStDXGSJB, 1);
-	 for (auto& stData : m_listStDXGSJB)
+	 ConnectMysql::Instance().getAllDxgsjbBySchemeID(EnvironmentData::m_mapStDXGSJB, 1);
+	 for (auto& st : EnvironmentData::m_mapStDXGSJB)
 	 {
+		 auto& stData = st.second;
 		 CListTextElementUI* pItem = new CListTextElementUI();
 		 m_dataList_DXGSJB->Add(pItem);
 		 UtilTool::setWstring(text_string, stData.teleportName.c_str());
@@ -1125,9 +1134,10 @@ void CPopDataManage::GettingDatabase()
 	 }
 
 	 //地球站数据表
-	 myMysql.getAllDqzsjbBySchemeID(m_listStDQZSJB, 1);
-	 for (auto& stData : m_listStDQZSJB)
+	 ConnectMysql::Instance().getAllDqzsjbBySchemeID(EnvironmentData::m_mapStDQZSJB, 1);
+	 for (auto& st : EnvironmentData::m_mapStDQZSJB)
 	 {
+		 auto& stData = st.second;
 		 CListTextElementUI* pItem = new CListTextElementUI();
 		 m_dataList_DQZSJB->Add(pItem);
 		 UtilTool::setWstring(text_string, stData.stationName.c_str());
@@ -1154,9 +1164,10 @@ void CPopDataManage::GettingDatabase()
 	 }
 
 	 //地球站馈源数据表
-	 myMysql.getAllDqzkysjbBySchemeID(m_listStDQZKYSJB, 1);
-	 for (auto& stData : m_listStDQZKYSJB)
+	 ConnectMysql::Instance().getAllDqzkysjbBySchemeID(EnvironmentData::m_mapStDQZKYSJB, 1);
+	 for (auto& st : EnvironmentData::m_mapStDQZKYSJB)
 	 {
+		 auto& stData = st.second;
 		 CListTextElementUI* pItem = new CListTextElementUI();
 		 m_dataList_DQZKYSJB->Add(pItem);
 		 UtilTool::setWstring(text_string, stData.stationLoadName.c_str());
@@ -1185,9 +1196,10 @@ void CPopDataManage::GettingDatabase()
 	 }	
 
 	 // 地球站波形设备数据表;
-	 myMysql.getAllDqzbxsbsjbBySchemeID(m_listStDQZBXSBSJB, 1);
-	for (auto& stData : m_listStDQZBXSBSJB)
+	 ConnectMysql::Instance().getAllDqzbxsbsjbBySchemeID(EnvironmentData::m_mapStDQZBXSBSJB, 1);
+	for (auto& st : EnvironmentData::m_mapStDQZBXSBSJB)
 	{
+		auto& stData = st.second;
 		CListTextElementUI* pItem = new CListTextElementUI();
 		m_dataList_DQZBXSB->Add(pItem);
 		UtilTool::setWstring(text_string, stData.stationWaveName.c_str());
@@ -1211,9 +1223,10 @@ void CPopDataManage::GettingDatabase()
 	}
 
 	//地球站天线
-	myMysql.getAllDqztxbBySchemeID(m_listStDQZTXB, 1);
-	for (auto& stData : m_listStDQZTXB)
+	ConnectMysql::Instance().getAllDqztxbBySchemeID(EnvironmentData::m_mapStDQZTXB, 1);
+	for (auto& st : EnvironmentData::m_mapStDQZTXB)
 	{
+		auto& stData = st.second;
 		CListTextElementUI* pItem = new CListTextElementUI();
 		m_dataList_DQZTX->Add(pItem);
 		UtilTool::setWstring(text_string, stData.stationAntennaName.c_str());
@@ -1236,7 +1249,7 @@ void CPopDataManage::GettingDatabase()
 	}
 
 
-	//vec_vecData_DXSJB = myMysql.mytest_QueryDatabase("0_单星数据表_1");//获取的数据库中---单星数据表
+	//vec_vecData_DXSJB = ConnectMysql::Instance().mytest_QueryDatabase("0_单星数据表_1");//获取的数据库中---单星数据表
 	//for (vector<vector<string>>::iterator it = vec_vecData_DXSJB.begin(); it != vec_vecData_DXSJB.end(); ++it)
 	//{
 	//	CListTextElementUI* pItem = new CListTextElementUI();
@@ -1252,7 +1265,7 @@ void CPopDataManage::GettingDatabase()
 	//	cout << endl;
 	//}
 
-	//vec_vecData_WXZHSJB = myMysql.mytest_QueryDatabase("0_卫星载荷数据表_1");//获取的数据库中---单星数据表
+	//vec_vecData_WXZHSJB = ConnectMysql::Instance().mytest_QueryDatabase("0_卫星载荷数据表_1");//获取的数据库中---单星数据表
 	//for (vector<vector<string>>::iterator it = vec_vecData_WXZHSJB.begin(); it != vec_vecData_WXZHSJB.end(); ++it)
 	//{
 	//	CListTextElementUI* pItem = new CListTextElementUI();
@@ -1267,7 +1280,7 @@ void CPopDataManage::GettingDatabase()
 	//	}
 	//	cout << endl;
 	//}
-	//vec_vecData_WXTX = myMysql.mytest_QueryDatabase("0_卫星天线_1");//获取的数据库中---单星数据表
+	//vec_vecData_WXTX = ConnectMysql::Instance().mytest_QueryDatabase("0_卫星天线_1");//获取的数据库中---单星数据表
 	//for (vector<vector<string>>::iterator it = vec_vecData_WXTX.begin(); it != vec_vecData_WXTX.end(); ++it)
 	//{
 	//	CListTextElementUI* pItem = new CListTextElementUI();
@@ -1282,7 +1295,7 @@ void CPopDataManage::GettingDatabase()
 	//	}
 	//	cout << endl;
 	//}
-	//vec_vecData_DXGSJB = myMysql.mytest_QueryDatabase("1_电信港数据表_1");//获取的数据库中---单星数据表
+	//vec_vecData_DXGSJB = ConnectMysql::Instance().mytest_QueryDatabase("1_电信港数据表_1");//获取的数据库中---单星数据表
 	//for (vector<vector<string>>::iterator it = vec_vecData_DXGSJB.begin(); it != vec_vecData_DXGSJB.end(); ++it)
 	//{
 	//	CListTextElementUI* pItem = new CListTextElementUI();
@@ -1362,7 +1375,7 @@ void CPopDataManage::GettingDatabase()
 	//	cout << endl;
 	//}
 
-	vec_vecData_DMZDSJB = myMysql.mytest_QueryDatabase("2_地面终端数据表_1");//获取的数据库中---单星数据表
+	vec_vecData_DMZDSJB = ConnectMysql::Instance().mytest_QueryDatabase("2_地面终端数据表_1");//获取的数据库中---单星数据表
 	for (vector<vector<string>>::iterator it = vec_vecData_DMZDSJB.begin(); it != vec_vecData_DMZDSJB.end(); ++it)
 	{
 		CListTextElementUI* pItem = new CListTextElementUI();
@@ -1378,7 +1391,7 @@ void CPopDataManage::GettingDatabase()
 		cout << endl;
 	}
 
-	vec_vecData_ZDZHSJB = myMysql.mytest_QueryDatabase("2_终端载荷数据表_1");//获取的数据库中---单星数据表
+	vec_vecData_ZDZHSJB = ConnectMysql::Instance().mytest_QueryDatabase("2_终端载荷数据表_1");//获取的数据库中---单星数据表
 	for (vector<vector<string>>::iterator it = vec_vecData_ZDZHSJB.begin(); it != vec_vecData_ZDZHSJB.end(); ++it)
 	{
 		CListTextElementUI* pItem = new CListTextElementUI();
@@ -1394,7 +1407,7 @@ void CPopDataManage::GettingDatabase()
 		cout << endl;
 	}
 
-	vec_vecData_BXSBSJB = myMysql.mytest_QueryDatabase("2_终端波形设备数据表_1");//获取的数据库中---单星数据表
+	vec_vecData_BXSBSJB = ConnectMysql::Instance().mytest_QueryDatabase("2_终端波形设备数据表_1");//获取的数据库中---单星数据表
 	for (vector<vector<string>>::iterator it = vec_vecData_BXSBSJB.begin(); it != vec_vecData_BXSBSJB.end(); ++it)
 	{
 		CListTextElementUI* pItem = new CListTextElementUI();
@@ -1410,7 +1423,7 @@ void CPopDataManage::GettingDatabase()
 		cout << endl;
 	}
 
-	vec_vecData_ZDTX = myMysql.mytest_QueryDatabase("2_终端天线_1");//获取的数据库中---单星数据表
+	vec_vecData_ZDTX = ConnectMysql::Instance().mytest_QueryDatabase("2_终端天线_1");//获取的数据库中---单星数据表
 	for (vector<vector<string>>::iterator it = vec_vecData_ZDTX.begin(); it != vec_vecData_ZDTX.end(); ++it)
 	{
 		CListTextElementUI* pItem = new CListTextElementUI();
@@ -1577,7 +1590,7 @@ void CPopDataManage::Filter_XZSJB()
 {
 	if (m_selectConditionsXZSJB == "无筛选")
 	{
-		//vec_vecData_XZSJB = myMysql.mytest_QueryDatabase("0_星座数据表_1");//获取的数据库中---星座数据表
+		//vec_vecData_XZSJB = ConnectMysql::Instance().mytest_QueryDatabase("0_星座数据表_1");//获取的数据库中---星座数据表
 
 		for (vector<vector<string>>::iterator it = vec_vecData_XZSJB.begin(); it != vec_vecData_XZSJB.end(); ++it)
 		{
@@ -1599,7 +1612,7 @@ void CPopDataManage::Filter_XZSJB()
 		string column = FilterArray_map1.find(m_selectConditionsXZSJB)->second;
 		cout << column << endl;
 		vector<vector<string>> vecVec;
-		vecVec = myMysql.mytest_QueryByColumnName("0_星座数据表_1", FilterArray_map1.find(m_selectConditionsXZSJB)->second, m_ChooseIt_XZSJB);
+		vecVec = ConnectMysql::Instance().mytest_QueryByColumnName("0_星座数据表_1", FilterArray_map1.find(m_selectConditionsXZSJB)->second, m_ChooseIt_XZSJB);
 		for (vector<vector<string>>::iterator it = vecVec.begin(); it != vecVec.end(); ++it)
 		{
 			CListTextElementUI* pItem = new CListTextElementUI();
@@ -1644,7 +1657,7 @@ void CPopDataManage::Filter_DXSJB()
 		string column = FilterArray_map2.find(m_selectConditions_DXSJB)->second;
 		cout << column << endl;
 		vector<vector<string>> vecVec;
-		vecVec = myMysql.mytest_QueryByColumnName("0_单星数据表_1", FilterArray_map2.find(m_selectConditions_DXSJB)->second, m_ChooseIt_DXSJB);
+		vecVec = ConnectMysql::Instance().mytest_QueryByColumnName("0_单星数据表_1", FilterArray_map2.find(m_selectConditions_DXSJB)->second, m_ChooseIt_DXSJB);
 		for (vector<vector<string>>::iterator it = vecVec.begin(); it != vecVec.end(); ++it)
 		{
 			CListTextElementUI* pItem = new CListTextElementUI();
@@ -1688,7 +1701,7 @@ void CPopDataManage::Filter_WXZHSJB()
 		string column = FilterArray_map3.find(m_selectConditions_WXZHSJB)->second;
 		cout << column << endl;
 		vector<vector<string>> vecVec;
-		vecVec = myMysql.mytest_QueryByColumnName("0_卫星载荷数据表_1", FilterArray_map3.find(m_selectConditions_WXZHSJB)->second, m_ChooseIt_WXZHSJB);
+		vecVec = ConnectMysql::Instance().mytest_QueryByColumnName("0_卫星载荷数据表_1", FilterArray_map3.find(m_selectConditions_WXZHSJB)->second, m_ChooseIt_WXZHSJB);
 		for (vector<vector<string>>::iterator it = vecVec.begin(); it != vecVec.end(); ++it)
 		{
 			CListTextElementUI* pItem = new CListTextElementUI();
@@ -1731,7 +1744,7 @@ void CPopDataManage::Filter_WXTX()
 		string column = FilterArray_map4.find(m_selectConditions_WXTX)->second;
 		cout << column << endl;
 		vector<vector<string>> vecVec;
-		vecVec = myMysql.mytest_QueryByColumnName("0_卫星天线_1", FilterArray_map4.find(m_selectConditions_WXTX)->second, m_ChooseIt_WXTX);
+		vecVec = ConnectMysql::Instance().mytest_QueryByColumnName("0_卫星天线_1", FilterArray_map4.find(m_selectConditions_WXTX)->second, m_ChooseIt_WXTX);
 		for (vector<vector<string>>::iterator it = vecVec.begin(); it != vecVec.end(); ++it)
 		{
 			CListTextElementUI* pItem = new CListTextElementUI();
@@ -1774,7 +1787,7 @@ void CPopDataManage::Filter_DXGSJB()
 		string column = FilterArray_map5.find(m_selectConditions_DXGSJB)->second;
 		cout << column << endl;
 		vector<vector<string>> vecVec;
-		vecVec = myMysql.mytest_QueryByColumnName("1_电信港数据表_1", FilterArray_map5.find(m_selectConditions_DXGSJB)->second, m_ChooseIt_DXGSJB);
+		vecVec = ConnectMysql::Instance().mytest_QueryByColumnName("1_电信港数据表_1", FilterArray_map5.find(m_selectConditions_DXGSJB)->second, m_ChooseIt_DXGSJB);
 		for (vector<vector<string>>::iterator it = vecVec.begin(); it != vecVec.end(); ++it)
 		{
 			CListTextElementUI* pItem = new CListTextElementUI();
@@ -1817,7 +1830,7 @@ void CPopDataManage::Filter_DQZSJB()
 		string column = FilterArray_map6.find(m_selectConditions_DQZSJB)->second;
 		cout << column << endl;
 		vector<vector<string>> vecVec;
-		vecVec = myMysql.mytest_QueryByColumnName("1_地球站数据表_1", FilterArray_map6.find(m_selectConditions_DQZSJB)->second, m_ChooseIt_DQZSJB);
+		vecVec = ConnectMysql::Instance().mytest_QueryByColumnName("1_地球站数据表_1", FilterArray_map6.find(m_selectConditions_DQZSJB)->second, m_ChooseIt_DQZSJB);
 		for (vector<vector<string>>::iterator it = vecVec.begin(); it != vecVec.end(); ++it)
 		{
 			CListTextElementUI* pItem = new CListTextElementUI();
@@ -1860,7 +1873,7 @@ void CPopDataManage::Filter_DQZKYSJB()
 		string column = FilterArray_map7.find(m_selectConditions_DQZKYSJB)->second;
 		cout << column << endl;
 		vector<vector<string>> vecVec;
-		vecVec = myMysql.mytest_QueryByColumnName("1_地球站馈源数据表_1", FilterArray_map7.find(m_selectConditions_DQZKYSJB)->second, m_ChooseIt_DQZKYSJB);
+		vecVec = ConnectMysql::Instance().mytest_QueryByColumnName("1_地球站馈源数据表_1", FilterArray_map7.find(m_selectConditions_DQZKYSJB)->second, m_ChooseIt_DQZKYSJB);
 		for (vector<vector<string>>::iterator it = vecVec.begin(); it != vecVec.end(); ++it)
 		{
 			CListTextElementUI* pItem = new CListTextElementUI();
@@ -1903,7 +1916,7 @@ void CPopDataManage::Filter_DQZBXSBSJB()
 		string column = FilterArray_map8.find(m_selectConditions_DQZBXSJB)->second;
 		cout << column << endl;
 		vector<vector<string>> vecVec;
-		vecVec = myMysql.mytest_QueryByColumnName("1_地球站波形设备数据表_1", FilterArray_map8.find(m_selectConditions_DQZBXSJB)->second, m_ChooseIt_DQZBXSB);
+		vecVec = ConnectMysql::Instance().mytest_QueryByColumnName("1_地球站波形设备数据表_1", FilterArray_map8.find(m_selectConditions_DQZBXSJB)->second, m_ChooseIt_DQZBXSB);
 		for (vector<vector<string>>::iterator it = vecVec.begin(); it != vecVec.end(); ++it)
 		{
 			CListTextElementUI* pItem = new CListTextElementUI();
@@ -1946,7 +1959,7 @@ void CPopDataManage::Filter_DQZTXSJB()
 		string column = FilterArray_map9.find(m_selectConditions_DQZTXSJB)->second;
 		cout << column << endl;
 		vector<vector<string>> vecVec;
-		vecVec = myMysql.mytest_QueryByColumnName("1_地球站天线_1", FilterArray_map9.find(m_selectConditions_DQZTXSJB)->second, m_ChooseIt_DQZTX);
+		vecVec = ConnectMysql::Instance().mytest_QueryByColumnName("1_地球站天线_1", FilterArray_map9.find(m_selectConditions_DQZTXSJB)->second, m_ChooseIt_DQZTX);
 		for (vector<vector<string>>::iterator it = vecVec.begin(); it != vecVec.end(); ++it)
 		{
 			CListTextElementUI* pItem = new CListTextElementUI();
@@ -1989,7 +2002,7 @@ void CPopDataManage::Filter_DMZDSJB()
 		string column = FilterArray_map10.find(m_selectConditions_DMZDSJB)->second;
 		cout << column << endl;
 		vector<vector<string>> vecVec;
-		vecVec = myMysql.mytest_QueryByColumnName("2_地面终端数据表_1", FilterArray_map10.find(m_selectConditions_DMZDSJB)->second, m_ChooseIt_DMZDSJB);
+		vecVec = ConnectMysql::Instance().mytest_QueryByColumnName("2_地面终端数据表_1", FilterArray_map10.find(m_selectConditions_DMZDSJB)->second, m_ChooseIt_DMZDSJB);
 		for (vector<vector<string>>::iterator it = vecVec.begin(); it != vecVec.end(); ++it)
 		{
 			CListTextElementUI* pItem = new CListTextElementUI();
@@ -2032,7 +2045,7 @@ void CPopDataManage::Filter_ZDZHSJBSJB()
 		string column = FilterArray_map11.find(m_selectConditions_DQZDZHSJB)->second;
 		cout << column << endl;
 		vector<vector<string>> vecVec;
-		vecVec = myMysql.mytest_QueryByColumnName("2_终端载荷数据表_1", FilterArray_map11.find(m_selectConditions_DQZDZHSJB)->second, m_ChooseIt_ZDZHSJB);
+		vecVec = ConnectMysql::Instance().mytest_QueryByColumnName("2_终端载荷数据表_1", FilterArray_map11.find(m_selectConditions_DQZDZHSJB)->second, m_ChooseIt_ZDZHSJB);
 		for (vector<vector<string>>::iterator it = vecVec.begin(); it != vecVec.end(); ++it)
 		{
 			CListTextElementUI* pItem = new CListTextElementUI();
@@ -2075,7 +2088,7 @@ void CPopDataManage::Filter_BXSBSJBSJB()
 		string column = FilterArray_map12.find(m_selectConditions_BXSBSJB)->second;
 		cout << column << endl;
 		vector<vector<string>> vecVec;
-		vecVec = myMysql.mytest_QueryByColumnName("2_终端波形设备数据表_1", FilterArray_map12.find(m_selectConditions_BXSBSJB)->second, m_ChooseIt_BXSBSJB);
+		vecVec = ConnectMysql::Instance().mytest_QueryByColumnName("2_终端波形设备数据表_1", FilterArray_map12.find(m_selectConditions_BXSBSJB)->second, m_ChooseIt_BXSBSJB);
 		for (vector<vector<string>>::iterator it = vecVec.begin(); it != vecVec.end(); ++it)
 		{
 			CListTextElementUI* pItem = new CListTextElementUI();
@@ -2118,7 +2131,7 @@ void CPopDataManage::Filter_ZDTXSJB()
 		string column = FilterArray_map13.find(m_selectConditions_ZDTXSJB)->second;
 		cout << column << endl;
 		vector<vector<string>> vecVec;
-		vecVec = myMysql.mytest_QueryByColumnName("2_终端天线_1", FilterArray_map13.find(m_selectConditions_ZDTXSJB)->second, m_ChooseIt_ZDTX);
+		vecVec = ConnectMysql::Instance().mytest_QueryByColumnName("2_终端天线_1", FilterArray_map13.find(m_selectConditions_ZDTXSJB)->second, m_ChooseIt_ZDTX);
 		for (vector<vector<string>>::iterator it = vecVec.begin(); it != vecVec.end(); ++it)
 		{
 			CListTextElementUI* pItem = new CListTextElementUI();

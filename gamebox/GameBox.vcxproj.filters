@@ -104,6 +104,12 @@
     <ClCompile Include="CPopDataManage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EnvironmentData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPopNewScheme.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ControlEx.h">
@@ -269,6 +275,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DatabaseStruct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnvironmentData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CPopNewScheme.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

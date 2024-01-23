@@ -1,16 +1,32 @@
 #pragma once
 #include <mysql.h>
-#include "DatabaseStruct.h"
+
 #include <list>
+#include <set>
 
+#include "DatabaseStruct.h"
 
-struct st_mysql_res;
+//struct st_mysql_res;
 
+// 单例模式;
 class ConnectMysql
 {
+
 public:
-	ConnectMysql(void);
-	~ConnectMysql(void);
+	
+	static ConnectMysql& Instance();
+
+protected:
+	ConnectMysql();
+	virtual ~ConnectMysql();
+
+	ConnectMysql(const ConnectMysql&) = delete;
+	ConnectMysql& operator=(const ConnectMysql&) = delete;
+	ConnectMysql(ConnectMysql&&) = delete;
+	ConnectMysql& operator=(ConnectMysql&&) = delete;
+public:
+	//ConnectMysql(void);
+	//~ConnectMysql(void);
 	string getCurrentTime();//获取当前时间
 	bool InitDatabase();//初始化数据库
 	bool StartConnectMysql();//连接数据库
@@ -49,6 +65,7 @@ public:
 
 
 	MYSQL_RES* execSqlSelect(const std::string& sql);
+	bool execSql(const std::string& sql);
 	bool execSql(uint32_t& lastId, const std::string& sql);
 	// 数据库启动事务;
 	bool startupTransaction();
@@ -57,40 +74,59 @@ public:
 	// 数据库回滚事务;
 	bool rollbackTransaction();
 
+	bool isTableExists(const std::string& tableName);
+
+	bool isFieldExists(const std::string& tableName, const std::string& fieldName);
+
+	// 创建表及字段;
+	bool createTableAndFields(const std::string& table, const std::vector<std::string> &vecFilelds);
+
+	bool createTableAndFields(const std::string& table, const std::set<std::string>& vecFilelds);
+
+	// 插入表 数据  （表名，表字段，表字段对应值）;
+	bool insertTableData(const std::string& tableName, const std::vector<std::string>& vecFilelds, const std::vector<std::string>& vecFileldsValue);
+
+
+	bool delTable(const std::string& tableName);
+
+
+
 	// 方案表;
 
-	bool getAllScheme(std::list<stScheme> &listScheme);
+	bool getAllScheme(std::map<int,stScheme> &listScheme);
 	// 增加方案;
 	bool addScheme(const std::string &schemeName);
 
 	// 星座数据表;
 	//bool getAllXzsjb(sstXZSJB& record_list);
 	
-	bool getAllXzsjb(std::list<stXZSJB>& listStXZSJB); // 获取所有数据
-	bool getAllXzsjbBySchemeID(std::list<stXZSJB>& listStXZSJB,const int & schemeID);
+	bool getAllXzsjb(std::map<int,stXZSJB>& listStXZSJB); // 获取所有数据
+	bool getAllXzsjbBySchemeID(std::map<int,stXZSJB>& listStXZSJB,const int & schemeID);
 
 	// 0_单星数据表_1
-	bool getAllDxsjb(std::list<stDXSJB>& listStDXSJB);
-	bool getAllDxsjbBySchemeID(std::list<stDXSJB>& listStDXSJB, const int& schemeID);
+	bool getAllDxsjb(std::map<int,stDXSJB>& listStDXSJB);
+	bool getAllDxsjbBySchemeID(std::map<int,stDXSJB>& listStDXSJB, const int& schemeID);
+	// 根据方案id和星座id获取
+	bool getDxsjbBySchemeIDAndXzID(std::map<int, stDXSJB>& listStDXSJB, const int& schemeID, const int & XzID);
 
 		//0_卫星天线_1
-	bool getAllWXTXB(std::list<stWXTXB>& listStWXTXB);
-	bool getAllWxtxbBySchemeID(std::list<stWXTXB>& listStWXTXB, const int& schemeID);
-
+	bool getAllWXTXB(std::map<int,stWXTXB>& listStWXTXB);
+	bool getAllWxtxbBySchemeID(std::map<int,stWXTXB>& listStWXTXB, const int& schemeID);
+	
 		//0_卫星载荷数据表_1
-	bool getAllWXZHSJB(std::list<stWXZHSJB>& listStData);
-	bool getAllWxzhsjbBySchemeID(std::list<stWXZHSJB>& listStData, const int& schemeID);
+	bool getAllWXZHSJB(std::map<int,stWXZHSJB>& listStData);
+	bool getAllWxzhsjbBySchemeID(std::map<int,stWXZHSJB>& listStData, const int& schemeID);
 
 	// 1_电信港数据表_1
-	bool getAllDxgsjbBySchemeID(std::list<stDXGSJB>& listStData, const int& schemeID);
+	bool getAllDxgsjbBySchemeID(std::map<int,stDXGSJB>& listStData, const int& schemeID);
 		// 1_地球站数据表
-	bool getAllDqzsjbBySchemeID(std::list<stDQZSJB>& listStData, const int& schemeID);
+	bool getAllDqzsjbBySchemeID(std::map<int,stDQZSJB>& listStData, const int& schemeID);
 	// 1_地球站馈源数据表_1
-	bool getAllDqzkysjbBySchemeID(std::list<stDQZKYSJB>& listStData, const int& schemeID);
+	bool getAllDqzkysjbBySchemeID(std::map<int,stDQZKYSJB>& listStData, const int& schemeID);
 		// 1_地球站波形设备数据表_1
-	bool getAllDqzbxsbsjbBySchemeID(std::list<stDQZBXSBSJB>& listStData, const int& schemeID);
+	bool getAllDqzbxsbsjbBySchemeID(std::map<int,stDQZBXSBSJB>& listStData, const int& schemeID);
 	// 1_1_地球站天线_1_1
-	bool getAllDqztxbBySchemeID(std::list<stDQTXB>& listStData, const int& schemeID);
+	bool getAllDqztxbBySchemeID(std::map<int,stDQTXB>& listStData, const int& schemeID);
 private:
 	MYSQL* m_mysql; //句柄 先用m_mydata;
 private:

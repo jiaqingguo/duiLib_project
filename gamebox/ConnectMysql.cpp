@@ -9,19 +9,33 @@
 using namespace std;
 //#pragma comment(lib, "libmysql.lib")
 
-ConnectMysql::ConnectMysql(void)
+ConnectMysql& ConnectMysql::Instance()
+{
+	static ConnectMysql instance;
+	return instance;
+}
+
+ConnectMysql::ConnectMysql()
 {
 	m_num = 0;
 }
-ConnectMysql::~ConnectMysql(void)
-{
-	//mysql_close(m_mysql);
-	
-    //mysql_free_result(res);    
-    mysql_close(m_mysql);    
-    //free(m_mysql);    
 
+ConnectMysql::~ConnectMysql()
+{
 }
+
+//ConnectMysql::ConnectMysql(void)
+//{
+//	m_num = 0;
+//}
+//ConnectMysql::~ConnectMysql(void)
+//{
+//	//mysql_close(m_mysql);
+//	
+//    //mysql_free_result(res);    
+//    mysql_close(m_mysql);    
+//    //free(m_mysql);    
+//}
 vector<string> my_split_inMysql(string str, string pattern)
 {
 	string::size_type pos;
@@ -949,6 +963,20 @@ MYSQL_RES* ConnectMysql::execSqlSelect(const std::string& sql)
 	return result;
 }
 
+bool ConnectMysql::execSql(const std::string& sql)
+{
+	if (m_mysql == nullptr)
+		return false;
+	if (mysql_real_query(m_mysql, sql.c_str(), (unsigned long)sql.size()) != 0)
+	{
+		std::string error = mysql_error(m_mysql);
+		printf("SQL：%s\nError：%s", sql.c_str(), error.c_str());
+		return false;
+	}
+
+	return true;
+}
+
 bool ConnectMysql::execSql(uint32_t& lastId, const std::string& sql)
 {
 	if (m_mysql == nullptr)
@@ -1014,11 +1042,220 @@ bool ConnectMysql::rollbackTransaction()
 	return true;
 }
 
-
-
-bool ConnectMysql::getAllScheme(std::list<stScheme> &listScheme)
+bool ConnectMysql::isTableExists(const std::string& tableName)
 {
-	listScheme.clear();
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	std::string str_sql = "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = DATABASE() AND table_name = '" + tableName + "'";
+
+	MYSQL_RES* result = execSqlSelect(str_sql);
+	if (result == nullptr)
+		return false;
+
+	int rowCount = 0;
+
+	while (sql_row = mysql_fetch_row(result))
+	{
+		 rowCount = std::stoi(sql_row[0]);
+	}
+
+	//mysql_free_result(result);
+	return (rowCount > 0);
+}
+
+bool ConnectMysql::isFieldExists(const std::string& tableName, const std::string& fieldName)
+{
+	std::string strSql = "SHOW COLUMNS FROM " + tableName + " LIKE '" + fieldName + "'";
+	MYSQL_RES* result = execSqlSelect(strSql);
+	if (result == nullptr)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+
+bool ConnectMysql::createTableAndFields(const string& strTable, const std::vector<std::string>& fieldNames)
+{
+	if (isTableExists(strTable))
+	{
+		if (!delTable(strTable))
+		{
+			return false;
+		}
+	}
+
+	// 启动事务;
+	if (!startupTransaction())
+		return false;
+
+	std::string strSql = "CREATE TABLE `" + strTable + "` (";
+	
+	strSql += "id INT PRIMARY KEY AUTO_INCREMENT, ";
+	for (int i = 0; i < fieldNames.size(); ++i) {
+		strSql += fieldNames[i] + " VARCHAR(255)";
+		if (i != fieldNames.size() - 1) {
+			strSql += ", ";
+		}
+	}
+	strSql += ", time TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";  // 加入当前时间
+	//strSql += ", time TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";  // 加入当前时间
+
+	if (!execSql(strSql))
+	{
+		// 回滚事务;
+		if (!rollbackTransaction())
+			return false;
+		// 修改数据失败;
+		return false;
+	}
+
+	// 提交事务;
+	if (!commitTransaction())
+		return false;
+
+	// 根据需要看是否获取新插入的id
+	//st.id = last_id;
+
+	return true;
+}
+
+bool ConnectMysql::createTableAndFields(const std::string& strTable, const std::set<std::string>& fieldNames)
+{
+	if (isTableExists(strTable))
+	{
+		if (!delTable(strTable))
+		{
+			return false;
+		}
+	}
+
+	// 启动事务;
+	if (!startupTransaction())
+		return false;
+
+	std::string strSql = "CREATE TABLE `" + strTable + "` (";
+
+	strSql += "id INT PRIMARY KEY AUTO_INCREMENT, ";
+	int i = 0;
+	for (const auto& value : fieldNames) 
+	{
+		strSql += value + " VARCHAR(255)";
+		if (i != fieldNames.size() - 1) 
+		{
+			strSql += ", ";
+		}
+		i++;
+	}
+	
+	strSql += ", time TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";  // 加入当前时间
+	//strSql += ", time TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6))";  // 加入当前时间
+
+	if (!execSql(strSql))
+	{
+		// 回滚事务;
+		if (!rollbackTransaction())
+			return false;
+		// 修改数据失败;
+		return false;
+	}
+
+	// 提交事务;
+	if (!commitTransaction())
+		return false;
+
+	// 根据需要看是否获取新插入的id
+	//st.id = last_id;
+
+	return true;
+}
+
+bool ConnectMysql::insertTableData(const std::string& tableName, const std::vector<std::string>& vecFilelds, const std::vector<std::string>& vecFileldsValue)
+{
+	if (vecFilelds.size() != vecFileldsValue.size())
+		return false;
+
+	// 启动事务;
+	if (!startupTransaction())
+		return false;
+
+	uint32_t last_id = 0;
+
+	// 构造 SQL 插入语句
+	std::string query = "INSERT INTO " + tableName +" (";
+
+	for (size_t i = 0; i < vecFilelds.size(); ++i)
+	{
+		query += vecFilelds[i];
+		if (i != vecFilelds.size() - 1) 
+		{
+			query += ",";
+		}
+	}
+
+	query += ") VALUES (";
+
+	for (size_t i = 0; i < vecFileldsValue.size(); ++i) {
+		query += "'" + vecFileldsValue[i] + "'";
+		if (i != vecFileldsValue.size() - 1) {
+			query += ",";
+		}
+	}
+
+	query += ")";
+
+	if (!execSql(last_id, query))
+	{
+		// 回滚事务;
+		if (!rollbackTransaction())
+			return false;
+		// 修改数据失败;
+		return false;
+	}
+
+	// 提交事务;
+	if (!commitTransaction())
+		return false;
+
+	// 根据需要看是否获取新插入的id
+	//st.id = last_id;
+
+	return true;
+}
+
+bool ConnectMysql::delTable(const std::string& tableName)
+{
+
+	// 启动事务;
+	if (!startupTransaction())
+		return false;
+
+	// 构造 SQL 删除表语句
+	std::string sql = "DROP TABLE "+ tableName;
+
+	// 执行删除表操作
+	if (!execSql(sql))
+	{
+		// 回滚事务;
+		if (!rollbackTransaction())
+			return false;
+		// 修改数据失败;
+		return false;
+	}
+
+	// 提交事务;
+	if (!commitTransaction())
+		return false;
+
+	return true;
+}
+
+
+bool ConnectMysql::getAllScheme(std::map<int,stScheme> & listStData)
+{
+	listStData.clear();
 
 	// 结果集声明;
 	MYSQL_ROW sql_row;
@@ -1036,7 +1273,7 @@ bool ConnectMysql::getAllScheme(std::list<stScheme> &listScheme)
 		st.id = std::atoi(sql_row[0]);
 		st.schemeName = sql_row[1];
 	
-		listScheme.push_back(st);
+		listStData[st.id] = st;
 	}
 	return true;
 }
@@ -1075,9 +1312,9 @@ bool ConnectMysql::addScheme(const std::string& schemeName)
 
 
 
-bool ConnectMysql::getAllXzsjb(std::list<stXZSJB>& listStXZSJB)
+bool ConnectMysql::getAllXzsjb(std::map<int,stXZSJB>& listStData)
 {
-	listStXZSJB.clear();
+	listStData.clear();
 
 	// 结果集声明;
 	MYSQL_ROW sql_row;
@@ -1104,15 +1341,15 @@ bool ConnectMysql::getAllXzsjb(std::list<stXZSJB>& listStXZSJB)
 		st.planeNum				= sql_row[9];
 		st.schemeID		 = std::atoi(sql_row[10]);
 		
-		listStXZSJB.push_back(st);
+		listStData[st.id] = st;
 	}
 	return true;
 }
 
-bool ConnectMysql::getAllXzsjbBySchemeID(std::list<stXZSJB>& listStXZSJB, const int& schemeID)
+bool ConnectMysql::getAllXzsjbBySchemeID(std::map<int,stXZSJB>& listStData, const int& schemeID)
 {
 
-	listStXZSJB.clear();
+	listStData.clear();
 
 	// 结果集声明;
 	MYSQL_ROW sql_row;
@@ -1141,14 +1378,14 @@ bool ConnectMysql::getAllXzsjbBySchemeID(std::list<stXZSJB>& listStXZSJB, const 
 		st.planeNum = sql_row[9];
 		st.schemeID = std::atoi(sql_row[10]);
 
-		listStXZSJB.push_back(st);
+		listStData[st.id] = st;
 	}
 	return true;
 }
 
-bool ConnectMysql::getAllDxsjb(std::list<stDXSJB>& listStDXSJB)
+bool ConnectMysql::getAllDxsjb(std::map<int,stDXSJB>& listStData)
 {
-	listStDXSJB.clear();
+	listStData.clear();
 
 	// 结果集声明;
 	MYSQL_ROW sql_row;
@@ -1185,21 +1422,21 @@ bool ConnectMysql::getAllDxsjb(std::list<stDXSJB>& listStDXSJB)
 		st.satAntennaName = std::string(sql_row[19]);
 		st.schemeID = std::atoi(sql_row[20]);
 
-		listStDXSJB.push_back(st);
+		listStData[st.id] = st;
 
 	}
 	return true;
 }
 
-bool ConnectMysql::getAllDxsjbBySchemeID(std::list<stDXSJB>& listStDXSJB, const int& schemeID)
+bool ConnectMysql::getAllDxsjbBySchemeID(std::map<int,stDXSJB>& listStData, const int& schemeID)
 {
-	listStDXSJB.clear();
+	listStData.clear();
 
 	// 结果集声明;
 	MYSQL_ROW sql_row;
 
 	char sql[1024] = { 0 };
-	sprintf_s(sql, "select * from 0_单星数据表_1 where schemeID = '%d' ORDER BY id asc", schemeID);
+	sprintf_s(sql, "select * from 0_单星数据表_1 where schemeID = '%d'  ORDER BY id asc", schemeID);
 
 	MYSQL_RES* result = execSqlSelect(sql);
 	if (result == nullptr)
@@ -1230,15 +1467,62 @@ bool ConnectMysql::getAllDxsjbBySchemeID(std::list<stDXSJB>& listStDXSJB, const 
 		st.satAntennaName = std::string(sql_row[19]);
 		st.schemeID = std::atoi(sql_row[20]);
 
-		listStDXSJB.push_back(st);
+		listStData[st.id] = st;
 
 	}
 	return true;
 }
 
-bool ConnectMysql::getAllWXTXB(std::list<stWXTXB>& listStWXTXB)
+bool ConnectMysql::getDxsjbBySchemeIDAndXzID(std::map<int, stDXSJB>& mapStData, const int& schemeID, const int& XzID)
 {
-	listStWXTXB.clear();
+	mapStData.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	char sql[1024] = { 0 };
+	sprintf_s(sql, "select * from 0_单星数据表_1 where schemeID = '%d' AND xzID = '%d' ORDER BY id asc", schemeID, XzID);
+
+	MYSQL_RES* result = execSqlSelect(sql);
+	if (result == nullptr)
+		return false;
+
+	stDXSJB st;
+	while (sql_row = mysql_fetch_row(result))
+	{
+		st.id = std::atoi(sql_row[0]);
+		st.satName = sql_row[1];
+		st.xzID = std::atoi(sql_row[2]);
+		st.constellationName = sql_row[3];
+		st.satNation = sql_row[4];
+		st.satCorp = sql_row[5];
+		st.satType = sql_row[6];
+		st.orbitType = sql_row[7];
+		st.NORAD = sql_row[8];
+		st.COPAR = sql_row[9];
+		st.isPublic = std::string(sql_row[10]);
+		st.SOL = std::string(sql_row[11]);
+		st.satSemiMajor = (sql_row[12]);
+		st.satEcc = std::string(sql_row[13]);
+		st.satOblique = (sql_row[14]);
+		st.satRAAN = std::string(sql_row[15]);
+		st.satOmega = std::string(sql_row[16]);
+		st.satTrueAnomaly = std::string(sql_row[17]);
+		st.satLoadName = std::string(sql_row[18]);
+		st.satAntennaName = std::string(sql_row[19]);
+		st.schemeID = std::atoi(sql_row[20]);
+
+		mapStData[st.id] = st;
+
+	}
+	return true;
+}
+
+
+
+bool ConnectMysql::getAllWXTXB(std::map<int,stWXTXB>& listStData)
+{
+	listStData.clear();
 
 	// 结果集声明;
 	MYSQL_ROW sql_row;
@@ -1265,14 +1549,14 @@ bool ConnectMysql::getAllWXTXB(std::list<stWXTXB>& listStWXTXB)
 		st.satAntennaPolarLoss = sql_row[9];
 		st.schemeID = std::atoi(sql_row[10]);
 
-		listStWXTXB.push_back(st);
+		listStData[st.id] = st;
 	}
 	return true;
 }
 
-bool ConnectMysql::getAllWxtxbBySchemeID(std::list<stWXTXB>& listStWXTXB, const int& schemeID)
+bool ConnectMysql::getAllWxtxbBySchemeID(std::map<int,stWXTXB>& listStData, const int& schemeID)
 {
-	listStWXTXB.clear();
+	listStData.clear();
 
 	// 结果集声明;
 	MYSQL_ROW sql_row;
@@ -1300,12 +1584,12 @@ bool ConnectMysql::getAllWxtxbBySchemeID(std::list<stWXTXB>& listStWXTXB, const 
 		st.satAntennaPolarLoss = sql_row[9];
 		st.schemeID = std::atoi(sql_row[10]);
 
-		listStWXTXB.push_back(st);
+		listStData[st.id] = st;
 	}
 	return true;
 }
 
-bool ConnectMysql::getAllWXZHSJB(std::list<stWXZHSJB>& listStData)
+bool ConnectMysql::getAllWXZHSJB(std::map<int,stWXZHSJB>& listStData)
 {
 	listStData.clear();
 
@@ -1333,12 +1617,12 @@ bool ConnectMysql::getAllWXZHSJB(std::list<stWXZHSJB>& listStData)
 		st.satLoadBandwidth = sql_row[8];
 		st.schemeID = std::atoi(sql_row[9]);
 
-		listStData.push_back(st);
+		listStData[st.id] = st;
 	}
 	return true;
 }
 
-bool ConnectMysql::getAllWxzhsjbBySchemeID(std::list<stWXZHSJB>& listStData, const int& schemeID)
+bool ConnectMysql::getAllWxzhsjbBySchemeID(std::map<int,stWXZHSJB>& listStData, const int& schemeID)
 {
 	listStData.clear();
 
@@ -1368,12 +1652,12 @@ bool ConnectMysql::getAllWxzhsjbBySchemeID(std::list<stWXZHSJB>& listStData, con
 		st.satLoadBandwidth = sql_row[8];
 		st.schemeID = std::atoi(sql_row[9]);
 
-		listStData.push_back(st);
+		listStData[st.id] = st;
 	}
 	return true;
 }
 
-bool ConnectMysql::getAllDxgsjbBySchemeID(std::list<stDXGSJB>& listStData, const int& schemeID)
+bool ConnectMysql::getAllDxgsjbBySchemeID(std::map<int,stDXGSJB>& listStData, const int& schemeID)
 {
 	listStData.clear();
 
@@ -1402,12 +1686,12 @@ bool ConnectMysql::getAllDxgsjbBySchemeID(std::list<stDXGSJB>& listStData, const
 		st.stationName = sql_row[8];
 		st.schemeID = std::atoi(sql_row[9]);
 
-		listStData.push_back(st);
+		listStData[st.id] = st;
 	}
 	return true;
 }
 
-bool ConnectMysql::getAllDqzsjbBySchemeID(std::list<stDQZSJB>& listStData, const int& schemeID)
+bool ConnectMysql::getAllDqzsjbBySchemeID(std::map<int,stDQZSJB>& listStData, const int& schemeID)
 {
 	listStData.clear();
 
@@ -1439,12 +1723,12 @@ bool ConnectMysql::getAllDqzsjbBySchemeID(std::list<stDQZSJB>& listStData, const
 		st.stationAntennaName = sql_row[11];
 		st.schemeID = std::atoi(sql_row[12]);
 
-		listStData.push_back(st);
+		listStData[st.id]=st;
 	}
 	return true;
 }
 
-bool ConnectMysql::getAllDqzkysjbBySchemeID(std::list<stDQZKYSJB>& listStData, const int& schemeID)
+bool ConnectMysql::getAllDqzkysjbBySchemeID(std::map<int,stDQZKYSJB>& listStData, const int& schemeID)
 {
 	listStData.clear();
 
@@ -1477,12 +1761,12 @@ bool ConnectMysql::getAllDqzkysjbBySchemeID(std::list<stDQZKYSJB>& listStData, c
 		st.stationLoadDownBPS = sql_row[12];
 		st.schemeID = std::atoi(sql_row[13]);
 
-		listStData.push_back(st);
+		listStData[st.id] = st;
 	}
 	return true;
 }
 
-bool ConnectMysql::getAllDqzbxsbsjbBySchemeID(std::list<stDQZBXSBSJB>& listStData, const int& schemeID)
+bool ConnectMysql::getAllDqzbxsbsjbBySchemeID(std::map<int,stDQZBXSBSJB>& listStData, const int& schemeID)
 {
 	listStData.clear();
 
@@ -1513,12 +1797,12 @@ bool ConnectMysql::getAllDqzbxsbsjbBySchemeID(std::list<stDQZBXSBSJB>& listStDat
 		st.stationWaveType = sql_row[10];
 		st.schemeID = std::atoi(sql_row[11]);
 
-		listStData.push_back(st);
+		listStData[st.id] = st;
 	}
 	return true;
 }
 
-bool ConnectMysql::getAllDqztxbBySchemeID(std::list<stDQTXB>& listStData, const int& schemeID)
+bool ConnectMysql::getAllDqztxbBySchemeID(std::map<int,stDQTXB>& listStData, const int& schemeID)
 {
 	listStData.clear();
 
@@ -1548,7 +1832,7 @@ bool ConnectMysql::getAllDqztxbBySchemeID(std::list<stDQTXB>& listStData, const 
 		st.stationAntennaPolarLoss = sql_row[9];
 		st.schemeID = std::atoi(sql_row[10]);
 
-		listStData.push_back(st);
+		listStData[st.id] = st;
 	}
 	return true;
 }

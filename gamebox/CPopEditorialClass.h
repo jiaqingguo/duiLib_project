@@ -12,6 +12,8 @@
 #include "CpopSelectLevel1.h"
 #include "CPopNewAttributeClass.h"
 #include "CPopDeleteAttClass.h"
+#include "CPopNewScheme.h"
+
 //参数管理界面
 class CPopEditorialClass : public WindowImplBase
 {
@@ -32,6 +34,18 @@ public:
 		return 0;
 	}
 
+private:
+	int m_iTreeNodeID = 0;
+private:
+	// 创建星座卫星所有树节点数据;
+	void creatTreeNodesOfXZ();
+	void createTreeNodesOfDX(CTreeNodeUI* pTreeNodeXZ,const int& sqlID);
+
+	CTreeNodeUI* addChildNode(CTreeNodeUI* pTreeNodeXZ, const std::string);
+	void setTreeNodeStyleSheet(CTreeNodeUI* pTreeNode);
+
+	// 删除子节点;
+	void removeAllNodes(CTreeNodeUI* pNode);
 public:
 	virtual void OnFinalMessage(HWND);
 	virtual CDuiString GetSkinFile();
@@ -134,6 +148,8 @@ public:
 
 	//void AssignmentToLocalVector_DMZD(string nodeName, map<string, string> m_map);//导入的时候创建一级目录的树节点 --------地面终端
 
+	// 保存数据库方案 数据库表的创建 数值的插入;
+	void saveDatabaseScheme(const std::string& strScheme);
 
 	void ImportingLocalData_Tab1();//将tab1界面的本地数据导入界面函数
 	void ImportingLocalData_Tab2();
@@ -279,6 +295,12 @@ public:
 	vector<string> name_Level2;//存放二级节点--卫星名称
 	vector<string> name_Level1;//存放一级节点--星座名称
 
+	vector<string> m_vecTxName; // 存放卫星天线名称;
+	vector<map<string, string>> m_vecMapTxData;
+	vector<string> m_vecZhName; // 存放载荷名称;
+	vector<map<string, string>> m_vecMapZhData;
+
+
 	vector<bool> vec_ExpandFlags;//存放星座节点是否展开(已经筛选标志)
 	vector<bool> vec_ExpandFlags2_FT;//存放电信港是否进行了功能类型筛选
 	vector<bool> vec_ExpandFlags2_ES;//存放电信港是否进行了地球站类型筛选
@@ -335,7 +357,7 @@ public:
 
 	vector<map<string, string>> m_RecvMap_DQZChild;//存放地球站所包含的数据信息
 	vector<map<string, string>> m_RecvMap_DQZ;//存放地球站所包含的数据信息
-//vector<map<string, string>> m_RecvMap_XZ_RailType;//存放轨道类别的vector
+   //vector<map<string, string>> m_RecvMap_XZ_RailType;//存放轨道类别的vector
 	vector<map<string, string>> m_RecvMap_DXG;//存放电信港所包含的数据信息
 
 	vector<map<string, string>> m_RecvMap_DMZDChild;//存放地面终端所包含的数据信息
@@ -347,6 +369,7 @@ public:
 	CpopSelectLevel1 * m_CpopSelectLevel1;//选择要移动到的节点界面
 	CDuiString m_modiftName; //要修改的节点名称
 	CPopNewAttributeClass * m_CPopNewAttributeClass;//新建星座属性
+	CPopNewScheme* m_CPopNewScheme; // 保存数据库 方案;
 	CPopDeleteAttClass * m_CPopDeleteAttClass;//删除星座属性
 	CDuiString m_modiftName_2; //要修改的节点名称
 	CDuiString m_modiftName_3; //要修改的节点名称

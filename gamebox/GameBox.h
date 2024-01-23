@@ -1493,6 +1493,22 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*l
 		return -2;
 	}
 
+
+	// 初始化数据库;
+
+	if (!ConnectMysql::Instance().StartConnectMysql())
+	{
+		cout << "StartConnectMysql Failure!!!" << endl;
+		string msg = "数据库连接失败!";
+
+	}
+	else
+	{
+		cout << "StartConnectMysql Successful!!!" << endl;
+		string msg = "数据库链接成功!";
+
+	}
+
 	CSplashWnd::MessageBox(NULL);
 
 	/*CGameBoxFrame* pFrame = new CGameBoxFrame();
