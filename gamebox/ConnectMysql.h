@@ -63,7 +63,7 @@ public:
 	//////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////////////////
 
-
+	// 执行sql;
 	MYSQL_RES* execSqlSelect(const std::string& sql);
 	bool execSql(const std::string& sql);
 	bool execSql(uint32_t& lastId, const std::string& sql);
@@ -73,11 +73,10 @@ public:
 	bool commitTransaction();
 	// 数据库回滚事务;
 	bool rollbackTransaction();
-
+	// 判断表是否存在;
 	bool isTableExists(const std::string& tableName);
-
+	// 判断表字段是否存在;
 	bool isFieldExists(const std::string& tableName, const std::string& fieldName);
-
 	// 创建表及字段;
 	bool createTableAndFields(const std::string& table, const std::vector<std::string> &vecFilelds);
 
@@ -85,13 +84,10 @@ public:
 
 	//bool createTableAndFields(const std::wstring& table, const std::set<std::wstring>& vecFilelds);
 
-	// 插入表 数据  （表名，表字段，表字段对应值）;
+	// 插入表 表字段对应数据  （表名，表字段，表字段对应值）;
 	bool insertTableData(const std::string& tableName, const std::vector<std::string>& vecFilelds, const std::vector<std::string>& vecFileldsValue);
-
-
+	// 删除表;
 	bool delTable(const std::string& tableName);
-
-
 
 	// 方案表;
 
@@ -121,11 +117,11 @@ public:
 
 	// 1_电信港数据表_1
 	bool getAllDxgsjbBySchemeID(std::map<int,stDXGSJB>& listStData, const int& schemeID);
-		// 1_地球站数据表
+	// 1_地球站数据表
 	bool getAllDqzsjbBySchemeID(std::map<int,stDQZSJB>& listStData, const int& schemeID);
 	// 1_地球站馈源数据表_1
 	bool getAllDqzkysjbBySchemeID(std::map<int,stDQZKYSJB>& listStData, const int& schemeID);
-		// 1_地球站波形设备数据表_1
+	// 1_地球站波形设备数据表_1
 	bool getAllDqzbxsbsjbBySchemeID(std::map<int,stDQZBXSBSJB>& listStData, const int& schemeID);
 	// 1_1_地球站天线_1_1
 	bool getAllDqztxbBySchemeID(std::map<int,stDQTXB>& listStData, const int& schemeID);

@@ -605,7 +605,7 @@ void CPopDataManage::InitWindow()
 
 	
 	//list_DataShow_XZSJB
-	if (!ConnectMysql::Instance().StartConnectMysql())
+	/*if (!ConnectMysql::Instance().StartConnectMysql())
 	{
 		cout << "StartConnectMysql Failure!!!" << endl;
 		string msg = "数据库连接失败!";
@@ -616,7 +616,7 @@ void CPopDataManage::InitWindow()
 		cout << "StartConnectMysql Successful!!!" << endl;
 		string msg = "数据库链接成功!";
 
-	}
+	}*/
 
 	//GettingDatabase();
 
@@ -955,7 +955,7 @@ void CPopDataManage::InitializeCombo()
 void CPopDataManage::GettingDatabase()
 {
 
-	 vec_vecData_XZSJB = ConnectMysql::Instance().mytest_QueryDatabase("0_星座数据表_1");//获取的数据库中---星座数据表
+	 //vec_vecData_XZSJB = ConnectMysql::Instance().mytest_QueryDatabase("0_星座数据表_1");//获取的数据库中---星座数据表
 	// ConnectMysql::Instance().CreateNewTable("myCsTable", vec_vecData_XZSJB)
 
 
@@ -976,6 +976,7 @@ void CPopDataManage::GettingDatabase()
 
 	 //获取星座数据表数据;
 	 ConnectMysql::Instance().getAllXzsjbBySchemeID(EnvironmentData::m_mapStXZSJB,1);
+	 m_dataList_XZSJB->RemoveAll();
 	 wstring text_string;
 	 for ( auto & stData : EnvironmentData::m_mapStXZSJB)
 	 {
@@ -1007,13 +1008,13 @@ void CPopDataManage::GettingDatabase()
 
 	//单星数据表
 	 ConnectMysql::Instance().getAllDxsjbBySchemeID(EnvironmentData::m_mapStDXSJB,1);
+	 m_dataList_DXSJB->RemoveAll();
 	 for (auto& stData : EnvironmentData::m_mapStDXSJB)
 	 {
 
 		 auto& stDXSJ = stData.second;
 		 CListTextElementUI* pItem = new CListTextElementUI();
-		 //pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
-
+	
 		 m_dataList_DXSJB->Add(pItem);
 		 UtilTool::setWstring(text_string, stDXSJ.satName.c_str());
 		 pItem->SetText(0, text_string.c_str());
@@ -1055,14 +1056,13 @@ void CPopDataManage::GettingDatabase()
 
 	 //获取卫星天线数据表数据;
 	 ConnectMysql::Instance().getAllWxtxbBySchemeID(EnvironmentData::m_mapStWXTXB,1);
-	
+	 m_dataList_WXTX->RemoveAll();
 	 for (auto& st : EnvironmentData::m_mapStWXTXB)
 	 {
 
 		 auto& stData = st.second;
 		 CListTextElementUI* pItem = new CListTextElementUI();
-		 //pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
-
+		
 		 m_dataList_WXTX->Add(pItem);
 		 UtilTool::setWstring(text_string, stData.satAntennaName.c_str());
 		 pItem->SetText(0, text_string.c_str());
@@ -1086,6 +1086,7 @@ void CPopDataManage::GettingDatabase()
 	 }
 	 //获取卫星载荷数据数据表数据;
 	 ConnectMysql::Instance().getAllWxzhsjbBySchemeID(EnvironmentData::m_mapStWXZHSJB,1);
+	 m_dataList_WXZHSJB->RemoveAll();
 	 for (auto& st : EnvironmentData::m_mapStWXZHSJB)
 	 {
 		 auto& stData = st.second;
@@ -1110,6 +1111,7 @@ void CPopDataManage::GettingDatabase()
 
 	 //电信港数据表
 	 ConnectMysql::Instance().getAllDxgsjbBySchemeID(EnvironmentData::m_mapStDXGSJB, 1);
+	 m_dataList_DXGSJB->RemoveAll();
 	 for (auto& st : EnvironmentData::m_mapStDXGSJB)
 	 {
 		 auto& stData = st.second;
@@ -1135,6 +1137,7 @@ void CPopDataManage::GettingDatabase()
 
 	 //地球站数据表
 	 ConnectMysql::Instance().getAllDqzsjbBySchemeID(EnvironmentData::m_mapStDQZSJB, 1);
+	 m_dataList_DQZSJB->RemoveAll();
 	 for (auto& st : EnvironmentData::m_mapStDQZSJB)
 	 {
 		 auto& stData = st.second;
@@ -1165,6 +1168,7 @@ void CPopDataManage::GettingDatabase()
 
 	 //地球站馈源数据表
 	 ConnectMysql::Instance().getAllDqzkysjbBySchemeID(EnvironmentData::m_mapStDQZKYSJB, 1);
+	 m_dataList_DQZKYSJB->RemoveAll();
 	 for (auto& st : EnvironmentData::m_mapStDQZKYSJB)
 	 {
 		 auto& stData = st.second;
@@ -1197,6 +1201,7 @@ void CPopDataManage::GettingDatabase()
 
 	 // 地球站波形设备数据表;
 	 ConnectMysql::Instance().getAllDqzbxsbsjbBySchemeID(EnvironmentData::m_mapStDQZBXSBSJB, 1);
+	 m_dataList_DQZBXSB->RemoveAll();
 	for (auto& st : EnvironmentData::m_mapStDQZBXSBSJB)
 	{
 		auto& stData = st.second;
@@ -1224,6 +1229,7 @@ void CPopDataManage::GettingDatabase()
 
 	//地球站天线
 	ConnectMysql::Instance().getAllDqztxbBySchemeID(EnvironmentData::m_mapStDQZTXB, 1);
+	m_dataList_DQZTX->RemoveAll();
 	for (auto& st : EnvironmentData::m_mapStDQZTXB)
 	{
 		auto& stData = st.second;

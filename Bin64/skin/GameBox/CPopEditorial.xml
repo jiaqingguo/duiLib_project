@@ -701,7 +701,7 @@
                      </GroupBox>
                      <HorizontalLayout height="40" width="600" inset="0,6,0,6" childpadding="1" >
                        <HorizontalLayout width="20" />         
-					   <Button name="bt_SaveScheme"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="保存数据库"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+					   <Button name="bt_SaveScheme1"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="保存数据库"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
                        <HorizontalLayout width="20" />
                        <Button name="bt_AddTo"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="增加"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
                        <HorizontalLayout width="20" />
@@ -1322,8 +1322,9 @@
                      </GroupBox>
                      <HorizontalLayout height="40" width="600" inset="0,6,0,6" childpadding="1" >
 
-                       <HorizontalLayout width="140" />
-                       <!--<Button name="bt_save1"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="保存1"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />-->
+                      <HorizontalLayout width="20" />         
+					   <Button name="bt_SaveScheme2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="保存数据库"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                       <HorizontalLayout width="20" />
                        <Button name="bt_AddTo2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="增加"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
                        <HorizontalLayout width="20" />
                        <Button name="bt_Delete2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="删除"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
@@ -1947,8 +1948,9 @@
                      </GroupBox>
                      <HorizontalLayout height="40" width="600" inset="0,6,0,6" childpadding="1" >
 
-                       <HorizontalLayout width="140" />
-                       <!--<Button name="bt_save1"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="保存1"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />-->
+                      <HorizontalLayout width="20" />         
+					   <Button name="bt_SaveScheme3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="保存数据库"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+                       <HorizontalLayout width="20" />
                        <Button name="bt_AddTo3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="增加"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
                        <HorizontalLayout width="20" />
                        <Button name="bt_Delete3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="删除"  bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />

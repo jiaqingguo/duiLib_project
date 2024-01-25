@@ -300,6 +300,22 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 				m_RecvMap_TxZh[i] = map_inform;
 			}
 		}
+		// 为了创建表，字段新增的逻辑;
+		for (int i = 0; i < m_vecTxName.size(); i++)
+		{
+			if (m_vecTxName[i] == FileName)
+			{
+				m_vecMapTxData[i] = map_inform;
+			}
+		}
+		for (int i = 0; i < m_vecZhName.size(); i++)
+		{
+			if (m_vecZhName[i] == FileName)
+			{
+				m_vecMapZhData[i] = map_inform;
+			}
+		}
+
 	}
 	else if (sName.CompareNoCase(_T("bt_save2")) == 0)////保存tab2 bt_save
 	{
@@ -330,54 +346,57 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 				m_RecvMap_DQZChild[i] = map_inform;
 			}
 		}
+		// 为了创建表，字段新增的逻辑;
+		for (int i = 0; i < m_vecDqzBxName.size(); i++)
+		{
+			if (m_vecDqzBxName[i] == FileName)
+			{
+				m_vecMapDqzBxData[i]=map_inform ;
+			}
+		}
+		for (int i = 0; i < m_vecDqzkyName.size(); i++)
+		{
+			if (m_vecDqzkyName[i] == FileName)
+			{
+				m_vecMapDqzKyData[i]=map_inform;
+			}
+		}
+		for (int i = 0; i < m_vecDqzTxName.size(); i++)
+		{
+			if (m_vecDqzTxName[i] == FileName)
+			{
+				m_vecMapDqzTxData[i]=map_inform;
+			}
+		}
 
 	}
-	else if (sName.CompareNoCase(_T("bt_SaveScheme")) == 0)  // 保存到数据库;
+	else if (sName.CompareNoCase(_T("bt_SaveScheme1")) == 0)  // 保存到数据库;
 	{
 		
 		m_CPopNewScheme->MessageBox(NULL);//
 		string strScheme = m_CPopNewScheme->GetNewName();//获取新增加的方案名称;
-
-		saveDatabaseScheme(strScheme);
-		//std::vector<std::string> vecFilelds;
-		//std::vector<std::string> vecFileldsValue;
-		///*******************新建星座表及字段********************/                        //////// ?????? 考量 星座字段不一致的问题
-		//std::string strTableNameXZ = strScheme+UTF8_To_string("_星座");
-
-		//std::vector<std::string> filelds;
-		//if (name_Level1.size() > 0)
-		//{
-		//	filelds.push_back("name");
-		//	for (const auto& vec : m_RecvMap_XZ[1])
-		//	{
-		//		
-		//		filelds.push_back(UTF8_To_string(vec.first));
-		//	}
-		//	//	strTable = UTF8_To_string(strTable);
-		//	ConnectMysql::Instance().createTableAndFields(strTableNameXZ, filelds);
-
-		//	// 插入数据
-		//	for (int i=0;i< m_RecvMap_XZ.size();i++)
-		//	{
-		//		vecFilelds.clear();
-		//		vecFileldsValue.clear();
-
-		//		vecFilelds.push_back(UTF8_To_string("name"));
-		//		vecFileldsValue.push_back((name_Level1[i]));
-		//		for (auto map : m_RecvMap_XZ[i])
-		//		{
-		//			vecFilelds.push_back(UTF8_To_string(map.first));
-		//			vecFileldsValue.push_back(UTF8_To_string(map.second));
-		//		}
-		//
-		//		ConnectMysql::Instance().insertTableData(strTableNameXZ, vecFilelds, vecFileldsValue);
-		//		
-		//	}
-		//}
-		///*******************新建卫星表及字段********************/
-		//// 简单插入数据 或者根据字段名插入值;
-		
-		
+		if (strScheme.size() > 0)
+		{
+			saveDatabaseScheme(strScheme);
+		}	
+	}
+	else if (sName.CompareNoCase(_T("bt_SaveScheme2")) == 0)  // 保存到数据库;
+	{
+		m_CPopNewScheme->MessageBox(NULL);//
+		string strScheme = m_CPopNewScheme->GetNewName();//获取新增加的方案名称;
+		if (strScheme.size() > 0)
+		{
+			saveDatabaseScheme(strScheme);
+		}	
+	}
+	else if (sName.CompareNoCase(_T("bt_SaveScheme3")) == 0)  // 保存到数据库;
+	{
+		m_CPopNewScheme->MessageBox(NULL);//
+		string strScheme = m_CPopNewScheme->GetNewName();//获取新增加的方案名称;
+		if (strScheme.size() > 0)
+		{
+			saveDatabaseScheme(strScheme);
+		}
 	}
 	else if (sName.CompareNoCase(_T("bt_AddTo")) == 0)//增加按钮 星座、卫星、卫星下的天线和载荷属性
 	{
@@ -431,6 +450,34 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 			//map_inform[string_To_UTF8(vec[0])] = string_To_UTF8(vec[1]);
 			//m_RecvMap_XZ[sequese] = map_inform;
 			//DisplayInformation(m_RecvMap_XZ[sequese]);
+
+			// 为了创建表，字段新增的逻辑;
+			for (int i = 0; i < m_vecTxName.size(); i++)
+			{
+				if (m_vecTxName[i] == FileName)
+				{
+					map_inform = m_vecMapZhData[i];//m_RecvMap_XZ[i] = map_inform;
+					sequese = i;
+
+					map_inform[string_To_UTF8(vec[0])] = string_To_UTF8(vec[1]);
+					m_vecMapZhData[sequese] = map_inform;
+					
+				}
+			}
+			for (int i = 0; i < m_vecZhName.size(); i++)
+			{
+				if (m_vecZhName[i] == FileName)
+				{
+					map_inform = m_vecMapZhData[i];//m_RecvMap_XZ[i] = map_inform;
+					sequese = i;
+
+					map_inform[string_To_UTF8(vec[0])] = string_To_UTF8(vec[1]);
+					m_vecMapZhData[sequese] = map_inform;
+
+				}
+			}
+			
+			
 		}
 	}
 	else if (sName.CompareNoCase(_T("bt_Delete")) == 0)//删除按钮 星座、卫星、卫星下的天线和载荷属性
@@ -459,15 +506,18 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 				flag = 1;
 			}
 		}
+
 		for (int i = 0; i < name_Level3.size(); i++)
 		{
 			if (name_Level3[i] == FileName)
 			{
 				map_inform = m_RecvMap_TxZh[i];//m_RecvMap_XZ[i] = map_inform;
 				sequese = i;
+
 				flag = 2;
 			}
 		}
+
 
 
 		for (map<string, string>::iterator iter = map_inform.begin(); iter != map_inform.end(); ++iter)
@@ -539,8 +589,71 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 
 			m_RecvMap_TxZh[sequese] = map_inform1;
 			DisplayInformation(m_RecvMap_TxZh[sequese]);
+
+			
 		}
 
+
+		// 创建表及字段添加的逻辑; // 删除;
+		vector<string> vecDeleteName = m_CPopDeleteAttClass->GetDeleteName();
+		for (int i = 0; i < m_vecTxName.size(); i++)
+		{
+			if (m_vecTxName[i] == FileName)
+			{
+				map<string, string> &mapData = m_vecMapTxData[i];//m_RecvMap_XZ[i] = map_inform;
+				
+				for (map<string, string>::iterator iter = mapData.begin(); iter != mapData.end();)
+				{
+					bool erased = false;
+					for (int i = 0; i < vecDeleteName.size(); i++)
+					{
+						if (iter->first == vecDeleteName[i])
+						{
+							//cout << "选择" << endl;
+							 iter = mapData.erase(iter);
+							 erased = true;
+						}
+
+					}
+					if (!erased)
+					{
+						++iter;
+					}
+				}
+				break;
+				
+			}
+		}
+
+		for (int i = 0; i < m_vecZhName.size(); i++)
+		{
+			if (m_vecZhName[i] == FileName)
+			{
+				map<string, string>& mapData = m_vecMapZhData[i];//m_RecvMap_XZ[i] = map_inform;
+		
+				for (map<string, string>::iterator iter = mapData.begin(); iter != mapData.end(); ++iter)
+				{
+					cout << "key:" << iter->first << " value:" << iter->second << endl;
+					bool erased = false;
+					for (int i = 0; i < vecDeleteName.size(); i++)
+					{
+						if (iter->first == vecDeleteName[i])
+						{
+							//cout << "选择" << endl;
+							iter=mapData.erase(iter);
+							erased = true;
+						}
+
+					}
+					if (!erased)
+					{
+						++iter; 
+					}
+				}
+				break;
+			}
+			
+		}
 	}
 	else if (sName.CompareNoCase(_T("bt_Tree1_Import")) == 0)//导入
 	{
@@ -676,6 +789,44 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 					DisplayInformation_2(m_RecvMap_DQZChild[sequese]);
 				}
 			}
+			// 为了创建表，字段新增的逻辑;
+			for (int i = 0; i < m_vecDqzBxName.size(); i++)
+			{
+				if (m_vecDqzBxName[i] == FileName)
+				{
+					map_inform = m_vecMapDqzBxData[i];
+					sequese = i;
+
+					map_inform[string_To_UTF8(vec[0])] = string_To_UTF8(vec[1]);
+					m_vecMapDqzBxData[sequese] = map_inform;
+
+				}
+			}
+			for (int i = 0; i < m_vecDqzkyName.size(); i++)
+			{
+				if (m_vecDqzkyName[i] == FileName)
+				{
+					map_inform = m_vecMapDqzKyData[i];
+					sequese = i;
+
+					map_inform[string_To_UTF8(vec[0])] = string_To_UTF8(vec[1]);
+					m_vecMapDqzKyData[sequese] = map_inform;
+
+				}
+			}
+			for (int i = 0; i < m_vecDqzTxName.size(); i++)
+			{
+				if (m_vecDqzTxName[i] == FileName)
+				{
+					map_inform = m_vecMapDqzTxData[i];
+					sequese = i;
+
+					map_inform[string_To_UTF8(vec[0])] = string_To_UTF8(vec[1]);
+					m_vecMapDqzTxData[sequese] = map_inform;
+
+				}
+			}
+
 		}
 	}
 	else if (sName.CompareNoCase(_T("bt_Delete2")) == 0)//删除电信港属性 tab2
@@ -784,6 +935,90 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 
 			m_RecvMap_DQZChild[sequese] = map_inform1;
 			DisplayInformation_2(m_RecvMap_DQZChild[sequese]);
+		}
+
+		// 创建表及字段添加的逻辑; // 删除;
+		const vector<string> vecDeleteName = m_CPopDeleteAttClass->GetDeleteName();
+		for (int i = 0; i < m_vecDqzkyName.size(); i++)
+		{
+			if (m_vecDqzkyName[i] == FileName)
+			{
+				map<string, string>& mapData = m_vecMapDqzKyData[i];//m_RecvMap_XZ[i] = map_inform;
+				for (map<string, string>::iterator iter = mapData.begin(); iter != mapData.end();)
+				{
+					bool erased = false;
+					for (int i = 0; i < vecDeleteName.size(); i++)
+					{
+						if (iter->first == vecDeleteName[i])
+						{
+							//cout << "选择" << endl;
+							iter=mapData.erase(iter);
+							erased = true;
+						}
+
+					}
+					if (!erased)
+					{
+						++iter;
+					}
+				}
+				break;
+			}
+		}
+
+		for (int i = 0; i < m_vecDqzBxName.size(); i++)
+		{
+			if (m_vecDqzBxName[i] == FileName)
+			{
+				map<string, string>& mapData = m_vecMapDqzBxData[i];//m_RecvMap_XZ[i] = map_inform;
+				for (map<string, string>::iterator iter = mapData.begin(); iter != mapData.end();)
+				{
+					bool erased = false;
+					for (int i = 0; i < vecDeleteName.size(); i++)
+					{
+						if (iter->first == vecDeleteName[i])
+						{
+							//cout << "选择" << endl;
+							iter = mapData.erase(iter);
+							erased = true;
+						}
+
+					}
+					if (!erased)
+					{
+						++iter;
+					}
+				}
+				break;
+			}
+		}
+		// 地球站 天线
+		for (int i = 0; i < m_vecDqzTxName.size(); i++)
+		{
+			if (m_vecDqzTxName[i] == FileName)
+			{
+				map<string, string>& mapData = m_vecMapDqzTxData[i];//m_RecvMap_XZ[i] = map_inform;
+				//sequese = i;
+				for (map<string, string>::iterator iter = mapData.begin(); iter != mapData.end();)
+				{
+					bool erased = false;
+					for (int i = 0; i < vecDeleteName.size(); i++)
+					{
+						if (iter->first == vecDeleteName[i])
+						{
+							//cout << "选择" << endl;
+							iter = mapData.erase(iter);
+							erased = true;
+						}
+
+					}
+					if (!erased)
+					{
+						++iter;
+					}
+				}
+				break;
+			}
 		}
 
 	}
@@ -946,6 +1181,28 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 				m_RecvMap_DMZDChild[i] = map_inform;
 			}
 		}
+		// 为了创建表，字段新增的逻辑;
+		for (int i = 0; i < m_vecDmzdBxName.size(); i++)
+		{
+			if (m_vecDmzdBxName[i] == FileName)
+			{
+				m_vecMapDmzdBxData[i]=map_inform;
+			}
+		}
+		for (int i = 0; i < m_vecDmzdZhName.size(); i++)
+		{
+			if (m_vecDmzdZhName[i] == FileName)
+			{
+				m_vecMapDmzdZhData[i]=map_inform;
+			}
+		}
+		for (int i = 0; i < m_vecDmzdTxName.size(); i++)
+		{
+			if (m_vecDmzdTxName[i] == FileName)
+			{
+				m_vecMapDmzdTxData[i]=map_inform;
+			}
+		}
 
 
 	}
@@ -987,42 +1244,71 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 				}
 			}
 
+			// 为了创建表，字段新增的逻辑;
+			for (int i = 0; i < m_vecDmzdBxName.size(); i++)
+			{
+				if (m_vecDmzdBxName[i] == FileName)
+				{
+					map_inform = m_vecMapDmzdBxData[i];
+					sequese = i;
+
+					map_inform[string_To_UTF8(vec[0])] = string_To_UTF8(vec[1]);
+					m_vecMapDmzdBxData[sequese] = map_inform;
+
+				}
+			}
+			for (int i = 0; i < m_vecDmzdZhName.size(); i++)
+			{
+				if (m_vecDmzdZhName[i] == FileName)
+				{
+					map_inform = m_vecMapDmzdZhData[i];
+					sequese = i;
+
+					map_inform[string_To_UTF8(vec[0])] = string_To_UTF8(vec[1]);
+					m_vecMapDmzdZhData[sequese] = map_inform;
+
+				}
+			}
+			for (int i = 0; i < m_vecDmzdTxName.size(); i++)
+			{
+				if (m_vecDmzdTxName[i] == FileName)
+				{
+					map_inform = m_vecMapDmzdTxData[i];
+					sequese = i;
+
+					map_inform[string_To_UTF8(vec[0])] = string_To_UTF8(vec[1]);
+					m_vecMapDmzdTxData[sequese] = map_inform;
+
+				}
+			}
+
 
 		}
 	}
-	else if (sName.CompareNoCase(_T("bt_Delete2")) == 0)//删除电信港属性 tab2
+	else if (sName.CompareNoCase(_T("bt_Delete3")) == 0)//删除电信港属性 tab2
 	{
 		vector<string> vec_name;
 		int flag = -1;
 		map<string, string> map_inform;//界面上修改完的map
-		string FileName = wstringToString(m_modiftName_2.GetData());
+		string FileName = wstringToString(m_modiftName_3.GetData());
 		int sequese;
-		for (int i = 0; i < name2_Level1.size(); i++)
+		for (int i = 0; i < name3_Level1.size(); i++)
 		{
-			if (name2_Level1[i] == FileName)
+			if (name3_Level1[i] == FileName)
 			{
-				map_inform = m_RecvMap_DXG[i];//m_RecvMap_XZ[i] = map_inform;
+				map_inform = m_RecvMap_DMZD[i];//m_RecvMap_XZ[i] = map_inform;
 				sequese = i;
 				flag = 0;
 
 			}
 		}
-		for (int i = 0; i < name2_Level2.size(); i++)
+		for (int i = 0; i < name3_Level2.size(); i++)
 		{
-			if (name2_Level2[i] == FileName)
+			if (name3_Level2[i] == FileName)
 			{
-				map_inform = m_RecvMap_DQZ[i];//m_RecvMap_XZ[i] = map_inform;
+				map_inform = m_RecvMap_DMZDChild[i];//m_RecvMap_XZ[i] = map_inform;
 				sequese = i;
 				flag = 1;
-			}
-		}
-		for (int i = 0; i < name2_Level3.size(); i++)
-		{
-			if (name2_Level3[i] == FileName)
-			{
-				map_inform = m_RecvMap_DQZChild[i];//m_RecvMap_XZ[i] = map_inform;
-				sequese = i;
-				flag = 2;
 			}
 		}
 
@@ -1036,7 +1322,7 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 
 		if (flag == 0)//电信港
 		{
-			map<string, string> map_inform1 = m_RecvMap_DXG[sequese];
+			map<string, string> map_inform1 = m_RecvMap_DMZD[sequese];
 			vector<string> vec_deleteName = m_CPopDeleteAttClass->GetDeleteName();
 			for (map<string, string>::iterator iter = map_inform.begin(); iter != map_inform.end(); ++iter)
 			{
@@ -1052,12 +1338,12 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 				}
 			}
 
-			m_RecvMap_DXG[sequese] = map_inform1;
-			DisplayInformation_2(m_RecvMap_DXG[sequese]);
+			m_RecvMap_DMZD[sequese] = map_inform1;
+			DisplayInformation_3(m_RecvMap_DMZD[sequese]);
 		}
 		else if (flag == 1)//地球站
 		{
-			map<string, string> map_inform1 = m_RecvMap_DQZ[sequese];
+			map<string, string> map_inform1 = m_RecvMap_DMZDChild[sequese];
 			vector<string> vec_deleteName = m_CPopDeleteAttClass->GetDeleteName();
 			for (map<string, string>::iterator iter = map_inform.begin(); iter != map_inform.end(); ++iter)
 			{
@@ -1073,29 +1359,89 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 				}
 			}
 
-			m_RecvMap_DQZ[sequese] = map_inform1;
-			DisplayInformation_2(m_RecvMap_DQZ[sequese]);
+			m_RecvMap_DMZDChild[sequese] = map_inform1;
+			DisplayInformation_3(m_RecvMap_DMZDChild[sequese]);
 		}
-		else if (flag == 2)//地面终端
+
+		// 创建表及字段添加的逻辑; // 删除;
+		const vector<string> vecDeleteName = m_CPopDeleteAttClass->GetDeleteName();
+		for (int i = 0; i < m_vecDmzdZhName.size(); i++)
 		{
-			map<string, string> map_inform1 = m_RecvMap_DQZChild[sequese];
-			vector<string> vec_deleteName = m_CPopDeleteAttClass->GetDeleteName();
-			for (map<string, string>::iterator iter = map_inform.begin(); iter != map_inform.end(); ++iter)
+			if (m_vecDmzdZhName[i] == FileName)
 			{
-				cout << "key:" << iter->first << " value:" << iter->second << endl;
-				for (int i = 0; i < vec_deleteName.size(); i++)
+				map<string, string>& mapData = m_vecMapDmzdZhData[i];//m_RecvMap_XZ[i] = map_inform;
+				for (map<string, string>::iterator iter = mapData.begin(); iter != mapData.end();)
 				{
-					if (iter->first == vec_deleteName[i])
+					bool erased = false;
+					for (int i = 0; i < vecDeleteName.size(); i++)
 					{
-						//cout << "选择" << endl;
-						map_inform1.erase(iter->first);
+						if (iter->first == vecDeleteName[i])
+						{
+							//cout << "选择" << endl;
+							iter = mapData.erase(iter);
+							erased = true;
+						}
+
 					}
-
+					if (!erased)
+					{
+						++iter;
+					}
 				}
+				break;
 			}
+		}
 
-			m_RecvMap_DQZChild[sequese] = map_inform1;
-			DisplayInformation_2(m_RecvMap_DQZChild[sequese]);
+		for (int i = 0; i < m_vecDmzdBxName.size(); i++)
+		{
+			if (m_vecDmzdBxName[i] == FileName)
+			{
+				map<string, string>& mapData = m_vecMapDmzdBxData[i];//m_RecvMap_XZ[i] = map_inform;
+				for (map<string, string>::iterator iter = mapData.begin(); iter != mapData.end();)
+				{
+					bool erased = false;
+					for (int i = 0; i < vecDeleteName.size(); i++)
+					{
+						if (iter->first == vecDeleteName[i])
+						{
+							iter = mapData.erase(iter);
+							erased = true;
+						}
+
+					}
+					if (!erased)
+					{
+						++iter;
+					}
+				}
+				break;
+			}
+		}
+		// 
+		for (int i = 0; i < m_vecDmzdTxName.size(); i++)
+		{
+			if (m_vecDmzdTxName[i] == FileName)
+			{
+				map<string, string>& mapData = m_vecMapDmzdTxData[i];//m_RecvMap_XZ[i] = map_inform;
+				for (map<string, string>::iterator iter = mapData.begin(); iter != mapData.end();)
+				{
+					bool erased = false;
+					for (int i = 0; i < vecDeleteName.size(); i++)
+					{
+						if (iter->first == vecDeleteName[i])
+						{
+							iter = mapData.erase(iter);
+							erased = true;
+						}
+
+					}
+					if (!erased)
+					{
+						++iter;
+					}
+				}
+				break;
+			}
 		}
 
 	}
