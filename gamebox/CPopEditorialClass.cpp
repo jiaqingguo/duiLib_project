@@ -456,11 +456,11 @@ void CPopEditorialClass::OnClick(TNotifyUI &msg)
 			{
 				if (m_vecTxName[i] == FileName)
 				{
-					map_inform = m_vecMapZhData[i];//m_RecvMap_XZ[i] = map_inform;
+					map_inform = m_vecMapTxData[i];//m_RecvMap_XZ[i] = map_inform;
 					sequese = i;
 
 					map_inform[string_To_UTF8(vec[0])] = string_To_UTF8(vec[1]);
-					m_vecMapZhData[sequese] = map_inform;
+					m_vecMapTxData[sequese] = map_inform;
 					
 				}
 			}
