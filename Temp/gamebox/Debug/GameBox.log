@@ -16,6 +16,192 @@ d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1494): warning C42
 d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1580): warning C4244: “初始化”: 从“DWORD_PTR”转换到“DWORD”，可能丢失数据
 d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1660): warning C4081: 应输入“newline”；找到“;”
 d:\1_project\z_project\duilib_project\gamebox\cpopdatamanage.cpp(450): warning C4091: “”: 没有声明变量时忽略“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的左侧
+  CPopEditorialClass.cpp
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(318): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(488): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(491): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(843): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(926): warning C4477: “wscanf”: 格式字符串“%d”需要类型“int *”的参数，但可变参数 1 拥有了类型“LPCSTR”
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(926): warning C4474: wscanf: 格式字符串中传递的参数太多
+  d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(926): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(931): warning C4477: “wscanf”: 格式字符串“%lf”需要类型“double *”的参数，但可变参数 1 拥有了类型“LPCSTR”
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(931): warning C4474: wscanf: 格式字符串中传递的参数太多
+  d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(931): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1418): warning C4101: “ch”: 未引用的局部变量
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1447): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1473): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1494): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1580): warning C4244: “初始化”: 从“DWORD_PTR”转换到“DWORD”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1660): warning C4081: 应输入“newline”；找到“;”
+d:\1_project\z_project\duilib_project\gamebox\udp.h(239): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winsock2.h(1831): note: 参见“inet_addr”的声明
+d:\1_project\z_project\duilib_project\gamebox\udp.h(369): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winsock2.h(1831): note: 参见“inet_addr”的声明
+d:\1_project\z_project\duilib_project\gamebox\udp.h(445): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winsock2.h(1831): note: 参见“inet_addr”的声明
+d:\1_project\z_project\duilib_project\gamebox\structural.h(195): warning C4081: 应输入“newline”；找到“;”
+d:\1_project\z_project\duilib_project\gamebox\cpopeditorialclass.cpp(58): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\cpopeditorialclass.cpp(65): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\cpopeditorialclass.cpp(77): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\cpopeditorialclass.cpp(104): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\cpopeditorialclass.cpp(5607): warning C4101: “pNode”: 未引用的局部变量
+d:\1_project\z_project\duilib_project\gamebox\cpopeditorialclass.cpp(6245): warning C4101: “pNode”: 未引用的局部变量
+d:\1_project\z_project\duilib_project\gamebox\cpopeditorialclass.cpp(6723): warning C4101: “pNode”: 未引用的局部变量
+  ConnectMysql.cpp
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(45): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(52): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(289): warning C4244: “初始化”: 从“uint64_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(305): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(342): warning C4244: “初始化”: 从“uint64_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(358): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(377): warning C4101: “column”: 未引用的局部变量
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(375): warning C4101: “returnResult”: 未引用的局部变量
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(378): warning C4101: “current_c”: 未引用的局部变量
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(376): warning C4101: “res”: 未引用的局部变量
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(438): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“uint64_t”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(438): note: 请考虑在格式字符串中使用“%lld”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(438): note: 请考虑在格式字符串中使用“%Id”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(438): note: 请考虑在格式字符串中使用“%I64d”
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(442): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(446): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(453): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(499): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“uint64_t”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(499): note: 请考虑在格式字符串中使用“%lld”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(499): note: 请考虑在格式字符串中使用“%Id”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(499): note: 请考虑在格式字符串中使用“%I64d”
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(503): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(507): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(514): warning C4473: “snprintf”: 没有为格式字符串传递足够的参数
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(514): note: 占位符和其参数预计 11 可变参数，但提供的却是 8 参数
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(514): note: 缺失的可变参数 9 为格式字符串“%s”所需
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(556): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“uint64_t”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(556): note: 请考虑在格式字符串中使用“%lld”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(556): note: 请考虑在格式字符串中使用“%Id”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(556): note: 请考虑在格式字符串中使用“%I64d”
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(560): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(564): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(620): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“uint64_t”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(620): note: 请考虑在格式字符串中使用“%lld”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(620): note: 请考虑在格式字符串中使用“%Id”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(620): note: 请考虑在格式字符串中使用“%I64d”
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(624): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(628): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(691): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“uint64_t”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(691): note: 请考虑在格式字符串中使用“%lld”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(691): note: 请考虑在格式字符串中使用“%Id”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(691): note: 请考虑在格式字符串中使用“%I64d”
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(695): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(699): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(706): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(759): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“uint64_t”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(759): note: 请考虑在格式字符串中使用“%lld”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(759): note: 请考虑在格式字符串中使用“%Id”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(759): note: 请考虑在格式字符串中使用“%I64d”
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(763): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(767): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(782): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(822): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“uint64_t”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(822): note: 请考虑在格式字符串中使用“%lld”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(822): note: 请考虑在格式字符串中使用“%Id”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(822): note: 请考虑在格式字符串中使用“%I64d”
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(826): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(830): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(837): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(1883): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“uint64_t”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(1883): note: 请考虑在格式字符串中使用“%lld”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(1883): note: 请考虑在格式字符串中使用“%Id”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(1883): note: 请考虑在格式字符串中使用“%I64d”
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(1887): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(1891): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(1947): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“uint64_t”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(1947): note: 请考虑在格式字符串中使用“%lld”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(1947): note: 请考虑在格式字符串中使用“%Id”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(1947): note: 请考虑在格式字符串中使用“%I64d”
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(1951): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(1955): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(1964): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(2022): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“uint64_t”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(2022): note: 请考虑在格式字符串中使用“%lld”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(2022): note: 请考虑在格式字符串中使用“%Id”
+  d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(2022): note: 请考虑在格式字符串中使用“%I64d”
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(2026): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(2030): warning C4018: “<”: 有符号/无符号不匹配
+d:\1_project\z_project\duilib_project\gamebox\connectmysql.cpp(2037): warning C4018: “<”: 有符号/无符号不匹配
+  GameBox.cpp
+d:\1_project\z_project\duilib_project\gamebox\controlex.h(50): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\controlex1.h(34): warning C4244: “参数”: 从“int”转换到“Gdiplus::REAL”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\controlex1.h(143): warning C4244: “参数”: 从“int”转换到“Gdiplus::REAL”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(318): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(488): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(491): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(843): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(926): warning C4477: “wscanf”: 格式字符串“%d”需要类型“int *”的参数，但可变参数 1 拥有了类型“LPCSTR”
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(926): warning C4474: wscanf: 格式字符串中传递的参数太多
+  d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(926): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(931): warning C4477: “wscanf”: 格式字符串“%lf”需要类型“double *”的参数，但可变参数 1 拥有了类型“LPCSTR”
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(931): warning C4474: wscanf: 格式字符串中传递的参数太多
+  d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(931): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1418): warning C4101: “ch”: 未引用的局部变量
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1447): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1473): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1494): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1580): warning C4244: “初始化”: 从“DWORD_PTR”转换到“DWORD”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1660): warning C4081: 应输入“newline”；找到“;”
+d:\1_project\z_project\duilib_project\gamebox\structural.h(195): warning C4081: 应输入“newline”；找到“;”
+d:\1_project\z_project\duilib_project\gamebox\udprecvclass.h(110): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winsock2.h(1831): note: 参见“inet_addr”的声明
+d:\1_project\z_project\duilib_project\gamebox\udprecvclass.h(380): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winsock2.h(1831): note: 参见“inet_addr”的声明
+d:\1_project\z_project\duilib_project\gamebox\udp.h(5): warning C4005: “BUFFERSIZE”: 宏重定义
+  d:\1_project\z_project\duilib_project\gamebox\udprecvclass.h(14): note: 参见“BUFFERSIZE”的前一个定义
+d:\1_project\z_project\duilib_project\gamebox\udp.h(239): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winsock2.h(1831): note: 参见“inet_addr”的声明
+d:\1_project\z_project\duilib_project\gamebox\udp.h(369): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winsock2.h(1831): note: 参见“inet_addr”的声明
+d:\1_project\z_project\duilib_project\gamebox\udp.h(445): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winsock2.h(1831): note: 参见“inet_addr”的声明
+d:\1_project\z_project\duilib_project\gamebox\gamebox.h(275): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\gamebox.h(864): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\gamebox.h(877): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\gamebox.h(880): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\gamebox.h(885): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\gamebox.h(903): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\gamebox.h(839): warning C4101: “temps1”: 未引用的局部变量
+d:\1_project\z_project\duilib_project\gamebox\gamebox.h(863): warning C4101: “a_value”: 未引用的局部变量
+d:\1_project\z_project\duilib_project\gamebox\gamebox.h(863): warning C4101: “Frame_count”: 未引用的局部变量
+d:\1_project\z_project\duilib_project\gamebox\gamebox.h(863): warning C4101: “b_value”: 未引用的局部变量
+  SplashWnd.cpp
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(318): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(488): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(491): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(843): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(926): warning C4477: “wscanf”: 格式字符串“%d”需要类型“int *”的参数，但可变参数 1 拥有了类型“LPCSTR”
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(926): warning C4474: wscanf: 格式字符串中传递的参数太多
+  d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(926): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(931): warning C4477: “wscanf”: 格式字符串“%lf”需要类型“double *”的参数，但可变参数 1 拥有了类型“LPCSTR”
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(931): warning C4474: wscanf: 格式字符串中传递的参数太多
+  d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(931): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1418): warning C4101: “ch”: 未引用的局部变量
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1447): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1473): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1494): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1580): warning C4244: “初始化”: 从“DWORD_PTR”转换到“DWORD”，可能丢失数据
+d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1660): warning C4081: 应输入“newline”；找到“;”
+d:\1_project\z_project\duilib_project\gamebox\structural.h(195): warning C4081: 应输入“newline”；找到“;”
+d:\1_project\z_project\duilib_project\gamebox\udprecvclass.h(110): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winsock2.h(1831): note: 参见“inet_addr”的声明
+d:\1_project\z_project\duilib_project\gamebox\udprecvclass.h(380): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winsock2.h(1831): note: 参见“inet_addr”的声明
+d:\1_project\z_project\duilib_project\gamebox\udp.h(5): warning C4005: “BUFFERSIZE”: 宏重定义
+  d:\1_project\z_project\duilib_project\gamebox\udprecvclass.h(14): note: 参见“BUFFERSIZE”的前一个定义
+d:\1_project\z_project\duilib_project\gamebox\udp.h(239): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winsock2.h(1831): note: 参见“inet_addr”的声明
+d:\1_project\z_project\duilib_project\gamebox\udp.h(369): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winsock2.h(1831): note: 参见“inet_addr”的声明
+d:\1_project\z_project\duilib_project\gamebox\udp.h(445): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winsock2.h(1831): note: 参见“inet_addr”的声明
+d:\1_project\z_project\duilib_project\gamebox\splashwnd.cpp(222): warning C4244: “=”: 从“intptr_t”转换到“long”，可能丢失数据
+  正在生成代码...
 LINK : warning LNK4075: 忽略“/INCREMENTAL”(由于“/FORCE”规范)
 CPopDeleteAttClass.obj : warning LNK4006: "wchar_t const * const m_ReceivedPrompts" (?m_ReceivedPrompts@@3PEB_WEB) 已在 ClueScreenClass.obj 中定义；已忽略第二个定义
 CPopEditorialClass.obj : warning LNK4006: "unsigned long __cdecl StringToDword(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?StringToDword@@YAKV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) 已在 CPopDataManage.obj 中定义；已忽略第二个定义
