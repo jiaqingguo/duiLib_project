@@ -163,7 +163,7 @@
                             <Button name="bt_Export_opt1"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
 
                           </HorizontalLayout>-->
-                          <HorizontalLayout height="430" width="1280" inset="0,6,0,6" childpadding="1" >
+                          <HorizontalLayout name="layoutXZ" height="430" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
                             <List name="list_DataShow_XZSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
                               <!--<ListHeader height="30" menu="true"  >-->
@@ -178,7 +178,6 @@
                                 <ListHeaderItem text="星座卫星总数量"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
                                 <ListHeaderItem text="星座轨道面数"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
                                 <ListHeaderItem text="下属卫星名称"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-
 
                               </ListHeader>
                             </List>
@@ -202,8 +201,8 @@
                             <Button name="bt_Export_opt2"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
 
                           </HorizontalLayout>-->
-                          <HorizontalLayout height="430" width="1280" inset="0,6,0,6" childpadding="1" >
-                            <HorizontalLayout width="10" />
+                          <HorizontalLayout name = "layouDX" height="430" width="1280" inset="0,6,0,6" childpadding="1" >
+                            <HorizontalLayout  width="10" />
                             <List name="list_DataShow_DXSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
                               <!--<ListHeader height="30" menu="true"  >-->
                               <ListHeader height="40"   >

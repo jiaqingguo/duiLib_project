@@ -438,7 +438,7 @@ vector<vector<string>> ConnectMysql::mytest_QueryDatabase(string name_Table)
 	printf("number of dataline returned: %d\n", mysql_affected_rows(m_mysql));//
 
 	//获取字段的信息  
-	char *str_field[40];  //定义一个字符串数组存储字段信息  
+	char *str_field[256];  //定义一个字符串数组存储字段信息  
 	for (int i = 0; i < fieldcount_select; i++)  //在已知字段数量的情况下获取字段名  
 	{
 		str_field[i] = mysql_fetch_field(res)->name;
@@ -1122,6 +1122,35 @@ bool ConnectMysql::createTableAndFields(const string& strTable, const std::vecto
 	return true;
 }
 
+bool ConnectMysql::getFilelds(const std::string& table_name,  std::vector<std::string>& vecFilelds)
+{
+	vecFilelds.clear();
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	// 执行SQL语句;
+	
+	//std::string str_sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '" + table_name + "'";
+	std::string str_sql = "DESC " + table_name;
+	MYSQL_RES* result = execSqlSelect(str_sql);
+	if (result == nullptr)
+		return false;
+
+
+	// 获取查询结果
+	
+
+	// 获取结果集的字段数
+	unsigned int num_fields = mysql_num_fields(result);
+
+	while (sql_row = mysql_fetch_row(result))
+	{
+		vecFilelds.push_back(sql_row[0]);
+	}
+	return true;
+}
+
 bool ConnectMysql::createTableAndFields(const std::string& strTable, const std::set<std::string>& fieldNames)
 {
 	if (isTableExists(strTable))
@@ -1282,6 +1311,30 @@ bool ConnectMysql::getAllScheme(std::map<int,stScheme> & listStData)
 	
 		listStData[st.id] = st;
 	}
+	return true;
+}
+
+bool ConnectMysql::isExisrSchemName(bool& bExist, const std::string& schemeName)
+{
+	std::string str_sql = "SELECT COUNT(*) FROM scheme WHERE schemeName = '"+schemeName+"'";
+
+	MYSQL_RES* result = execSqlSelect(str_sql);
+	if (result == nullptr) {
+		return false;
+	}
+
+	MYSQL_ROW sql_row = mysql_fetch_row(result);
+	int count = atoi(sql_row[0]);
+
+	if (count > 0) 
+	{
+		bExist = true;
+	}
+	else 
+	{
+		bExist = false;
+	}
+
 	return true;
 }
 

@@ -3,6 +3,34 @@
 #include "UtilTool.h"
 #include "EnvironmentData.h"
 
+
+string UTF8_To_string(const std::string& str)
+{
+	int nwLen = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, NULL, 0);
+
+	wchar_t* pwBuf = new wchar_t[nwLen + 1];//一定要加1，不然会出现尾巴  
+	memset(pwBuf, 0, nwLen * 2 + 2);
+
+	MultiByteToWideChar(CP_UTF8, 0, str.c_str(), str.length(), pwBuf, nwLen);
+
+	int nLen = WideCharToMultiByte(CP_ACP, 0, pwBuf, -1, NULL, NULL, NULL, NULL);
+
+	char* pBuf = new char[nLen + 1];
+	memset(pBuf, 0, nLen + 1);
+
+	WideCharToMultiByte(CP_ACP, 0, pwBuf, nwLen, pBuf, nLen, NULL, NULL);
+
+	std::string retStr = pBuf;
+
+	delete[]pBuf;
+	delete[]pwBuf;
+
+	pBuf = NULL;
+	pwBuf = NULL;
+
+	return retStr;
+
+}
 //vector<string> seleceColumns;
 //数据管理界面类实现
 DUI_BEGIN_MESSAGE_MAP(CPopDataManage, WindowImplBase)
@@ -167,6 +195,7 @@ void CPopDataManage::OnLClick(CControlUI *pControl)
 		CControlUI* pControl_Start = static_cast<CControlUI*>(m_pm.FindControl(_T("Com_DatabaseName")));
 		wstring wstr_start = pControl_Start->GetText();
 		string str_dbName = wstringToString(wstr_start);
+		EnvironmentData::m_strCurScheme = str_dbName;
 	/*	bool flag = ConnectMysql::Instance().SetUpDatabase(str_dbName);
 		if (flag)
 		{
@@ -603,6 +632,9 @@ void CPopDataManage::InitWindow()
 	m_dataList_ZDTX = static_cast<CListUI*>(m_pm.FindControl(_T("list_DataShow_ZDTX")));//终端天线的List
 
 
+	m_layoutXZ = static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layoutXZ")));//星座 布局
+	m_layoutDX= static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layouDX")));//单星 布局
+
 	
 	//list_DataShow_XZSJB
 	/*if (!ConnectMysql::Instance().StartConnectMysql())
@@ -955,304 +987,397 @@ void CPopDataManage::InitializeCombo()
 void CPopDataManage::GettingDatabase()
 {
 
-	 //vec_vecData_XZSJB = ConnectMysql::Instance().mytest_QueryDatabase("0_星座数据表_1");//获取的数据库中---星座数据表
-	// ConnectMysql::Instance().CreateNewTable("myCsTable", vec_vecData_XZSJB)
+	std::string strTableNameXZ = EnvironmentData::m_strCurScheme + ("_星座");
+
+	updateListShow(m_layoutXZ, strTableNameXZ);
+	//updateListHeaderShow(m_dataList_XZSJB, strTableNameXZ);
+	//updateListDataShow(m_dataList_XZSJB, strTableNameXZ);
 
 
-	 //for (vector<vector<string>>::iterator it = vec_vecData_XZSJB.begin(); it != vec_vecData_XZSJB.end(); ++it)
-	 //{
-		// CListTextElementUI* pItem = new CListTextElementUI();
-		// //pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
-		// m_dataList_XZSJB->Add(pItem);
-		// wstring text_string;
-		// for (int i = 0; i < (*it).size(); ++i)
-		// {
-		//	 //cout << (*it)[i] << " ";
-		//	 UtilTool::setWstring(text_string, (*it)[i].c_str());
-		//	 pItem->SetText(i, text_string.c_str());
-		// }
-		// cout << endl;
-	 //}
+	std::string strTableNameWX = EnvironmentData::m_strCurScheme + ("_卫星");
+	updateListHeaderShow(m_dataList_DXSJB, strTableNameWX);
+	updateListDataShow(m_dataList_DXSJB, strTableNameWX);
 
-	 //获取星座数据表数据;
-	 ConnectMysql::Instance().getAllXzsjbBySchemeID(EnvironmentData::m_mapStXZSJB,1);
-	 m_dataList_XZSJB->RemoveAll();
-	 wstring text_string;
-	 for ( auto & stData : EnvironmentData::m_mapStXZSJB)
-	 {
-		 auto& stXZSJ = stData.second;
-		 CListTextElementUI* pItem = new CListTextElementUI();
-		 //pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
-		
-		 m_dataList_XZSJB->Add(pItem);
-		 UtilTool::setWstring(text_string, stXZSJ.constellationName.c_str());
-		 pItem->SetText(0, text_string.c_str());
-		 UtilTool::setWstring(text_string, stXZSJ.constellationNation.c_str());
-		 pItem->SetText(1, text_string.c_str());
-		 UtilTool::setWstring(text_string, stXZSJ.constellationCorp.c_str());
-		 pItem->SetText(2, text_string.c_str());
-		 UtilTool::setWstring(text_string, stXZSJ.constellationYear.c_str());
-		 pItem->SetText(3, text_string.c_str());
-		 UtilTool::setWstring(text_string, stXZSJ.constellationPhase.c_str());
-		 pItem->SetText(4, text_string.c_str());
-		 UtilTool::setWstring(text_string, stXZSJ.satNum.c_str());
-		 pItem->SetText(5, text_string.c_str());
-		 UtilTool::setWstring(text_string, stXZSJ.COL.c_str());
-		 pItem->SetText(6, text_string.c_str());
-		 UtilTool::setWstring(text_string, stXZSJ.satName.c_str());
-		 pItem->SetText(7, text_string.c_str());
-		 UtilTool::setWstring(text_string, stXZSJ.planeNum.c_str());
-		 pItem->SetText(8, text_string.c_str());
-
-	 }
-
-	//单星数据表
-	 ConnectMysql::Instance().getAllDxsjbBySchemeID(EnvironmentData::m_mapStDXSJB,1);
-	 m_dataList_DXSJB->RemoveAll();
-	 for (auto& stData : EnvironmentData::m_mapStDXSJB)
-	 {
-
-		 auto& stDXSJ = stData.second;
-		 CListTextElementUI* pItem = new CListTextElementUI();
 	
-		 m_dataList_DXSJB->Add(pItem);
-		 UtilTool::setWstring(text_string, stDXSJ.satName.c_str());
-		 pItem->SetText(0, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.constellationName.c_str());
-		 pItem->SetText(1, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.satNation.c_str());
-		 pItem->SetText(2, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.satCorp.c_str());
-		 pItem->SetText(3, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.satType.c_str());
-		 pItem->SetText(4, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.orbitType.c_str());
-		 pItem->SetText(5, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.NORAD.c_str());
-		 pItem->SetText(6, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.COPAR.c_str());
-		 pItem->SetText(7, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.isPublic.c_str());
-		 pItem->SetText(8, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.SOL.c_str());
-		 pItem->SetText(9, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.satSemiMajor.c_str());
-		 pItem->SetText(10, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.satEcc.c_str());
-		 pItem->SetText(11, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.satOblique.c_str());
-		 pItem->SetText(12, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.satRAAN.c_str());
-		 pItem->SetText(13, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.satOmega.c_str());
-		 pItem->SetText(14, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.satTrueAnomaly.c_str());
-		 pItem->SetText(15, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.satLoadName.c_str());
-		 pItem->SetText(16, text_string.c_str());
-		 UtilTool::setWstring(text_string, stDXSJ.satAntennaName.c_str());
-		 pItem->SetText(17, text_string.c_str());
-	 }
 
-	 //获取卫星天线数据表数据;
-	 ConnectMysql::Instance().getAllWxtxbBySchemeID(EnvironmentData::m_mapStWXTXB,1);
-	 m_dataList_WXTX->RemoveAll();
-	 for (auto& st : EnvironmentData::m_mapStWXTXB)
-	 {
+	std::string strTableNameWXTX = EnvironmentData::m_strCurScheme + ("_卫星天线");
+	updateListHeaderShow(m_dataList_WXTX, strTableNameWXTX);
+	updateListDataShow(m_dataList_WXTX, strTableNameWXTX);
 
-		 auto& stData = st.second;
-		 CListTextElementUI* pItem = new CListTextElementUI();
-		
-		 m_dataList_WXTX->Add(pItem);
-		 UtilTool::setWstring(text_string, stData.satAntennaName.c_str());
-		 pItem->SetText(0, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.satName.c_str());
-		 pItem->SetText(1, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.satAntennaType.c_str());
-		 pItem->SetText(2, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.satAntennaCaliber.c_str());
-		 pItem->SetText(3, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.satAntennaGain.c_str());
-		 pItem->SetText(4, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.satAntennaEff.c_str());
-		 pItem->SetText(5, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.satAntennaPointerLoss.c_str());
-		 pItem->SetText(6, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.satName.c_str());
-		 pItem->SetText(7, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.satAntennaPolarLoss.c_str());
-		 pItem->SetText(8, text_string.c_str());
+	std::string strTableNameWXZH = EnvironmentData::m_strCurScheme + ("_卫星载荷");
+	updateListHeaderShow(m_dataList_WXZHSJB, strTableNameWXZH);
+	updateListDataShow(m_dataList_WXZHSJB, strTableNameWXZH);
 
-	 }
-	 //获取卫星载荷数据数据表数据;
-	 ConnectMysql::Instance().getAllWxzhsjbBySchemeID(EnvironmentData::m_mapStWXZHSJB,1);
-	 m_dataList_WXZHSJB->RemoveAll();
-	 for (auto& st : EnvironmentData::m_mapStWXZHSJB)
-	 {
-		 auto& stData = st.second;
-		 CListTextElementUI* pItem = new CListTextElementUI();
-		 m_dataList_WXZHSJB->Add(pItem);
 
-		 UtilTool::setWstring(text_string, stData.satLoadName.c_str());
-		 pItem->SetText(0, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.satLoadWaveBand.c_str());
-		 pItem->SetText(1, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.satLoadCorp.c_str());
-		 pItem->SetText(2, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.satLoadSendEIRP.c_str());
-		 pItem->SetText(3, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.satLoadSendSFD.c_str());
-		 pItem->SetText(4, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.satLoadRecvGT.c_str());
-		 pItem->SetText(5, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.satLoadBandwidth.c_str());
-		 pItem->SetText(6, text_string.c_str());
-	 }
+	std::string strTableNameDXG = EnvironmentData::m_strCurScheme + ("_电信港");
+	updateListHeaderShow(m_dataList_DXGSJB, strTableNameDXG);
+	updateListDataShow(m_dataList_DXGSJB, strTableNameDXG);
 
-	 //电信港数据表
-	 ConnectMysql::Instance().getAllDxgsjbBySchemeID(EnvironmentData::m_mapStDXGSJB, 1);
-	 m_dataList_DXGSJB->RemoveAll();
-	 for (auto& st : EnvironmentData::m_mapStDXGSJB)
-	 {
-		 auto& stData = st.second;
-		 CListTextElementUI* pItem = new CListTextElementUI();
-		 m_dataList_DXGSJB->Add(pItem);
-		 UtilTool::setWstring(text_string, stData.teleportName.c_str());
-		 pItem->SetText(0, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.teleportNation.c_str());
-		 pItem->SetText(1, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.teleportCorp.c_str());
-		 pItem->SetText(2, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.teleportType.c_str());
-		 pItem->SetText(3, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.teleportYear.c_str());
-		 pItem->SetText(4, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.teleportLon.c_str());
-		 pItem->SetText(5, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.teleportLat.c_str());
-		 pItem->SetText(6, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationName.c_str());
-		 pItem->SetText(7, text_string.c_str());
-	 }
+	std::string strTableNameDQZ = EnvironmentData::m_strCurScheme + ("_地球站");
+	updateListHeaderShow(m_dataList_DQZSJB, strTableNameDQZ);
+	updateListDataShow(m_dataList_DQZSJB, strTableNameDQZ);
 
-	 //地球站数据表
-	 ConnectMysql::Instance().getAllDqzsjbBySchemeID(EnvironmentData::m_mapStDQZSJB, 1);
-	 m_dataList_DQZSJB->RemoveAll();
-	 for (auto& st : EnvironmentData::m_mapStDQZSJB)
-	 {
-		 auto& stData = st.second;
-		 CListTextElementUI* pItem = new CListTextElementUI();
-		 m_dataList_DQZSJB->Add(pItem);
-		 UtilTool::setWstring(text_string, stData.stationName.c_str());
-		 pItem->SetText(0, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.teleportName.c_str());
-		 pItem->SetText(1, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationCorp.c_str());
-		 pItem->SetText(2, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationType.c_str());
-		 pItem->SetText(3, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationLon.c_str());
-		 pItem->SetText(4, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationLat.c_str());
-		 pItem->SetText(5, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationAlt.c_str());
-		 pItem->SetText(6, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationLoadName.c_str());
-		 pItem->SetText(7, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationWaveName.c_str());
-		 pItem->SetText(8, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationAntennaName.c_str());
-		 pItem->SetText(9, text_string.c_str());
 
-	 }
 
-	 //地球站馈源数据表
-	 ConnectMysql::Instance().getAllDqzkysjbBySchemeID(EnvironmentData::m_mapStDQZKYSJB, 1);
-	 m_dataList_DQZKYSJB->RemoveAll();
-	 for (auto& st : EnvironmentData::m_mapStDQZKYSJB)
-	 {
-		 auto& stData = st.second;
-		 CListTextElementUI* pItem = new CListTextElementUI();
-		 m_dataList_DQZKYSJB->Add(pItem);
-		 UtilTool::setWstring(text_string, stData.stationLoadName.c_str());
-		 pItem->SetText(0, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationName.c_str());
-		 pItem->SetText(1, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationLoadWaveBand.c_str());
-		 pItem->SetText(2, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationLoadCorp.c_str());
-		 pItem->SetText(3, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationLoadSendPower.c_str());
-		 pItem->SetText(4, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationLoadSendCarrierFreq.c_str());
-		 pItem->SetText(5, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationLoadSendFEC.c_str());
-		 pItem->SetText(6, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationLoadUpBPS.c_str());
-		 pItem->SetText(7, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationLoadRecvGT.c_str());
-		 pItem->SetText(8, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationLoadRecvCarrierFreq.c_str());
-		 pItem->SetText(9, text_string.c_str());
-		 UtilTool::setWstring(text_string, stData.stationLoadDownBPS.c_str());
-		 pItem->SetText(10, text_string.c_str());	
+	std::string strTableNameDQZTX = EnvironmentData::m_strCurScheme + ("_地球站天线");
+	updateListHeaderShow(m_dataList_DQZTX, strTableNameDQZTX);
+	updateListDataShow(m_dataList_DQZTX, strTableNameDQZTX);
 
-	 }	
+	std::string strTableNameDQZKY = EnvironmentData::m_strCurScheme + ("_地球站溃源");
+	updateListHeaderShow(m_dataList_DQZKYSJB, strTableNameDQZKY);
+	updateListDataShow(m_dataList_DQZKYSJB, strTableNameDQZKY);
 
-	 // 地球站波形设备数据表;
-	 ConnectMysql::Instance().getAllDqzbxsbsjbBySchemeID(EnvironmentData::m_mapStDQZBXSBSJB, 1);
-	 m_dataList_DQZBXSB->RemoveAll();
-	for (auto& st : EnvironmentData::m_mapStDQZBXSBSJB)
-	{
-		auto& stData = st.second;
-		CListTextElementUI* pItem = new CListTextElementUI();
-		m_dataList_DQZBXSB->Add(pItem);
-		UtilTool::setWstring(text_string, stData.stationWaveName.c_str());
-		pItem->SetText(0, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationName.c_str());
-		pItem->SetText(1, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationWaveModel.c_str());
-		pItem->SetText(2, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationWaveModType.c_str());
-		pItem->SetText(3, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationWaveDemoType.c_str());
-		pItem->SetText(4, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationWaveCodingType.c_str());
-		pItem->SetText(5, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationWaveCarrierType.c_str());
-		pItem->SetText(6, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationWaveBandwidth.c_str());
-		pItem->SetText(7, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationWaveType.c_str());
-		pItem->SetText(8, text_string.c_str());
-	}
+	std::string strTableNameDQZBX = EnvironmentData::m_strCurScheme + ("_地球站波形");
+	updateListHeaderShow(m_dataList_DQZBXSB, strTableNameDQZBX);
+	updateListDataShow(m_dataList_DQZBXSB, strTableNameDQZBX);
 
-	//地球站天线
-	ConnectMysql::Instance().getAllDqztxbBySchemeID(EnvironmentData::m_mapStDQZTXB, 1);
-	m_dataList_DQZTX->RemoveAll();
-	for (auto& st : EnvironmentData::m_mapStDQZTXB)
-	{
-		auto& stData = st.second;
-		CListTextElementUI* pItem = new CListTextElementUI();
-		m_dataList_DQZTX->Add(pItem);
-		UtilTool::setWstring(text_string, stData.stationAntennaName.c_str());
-		pItem->SetText(0, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationName.c_str());
-		pItem->SetText(1, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationAntennaType.c_str());
-		pItem->SetText(2, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationAntennaCaliber.c_str());
-		pItem->SetText(3, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationAntennaGain.c_str());
-		pItem->SetText(4, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationAntennaEff.c_str());
-		pItem->SetText(5, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationAntennaPointerLoss.c_str());
-		pItem->SetText(6, text_string.c_str());
-		UtilTool::setWstring(text_string, stData.stationAntennaPolarLoss.c_str());
-		pItem->SetText(7, text_string.c_str());
 
-	}
+	std::string strTableNameDMZD = EnvironmentData::m_strCurScheme + ("_地面终端");
+	updateListHeaderShow(m_dataList_DMZDSJB, strTableNameDMZD);
+	updateListDataShow(m_dataList_DMZDSJB, strTableNameDMZD);
+
+	std::string strTableNameDMZDBX = EnvironmentData::m_strCurScheme + ("_地面终端波形");
+	updateListHeaderShow(m_dataList_BXSBSJB, strTableNameDMZDBX);
+	updateListDataShow(m_dataList_BXSBSJB, strTableNameDMZDBX);
+
+	std::string strTableNameDMZDTX = EnvironmentData::m_strCurScheme + ("_地面终端天线");
+	updateListHeaderShow(m_dataList_ZDTX, strTableNameDMZDTX);
+	updateListDataShow(m_dataList_ZDTX, strTableNameDMZDTX);
+
+	std::string strTableNameDMZDZH = EnvironmentData::m_strCurScheme + ("_地面终端载荷");
+	updateListHeaderShow(m_dataList_ZDZHSJB, strTableNameDMZDZH);
+	updateListDataShow(m_dataList_ZDZHSJB, strTableNameDMZDZH);
+
+	//// 获取旧的表头并移除
+
+	//m_dataList_XZSJB->RemoveAll();
+	//CListHeaderUI* pOldHeader = m_dataList_XZSJB->GetHeader();
+	//if (pOldHeader != NULL) {
+	//	
+	//	//m_dataList_XZSJB->Remove(pOldHeader);
+	//	pOldHeader->RemoveAll();
+	//}
+
+	//m_dataList_XZSJB->NeedUpdate();
+
+	//std::string strTableNameXZ = EnvironmentData::m_strCurScheme + ("_星座");
+	////strTableNameXZ= ("方案6_星座");
+	//std::vector<std::string> vecXzFileds;
+	//ConnectMysql::Instance().getFilelds(strTableNameXZ, vecXzFileds);
+
+
+	//// 遍历 vector，为每个字符串创建一个列项
+	//wstring text_string;
+	//for (const auto& headerText : vecXzFileds)
+	//{
+	//	CListHeaderItemUI* pColumn = new CListHeaderItemUI();
+	//	UtilTool::setWstring(text_string, headerText.c_str());
+	//	
+	//	pColumn->SetText(text_string.c_str()); // 假设vector里存储的是UTF-8编码的字符串
+	//	// 设置正常状态下的字体颜色
+	//	pColumn->SetAttribute(_T("textcolor"), _T("#FF888888")); // 
+	//	//pColumn->SetFixedWidth(100); // 可以根据实际需要设置固定宽度
+	//	pOldHeader->Add(pColumn);
+	//}
+
+	//vec_vecData_XZSJB = ConnectMysql::Instance().mytest_QueryDatabase(strTableNameXZ);//获取的数据库中---星座数据表
+	//// ConnectMysql::Instance().CreateNewTable("myCsTable", vec_vecData_XZSJB)
+
+	//m_dataList_XZSJB->RemoveAll();
+	// for (vector<vector<string>>::iterator it = vec_vecData_XZSJB.begin(); it != vec_vecData_XZSJB.end(); ++it)
+	// {
+	//	 CListTextElementUI* pItem = new CListTextElementUI();
+	//	
+	//	 m_dataList_XZSJB->Add(pItem);
+	//	 wstring text_string;
+	//	 for (int i = 0; i < (*it).size(); ++i)
+	//	 {
+	//		 
+	//		 UtilTool::setWstring(text_string, (*it)[i].c_str());
+	//		 pItem->SetText(i, text_string.c_str());
+	//	 }
+	//	 cout << endl;
+	// }
+
+//	 //获取星座数据表数据;
+//	 ConnectMysql::Instance().getAllXzsjbBySchemeID(EnvironmentData::m_mapStXZSJB,1);
+//	 m_dataList_XZSJB->RemoveAll();
+////	 wstring text_string;
+//	 for ( auto & stData : EnvironmentData::m_mapStXZSJB)
+//	 {
+//		 auto& stXZSJ = stData.second;
+//		 CListTextElementUI* pItem = new CListTextElementUI();
+//		 //pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
+//		
+//		 m_dataList_XZSJB->Add(pItem);
+//		 UtilTool::setWstring(text_string, stXZSJ.constellationName.c_str());
+//		 pItem->SetText(0, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stXZSJ.constellationNation.c_str());
+//		 pItem->SetText(1, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stXZSJ.constellationCorp.c_str());
+//		 pItem->SetText(2, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stXZSJ.constellationYear.c_str());
+//		 pItem->SetText(3, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stXZSJ.constellationPhase.c_str());
+//		 pItem->SetText(4, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stXZSJ.satNum.c_str());
+//		 pItem->SetText(5, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stXZSJ.COL.c_str());
+//		 pItem->SetText(6, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stXZSJ.satName.c_str());
+//		 pItem->SetText(7, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stXZSJ.planeNum.c_str());
+//		 pItem->SetText(8, text_string.c_str());
+//
+//	 }
+//
+//	//单星数据表
+//	 ConnectMysql::Instance().getAllDxsjbBySchemeID(EnvironmentData::m_mapStDXSJB,1);
+//	 m_dataList_DXSJB->RemoveAll();
+//	 for (auto& stData : EnvironmentData::m_mapStDXSJB)
+//	 {
+//
+//		 auto& stDXSJ = stData.second;
+//		 CListTextElementUI* pItem = new CListTextElementUI();
+//	
+//		 m_dataList_DXSJB->Add(pItem);
+//		 UtilTool::setWstring(text_string, stDXSJ.satName.c_str());
+//		 pItem->SetText(0, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.constellationName.c_str());
+//		 pItem->SetText(1, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.satNation.c_str());
+//		 pItem->SetText(2, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.satCorp.c_str());
+//		 pItem->SetText(3, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.satType.c_str());
+//		 pItem->SetText(4, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.orbitType.c_str());
+//		 pItem->SetText(5, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.NORAD.c_str());
+//		 pItem->SetText(6, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.COPAR.c_str());
+//		 pItem->SetText(7, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.isPublic.c_str());
+//		 pItem->SetText(8, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.SOL.c_str());
+//		 pItem->SetText(9, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.satSemiMajor.c_str());
+//		 pItem->SetText(10, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.satEcc.c_str());
+//		 pItem->SetText(11, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.satOblique.c_str());
+//		 pItem->SetText(12, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.satRAAN.c_str());
+//		 pItem->SetText(13, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.satOmega.c_str());
+//		 pItem->SetText(14, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.satTrueAnomaly.c_str());
+//		 pItem->SetText(15, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.satLoadName.c_str());
+//		 pItem->SetText(16, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stDXSJ.satAntennaName.c_str());
+//		 pItem->SetText(17, text_string.c_str());
+//	 }
+//
+//	 //获取卫星天线数据表数据;
+//	 ConnectMysql::Instance().getAllWxtxbBySchemeID(EnvironmentData::m_mapStWXTXB,1);
+//	 m_dataList_WXTX->RemoveAll();
+//	 for (auto& st : EnvironmentData::m_mapStWXTXB)
+//	 {
+//
+//		 auto& stData = st.second;
+//		 CListTextElementUI* pItem = new CListTextElementUI();
+//		
+//		 m_dataList_WXTX->Add(pItem);
+//		 UtilTool::setWstring(text_string, stData.satAntennaName.c_str());
+//		 pItem->SetText(0, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.satName.c_str());
+//		 pItem->SetText(1, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.satAntennaType.c_str());
+//		 pItem->SetText(2, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.satAntennaCaliber.c_str());
+//		 pItem->SetText(3, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.satAntennaGain.c_str());
+//		 pItem->SetText(4, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.satAntennaEff.c_str());
+//		 pItem->SetText(5, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.satAntennaPointerLoss.c_str());
+//		 pItem->SetText(6, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.satName.c_str());
+//		 pItem->SetText(7, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.satAntennaPolarLoss.c_str());
+//		 pItem->SetText(8, text_string.c_str());
+//
+//	 }
+//	 //获取卫星载荷数据数据表数据;
+//	 ConnectMysql::Instance().getAllWxzhsjbBySchemeID(EnvironmentData::m_mapStWXZHSJB,1);
+//	 m_dataList_WXZHSJB->RemoveAll();
+//	 for (auto& st : EnvironmentData::m_mapStWXZHSJB)
+//	 {
+//		 auto& stData = st.second;
+//		 CListTextElementUI* pItem = new CListTextElementUI();
+//		 m_dataList_WXZHSJB->Add(pItem);
+//
+//		 UtilTool::setWstring(text_string, stData.satLoadName.c_str());
+//		 pItem->SetText(0, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.satLoadWaveBand.c_str());
+//		 pItem->SetText(1, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.satLoadCorp.c_str());
+//		 pItem->SetText(2, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.satLoadSendEIRP.c_str());
+//		 pItem->SetText(3, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.satLoadSendSFD.c_str());
+//		 pItem->SetText(4, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.satLoadRecvGT.c_str());
+//		 pItem->SetText(5, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.satLoadBandwidth.c_str());
+//		 pItem->SetText(6, text_string.c_str());
+//	 }
+//
+//	 //电信港数据表
+//	 ConnectMysql::Instance().getAllDxgsjbBySchemeID(EnvironmentData::m_mapStDXGSJB, 1);
+//	 m_dataList_DXGSJB->RemoveAll();
+//	 for (auto& st : EnvironmentData::m_mapStDXGSJB)
+//	 {
+//		 auto& stData = st.second;
+//		 CListTextElementUI* pItem = new CListTextElementUI();
+//		 m_dataList_DXGSJB->Add(pItem);
+//		 UtilTool::setWstring(text_string, stData.teleportName.c_str());
+//		 pItem->SetText(0, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.teleportNation.c_str());
+//		 pItem->SetText(1, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.teleportCorp.c_str());
+//		 pItem->SetText(2, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.teleportType.c_str());
+//		 pItem->SetText(3, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.teleportYear.c_str());
+//		 pItem->SetText(4, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.teleportLon.c_str());
+//		 pItem->SetText(5, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.teleportLat.c_str());
+//		 pItem->SetText(6, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationName.c_str());
+//		 pItem->SetText(7, text_string.c_str());
+//	 }
+//
+//	 //地球站数据表
+//	 ConnectMysql::Instance().getAllDqzsjbBySchemeID(EnvironmentData::m_mapStDQZSJB, 1);
+//	 m_dataList_DQZSJB->RemoveAll();
+//	 for (auto& st : EnvironmentData::m_mapStDQZSJB)
+//	 {
+//		 auto& stData = st.second;
+//		 CListTextElementUI* pItem = new CListTextElementUI();
+//		 m_dataList_DQZSJB->Add(pItem);
+//		 UtilTool::setWstring(text_string, stData.stationName.c_str());
+//		 pItem->SetText(0, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.teleportName.c_str());
+//		 pItem->SetText(1, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationCorp.c_str());
+//		 pItem->SetText(2, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationType.c_str());
+//		 pItem->SetText(3, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationLon.c_str());
+//		 pItem->SetText(4, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationLat.c_str());
+//		 pItem->SetText(5, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationAlt.c_str());
+//		 pItem->SetText(6, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationLoadName.c_str());
+//		 pItem->SetText(7, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationWaveName.c_str());
+//		 pItem->SetText(8, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationAntennaName.c_str());
+//		 pItem->SetText(9, text_string.c_str());
+//
+//	 }
+//
+//	 //地球站馈源数据表
+//	 ConnectMysql::Instance().getAllDqzkysjbBySchemeID(EnvironmentData::m_mapStDQZKYSJB, 1);
+//	 m_dataList_DQZKYSJB->RemoveAll();
+//	 for (auto& st : EnvironmentData::m_mapStDQZKYSJB)
+//	 {
+//		 auto& stData = st.second;
+//		 CListTextElementUI* pItem = new CListTextElementUI();
+//		 m_dataList_DQZKYSJB->Add(pItem);
+//		 UtilTool::setWstring(text_string, stData.stationLoadName.c_str());
+//		 pItem->SetText(0, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationName.c_str());
+//		 pItem->SetText(1, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationLoadWaveBand.c_str());
+//		 pItem->SetText(2, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationLoadCorp.c_str());
+//		 pItem->SetText(3, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationLoadSendPower.c_str());
+//		 pItem->SetText(4, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationLoadSendCarrierFreq.c_str());
+//		 pItem->SetText(5, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationLoadSendFEC.c_str());
+//		 pItem->SetText(6, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationLoadUpBPS.c_str());
+//		 pItem->SetText(7, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationLoadRecvGT.c_str());
+//		 pItem->SetText(8, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationLoadRecvCarrierFreq.c_str());
+//		 pItem->SetText(9, text_string.c_str());
+//		 UtilTool::setWstring(text_string, stData.stationLoadDownBPS.c_str());
+//		 pItem->SetText(10, text_string.c_str());	
+//
+//	 }	
+//
+//	 // 地球站波形设备数据表;
+//	 ConnectMysql::Instance().getAllDqzbxsbsjbBySchemeID(EnvironmentData::m_mapStDQZBXSBSJB, 1);
+//	 m_dataList_DQZBXSB->RemoveAll();
+//	for (auto& st : EnvironmentData::m_mapStDQZBXSBSJB)
+//	{
+//		auto& stData = st.second;
+//		CListTextElementUI* pItem = new CListTextElementUI();
+//		m_dataList_DQZBXSB->Add(pItem);
+//		UtilTool::setWstring(text_string, stData.stationWaveName.c_str());
+//		pItem->SetText(0, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationName.c_str());
+//		pItem->SetText(1, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationWaveModel.c_str());
+//		pItem->SetText(2, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationWaveModType.c_str());
+//		pItem->SetText(3, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationWaveDemoType.c_str());
+//		pItem->SetText(4, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationWaveCodingType.c_str());
+//		pItem->SetText(5, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationWaveCarrierType.c_str());
+//		pItem->SetText(6, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationWaveBandwidth.c_str());
+//		pItem->SetText(7, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationWaveType.c_str());
+//		pItem->SetText(8, text_string.c_str());
+//	}
+//
+//	//地球站天线
+//	ConnectMysql::Instance().getAllDqztxbBySchemeID(EnvironmentData::m_mapStDQZTXB, 1);
+//	m_dataList_DQZTX->RemoveAll();
+//	for (auto& st : EnvironmentData::m_mapStDQZTXB)
+//	{
+//		auto& stData = st.second;
+//		CListTextElementUI* pItem = new CListTextElementUI();
+//		m_dataList_DQZTX->Add(pItem);
+//		UtilTool::setWstring(text_string, stData.stationAntennaName.c_str());
+//		pItem->SetText(0, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationName.c_str());
+//		pItem->SetText(1, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationAntennaType.c_str());
+//		pItem->SetText(2, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationAntennaCaliber.c_str());
+//		pItem->SetText(3, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationAntennaGain.c_str());
+//		pItem->SetText(4, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationAntennaEff.c_str());
+//		pItem->SetText(5, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationAntennaPointerLoss.c_str());
+//		pItem->SetText(6, text_string.c_str());
+//		UtilTool::setWstring(text_string, stData.stationAntennaPolarLoss.c_str());
+//		pItem->SetText(7, text_string.c_str());
+//
+//	}
 
 
 	//vec_vecData_DXSJB = ConnectMysql::Instance().mytest_QueryDatabase("0_单星数据表_1");//获取的数据库中---单星数据表
@@ -1381,69 +1506,69 @@ void CPopDataManage::GettingDatabase()
 	//	cout << endl;
 	//}
 
-	vec_vecData_DMZDSJB = ConnectMysql::Instance().mytest_QueryDatabase("2_地面终端数据表_1");//获取的数据库中---单星数据表
-	for (vector<vector<string>>::iterator it = vec_vecData_DMZDSJB.begin(); it != vec_vecData_DMZDSJB.end(); ++it)
-	{
-		CListTextElementUI* pItem = new CListTextElementUI();
-		//pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
-		m_dataList_DMZDSJB->Add(pItem);
-		wstring text_string;
-		for (int i = 0; i < (*it).size(); ++i)
-		{
-			//cout << (*it)[i] << " ";
-			UtilTool::setWstring(text_string, (*it)[i].c_str());
-			pItem->SetText(i, text_string.c_str());
-		}
-		cout << endl;
-	}
+	//vec_vecData_DMZDSJB = ConnectMysql::Instance().mytest_QueryDatabase("2_地面终端数据表_1");//获取的数据库中---单星数据表
+	//for (vector<vector<string>>::iterator it = vec_vecData_DMZDSJB.begin(); it != vec_vecData_DMZDSJB.end(); ++it)
+	//{
+	//	CListTextElementUI* pItem = new CListTextElementUI();
+	//	//pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
+	//	m_dataList_DMZDSJB->Add(pItem);
+	//	wstring text_string;
+	//	for (int i = 0; i < (*it).size(); ++i)
+	//	{
+	//		//cout << (*it)[i] << " ";
+	//		UtilTool::setWstring(text_string, (*it)[i].c_str());
+	//		pItem->SetText(i, text_string.c_str());
+	//	}
+	//	cout << endl;
+	//}
 
-	vec_vecData_ZDZHSJB = ConnectMysql::Instance().mytest_QueryDatabase("2_终端载荷数据表_1");//获取的数据库中---单星数据表
-	for (vector<vector<string>>::iterator it = vec_vecData_ZDZHSJB.begin(); it != vec_vecData_ZDZHSJB.end(); ++it)
-	{
-		CListTextElementUI* pItem = new CListTextElementUI();
-		//pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
-		m_dataList_ZDZHSJB->Add(pItem);
-		wstring text_string;
-		for (int i = 0; i < (*it).size(); ++i)
-		{
-			//cout << (*it)[i] << " ";
-			UtilTool::setWstring(text_string, (*it)[i].c_str());
-			pItem->SetText(i, text_string.c_str());
-		}
-		cout << endl;
-	}
+	//vec_vecData_ZDZHSJB = ConnectMysql::Instance().mytest_QueryDatabase("2_终端载荷数据表_1");//获取的数据库中---单星数据表
+	//for (vector<vector<string>>::iterator it = vec_vecData_ZDZHSJB.begin(); it != vec_vecData_ZDZHSJB.end(); ++it)
+	//{
+	//	CListTextElementUI* pItem = new CListTextElementUI();
+	//	//pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
+	//	m_dataList_ZDZHSJB->Add(pItem);
+	//	wstring text_string;
+	//	for (int i = 0; i < (*it).size(); ++i)
+	//	{
+	//		//cout << (*it)[i] << " ";
+	//		UtilTool::setWstring(text_string, (*it)[i].c_str());
+	//		pItem->SetText(i, text_string.c_str());
+	//	}
+	//	cout << endl;
+	//}
 
-	vec_vecData_BXSBSJB = ConnectMysql::Instance().mytest_QueryDatabase("2_终端波形设备数据表_1");//获取的数据库中---单星数据表
-	for (vector<vector<string>>::iterator it = vec_vecData_BXSBSJB.begin(); it != vec_vecData_BXSBSJB.end(); ++it)
-	{
-		CListTextElementUI* pItem = new CListTextElementUI();
-		//pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
-		m_dataList_BXSBSJB->Add(pItem);
-		wstring text_string;
-		for (int i = 0; i < (*it).size(); ++i)
-		{
-			//cout << (*it)[i] << " ";
-			UtilTool::setWstring(text_string, (*it)[i].c_str());
-			pItem->SetText(i, text_string.c_str());
-		}
-		cout << endl;
-	}
+	//vec_vecData_BXSBSJB = ConnectMysql::Instance().mytest_QueryDatabase("2_终端波形设备数据表_1");//获取的数据库中---单星数据表
+	//for (vector<vector<string>>::iterator it = vec_vecData_BXSBSJB.begin(); it != vec_vecData_BXSBSJB.end(); ++it)
+	//{
+	//	CListTextElementUI* pItem = new CListTextElementUI();
+	//	//pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
+	//	m_dataList_BXSBSJB->Add(pItem);
+	//	wstring text_string;
+	//	for (int i = 0; i < (*it).size(); ++i)
+	//	{
+	//		//cout << (*it)[i] << " ";
+	//		UtilTool::setWstring(text_string, (*it)[i].c_str());
+	//		pItem->SetText(i, text_string.c_str());
+	//	}
+	//	cout << endl;
+	//}
 
-	vec_vecData_ZDTX = ConnectMysql::Instance().mytest_QueryDatabase("2_终端天线_1");//获取的数据库中---单星数据表
-	for (vector<vector<string>>::iterator it = vec_vecData_ZDTX.begin(); it != vec_vecData_ZDTX.end(); ++it)
-	{
-		CListTextElementUI* pItem = new CListTextElementUI();
-		//pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
-		m_dataList_ZDTX->Add(pItem);
-		wstring text_string;
-		for (int i = 0; i < (*it).size(); ++i)
-		{
-			//cout << (*it)[i] << " ";
-			UtilTool::setWstring(text_string, (*it)[i].c_str());
-			pItem->SetText(i, text_string.c_str());
-		}
-		cout << endl;
-	}
+	//vec_vecData_ZDTX = ConnectMysql::Instance().mytest_QueryDatabase("2_终端天线_1");//获取的数据库中---单星数据表
+	//for (vector<vector<string>>::iterator it = vec_vecData_ZDTX.begin(); it != vec_vecData_ZDTX.end(); ++it)
+	//{
+	//	CListTextElementUI* pItem = new CListTextElementUI();
+	//	//pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
+	//	m_dataList_ZDTX->Add(pItem);
+	//	wstring text_string;
+	//	for (int i = 0; i < (*it).size(); ++i)
+	//	{
+	//		//cout << (*it)[i] << " ";
+	//		UtilTool::setWstring(text_string, (*it)[i].c_str());
+	//		pItem->SetText(i, text_string.c_str());
+	//	}
+	//	cout << endl;
+	//}
 
 
 }
@@ -1591,6 +1716,125 @@ void CPopDataManage::InitializeMap()
 	FilterArray_map13["天线极化误差"] = "userAntennaPolarLoss";
 }
 
+void CPopDataManage::updateListShow(CHorizontalLayoutUI* pLayout, const std::string& tableName)
+{
+	// 1. 删除所有 CListUI 控件
+	if (pLayout != nullptr)
+	{
+		// 从后往前删除是为了避免在迭代过程中影响索引
+		int Count = pLayout->GetCount();
+		for (int i = pLayout->GetCount() - 1; i >= 0; --i)
+		{
+			CControlUI* pControl = pLayout->GetItemAt(i);
+			if (pControl != nullptr && _tcscmp(pControl->GetClass(), _T("ListUI")) == 0)
+			{
+				pLayout->Remove(pControl);
+			}
+		}
+	}
+
+	std::vector<std::string> vecFileds;
+	ConnectMysql::Instance().getFilelds(tableName, vecFileds);
+	if (vecFileds.size()< 30)
+	{
+		CListUI* pList = new CListUI();
+
+		//pList->SetBkColor(0xFFFFFFFF);
+		//pList->SetBorderColor(0xFF85E4FF);
+		//pList->SetTextColor(0xFF000000);
+		pList->SetBorderSize(1);
+		pList->SetItemTextColor(0xffffff);
+		//pList->SetParent(m_PaintManager.GetRoot());
+		//pList->SetPos(10, 50, 780, 400);
+		//pList->SetTag(_T("listDemo"));
+		
+		updateListHeaderShow(pList, tableName);
+		updateListDataShow(pList, tableName);
+
+		// 将新创建的 ListUI 控件添加到 HorizontalLayout
+		pList->NeedUpdate();
+		pLayout->Add(pList);
+	}
+
+}
+
+void CPopDataManage::updateListHeaderShow(CListUI* pList, const std::string& tableName)
+{
+	// 获取旧的表头并移除
+
+	pList->RemoveAll();
+	CListHeaderUI* pOldHeader = pList->GetHeader();
+	if (pOldHeader != NULL) {
+
+		//m_dataList_XZSJB->Remove(pOldHeader);
+		pOldHeader->RemoveAll();
+	}
+
+	pList->NeedUpdate();
+
+	//std::string strTableNameXZ = EnvironmentData::m_strCurScheme + ("_星座");
+	//strTableNameXZ= ("方案6_星座");
+	std::vector<std::string> vecXzFileds;
+	ConnectMysql::Instance().getFilelds(tableName, vecXzFileds);
+
+	// 遍历 vector，为每个字符串创建一个列项
+	wstring text_string;
+	for (const auto& headerText : vecXzFileds)
+	{
+		CListHeaderItemUI* pColumn = new CListHeaderItemUI();
+		UtilTool::setWstring(text_string, headerText.c_str());
+
+		pColumn->SetText(text_string.c_str()); // 假设vector里存储的是UTF-8编码的字符串
+		// 设置正常状态下的字体颜色
+		pColumn->SetAttribute(_T("textcolor"), _T("#FFFFFF")); // 
+
+		//pColumn->SetFixedWidth(100); // 可以根据实际需要设置固定宽度
+		pOldHeader->Add(pColumn);
+	}
+}
+
+void CPopDataManage::updateListDataShow(CListUI* pList, const std::string& tableName)
+{
+	 auto vec_vecData = ConnectMysql::Instance().mytest_QueryDatabase(tableName);
+	 pList->RemoveAll();
+
+	
+
+	 wstring text_string;
+	 for (vector<vector<string>>::iterator it = vec_vecData.begin(); it != vec_vecData.end(); ++it)
+	 {
+		// CListTextElementUI* pItem = (CListTextElementUI*)pList->GetItemAt(1);
+		 CListTextElementUI* pItem = new CListTextElementUI();
+
+		 // 设置正常状态下的文本颜色
+		// pItem->SetTextColor("0xFF000000"); // 黑色
+		// pItem->SetAttribute(_T("textcolor"), _T("0xFF000000")); // 设置文字颜色为黑色
+		// pItem->SetAttribute(_T("font"), _T("1")); // 设置字体，假设字体ID为1
+
+		 // 设置鼠标悬停状态下的文本颜色
+		// pItem->SetHotTextColor(0xFF0000FF); // 蓝色
+
+		 // 设置选中状态下的文本颜色
+		// pItem->SetSelectedTextColor(0xFFFF0000); // 红色
+		 pList->Add(pItem);
+		 for (int i = 0; i < (*it).size(); ++i)
+		 {
+			 if (i == 28)
+			 {
+				 int a = 0;
+			 }
+			 UtilTool::setWstring(text_string, (*it)[i].c_str());
+			 //pItem->SetText(i, text_string.c_str());
+			// UtilTool::setWstring(text_string, "");
+			  pItem->SetText(i, text_string.c_str());
+			
+			
+		 }
+		
+	 }
+	 pList->NeedUpdate();
+}
+
 //星座数据表
 void CPopDataManage::Filter_XZSJB()
 {
@@ -1601,12 +1845,14 @@ void CPopDataManage::Filter_XZSJB()
 		for (vector<vector<string>>::iterator it = vec_vecData_XZSJB.begin(); it != vec_vecData_XZSJB.end(); ++it)
 		{
 			CListTextElementUI* pItem = new CListTextElementUI();
+			
 			//pItem->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
 			m_dataList_XZSJB->Add(pItem);
 			wstring text_string;
 			for (int i = 0; i < (*it).size(); ++i)
 			{
 				//cout << (*it)[i] << " ";
+				
 				UtilTool::setWstring(text_string, (*it)[i].c_str());
 				pItem->SetText(i, text_string.c_str());
 			}

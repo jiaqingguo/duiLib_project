@@ -33,6 +33,10 @@ public:
 	void GettingDatabase();
 	void InitializeMap();//初始化map
 
+	void updateListShow(CHorizontalLayoutUI *pLayout, const std::string& tableName);
+	void updateListHeaderShow(CListUI* pList,const std::string& tableName);
+	void updateListDataShow(CListUI* pList, const std::string& tableName);
+
 	void InitializeCombo();//向Combo里面添加东西
 	void Filter_XZSJB();//星座数据表
 	void Filter_DXSJB();//单星数据表筛选
@@ -92,6 +96,10 @@ public:
 	CListUI* m_dataList_ZDZHSJB;//终端载荷数据表的List
 	CListUI* m_dataList_BXSBSJB;//波形设备数据表的List
 	CListUI* m_dataList_ZDTX;//终端天线的List
+
+
+	CHorizontalLayoutUI* m_layoutDX=nullptr;
+	CHorizontalLayoutUI* m_layoutXZ = nullptr;
 
 private:
 

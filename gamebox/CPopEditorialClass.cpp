@@ -166,7 +166,7 @@ void CPopEditorialClass::createTreeNodesOfDX(CTreeNodeUI* pTreeNodeXZ, const int
 {
 	// 获取 对应星座下的单星数据;
 	std::map<int, stDXSJB>	mapStXZSJBofXZ;
-	EnvironmentData::m_iCurSchemeID = 1;
+	//EnvironmentData::m_iCurSchemeID = 1;
 	ConnectMysql::Instance().getDxsjbBySchemeIDAndXzID(mapStXZSJBofXZ, EnvironmentData::m_iCurSchemeID, sqlID);
 
 	for (const auto& stData : mapStXZSJBofXZ)
@@ -7519,6 +7519,16 @@ void CPopEditorialClass::saveDatabaseScheme(const std::string& strScheme)
 	std::set<std::string> filelds;
 	std::vector<std::string> vecFilelds;
 	std::vector<std::string> vecFileldsValue;
+
+	bool bExist = false;
+	ConnectMysql::Instance().isExisrSchemName(bExist, strScheme);
+	if (!bExist)
+	{
+		//插入方案名;
+		ConnectMysql::Instance().addScheme(strScheme);
+	}
+	
+
 	/*******************新建星座表及字段********************/                        //////// ?????? 考量 星座字段不一致的问题
 	
 

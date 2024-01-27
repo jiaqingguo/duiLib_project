@@ -80,6 +80,9 @@ public:
 	// 创建表及字段;
 	bool createTableAndFields(const std::string& table, const std::vector<std::string> &vecFilelds);
 
+	// 获取字段;
+	bool getFilelds(const std::string& table, std::vector<std::string>& vecFilelds);
+
 	bool createTableAndFields(const std::string& table, const std::set<std::string>& vecFilelds);
 
 	//bool createTableAndFields(const std::wstring& table, const std::set<std::wstring>& vecFilelds);
@@ -94,6 +97,8 @@ public:
 	bool getAllScheme(std::map<int,stScheme> &listScheme);
 	// 增加方案;
 	bool addScheme(const std::string &schemeName);
+
+	bool isExisrSchemName(bool& bExist, const std::string& schemeName);
 
 	// 星座数据表;
 	//bool getAllXzsjb(sstXZSJB& record_list);
