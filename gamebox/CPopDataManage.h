@@ -33,7 +33,12 @@ public:
 	void GettingDatabase();
 	void InitializeMap();//≥ı ºªØmap
 
+	void createListAndShowData(CHorizontalLayoutUI* pLayout, const std::string& tableName);
 	void updateListShow(CHorizontalLayoutUI *pLayout, const std::string& tableName);
+
+	void updateListHeaderShow(CListUI* pList, const std::vector<std::string>& groupFileds);
+	void updateListDataShow(CListUI* pList,  const vector<vector<string>>& vecVecData);
+
 	void updateListHeaderShow(CListUI* pList,const std::string& tableName);
 	void updateListDataShow(CListUI* pList, const std::string& tableName);
 
@@ -100,6 +105,19 @@ public:
 
 	CHorizontalLayoutUI* m_layoutDX=nullptr;
 	CHorizontalLayoutUI* m_layoutXZ = nullptr;
+	CHorizontalLayoutUI* m_layoutWXZH = nullptr;
+	CHorizontalLayoutUI* m_layoutWXTX = nullptr;
+
+	CHorizontalLayoutUI* m_layoutDXG = nullptr;
+	CHorizontalLayoutUI* m_layoutDQZ = nullptr;
+	CHorizontalLayoutUI* m_layoutDQZBX = nullptr;
+	CHorizontalLayoutUI* m_layoutDQZKY = nullptr;
+	CHorizontalLayoutUI* m_layoutDQZTX = nullptr;
+
+	CHorizontalLayoutUI* m_layoutDMZD = nullptr;
+	CHorizontalLayoutUI* m_layoutDMZDBX = nullptr;
+	CHorizontalLayoutUI* m_layoutDMZDZH = nullptr;
+	CHorizontalLayoutUI* m_layoutDMZDTX = nullptr;
 
 private:
 

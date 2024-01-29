@@ -634,7 +634,20 @@ void CPopDataManage::InitWindow()
 
 	m_layoutXZ = static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layoutXZ")));//星座 布局
 	m_layoutDX= static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layouDX")));//单星 布局
+	m_layoutWXZH = static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layoutWSZH")));
+	m_layoutWXTX = static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layoutWSTX")));
 
+	m_layoutDXG = static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layoutDXG")));
+	m_layoutDQZ = static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layoutDQZ")));
+	m_layoutDQZKY = static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layoutDQZKY")));
+	m_layoutDQZBX = static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layoutDQZBX")));
+	m_layoutDQZTX = static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layoutDQZTX")));
+
+
+	m_layoutDMZD = static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layoutDMZD")));
+	m_layoutDMZDZH = static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layoutDMZDZH")));
+	m_layoutDMZDBX = static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layoutDMZDBX")));
+	m_layoutDMZDTX = static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layoutDMZDTX")));
 	
 	//list_DataShow_XZSJB
 	/*if (!ConnectMysql::Instance().StartConnectMysql())
@@ -989,29 +1002,35 @@ void CPopDataManage::GettingDatabase()
 
 	std::string strTableNameXZ = EnvironmentData::m_strCurScheme + ("_星座");
 
+	//createListAndShowData(m_layoutXZ, strTableNameXZ);
+	
 	updateListShow(m_layoutXZ, strTableNameXZ);
 	//updateListHeaderShow(m_dataList_XZSJB, strTableNameXZ);
 	//updateListDataShow(m_dataList_XZSJB, strTableNameXZ);
 
-
+	
 	std::string strTableNameWX = EnvironmentData::m_strCurScheme + ("_卫星");
-	updateListHeaderShow(m_dataList_DXSJB, strTableNameWX);
-	updateListDataShow(m_dataList_DXSJB, strTableNameWX);
+	updateListShow(m_layoutDX, strTableNameWX);
+//updateListHeaderShow(m_dataList_DXSJB, strTableNameWX);
+	//updateListDataShow(m_dataList_DXSJB, strTableNameWX);
 
 	
 
 	std::string strTableNameWXTX = EnvironmentData::m_strCurScheme + ("_卫星天线");
-	updateListHeaderShow(m_dataList_WXTX, strTableNameWXTX);
-	updateListDataShow(m_dataList_WXTX, strTableNameWXTX);
+	updateListShow(m_layoutWXTX, strTableNameWXTX);
+	/*updateListHeaderShow(m_dataList_WXTX, strTableNameWXTX);
+	updateListDataShow(m_dataList_WXTX, strTableNameWXTX);*/
 
 	std::string strTableNameWXZH = EnvironmentData::m_strCurScheme + ("_卫星载荷");
-	updateListHeaderShow(m_dataList_WXZHSJB, strTableNameWXZH);
-	updateListDataShow(m_dataList_WXZHSJB, strTableNameWXZH);
+	updateListShow(m_layoutWXZH, strTableNameWXZH);
+	//updateListHeaderShow(m_dataList_WXZHSJB, strTableNameWXZH);
+	//updateListDataShow(m_dataList_WXZHSJB, strTableNameWXZH);
 
 
 	std::string strTableNameDXG = EnvironmentData::m_strCurScheme + ("_电信港");
-	updateListHeaderShow(m_dataList_DXGSJB, strTableNameDXG);
-	updateListDataShow(m_dataList_DXGSJB, strTableNameDXG);
+	updateListShow(m_layoutDXG, strTableNameDXG);
+	/*updateListHeaderShow(m_dataList_DXGSJB, strTableNameDXG);
+	updateListDataShow(m_dataList_DXGSJB, strTableNameDXG);*/
 
 	std::string strTableNameDQZ = EnvironmentData::m_strCurScheme + ("_地球站");
 	updateListHeaderShow(m_dataList_DQZSJB, strTableNameDQZ);
@@ -1716,6 +1735,72 @@ void CPopDataManage::InitializeMap()
 	FilterArray_map13["天线极化误差"] = "userAntennaPolarLoss";
 }
 
+void CPopDataManage::createListAndShowData(CHorizontalLayoutUI* pLayout, const std::string& tableName)
+{
+	// 1. 删除所有 CListUI 控件
+	if (m_layoutXZ != nullptr)
+	{
+		// 从后往前删除是为了避免在迭代过程中影响索引
+		int Count = m_layoutXZ->GetCount();
+		for (int i = m_layoutXZ->GetCount() - 1; i >= 0; --i)
+		{
+			CControlUI* pControl = m_layoutXZ->GetItemAt(i);
+			if (pControl != nullptr && _tcscmp(pControl->GetClass(), _T("ListUI")) == 0)
+			{
+				m_layoutXZ->Remove(pControl);
+			}
+		}
+	}
+	CListUI* pList = new CListUI;
+	pList->ApplyAttributeList(_T("name=\"ShowList\" float=\"true\" pos=\"30,0,0,0\" width=\"740\" height=\"450\" sepheight=\"1\" itemalign=\"center\" itembkcolor=\"#FFE2DDDF\" itemaltbk=\"true\""));
+
+	m_layoutXZ->Add(pList);
+	//CListUI * pList = static_cast<CListUI*>(m_PaintManager.FindControl(_T("ShowList")));
+	pList->RemoveAll();
+
+	CListHeaderUI* pHeader = new CListHeaderUI;
+	pList->Add(pHeader);
+
+	//CListHeaderUI *pHeader = static_cast<CListHeaderUI*>(m_PaintManager.FindControl(_T("Listheader")));
+	CListHeaderItemUI* pListHeaderItemIP = new CListHeaderItemUI;
+	pListHeaderItemIP->ApplyAttributeList(_T("text=\"IP\"   width=\"100\"  height=\"30\" sepwidth=\"1\""));
+
+	CListHeaderItemUI* pListHeaderItemCmd = new CListHeaderItemUI;
+	pListHeaderItemCmd->ApplyAttributeList(_T("text=\"Command\"   width=\"100\"  height=\"30\" sepwidth=\"1\""));
+
+	CListHeaderItemUI* pListHeaderItemDb = new CListHeaderItemUI;
+	pListHeaderItemDb->ApplyAttributeList(_T("text=\"DbName\"   width=\"100\"  height=\"30\" sepwidth=\"1\""));
+
+	CListHeaderItemUI* pListHeaderItemUser = new CListHeaderItemUI;
+	pListHeaderItemUser->ApplyAttributeList(_T("text=\"User\"   width=\"100\"  height=\"30\" sepwidth=\"1\""));
+
+	CListHeaderItemUI* pListHeaderItemInfo = new CListHeaderItemUI;
+	pListHeaderItemInfo->ApplyAttributeList(_T("text=\"Info\" itemendellipsis=\"true\"  width=\"100\"  height=\"30\" sepwidth=\"1\""));
+
+	CListHeaderItemUI* pListHeaderItemTime = new CListHeaderItemUI;
+	pListHeaderItemTime->ApplyAttributeList(_T("text=\"Time\"   width=\"100\"  height=\"30\" sepwidth=\"1\""));
+
+	pList->Add(pListHeaderItemIP);
+	pList->Add(pListHeaderItemCmd);
+	pList->Add(pListHeaderItemDb);
+	pList->Add(pListHeaderItemUser);
+	pList->Add(pListHeaderItemInfo);
+	pList->Add(pListHeaderItemTime);
+
+	for (int i = 0; i < 5; i++)
+	{
+		CListTextElementUI* pListElement = new CListTextElementUI;
+		//pListElement->ApplyAttributeList(_T("textcolor=\"#FF000000\""));
+		pList->Add(pListElement);
+		pListElement->SetText(0, _T("测试"));
+		pListElement->SetText(1, _T("测试"));
+		pListElement->SetText(2, _T("测试"));
+		pListElement->SetText(3, _T("测试"));
+		pListElement->SetText(4, _T("测试"));
+
+	}
+}
+
 void CPopDataManage::updateListShow(CHorizontalLayoutUI* pLayout, const std::string& tableName)
 {
 	// 1. 删除所有 CListUI 控件
@@ -1738,15 +1823,11 @@ void CPopDataManage::updateListShow(CHorizontalLayoutUI* pLayout, const std::str
 	if (vecFileds.size()< 30)
 	{
 		CListUI* pList = new CListUI();
+		pList->ApplyAttributeList(_T("name=\"ShowList\" float=\"true\" pos=\"30,0,0,0\" width=\"1300\" height=\"450\" sepheight=\"1\" itemalign=\"center\" itembkcolor=\"#FFE2DDDF\" itemaltbk=\"true\""));
 
-		//pList->SetBkColor(0xFFFFFFFF);
-		//pList->SetBorderColor(0xFF85E4FF);
-		//pList->SetTextColor(0xFF000000);
 		pList->SetBorderSize(1);
 		pList->SetItemTextColor(0xffffff);
-		//pList->SetParent(m_PaintManager.GetRoot());
-		//pList->SetPos(10, 50, 780, 400);
-		//pList->SetTag(_T("listDemo"));
+	
 		
 		updateListHeaderShow(pList, tableName);
 		updateListDataShow(pList, tableName);
@@ -1755,6 +1836,116 @@ void CPopDataManage::updateListShow(CHorizontalLayoutUI* pLayout, const std::str
 		pList->NeedUpdate();
 		pLayout->Add(pList);
 	}
+	else
+	{
+
+		CHorizontalLayoutUI* pHorizontalLayout = new CHorizontalLayoutUI();
+		int widthTotal = 1300;
+	//	int parentWidth = pLayout->GetClientSize().cx;
+		//int listWidth = static_cast<int>(parentWidth * 0.5);  // 例如，设置宽度为父容器的50%
+
+		
+		
+		vector<vector<string>> vec_vecData = ConnectMysql::Instance().mytest_QueryDatabase(tableName);
+
+		int count = 30;
+		int numGroups = (vecFileds.size() + count - 1) / count;  // 计算划分后的组数
+
+		int width = widthTotal / numGroups;
+		for (int i = 0; i < numGroups; i++)
+		{
+			// 截取字段;
+			std::vector<std::string> groupFileds;
+			for (int j = i * count; j < (i + 1) * count && j < vecFileds.size(); j++)
+			{
+				groupFileds.push_back(vecFileds[j]);
+			}
+			
+
+			// 截取数据
+			vector<vector<string>>  groupVecData;
+			for (vector<vector<string>>::iterator it = vec_vecData.begin(); it != vec_vecData.end(); ++it)
+			{
+				vector<string> vecData;
+				for (int j= i* count; j< (i + 1) * count && j < (*it).size(); j++)
+				{
+					vecData.push_back((*it)[j]);
+				}
+
+				groupVecData.push_back(vecData);
+			}
+
+			CListUI* pList = new CListUI();
+			pList->ApplyAttributeList(_T("name=\"ShowList\" float=\"true\" pos=\"30,0,0,0\" width=\"1300\" height=\"450\" sepheight=\"1\" itemalign=\"center\" itembkcolor=\"#FFE2DDDF\" itemaltbk=\"true\""));
+			
+			
+			wstring text_string;
+			UtilTool::setWstring(text_string, std::to_string(i).c_str());
+		// 将整数转换为字符串，并设置为控件的name
+			pList->SetName(text_string.c_str());
+			//pList->SetName(i);
+			pList->SetBorderSize(1);
+			pList->SetItemTextColor(0xffffff);
+			pList->SetFixedWidth(width);
+			pList->EnableScrollBar(true, true);
+			//RECT rcMargin = { 5, 5, 5, 5 };  // 上下左右均为5
+		//	pList->SetMargin(rcMargin);
+			//pList->SetPadding(rcMargin);
+			
+
+			updateListHeaderShow(pList, groupFileds);
+			updateListDataShow(pList, groupVecData);
+			//pList->en
+			pList->NeedUpdate();
+			pLayout->Add(pList);
+		}
+		
+		//pLayout->Add(pHorizontalLayout);
+	}
+
+}
+
+void CPopDataManage::updateListHeaderShow(CListUI* pList, const std::vector<std::string>& groupFileds)
+{
+	CListHeaderUI* pHeader = new CListHeaderUI;
+	pList->Add(pHeader);
+
+	
+	// 遍历 vector，为每个字符串创建一个列项
+	wstring text_string;
+	for (const auto& headerText : groupFileds)
+	{
+		CListHeaderItemUI* pListHeaderItem = new CListHeaderItemUI();
+		UtilTool::setWstring(text_string, headerText.c_str());
+
+		pListHeaderItem->ApplyAttributeList(_T("text=\" \"   width=\"100\"  height=\"30\" sepwidth=\"1\""));
+		pListHeaderItem->SetText(text_string.c_str()); // 假设vector里存储的是UTF-8编码的字符串
+
+		pList->Add(pListHeaderItem);
+	}
+}
+
+void CPopDataManage::updateListDataShow(CListUI* pList,const   vector<vector<string>>& vecVecData)
+{
+	wstring text_string;
+	for (vector<vector<string>>::const_iterator it = vecVecData.begin(); it != vecVecData.end(); ++it)
+	{
+		// CListTextElementUI* pItem = (CListTextElementUI*)pList->GetItemAt(1);
+		CListTextElementUI* pItem = new CListTextElementUI();
+
+
+		pList->Add(pItem);
+		for (int i = 0; i < (*it).size(); ++i)
+		{
+			
+			UtilTool::setWstring(text_string, (*it)[i].c_str());
+		
+			pItem->SetText(i, text_string.c_str());
+
+
+		}
+
+	}
 
 }
 
@@ -1762,18 +1953,22 @@ void CPopDataManage::updateListHeaderShow(CListUI* pList, const std::string& tab
 {
 	// 获取旧的表头并移除
 
-	pList->RemoveAll();
-	CListHeaderUI* pOldHeader = pList->GetHeader();
-	if (pOldHeader != NULL) {
+	//pList->RemoveAll();
+	//CListHeaderUI* pOldHeader = pList->GetHeader();
+	//if (pOldHeader != NULL) {
 
-		//m_dataList_XZSJB->Remove(pOldHeader);
-		pOldHeader->RemoveAll();
-	}
+	//	//m_dataList_XZSJB->Remove(pOldHeader);
+	//	pOldHeader->RemoveAll();
+	//}
 
 	pList->NeedUpdate();
 
-	//std::string strTableNameXZ = EnvironmentData::m_strCurScheme + ("_星座");
-	//strTableNameXZ= ("方案6_星座");
+
+	CListHeaderUI* pHeader = new CListHeaderUI;
+	DWORD dwBackColor = RGB(255, 0, 0); // 红色背景
+	pHeader->SetBkColor(dwBackColor);
+	pList->Add(pHeader);
+
 	std::vector<std::string> vecXzFileds;
 	ConnectMysql::Instance().getFilelds(tableName, vecXzFileds);
 
@@ -1781,15 +1976,13 @@ void CPopDataManage::updateListHeaderShow(CListUI* pList, const std::string& tab
 	wstring text_string;
 	for (const auto& headerText : vecXzFileds)
 	{
-		CListHeaderItemUI* pColumn = new CListHeaderItemUI();
+		CListHeaderItemUI* pListHeaderItem = new CListHeaderItemUI();
 		UtilTool::setWstring(text_string, headerText.c_str());
 
-		pColumn->SetText(text_string.c_str()); // 假设vector里存储的是UTF-8编码的字符串
-		// 设置正常状态下的字体颜色
-		pColumn->SetAttribute(_T("textcolor"), _T("#FFFFFF")); // 
-
-		//pColumn->SetFixedWidth(100); // 可以根据实际需要设置固定宽度
-		pOldHeader->Add(pColumn);
+		pListHeaderItem->ApplyAttributeList(_T("text=\" \"   width=\"100\"  height=\"30\" sepwidth=\"1\""));
+		pListHeaderItem->SetText(text_string.c_str()); // 假设vector里存储的是UTF-8编码的字符串
+		pListHeaderItem->SetAttribute(_T("textcolor"), _T("#FFFFFFFF"));
+		pList->Add(pListHeaderItem);
 	}
 }
 
@@ -1806,16 +1999,7 @@ void CPopDataManage::updateListDataShow(CListUI* pList, const std::string& table
 		// CListTextElementUI* pItem = (CListTextElementUI*)pList->GetItemAt(1);
 		 CListTextElementUI* pItem = new CListTextElementUI();
 
-		 // 设置正常状态下的文本颜色
-		// pItem->SetTextColor("0xFF000000"); // 黑色
-		// pItem->SetAttribute(_T("textcolor"), _T("0xFF000000")); // 设置文字颜色为黑色
-		// pItem->SetAttribute(_T("font"), _T("1")); // 设置字体，假设字体ID为1
-
-		 // 设置鼠标悬停状态下的文本颜色
-		// pItem->SetHotTextColor(0xFF0000FF); // 蓝色
-
-		 // 设置选中状态下的文本颜色
-		// pItem->SetSelectedTextColor(0xFFFF0000); // 红色
+	
 		 pList->Add(pItem);
 		 for (int i = 0; i < (*it).size(); ++i)
 		 {

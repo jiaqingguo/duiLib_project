@@ -17,6 +17,7 @@ d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1580): warning C42
 d:\1_project\z_project\duilib_project\gamebox\util\utiltool.h(1660): warning C4081: 应输入“newline”；找到“;”
 d:\1_project\z_project\duilib_project\gamebox\cpopdatamanage.cpp(14): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
 d:\1_project\z_project\duilib_project\gamebox\cpopdatamanage.cpp(479): warning C4091: “”: 没有声明变量时忽略“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的左侧
+d:\1_project\z_project\duilib_project\gamebox\cpopdatamanage.cpp(1852): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
 LINK : warning LNK4075: 忽略“/INCREMENTAL”(由于“/FORCE”规范)
 CPopDeleteAttClass.obj : warning LNK4006: "wchar_t const * const m_ReceivedPrompts" (?m_ReceivedPrompts@@3PEB_WEB) 已在 ClueScreenClass.obj 中定义；已忽略第二个定义
 CPopEditorialClass.obj : warning LNK4006: "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl UTF8_To_string(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?UTF8_To_string@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV12@@Z) 已在 CPopDataManage.obj 中定义；已忽略第二个定义

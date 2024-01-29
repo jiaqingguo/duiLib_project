@@ -252,7 +252,7 @@
                             <Button name="bt_Export_opt3"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
 
                           </HorizontalLayout>-->
-                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                          <HorizontalLayout name="layoutWSZH" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
                             <List name="list_DataShow_WXZHAJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
                               <!--<ListHeader height="30" menu="true"  >-->
@@ -289,7 +289,7 @@
                             <Button name="bt_Export_opt4"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
 
                           </HorizontalLayout>-->
-                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                          <HorizontalLayout name="layoutWSTX" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
                             <List name="list_DataShow_WXTX" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
                               <!--<ListHeader height="30" menu="true"  >-->
@@ -327,7 +327,7 @@
                             <Button name="bt_Export_opt5"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
 
                           </HorizontalLayout>-->
-                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                          <HorizontalLayout name="layoutDXG" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
                             <List name="list_DataShow_DXGSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
                               <!--<ListHeader height="30" menu="true"  >-->
@@ -365,7 +365,7 @@
                             <Button name="bt_Export_opt6"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
 
                           </HorizontalLayout>-->
-                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                          <HorizontalLayout name="layoutDQZ" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             
                             <HorizontalLayout width="10" />
                             <List name="list_DataShow_DQZSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
@@ -407,7 +407,7 @@
                             <Button name="bt_Export_opt7"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
 
                           </HorizontalLayout>-->
-                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                          <HorizontalLayout name="layoutDQZKY"  height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
                             <List name="list_DataShow_DQZKYSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
                               <!--<ListHeader height="30" menu="true"  >-->
@@ -476,7 +476,7 @@
                             <Button name="bt_Export_opt8"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
 
                           </HorizontalLayout>-->
-                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                          <HorizontalLayout name="layoutDQZBX" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
                             <List name="list_DataShow_DQZBXSBSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
                               <!--<ListHeader height="30" menu="true"  >-->
@@ -516,7 +516,7 @@
                             <Button name="bt_Export_opt9"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
 
                           </HorizontalLayout>-->
-                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                          <HorizontalLayout name="layoutDQZTX" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
                             <List name="list_DataShow_DQZTX" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
                               <!--<ListHeader height="30" menu="true"  >-->
@@ -555,7 +555,7 @@
                             <Button name="bt_Export_opt10"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
 
                           </HorizontalLayout>-->
-                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                          <HorizontalLayout name="layoutDMZD" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
                             <List name="list_DataShow_DMZDSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
                               <!--<ListHeader height="30" menu="true"  >-->
@@ -590,7 +590,7 @@
                             <Button name="bt_Export_opt11"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"   valign="vcenter"  width="120"  height="30"   />
 
                           </HorizontalLayout>-->
-                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                          <HorizontalLayout name="layoutDMZDZH" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
                             <List name="list_DataShow_ZDZHSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
                               <!--<ListHeader height="30" menu="true"  >-->
@@ -631,7 +631,7 @@
                             <Button name="bt_Export_opt12"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
 
                           </HorizontalLayout>-->
-                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                          <HorizontalLayout name="layoutDMZDBX" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
                             <List name="list_DataShow_ZDBXSBSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
                               <!--<ListHeader height="30" menu="true"  >-->
@@ -669,7 +669,7 @@
                             <Button name="bt_Export_opt13"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="导出" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
 
                           </HorizontalLayout>-->
-                          <HorizontalLayout height="420" width="1280" inset="0,6,0,6" childpadding="1" >
+                          <HorizontalLayout name="layoutDMZDTX" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
                             <List name="list_DataShow_ZDTX" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
                               <!--<ListHeader height="30" menu="true"  >-->
