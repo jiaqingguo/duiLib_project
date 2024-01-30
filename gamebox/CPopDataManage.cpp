@@ -1014,8 +1014,6 @@ void CPopDataManage::GettingDatabase()
 //updateListHeaderShow(m_dataList_DXSJB, strTableNameWX);
 	//updateListDataShow(m_dataList_DXSJB, strTableNameWX);
 
-	
-
 	std::string strTableNameWXTX = EnvironmentData::m_strCurScheme + ("_卫星天线");
 	updateListShow(m_layoutWXTX, strTableNameWXTX);
 	/*updateListHeaderShow(m_dataList_WXTX, strTableNameWXTX);
@@ -1039,33 +1037,40 @@ void CPopDataManage::GettingDatabase()
 
 
 	std::string strTableNameDQZTX = EnvironmentData::m_strCurScheme + ("_地球站天线");
-	updateListHeaderShow(m_dataList_DQZTX, strTableNameDQZTX);
-	updateListDataShow(m_dataList_DQZTX, strTableNameDQZTX);
+	updateListShow(m_layoutDQZTX, strTableNameDQZTX);
+	//updateListHeaderShow(m_dataList_DQZTX, strTableNameDQZTX);
+	//updateListDataShow(m_dataList_DQZTX, strTableNameDQZTX);
 
 	std::string strTableNameDQZKY = EnvironmentData::m_strCurScheme + ("_地球站溃源");
-	updateListHeaderShow(m_dataList_DQZKYSJB, strTableNameDQZKY);
-	updateListDataShow(m_dataList_DQZKYSJB, strTableNameDQZKY);
+	updateListShow(m_layoutDQZKY, strTableNameDQZKY);
+	/*updateListHeaderShow(m_dataList_DQZKYSJB, strTableNameDQZKY);
+	updateListDataShow(m_dataList_DQZKYSJB, strTableNameDQZKY);*/
 
 	std::string strTableNameDQZBX = EnvironmentData::m_strCurScheme + ("_地球站波形");
-	updateListHeaderShow(m_dataList_DQZBXSB, strTableNameDQZBX);
-	updateListDataShow(m_dataList_DQZBXSB, strTableNameDQZBX);
+	updateListShow(m_layoutDQZBX, strTableNameDQZBX);
+	//updateListHeaderShow(m_dataList_DQZBXSB, strTableNameDQZBX);
+	//updateListDataShow(m_dataList_DQZBXSB, strTableNameDQZBX);
 
 
 	std::string strTableNameDMZD = EnvironmentData::m_strCurScheme + ("_地面终端");
-	updateListHeaderShow(m_dataList_DMZDSJB, strTableNameDMZD);
-	updateListDataShow(m_dataList_DMZDSJB, strTableNameDMZD);
+	updateListShow(m_layoutDMZD, strTableNameDMZD);
+	/*updateListHeaderShow(m_dataList_DMZDSJB, strTableNameDMZD);
+	updateListDataShow(m_dataList_DMZDSJB, strTableNameDMZD);*/
 
 	std::string strTableNameDMZDBX = EnvironmentData::m_strCurScheme + ("_地面终端波形");
-	updateListHeaderShow(m_dataList_BXSBSJB, strTableNameDMZDBX);
-	updateListDataShow(m_dataList_BXSBSJB, strTableNameDMZDBX);
+	updateListShow(m_layoutDMZDBX, strTableNameDMZDBX);
+	/*updateListHeaderShow(m_dataList_BXSBSJB, strTableNameDMZDBX);
+	updateListDataShow(m_dataList_BXSBSJB, strTableNameDMZDBX);*/
 
 	std::string strTableNameDMZDTX = EnvironmentData::m_strCurScheme + ("_地面终端天线");
-	updateListHeaderShow(m_dataList_ZDTX, strTableNameDMZDTX);
-	updateListDataShow(m_dataList_ZDTX, strTableNameDMZDTX);
+	updateListShow(m_layoutDMZDTX, strTableNameDMZDTX);
+	/*updateListHeaderShow(m_dataList_ZDTX, strTableNameDMZDTX);
+	updateListDataShow(m_dataList_ZDTX, strTableNameDMZDTX);*/
 
 	std::string strTableNameDMZDZH = EnvironmentData::m_strCurScheme + ("_地面终端载荷");
-	updateListHeaderShow(m_dataList_ZDZHSJB, strTableNameDMZDZH);
-	updateListDataShow(m_dataList_ZDZHSJB, strTableNameDMZDZH);
+	updateListShow(m_layoutDMZDZH, strTableNameDMZDZH);
+	/*updateListHeaderShow(m_dataList_ZDZHSJB, strTableNameDMZDZH);
+	updateListDataShow(m_dataList_ZDZHSJB, strTableNameDMZDZH);*/
 
 	//// 获取旧的表头并移除
 
@@ -1841,10 +1846,6 @@ void CPopDataManage::updateListShow(CHorizontalLayoutUI* pLayout, const std::str
 
 		CHorizontalLayoutUI* pHorizontalLayout = new CHorizontalLayoutUI();
 		int widthTotal = 1300;
-	//	int parentWidth = pLayout->GetClientSize().cx;
-		//int listWidth = static_cast<int>(parentWidth * 0.5);  // 例如，设置宽度为父容器的50%
-
-		
 		
 		vector<vector<string>> vec_vecData = ConnectMysql::Instance().mytest_QueryDatabase(tableName);
 
@@ -1861,7 +1862,6 @@ void CPopDataManage::updateListShow(CHorizontalLayoutUI* pLayout, const std::str
 				groupFileds.push_back(vecFileds[j]);
 			}
 			
-
 			// 截取数据
 			vector<vector<string>>  groupVecData;
 			for (vector<vector<string>>::iterator it = vec_vecData.begin(); it != vec_vecData.end(); ++it)
@@ -1877,30 +1877,27 @@ void CPopDataManage::updateListShow(CHorizontalLayoutUI* pLayout, const std::str
 
 			CListUI* pList = new CListUI();
 			pList->ApplyAttributeList(_T("name=\"ShowList\" float=\"true\" pos=\"30,0,0,0\" width=\"1300\" height=\"450\" sepheight=\"1\" itemalign=\"center\" itembkcolor=\"#FFE2DDDF\" itemaltbk=\"true\""));
-			
+			pList->SetItemTextColor(0xffffff);
 			
 			wstring text_string;
 			UtilTool::setWstring(text_string, std::to_string(i).c_str());
-		// 将整数转换为字符串，并设置为控件的name
+		   // 将整数转换为字符串，并设置为控件的name
 			pList->SetName(text_string.c_str());
-			//pList->SetName(i);
+
 			pList->SetBorderSize(1);
 			pList->SetItemTextColor(0xffffff);
 			pList->SetFixedWidth(width);
 			pList->EnableScrollBar(true, true);
 			//RECT rcMargin = { 5, 5, 5, 5 };  // 上下左右均为5
-		//	pList->SetMargin(rcMargin);
 			//pList->SetPadding(rcMargin);
 			
-
 			updateListHeaderShow(pList, groupFileds);
 			updateListDataShow(pList, groupVecData);
-			//pList->en
+
 			pList->NeedUpdate();
 			pLayout->Add(pList);
 		}
 		
-		//pLayout->Add(pHorizontalLayout);
 	}
 
 }
