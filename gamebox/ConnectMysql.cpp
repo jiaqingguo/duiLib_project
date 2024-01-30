@@ -1151,6 +1151,48 @@ bool ConnectMysql::getFilelds(const std::string& table_name,  std::vector<std::s
 	return true;
 }
 
+bool ConnectMysql::getALLData(const std::string& table, vector<vector<string>>& vecVecData)
+{
+
+	MYSQL_RES* res; //这个结构代表返回行的一个查询结果集  
+	char current_c[150]; //查询语句
+	string strSql;
+
+	// 结果集声明;
+	MYSQL_ROW sql_row;
+
+	strSql = "select * from "+ table+ ";";
+	
+	//sprintf_s(query, "select * from t_dept"); //执行查询语句，这里是查询所有，user是表名，不用加引号，用strcpy也可以  
+	//mysql_query(&mydata, "set names gbk"); //设置编码格式（SET NAMES GBK也行），否则cmd下中文乱码  
+
+	MYSQL_RES* result = execSqlSelect(strSql);
+	if (result == nullptr)
+		return false;
+
+	unsigned int fieldcount_select = mysql_num_fields(result);
+	//unsigned int affect_row = mysql_affected_rows(m_mysql);
+	//打印数据行数  
+	//printf("number of dataline returned: %d\n", mysql_affected_rows(m_mysql));//
+
+	//获取字段的信息  
+	while (sql_row = mysql_fetch_row(result))   //在已知字段数量情况下，获取并打印下一行  
+	{
+		vector<string> vec;
+		for (int j = 0; j < fieldcount_select; j++)
+		{
+			sprintf(current_c, "%s", sql_row[j]);
+			string result(current_c);
+			vec.push_back(result);
+		}
+		vecVecData.push_back(vec);
+
+	}
+
+	
+	return true;;
+}
+
 bool ConnectMysql::createTableAndFields(const std::string& strTable, const std::set<std::string>& fieldNames)
 {
 	if (isTableExists(strTable))

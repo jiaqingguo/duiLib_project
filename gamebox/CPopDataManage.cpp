@@ -173,7 +173,7 @@ void CPopDataManage::OnLClick(CControlUI *pControl)
 		select_combox = static_cast<CComboBoxUI*>(m_pm.FindControl(_T("Com_DatabaseName")));
 		select_combox->RemoveAll();
 		m_dataList_XZSJB->RemoveAll();
-		m_dataList_DXSJB->RemoveAll();
+		//m_dataList_DXSJB->RemoveAll();
 		m_dataList_WXZHSJB->RemoveAll();
 		m_dataList_WXTX->RemoveAll();
 		m_dataList_DXGSJB->RemoveAll();
@@ -617,7 +617,7 @@ void CPopDataManage::InitWindow()
 	pTabDatabase_2 = static_cast<CTabLayoutUI*>(m_pm.FindControl(_T("tab_database2")));
 
 	m_dataList_XZSJB = static_cast<CListUI*>(m_pm.FindControl(_T("list_DataShow_XZSJB")));//绑定list
-	m_dataList_DXSJB = static_cast<CListUI*>(m_pm.FindControl(_T("list_DataShow_DXSJB")));//单星数据表
+	//m_dataList_DXSJB = static_cast<CListUI*>(m_pm.FindControl(_T("list_DataShow_DXSJB")));//单星数据表
 	m_dataList_WXZHSJB = static_cast<CListUI*>(m_pm.FindControl(_T("list_DataShow_WXZHAJB")));//卫星载荷数据表的List
 	m_dataList_WXTX = static_cast<CListUI*>(m_pm.FindControl(_T("list_DataShow_WXTX")));//卫星天线的List
 	m_dataList_DXGSJB = static_cast<CListUI*>(m_pm.FindControl(_T("list_DataShow_DXGSJB")));//电信港数据表的List
@@ -666,11 +666,264 @@ void CPopDataManage::InitWindow()
 	//GettingDatabase();
 
 	InitializeMap();
-	//string all_data = ConnectMysql::Instance().mytest_QueryDatabase_1("0_星座数据表_1");
-	//cout << all_data.c_str() << endl;
-	//vector<vector<string>> vec_vecData = ConnectMysql::Instance().mytest_QueryDatabase("0_星座数据表_1");
-	//string recv = vec_vecData[0][2];
-	//cout << recv.c_str() << endl;
+	/********************自己写*****************/
+
+	//CListUI* pList[10];
+	//CHorizontalLayoutUI * m_DXHor = dynamic_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layouDX")));
+	//pList[0] = new CListUI();
+	//m_layoutDX->Add(pList[0]);
+
+
+	//pList[0]->ApplyAttributeList(_T("pos=\"30,0,0,0\" width=\"1300\" height=\"450\" sepheight=\"1\" itemalign=\"center\" "));
+	//pList[0]->SetItemTextColor(0xffffffff);
+
+	//string listName = "wxList_";
+	//listName += to_string(0);
+	//wstring text_string;
+	//UtilTool::setWstring(text_string, listName.c_str());
+	//// 将整数转换为字符串，并设置为控件的name
+	////pList[0]->SetName(text_string.c_str());
+
+	////pList->SetBorderSize(1);
+	////pList->SetItemTextColor(0xffffff);
+	//pList[0]->SetFixedWidth(550);
+	//pList[0]->EnableScrollBar(true, true);
+
+	//CControlUI* pCWith50 = new CControlUI();
+	//pCWith50->SetFixedWidth(50);
+	//pCWith50->SetFixedHeight(30);
+	//m_layoutDX->Add(pCWith50);
+
+	//pList[1] = new CListUI();
+	//m_layoutDX->Add(pList[1]);
+
+
+	//pList[1]->ApplyAttributeList(_T("pos=\"30,0,0,0\" width=\"1300\" height=\"450\" sepheight=\"1\" itemalign=\"center\" "));
+	//pList[1]->SetItemTextColor(0xffffffff);
+
+	//listName = "wxList_";
+	//listName += to_string(1);
+	//UtilTool::setWstring(text_string, listName.c_str());
+	//// 将整数转换为字符串，并设置为控件的name
+	////pList[1]->SetName(text_string.c_str());
+
+	////pList->SetBorderSize(1);
+	////pList->SetItemTextColor(0xffffff);
+	//pList[1]->SetFixedWidth(550);
+	//pList[1]->EnableScrollBar(true, true);
+
+
+	//string tableName = "方案6_卫星";
+
+	//std::vector<std::string> vecFileds;
+	//ConnectMysql::Instance().getFilelds(tableName, vecFileds);
+
+	//CHorizontalLayoutUI* pHorizontalLayout = new CHorizontalLayoutUI();
+	//int widthTotal = 1300;
+
+	//vector<vector<string>> vec_vecData = ConnectMysql::Instance().mytest_QueryDatabase(tableName);
+
+	//int count = 30;
+	//int numGroups = (vecFileds.size() + count - 1) / count;  // 计算划分后的组数
+	//for (int i = 0; i < numGroups; i++)
+	//{
+	//	// 截取字段;
+	//	std::vector<std::string> groupFileds;
+	//	for (int j = i * count; j < (i + 1) * count && j < vecFileds.size(); j++)
+	//	{
+	//		groupFileds.push_back(vecFileds[j]);
+	//	}
+
+	//	// 截取数据
+	//	vector<vector<string>>  groupVecData;
+	//	for (vector<vector<string>>::iterator it = vec_vecData.begin(); it != vec_vecData.end(); ++it)
+	//	{
+	//		vector<string> vecData;
+	//		for (int j = i * count; j < (i + 1) * count && j < (*it).size(); j++)
+	//		{
+	//			vecData.push_back((*it)[j]);
+	//		}
+
+	//		groupVecData.push_back(vecData);
+	//	}
+
+	////	if (i == 0)
+	//	//{
+	//		//pList[i] = new CListUI();
+	//		//m_layoutDX->Add(pList[i]);
+
+
+	//		//pList[i]->ApplyAttributeList(_T("pos=\"30,0,0,0\" width=\"1300\" height=\"450\" sepheight=\"1\" itemalign=\"center\" "));
+	//		//pList[i]->SetItemTextColor(0xffffffff);
+
+	//		//wstring text_string;
+	//		//UtilTool::setWstring(text_string, std::to_string(i).c_str());
+	//		//// 将整数转换为字符串，并设置为控件的name
+	//		////pList->SetName(text_string.c_str());
+
+	//		////pList->SetBorderSize(1);
+	//		////pList->SetItemTextColor(0xffffff);
+	//		//pList[i]->SetFixedWidth(width);
+	//		//pList[i]->EnableScrollBar(true, true);
+	//		//RECT rcMargin = { 5, 5, 5, 5 };  // 上下左右均为5
+	//		//pList->SetPadding(rcMargin);
+
+	//		//updateListHeaderShow(pList, groupFileds);
+	//		//updateListDataShow(pList, groupVecData);
+
+	//		//pList->NeedUpdate();
+
+
+
+	//		CListHeaderUI* pHeader = new CListHeaderUI;
+	//		m_layoutDX->Add(pHeader);
+
+	//		// 遍历 vector，为每个字符串创建一个列项
+	//		//wstring text_string;
+	//		for (const auto& headerText : groupFileds)
+	//		{
+	//			CListHeaderItemUI* pListHeaderItem = new CListHeaderItemUI();
+	//			UtilTool::setWstring(text_string, headerText.c_str());
+
+	//			pListHeaderItem->ApplyAttributeList(_T("text=\" \"   width=\"100\"  height=\"30\" sepwidth=\"1\""));
+	//			pListHeaderItem->SetAttribute(_T("textcolor"), _T("#FFFFFFFF"));
+	//			pListHeaderItem->SetText(text_string.c_str()); // 假设vector里存储的是UTF-8编码的字符串
+
+	//			pList[i]->Add(pListHeaderItem);
+	//		}
+
+	//		for (vector<vector<string>>::const_iterator it = groupVecData.begin(); it != groupVecData.end(); ++it)
+	//		{
+	//			// CListTextElementUI* pItem = (CListTextElementUI*)pList->GetItemAt(1);
+	//			CListTextElementUI* pItem = new CListTextElementUI();
+
+
+	//			pList[i]->Add(pItem);
+	//			for (int i = 0; i < (*it).size(); ++i)
+	//			{
+
+	//				UtilTool::setWstring(text_string, (*it)[i].c_str());
+	//				pItem->SetTextColor(i,0xFFFFFFFF);
+	//				pItem->SetText(i, text_string.c_str());
+
+
+	//			}
+
+	//		}
+	//
+
+
+	//}
+
+
+	/********************改bug*******************/
+
+	//CListUI* pList[10];
+	//CHorizontalLayoutUI * m_DXHor = dynamic_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("layouDX")));
+
+	//string tableName = "方案6_卫星";
+
+	//std::vector<std::string> vecFileds;
+	//ConnectMysql::Instance().getFilelds(tableName, vecFileds);
+
+	//CHorizontalLayoutUI* pHorizontalLayout = new CHorizontalLayoutUI();
+	//int widthTotal = 1300;
+
+	//vector<vector<string>> vec_vecData = ConnectMysql::Instance().mytest_QueryDatabase(tableName);
+
+	//int count = 30;
+	//int numGroups = (vecFileds.size() + count - 1) / count;  // 计算划分后的组数
+
+	//int width = widthTotal / numGroups;
+	//for (int i = 0; i < numGroups; i++)
+	//{
+	//	// 截取字段;
+	//	std::vector<std::string> groupFileds;
+	//	for (int j = i * count; j < (i + 1) * count && j < vecFileds.size(); j++)
+	//	{
+	//		groupFileds.push_back(vecFileds[j]);
+	//	}
+
+	//	// 截取数据
+	//	vector<vector<string>>  groupVecData;
+	//	for (vector<vector<string>>::iterator it = vec_vecData.begin(); it != vec_vecData.end(); ++it)
+	//	{
+	//		vector<string> vecData;
+	//		for (int j = i * count; j < (i + 1) * count && j < (*it).size(); j++)
+	//		{
+	//			vecData.push_back((*it)[j]);
+	//		}
+
+	//		groupVecData.push_back(vecData);
+	//	}
+
+	////	if (i == 0)
+	//	//{
+	//		pList[i] = new CListUI();
+	//		m_layoutDX->Add(pList[i]);
+
+
+	//		pList[i]->ApplyAttributeList(_T("pos=\"30,0,0,0\" width=\"1300\" height=\"450\" sepheight=\"1\" itemalign=\"center\" "));
+	//		pList[i]->SetItemTextColor(0xffffffff);
+
+	//		wstring text_string;
+	//		UtilTool::setWstring(text_string, std::to_string(i).c_str());
+	//		// 将整数转换为字符串，并设置为控件的name
+	//		//pList->SetName(text_string.c_str());
+
+	//		//pList->SetBorderSize(1);
+	//		//pList->SetItemTextColor(0xffffff);
+	//		pList[i]->SetFixedWidth(width);
+	//		pList[i]->EnableScrollBar(true, true);
+	//		//RECT rcMargin = { 5, 5, 5, 5 };  // 上下左右均为5
+	//		//pList->SetPadding(rcMargin);
+
+	//		//updateListHeaderShow(pList, groupFileds);
+	//		//updateListDataShow(pList, groupVecData);
+
+	//		//pList->NeedUpdate();
+
+
+
+	//		CListHeaderUI* pHeader = new CListHeaderUI;
+	//		m_layoutDX->Add(pHeader);
+
+	//		// 遍历 vector，为每个字符串创建一个列项
+	//		//wstring text_string;
+	//		for (const auto& headerText : groupFileds)
+	//		{
+	//			CListHeaderItemUI* pListHeaderItem = new CListHeaderItemUI();
+	//			UtilTool::setWstring(text_string, headerText.c_str());
+
+	//			pListHeaderItem->ApplyAttributeList(_T("text=\" \"   width=\"100\"  height=\"30\" sepwidth=\"1\""));
+	//			pListHeaderItem->SetAttribute(_T("textcolor"), _T("#FFFFFFFF"));
+	//			pListHeaderItem->SetText(text_string.c_str()); // 假设vector里存储的是UTF-8编码的字符串
+
+	//			pList[i]->Add(pListHeaderItem);
+	//		}
+
+	//		for (vector<vector<string>>::const_iterator it = groupVecData.begin(); it != groupVecData.end(); ++it)
+	//		{
+	//			// CListTextElementUI* pItem = (CListTextElementUI*)pList->GetItemAt(1);
+	//			CListTextElementUI* pItem = new CListTextElementUI();
+
+
+	//			pList[i]->Add(pItem);
+	//			for (int i = 0; i < (*it).size(); ++i)
+	//			{
+
+	//				UtilTool::setWstring(text_string, (*it)[i].c_str());
+	//				pItem->SetTextColor(i,0xFFFFFFFF);
+	//				pItem->SetText(i, text_string.c_str());
+
+
+	//			}
+
+	//		}
+	//	}
+	
+
+	//}
 
 }
 void CPopDataManage::InitializeCombo()
@@ -1806,9 +2059,11 @@ void CPopDataManage::createListAndShowData(CHorizontalLayoutUI* pLayout, const s
 	}
 }
 
+
+
 void CPopDataManage::updateListShow(CHorizontalLayoutUI* pLayout, const std::string& tableName)
 {
-	// 1. 删除所有 CListUI 控件
+	//1. 删除所有 CListUI 控件
 	if (pLayout != nullptr)
 	{
 		// 从后往前删除是为了避免在迭代过程中影响索引
@@ -1822,18 +2077,20 @@ void CPopDataManage::updateListShow(CHorizontalLayoutUI* pLayout, const std::str
 			}
 		}
 	}
-
+	CListUI* pList[10];
 	std::vector<std::string> vecFileds;
 	ConnectMysql::Instance().getFilelds(tableName, vecFileds);
-	if (vecFileds.size()< 30)
+	if (vecFileds.size() < 30)
 	{
 		CListUI* pList = new CListUI();
-		pList->ApplyAttributeList(_T("name=\"ShowList\" float=\"true\" pos=\"30,0,0,0\" width=\"1300\" height=\"450\" sepheight=\"1\" itemalign=\"center\" itembkcolor=\"#FFE2DDDF\" itemaltbk=\"true\""));
+		//pList->ApplyAttributeList(_T(" float=\"true\" pos=\"30,0,0,0\" width=\"1300\" height=\"450\" sepheight=\"1\" itemalign=\"center\" itembkcolor=\"#FFE2DDDF\" itemaltbk=\"true\""));
+		pList->ApplyAttributeList(_T("pos=\"30,0,0,0\" width=\"1300\" height=\"450\" sepheight=\"1\" itemalign=\"center\" "));
+		pList->SetItemTextColor(0xFFFFFFFF);
 
 		pList->SetBorderSize(1);
-		pList->SetItemTextColor(0xffffff);
-	
-		
+		//pList->SetItemTextColor(0xffffff);
+
+
 		updateListHeaderShow(pList, tableName);
 		updateListDataShow(pList, tableName);
 
@@ -1846,13 +2103,31 @@ void CPopDataManage::updateListShow(CHorizontalLayoutUI* pLayout, const std::str
 
 		CHorizontalLayoutUI* pHorizontalLayout = new CHorizontalLayoutUI();
 		int widthTotal = 1300;
-		
+
 		vector<vector<string>> vec_vecData = ConnectMysql::Instance().mytest_QueryDatabase(tableName);
 
 		int count = 30;
 		int numGroups = (vecFileds.size() + count - 1) / count;  // 计算划分后的组数
 
 		int width = widthTotal / numGroups;
+
+		for (int i = 0; i < numGroups; i++)
+		{
+			pList[i] = new CListUI();
+			pList[i]->ApplyAttributeList(_T("pos=\"30,0,0,0\" width=\"1300\" height=\"450\" sepheight=\"1\" itemalign=\"center\" "));	
+			pList[i]->SetItemTextColor(0xFFFFFFFF);
+
+			wstring text_string;
+			UtilTool::setWstring(text_string, std::to_string(i).c_str());
+			// 将整数转换为字符串，并设置为控件的name
+			//pList[i]->SetName(text_string.c_str());
+
+			pList[i]->SetBorderSize(1);
+			pList[i]->SetFixedWidth(width);
+			pList[i]->EnableScrollBar(true, true);
+			pLayout->Add(pList[i]);
+		}
+
 		for (int i = 0; i < numGroups; i++)
 		{
 			// 截取字段;
@@ -1861,13 +2136,13 @@ void CPopDataManage::updateListShow(CHorizontalLayoutUI* pLayout, const std::str
 			{
 				groupFileds.push_back(vecFileds[j]);
 			}
-			
+
 			// 截取数据
 			vector<vector<string>>  groupVecData;
 			for (vector<vector<string>>::iterator it = vec_vecData.begin(); it != vec_vecData.end(); ++it)
 			{
 				vector<string> vecData;
-				for (int j= i* count; j< (i + 1) * count && j < (*it).size(); j++)
+				for (int j = i * count; j < (i + 1) * count && j < (*it).size(); j++)
 				{
 					vecData.push_back((*it)[j]);
 				}
@@ -1875,29 +2150,17 @@ void CPopDataManage::updateListShow(CHorizontalLayoutUI* pLayout, const std::str
 				groupVecData.push_back(vecData);
 			}
 
-			CListUI* pList = new CListUI();
-			pList->ApplyAttributeList(_T("name=\"ShowList\" float=\"true\" pos=\"30,0,0,0\" width=\"1300\" height=\"450\" sepheight=\"1\" itemalign=\"center\" itembkcolor=\"#FFE2DDDF\" itemaltbk=\"true\""));
-			pList->SetItemTextColor(0xffffff);
-			
-			wstring text_string;
-			UtilTool::setWstring(text_string, std::to_string(i).c_str());
-		   // 将整数转换为字符串，并设置为控件的name
-			pList->SetName(text_string.c_str());
 
-			pList->SetBorderSize(1);
-			pList->SetItemTextColor(0xffffff);
-			pList->SetFixedWidth(width);
-			pList->EnableScrollBar(true, true);
 			//RECT rcMargin = { 5, 5, 5, 5 };  // 上下左右均为5
 			//pList->SetPadding(rcMargin);
-			
-			updateListHeaderShow(pList, groupFileds);
-			updateListDataShow(pList, groupVecData);
 
-			pList->NeedUpdate();
-			pLayout->Add(pList);
+			updateListHeaderShow(pList[i], groupFileds);
+			updateListDataShow(pList[i], groupVecData);
+
+			//pList->NeedUpdate();
+			
 		}
-		
+
 	}
 
 }
@@ -1916,6 +2179,7 @@ void CPopDataManage::updateListHeaderShow(CListUI* pList, const std::vector<std:
 		UtilTool::setWstring(text_string, headerText.c_str());
 
 		pListHeaderItem->ApplyAttributeList(_T("text=\" \"   width=\"100\"  height=\"30\" sepwidth=\"1\""));
+		pListHeaderItem->SetAttribute(_T("textcolor"), _T("#FFFFFFFF"));
 		pListHeaderItem->SetText(text_string.c_str()); // 假设vector里存储的是UTF-8编码的字符串
 
 		pList->Add(pListHeaderItem);

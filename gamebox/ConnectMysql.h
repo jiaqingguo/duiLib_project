@@ -83,6 +83,8 @@ public:
 	// »ñÈ¡×Ö¶Î;
 	bool getFilelds(const std::string& table, std::vector<std::string>& vecFilelds);
 
+	bool getALLData(const std::string& table, vector<vector<string>>& vecVecData);
+
 	bool createTableAndFields(const std::string& table, const std::set<std::string>& vecFilelds);
 
 	//bool createTableAndFields(const std::wstring& table, const std::set<std::wstring>& vecFilelds);
