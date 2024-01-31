@@ -1506,6 +1506,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*l
 	{
 		cout << "StartConnectMysql Successful!!!" << endl;
 		string msg = "数据库链接成功!";
+		ConnectMysql::Instance().createSchmeTable();
 
 	}
 

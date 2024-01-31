@@ -943,6 +943,42 @@ bool ConnectMysql::CreateNewTableAndInsert(string name,vector<string> columnName
 	return true;
 }
 
+bool ConnectMysql::createSchmeTable()
+{
+	std::string strTable = "scheme";
+	if (isTableExists(strTable))
+	{
+		return true;
+	}
+
+	// 启动事务;
+	if (!startupTransaction())
+		return false;
+
+	std::string strSql = "CREATE TABLE `" + strTable + "` (id INT PRIMARY KEY AUTO_INCREMENT,schemeName  VARCHAR(255) ) ";
+
+	//strSql += ", time TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";  // 加入当前时间
+
+
+	if (!execSql(strSql))
+	{
+		// 回滚事务;
+		if (!rollbackTransaction())
+			return false;
+		// 修改数据失败;
+		return false;
+	}
+
+	// 提交事务;
+	if (!commitTransaction())
+		return false;
+
+	// 根据需要看是否获取新插入的id
+	//st.id = last_id;
+
+	return true;
+}
+
 MYSQL_RES* ConnectMysql::execSqlSelect(const std::string& sql)
 {
 	MYSQL_RES* result = nullptr;

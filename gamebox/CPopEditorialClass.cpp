@@ -4896,7 +4896,7 @@ void CPopEditorialClass::EmptyChildNode_tab2()
 }
 void CPopEditorialClass::EmptyChildNode_tab3()
 {
-	name2_Level1.clear();
+	name3_Level1.clear();
 	int num = pNode_3_2_num;
 	cout << num << endl;
 	for (int i = 0; i < num; i++)
