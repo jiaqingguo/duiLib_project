@@ -80,7 +80,7 @@
       <HorizontalLayout width="20" />
       <Combo  name="Com_DatabaseName" style="combo_style" width="220" align="left" valign="vcenter" font="7"  height="30"  />
       <HorizontalLayout width="20" />
-      <Button name="bt_Flushed"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="刷新" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
+      <Button name="bt_Flushed"  cursor="hand" font="10" textcolor="#FFFFFFFF"  text="读取" bkcolor="#FF1970EF"  valign="vcenter"  width="120"  height="30"   />
       <HorizontalLayout width="20" />
       <!--<Combo  name="Com_FilterCriteria_opt1" style="combo_style" width="180" align="left" valign="vcenter" font="7"  height="30"  />
       <HorizontalLayout width="20" />
@@ -165,22 +165,7 @@
                           </HorizontalLayout>-->
                           <HorizontalLayout name="layoutXZ" height="430" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
-                            <List name="list_DataShow_XZSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
-                              <!--<ListHeader height="30" menu="true"  >-->
-                              <ListHeader height="40"   >
-                                <ListHeaderItem text="星座名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属国家"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属机构"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="创建年份"  multiline="true"  font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="工程期数"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
-
-                                <ListHeaderItem text="工作寿命"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="星座卫星总数量"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="星座轨道面数"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="下属卫星名称"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-
-                              </ListHeader>
-                            </List>
+                        
 
                           </HorizontalLayout>
                         </VerticalLayout>
@@ -203,35 +188,7 @@
                           </HorizontalLayout>-->
                           <HorizontalLayout name = "layouDX" height="430" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout  width="10" />
-                            <List name="list_DataShow_DXSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
-                              <!--<ListHeader height="30" menu="true"  >-->
-                              <ListHeader height="40"   >
-                                <ListHeaderItem text="卫星名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属星座"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属国家"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属机构"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="功能类别"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75" height="40"  align="center" textpadding="15,0,0,0"/>
-
-                                <ListHeaderItem text="所属轨道卫星"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="NORAD编号"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="90"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="COPAR编号"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="90" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="是否公开信息标识"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
-
-                                <ListHeaderItem text="卫星寿命"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="轨道半长轴"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="90" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="轨道偏心率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="90" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="轨道倾角"  font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="升交点赤经"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="90" height="40"  align="center" textpadding="15,0,0,0"/>
-
-
-                                <ListHeaderItem text="近地点辐角"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="90"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="直近点角"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="75" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="卫星载荷名称"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="卫星天线名称"  multiline="true"  font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-
-                              </ListHeader>
-                            </List>
-
+                            
                           </HorizontalLayout>
                         </VerticalLayout>
 
@@ -254,20 +211,7 @@
                           </HorizontalLayout>-->
                           <HorizontalLayout name="layoutWSZH" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
-                            <List name="list_DataShow_WXZHAJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
-                              <!--<ListHeader height="30" menu="true"  >-->
-                              <ListHeader height="40"   >
-                                <ListHeaderItem text="载荷名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="工作波段"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属机构"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="转发器发射机饱和EIRP"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="转发器发射机饱和通量密度"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200" height="40"  align="center" textpadding="15,0,0,0"/>
-
-                                <ListHeaderItem text="转发器接收机G/T值"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="转发器带宽"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200"  height="40"  align="center" textpadding="15,0,0,0"/>
-
-                              </ListHeader>
-                            </List>
+                           
 
                           </HorizontalLayout>
 
@@ -291,22 +235,7 @@
                           </HorizontalLayout>-->
                           <HorizontalLayout name="layoutWSTX" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
-                            <List name="list_DataShow_WXTX" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
-                              <!--<ListHeader height="30" menu="true"  >-->
-                              <ListHeader height="40"   >
-                                <ListHeaderItem text="天线名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属卫星"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线类型"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线口径"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线增益"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-
-                                <ListHeaderItem text="天线效率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线指向误差"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="170"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线极化误差"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="170"  height="40"  align="center" textpadding="15,0,0,0"/>
-
-                              </ListHeader>
-                            </List>
-
+                          
                           </HorizontalLayout>
 
                         </VerticalLayout>
@@ -329,22 +258,7 @@
                           </HorizontalLayout>-->
                           <HorizontalLayout name="layoutDXG" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
-                            <List name="list_DataShow_DXGSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
-                              <!--<ListHeader height="30" menu="true"  >-->
-                              <ListHeader height="40"   >
-                                <ListHeaderItem text="电信港名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="170"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属国家"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属机构"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="性质"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="创建年份"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-
-                                <ListHeaderItem text="经度"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="纬度"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="下属地球站名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="170"  height="40"  align="center" textpadding="15,0,0,0"/>
-
-                              </ListHeader>
-                            </List>
-
+                            
                           </HorizontalLayout>
 
                         </VerticalLayout>
@@ -368,23 +282,7 @@
                           <HorizontalLayout name="layoutDQZ" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             
                             <HorizontalLayout width="10" />
-                            <List name="list_DataShow_DQZSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
-                              <!--<ListHeader height="30" menu="true"  >-->
-                              <ListHeader height="40"   >
-                                <ListHeaderItem text="地球站名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属电信港"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属机构"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="地球站类型"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="经度"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
-
-                                <ListHeaderItem text="纬度"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="高度"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="地球站溃源名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="地球站波形设备名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="地球站天线名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150"  height="40"  align="center" textpadding="15,0,0,0"/>
-
-                              </ListHeader>
-                            </List>
+                           
 
                           </HorizontalLayout>
 
@@ -409,25 +307,7 @@
                           </HorizontalLayout>-->
                           <HorizontalLayout name="layoutDQZKY"  height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
-                            <List name="list_DataShow_DQZKYSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
-                              <!--<ListHeader height="30" menu="true"  >-->
-                              <ListHeader height="40"   >
-                                <ListHeaderItem text="溃源名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属地球站"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="工作波段"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属机构"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="发射机功率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110" height="40"  align="center" textpadding="15,0,0,0"/>
-                                
-                                <ListHeaderItem text="发射载波频率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="前向纠错编码率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>                               
-                                <ListHeaderItem text="上行信息速率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="接收机G/T值"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="接收机载波频率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                
-                                <ListHeaderItem text="下行信息速率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110"  height="40"  align="center" textpadding="15,0,0,0"/>
-
-                              </ListHeader>
-                            </List>
+                           
 
                           </HorizontalLayout>
 
@@ -478,23 +358,7 @@
                           </HorizontalLayout>-->
                           <HorizontalLayout name="layoutDQZBX" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
-                            <List name="list_DataShow_DQZBXSBSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
-                              <!--<ListHeader height="30" menu="true"  >-->
-                              <ListHeader height="40"   >
-                                <ListHeaderItem text="波形设备名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="170"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属地球站"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="波形设备型号"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="170" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="调制方式"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="解调方式"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
-
-                                <ListHeaderItem text="编码方式"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="125" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="载波类型"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="125"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="带宽"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="设备功能"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150"  height="40"  align="center" textpadding="15,0,0,0"/>
-
-                              </ListHeader>
-                            </List>
-
+                          
                           </HorizontalLayout>
 
                         </VerticalLayout>
@@ -518,21 +382,7 @@
                           </HorizontalLayout>-->
                           <HorizontalLayout name="layoutDQZTX" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
-                            <List name="list_DataShow_DQZTX" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
-                              <!--<ListHeader height="30" menu="true"  >-->
-                              <ListHeader height="40"   >
-                                <ListHeaderItem text="天线名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="130"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属地球站"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="180" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线类型"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="130" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线口径"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="130" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线增益"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="130" height="40"  align="center" textpadding="15,0,0,0"/>
-
-                                <ListHeaderItem text="天线效率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线指向误差"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线极化误差"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200"  height="40"  align="center" textpadding="15,0,0,0"/>
-
-                              </ListHeader>
-                            </List>
+                           
 
                           </HorizontalLayout>
 
@@ -557,17 +407,7 @@
                           </HorizontalLayout>-->
                           <HorizontalLayout name="layoutDMZD" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
-                            <List name="list_DataShow_DMZDSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
-                              <!--<ListHeader height="30" menu="true"  >-->
-                              <ListHeader height="40"   >
-                                <ListHeaderItem text="终端名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="250"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="终端类型"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="250" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="终端载荷名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="250" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="终端波形设备名称"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="250" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="终端天线名称"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="250" height="40"  align="center" textpadding="15,0,0,0"/>
-
-                              </ListHeader>
-                            </List>
+                        
 
                           </HorizontalLayout>
 
@@ -592,24 +432,7 @@
                           </HorizontalLayout>-->
                           <HorizontalLayout name="layoutDMZDZH" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
-                            <List name="list_DataShow_ZDZHSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
-                              <!--<ListHeader height="30" menu="true"  >-->
-                              <ListHeader height="40"   >
-                                <ListHeaderItem text="载荷名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属终端"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="工作波段"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属机构"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="发射机功率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="发射载波频率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
-
-                                <ListHeaderItem text="前向纠错编码率"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="上行信息速率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="100"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="接收机G/T值"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="110"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="接收机载波频率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="下行信息速率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="120"  height="40"  align="center" textpadding="15,0,0,0"/>
-
-                              </ListHeader>
-                            </List>
+                         
 
                           </HorizontalLayout>
 
@@ -633,21 +456,7 @@
                           </HorizontalLayout>-->
                           <HorizontalLayout name="layoutDMZDBX" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
-                            <List name="list_DataShow_ZDBXSBSJB" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
-                              <!--<ListHeader height="30" menu="true"  >-->
-                              <ListHeader height="40"   >
-                                <ListHeaderItem text="波形设备名称"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="波形设备型号"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="调制方式"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="解调方式"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="编码方式"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
-
-                                <ListHeaderItem text="载波类型"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="带宽"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="设备功能"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
-
-                              </ListHeader>
-                            </List>
+                          
 
                           </HorizontalLayout>
 
@@ -671,21 +480,7 @@
                           </HorizontalLayout>-->
                           <HorizontalLayout name="layoutDMZDTX" height="420" width="1280" inset="0,6,0,6" childpadding="1" >
                             <HorizontalLayout width="10" />
-                            <List name="list_DataShow_ZDTX" text="数据显示区" bordersize="1" bordercolor="#FF888888" inset="2,2,2,2" vscrollbar="true" height="410" width="1265" hscrollbar="true" style="list_style" itemfont="4"  itemtextcolor= "#FFFFFFFF">
-                              <!--<ListHeader height="30" menu="true"  >-->
-                              <ListHeader height="40"   >
-                                <ListHeaderItem text="天线名称"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="150" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="所属终端"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" hscrollbar="true"  textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线类型"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线口径"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140" height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线增益"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
-
-                                <ListHeaderItem text="天线效率"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="140"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线指向误差"   font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200"  height="40"  align="center" textpadding="15,0,0,0"/>
-                                <ListHeaderItem text="天线极化误差"    font="4" bordersize="1" bordercolor="#FF888888"   textcolor="#FFFFFFFF"     bkcolor="#FF103B80" width="200" height="40"  align="center" textpadding="15,0,0,0"/>
-
-                              </ListHeader>
-                            </List>
+                         
 
                           </HorizontalLayout>
 

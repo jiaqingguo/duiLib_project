@@ -34,9 +34,11 @@ public:
 	void InitializeMap();//初始化map
 
 	void createListAndShowData(CHorizontalLayoutUI* pLayout, const std::string& tableName);
+	// list 显示;
 	void updateListShow(CHorizontalLayoutUI *pLayout, const std::string& tableName);
-
+	// list表头显示
 	void updateListHeaderShow(CListUI* pList, const std::vector<std::string>& groupFileds);
+	// list 数据显示
 	void updateListDataShow(CListUI* pList,  const vector<vector<string>>& vecVecData);
 
 	void updateListHeaderShow(CListUI* pList,const std::string& tableName);

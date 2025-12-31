@@ -2145,7 +2145,7 @@ void CPopDataManage::updateListShow(CHorizontalLayoutUI* pLayout, const std::str
 			{
 				groupFileds.push_back(vecFileds[j]);
 			}
-
+			
 			// 截取数据
 			vector<vector<string>>  groupVecData;
 			for (vector<vector<string>>::iterator it = vec_vecData.begin(); it != vec_vecData.end(); ++it)
@@ -2160,13 +2160,8 @@ void CPopDataManage::updateListShow(CHorizontalLayoutUI* pLayout, const std::str
 			}
 
 
-			//RECT rcMargin = { 5, 5, 5, 5 };  // 上下左右均为5
-			//pList->SetPadding(rcMargin);
-
 			updateListHeaderShow(pList[i], groupFileds);
 			updateListDataShow(pList[i], groupVecData);
-
-			//pList->NeedUpdate();
 			
 		}
 
